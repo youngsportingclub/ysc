@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes"/>
+<title>Developer — Farabi Walid</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+    --bg:#010101;
+    --bg2:#0a0a0a;
+    --card:#111;
+    --card2:#161616;
+    --pink:#FE2C55;
+    --cyan:#25F4EE;
+    --wh:#fff;
+    --gr:#888;
+    --lt:#ccc;
+    --bp:rgba(254,44,85,.25);
+    --bc:rgba(37,244,238,.22);
+    --gp:0 0 22px rgba(254,44,85,.5);
+    --gc:0 0 22px rgba(37,244,238,.5);
+    --gdual:-5px 0 22px rgba(254,44,85,.3),5px 0 22px rgba(37,244,238,.3);
+    --r:14px;
+    --tr:all .3s cubic-bezier(.4,0,.2,1);
+    --whatsapp:#25D366;
+    --facebook:#1877F2;
+    --youtube:#FF0000;
+    --instagram:#E4405F;
+    --github:#333;
+    --linkedin:#0A66C2;
+}
+[data-lang="bn"]{font-family:'Hind Siliguri',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--wh);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Bebas Neue',sans-serif;letter-spacing:1.5px;line-height:1.1}
+[data-lang="bn"] h1,[data-lang="bn"] h2,[data-lang="bn"] h3,[data-lang="bn"] h4{font-family:'Hind Siliguri',sans-serif;letter-spacing:0}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+.container{max-width:1200px;margin:0 auto;padding:0 22px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:50px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none;text-transform:uppercase;letter-spacing:.5px;transition:var(--tr)}
+.btn-pk{background:linear-gradient(135deg,var(--pink),#b0001a);color:#fff}
+.btn-pk:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(254,44,85,.55)}
+.btn-ol{background:transparent;color:var(--wh);border:1.5px solid rgba(255,255,255,.2)}
+.btn-ol:hover{border-color:var(--cyan);color:var(--cyan)}
+.lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:3px}
+.lb{padding:5px 13px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:var(--tr);background:none;border:none;color:var(--gr)}
+.lb.on{background:linear-gradient(135deg,var(--pink),var(--cyan));color:#010101}
+#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr);background:rgba(1,1,1,.94);backdrop-filter:blur(22px);border-bottom:1px solid var(--bp)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:9px 22px;max-width:1200px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:11px}
+.li{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:15px;color:#010101;box-shadow:var(--gdual)}
+.lt{display:flex;flex-direction:column;line-height:1}
+.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.lt .n2{font-size:9px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px}
+.nl a{padding:7px 12px;border-radius:8px;font-size:12.5px;font-weight:500;color:var(--gr);transition:var(--tr)}
+.nl a:hover,.nl a.on{color:#fff;background:rgba(255,255,255,.07)}
+.nr{display:flex;align-items:center;gap:10px}
+.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;border-radius:50px!important;font-size:12px;padding:8px 18px}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.hbg span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:var(--tr)}
+.hbg.op span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hbg.op span:nth-child(2){opacity:0}
+.hbg.op span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mob{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(1,1,1,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--bp);padding:16px 22px;flex-direction:column;gap:3px;z-index:997}
+.mob.op{display:flex}
+.mob a{padding:11px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr)}
+.mob a:hover{color:#fff;background:rgba(254,44,85,.1)}
+.developer-hero{min-height:100vh;display:flex;align-items:center;padding-top:80px;position:relative;overflow:hidden}
+.developer-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 70% 45%,rgba(254,44,85,.08),transparent 65%),radial-gradient(ellipse 50% 45% at 20% 65%,rgba(37,244,238,.05),transparent 60%);z-index:0}
+.dev-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center;position:relative;z-index:2}
+.dev-avatar{position:relative}
+.avatar-ring{width:320px;height:320px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;animation:spinSlow 20s linear infinite}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+.avatar-inner{width:300px;height:300px;border-radius:50%;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:100px;animation:spinSlow 20s linear infinite reverse}
+.dev-badge{position:absolute;bottom:20px;right:20px;background:var(--pink);border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:var(--gp)}
+.dev-info h1{font-size:clamp(42px,7vw,72px);margin-bottom:10px}
+.dev-info h1 span{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.dev-title{font-size:18px;color:var(--cyan);margin-bottom:20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.dev-desc{color:var(--gr);font-size:15px;line-height:1.8;margin-bottom:25px}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:30px 0}
+.stat-card{background:var(--card2);border-radius:var(--r);padding:20px;text-align:center;border:1px solid rgba(255,255,255,.06);transition:var(--tr)}
+.stat-card:hover{border-color:var(--bp);transform:translateY(-3px)}
+.stat-number{font-family:'Bebas Neue',sans-serif;font-size:36px;background:linear-gradient(135deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:11px;color:var(--gr);margin-top:5px;text-transform:uppercase;letter-spacing:1px}
+.social-links{display:flex;gap:15px;flex-wrap:wrap;margin-top:20px}
+.social-link{display:flex;align-items:center;gap:12px;padding:10px 20px;border-radius:50px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);transition:var(--tr);font-size:14px}
+.social-link:hover{transform:translateY(-2px)}
+.social-link i{font-size:18px}
+.social-link.fb:hover{background:var(--facebook);border-color:var(--facebook)}
+.social-link.ig:hover{background:var(--instagram);border-color:var(--instagram)}
+.social-link.yt:hover{background:var(--youtube);border-color:var(--youtube)}
+.social-link.gh:hover{background:var(--github);border-color:var(--github)}
+.social-link.li:hover{background:var(--linkedin);border-color:var(--linkedin)}
+.skills-section{background:var(--card);padding:80px 0}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:20px;margin-top:40px}
+.skill-item{background:var(--card2);border-radius:var(--r);padding:20px;text-align:center;border:1px solid rgba(255,255,255,.06);transition:var(--tr)}
+.skill-item:hover{border-color:var(--bp);transform:translateY(-3px)}
+.skill-icon{font-size:40px;margin-bottom:12px}
+.skill-name{font-size:14px;font-weight:600}
+.skill-level{font-size:11px;color:var(--gr);margin-top:8px}
+.projects-section{padding:80px 0}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-top:40px}
+.project-card{background:var(--card2);border-radius:var(--r);padding:24px;border:1px solid rgba(255,255,255,.06);transition:var(--tr)}
+.project-card:hover{border-color:var(--bp);transform:translateY(-5px)}
+.project-icon{font-size:48px;margin-bottom:15px}
+.project-card h3{font-size:18px;margin-bottom:8px}
+.project-card p{font-size:13px;color:var(--gr);line-height:1.6}
+.project-tech{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+.project-tech span{font-size:10px;background:rgba(254,44,85,.1);padding:4px 10px;border-radius:50px;color:var(--pink)}
+footer{background:#050505;border-top:1px solid var(--bp);padding:40px 0 20px}
+.ftbot{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.ftbot p{color:var(--gr);font-size:11.5px}
+.back-home{color:var(--cyan);transition:var(--tr)}
+.back-home:hover{color:var(--pink)}
+.whatsapp-float{position:fixed;bottom:25px;right:25px;z-index:999;background:var(--whatsapp);width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:var(--tr);cursor:pointer}
+.whatsapp-float:hover{transform:scale(1.08)}
+.whatsapp-float i{font-size:30px;color:#fff}
+.ldr{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s,visibility .5s;flex-direction:column;gap:16px}
+.ldr.hid{opacity:0;visibility:hidden;pointer-events:none}
+.lring{width:50px;height:50px;border:3px solid rgba(254,44,85,.2);border-top-color:var(--pink);border-right-color:var(--cyan);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ltxt{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:4px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+@media(max-width:900px){
+    .dev-grid{grid-template-columns:1fr;text-align:center}
+    .avatar-ring{width:250px;height:250px;margin:0 auto}
+    .avatar-inner{width:230px;height:230px;font-size:70px}
+    .dev-badge{width:50px;height:50px;font-size:22px;bottom:10px;right:10px}
+    .social-links{justify-content:center}
+}
+@media(max-width:700px){
+    .nl{display:none}.hbg{display:flex}
+    .stats-grid{grid-template-columns:1fr}
+    .whatsapp-float{width:48px;height:48px}
+    .whatsapp-float i{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+<div class="ldr" id="ldr"><div class="lring"></div><div class="ltxt">YSC</div></div>
+
+<a href="https://wa.me/8801737355553" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+
+<header id="hdr">
+    <nav class="nav">
+        <a href="index.html" class="logo">
+            <div class="li">YSC</div>
+            <div class="lt"><span class="n1">YOUNG SPORTING</span><span class="n2">Developer Profile</span></div>
+        </a>
+        <div class="nl">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="members.html">Members</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="nr">
+            <div class="lang-sw"><button class="lb on" onclick="setLang('en')">EN</button><button class="lb" onclick="setLang('bn')">বাং</button></div>
+            <a href="login.html" class="btn ncta" id="nav-login-btn">Login</a>
+        </div>
+        <button class="hbg" id="hbg"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="mob" id="mob">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="members.html">Members</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+        <div class="lang-sw" style="margin-top:10px"><button class="lb on" onclick="setLang('en')">EN</button><button class="lb" onclick="setLang('bn')">বাং</button></div>
+    </div>
+</header>
+
+<section class="developer-hero">
+    <div class="container">
+        <div class="dev-grid">
+            <div class="dev-avatar" data-aos="fade-right">
+                <div class="avatar-ring">
+                    <div class="avatar-inner">
+                        <i class="fas fa-code"></i>
+                    </div>
+                </div>
+                <div class="dev-badge">
+                    <i class="fas fa-crown"></i>
+                </div>
+            </div>
+            <div class="dev-info" data-aos="fade-left">
+                <h1>Farabi <span>Walid</span></h1>
+                <div class="dev-title">
+                    <i class="fas fa-laptop-code"></i>
+                    <span data-en="Full Stack Web Developer" data-bn="ফুল স্ট্যাক ওয়েব ডেভেলপার">Full Stack Web Developer</span>
+                    <span style="font-size:12px;color:var(--gr)">|</span>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Sylhet, Bangladesh</span>
+                </div>
+                <p class="dev-desc" data-en="Passionate web developer with expertise in modern web technologies. Creator of Young Sporting Club's official website. Dedicated to building beautiful, responsive, and user-friendly web applications that make a difference." data-bn="আধুনিক ওয়েব টেকনোলজিতে দক্ষ একজন উৎসাহী ওয়েব ডেভেলপার। ইয়ং স্পোর্টিং ক্লাবের অফিসিয়াল ওয়েবসাইটের স্রষ্টা। সুন্দর, রেসপনসিভ এবং ইউজার-ফ্রেন্ডলি ওয়েব অ্যাপ্লিকেশন তৈরিতে নিবেদিত।">Passionate web developer with expertise in modern web technologies. Creator of Young Sporting Club's official website. Dedicated to building beautiful, responsive, and user-friendly web applications that make a difference.</p>
+                <div class="stats-grid">
+                    <div class="stat-card"><div class="stat-number" id="projectCount">5</div><div class="stat-label" data-en="Projects Completed" data-bn="প্রকল্প সম্পন্ন">Projects Completed</div></div>
+                    <div class="stat-card"><div class="stat-number" id="expYears">3</div><div class="stat-label" data-en="Years Experience" data-bn="বছর অভিজ্ঞতা">Years Experience</div></div>
+                    <div class="stat-card"><div class="stat-number" id="codeCommits">250+</div><div class="stat-label" data-en="Code Commits" data-bn="কোড কমিট">Code Commits</div></div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link fb" target="_blank"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+                    <a href="#" class="social-link ig" target="_blank"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+                    <a href="#" class="social-link yt" target="_blank"><i class="fab fa-youtube"></i><span>YouTube</span></a>
+                    <a href="#" class="social-link gh" target="_blank"><i class="fab fa-github"></i><span>GitHub</span></a>
+                    <a href="#" class="social-link li" target="_blank"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="skills-section">
+    <div class="container">
+        <div class="tc" data-aos="fade-up">
+            <span class="bdg"><span class="dot"></span><span data-en="My Expertise" data-bn="আমার দক্ষতা">My Expertise</span></span>
+            <h2 class="sec-title"><span data-en="Technical" data-bn="প্রযুক্তিগত">Technical</span> <span style="color:var(--cyan)" data-en="Skills" data-bn="দক্ষতা">Skills</span></h2>
+            <div class="divider"></div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-html5"></i></div><div class="skill-name">HTML5</div><div class="skill-level">Advanced</div></div>
+            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-css3-alt"></i></div><div class="skill-name">CSS3</div><div class="skill-level">Advanced</div></div>
+            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-js"></i></div><div class="skill-name">JavaScript</div><div class="skill-level">Advanced</div></div>
+            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-react"></i></div><div class="skill-name">React.js</div><div class="skill-level">Intermediate</div></div>
+            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-node-js"></i></div><div class="skill-name">Node.js</div><div class="skill-level">Intermediate</div></div>
+            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fas fa-fire"></i></div><div class="skill-name">Firebase</div><div class="skill-level">Advanced</div></div>
+            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fas fa-database"></i></div><div class="skill-name">MongoDB</div><div class="skill-level">Intermediate</div></div>
+            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-git-alt"></i></div><div class="skill-name">Git/GitHub</div><div class="skill-level">Advanced</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="projects-section">
+    <div class="container">
+        <div class="tc" data-aos="fade-up">
+            <span class="bdg"><span class="dot"></span><span data-en="My Work" data-bn="আমার কাজ">My Work</span></span>
+            <h2 class="sec-title"><span data-en="Featured" data-bn="উল্লেখযোগ্য">Featured</span> <span style="color:var(--cyan)" data-en="Projects" data-bn="প্রকল্প">Projects</span></h2>
+            <div class="divider"></div>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card" data-aos="fade-up"><div class="project-icon">⚽</div><h3>Young Sporting Club</h3><p>Complete club management website with member database, admin panel, and bilingual support.</p><div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Firebase</span></div></div>
+            <div class="project-card" data-aos="fade-up"><div class="project-icon">📱</div><h3>Portfolio Website</h3><p>Modern developer portfolio with responsive design and interactive elements.</p><div class="project-tech"><span>React</span><span>Tailwind</span><span>Framer Motion</span></div></div>
+            <div class="project-card" data-aos="fade-up"><div class="project-icon">🛒</div><h3>E-commerce Platform</h3><p>Full-featured e-commerce site with cart, checkout, and payment integration.</p><div class="project-tech"><span>Next.js</span><span>Node.js</span><span>MongoDB</span></div></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="ftbot">
+            <p>© 2026 Farabi Walid. All rights reserved.</p>
+            <a href="index.html" class="back-home"><i class="fas fa-home"></i> Back to Young Sporting Club</a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",
+    authDomain: "youngsportingclub.firebaseapp.com",
+    databaseURL: "https://youngsportingclub-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "youngsportingclub",
+    storageBucket: "youngsportingclub.firebasestorage.app",
+    messagingSenderId: "724732761340",
+    appId: "1:724732761340:web:dc664c10d55d5bb87cb379"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+onAuthStateChanged(auth, (user) => {
+    const btn = document.getElementById('nav-login-btn');
+    if (!btn) return;
+    if (user) btn.innerHTML = 'Logout';
+    else btn.innerHTML = 'Login';
+});
+
+AOS.init({ duration: 700, once: true, offset: 55 });
+window.addEventListener('load', () => setTimeout(() => document.getElementById('ldr').classList.add('hid'), 500));
+
+const hbgBtn = document.getElementById('hbg'), mobileMenu = document.getElementById('mob');
+if (hbgBtn && mobileMenu) hbgBtn.addEventListener('click', () => { hbgBtn.classList.toggle('op'); mobileMenu.classList.toggle('op'); });
+</script>
+
+<script>
+let currentLang = (function() { try { return localStorage.getItem('ysc-lang') || 'en'; } catch(e) { return 'en'; } })();
+
+function setLang(lang) {
+    currentLang = lang;
+    try { localStorage.setItem('ysc-lang', lang); } catch(e) {}
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
+    document.querySelectorAll('[data-en]').forEach(el => {
+        const value = el.getAttribute('data-' + lang);
+        if (value !== null) { if (value.includes('<')) el.innerHTML = value; else el.textContent = value; }
+    });
+    document.querySelectorAll('.lb').forEach(btn => {
+        btn.classList.remove('on');
+        if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
+</script>
+</body>
+</html>
