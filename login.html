@@ -25,6 +25,9 @@
     --tr:all .3s cubic-bezier(.4,0,.2,1);
     --danger:#FF4757;
     --whatsapp:#25D366;
+    --facebook:#1877F2;
+    --youtube:#FF0000;
+    --instagram:#E4405F;
 }
 [data-lang="bn"]{font-family:'Hind Siliguri',sans-serif}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -43,10 +46,10 @@ a{text-decoration:none;color:inherit}
 /* TOP NAV BAR */
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.05);background:rgba(1,1,1,.85);backdrop-filter:blur(18px);position:fixed;top:0;left:0;right:0;z-index:100}
 .logo{display:flex;align-items:center;gap:11px}
-.li{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:#010101;box-shadow:var(--gdual)}
+.li{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#010101;box-shadow:var(--gdual)}
 .lt{display:flex;flex-direction:column;line-height:1}
-.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.lt .n2{font-size:9px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px}
+.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.lt .n2{font-size:10px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
 .topbar-r{display:flex;align-items:center;gap:12px}
 .back-btn{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--gr);transition:var(--tr);padding:7px 14px;border-radius:50px;border:1px solid rgba(255,255,255,.1)}
 .back-btn:hover{color:var(--cyan);border-color:var(--bc)}
@@ -162,6 +165,21 @@ a{text-decoration:none;color:inherit}
 .visitor-badge{position:fixed;bottom:20px;left:20px;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);border-radius:30px;padding:6px 14px;font-size:11px;color:var(--gr);z-index:998;display:flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.1)}
 .visitor-badge i{color:var(--cyan);font-size:10px}
 
+/* Footer */
+.site-footer{background:#050505;border-top:1px solid var(--bp);padding:30px 0 20px;margin-top:auto}
+.footer-container{max-width:1200px;margin:0 auto;padding:0 22px}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-bottom p{color:var(--gr);font-size:12px}
+.developer-link{color:var(--pink);cursor:pointer;transition:var(--tr);font-weight:600}
+.developer-link:hover{color:var(--cyan);text-decoration:underline}
+.social-footer{display:flex;gap:12px}
+.social-icon{width:36px;height:36px;border-radius:10px;background:var(--card2);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:var(--gr);font-size:16px;transition:var(--tr)}
+.social-icon:hover{transform:translateY(-2px)}
+.social-icon.fb:hover{background:var(--facebook);color:#fff}
+.social-icon.yt:hover{background:var(--youtube);color:#fff}
+.social-icon.ig:hover{background:var(--instagram);color:#fff}
+.social-icon.em:hover{background:var(--pink);color:#fff}
+
 /* RESPONSIVE */
 @media(max-width:700px){
     .topbar{padding:10px 16px}
@@ -173,6 +191,7 @@ a{text-decoration:none;color:inherit}
     .toast{bottom:85px;right:16px;left:16px;max-width:calc(100% - 32px)}
     .visitor-badge{bottom:16px;left:16px;padding:5px 12px}
     .date-bar{flex-direction:column;align-items:center;gap:6px;border-radius:24px;padding:8px 18px}
+    .footer-bottom{flex-direction:column;text-align:center}
 }
 @media(max-width:480px){
     .lbadge{width:60px;height:60px;font-size:22px}
@@ -293,6 +312,22 @@ a{text-decoration:none;color:inherit}
         </p>
     </div>
 </div>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-bottom">
+            <p>© 2026 Young Sporting Club. All rights reserved.</p>
+            <div class="social-footer">
+                <a href="https://www.facebook.com/youngsportingclub" target="_blank" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@youngsportingclub" target="_blank" class="social-icon yt"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/youngsportingclubofficial/" target="_blank" class="social-icon ig"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:youngsportingclub2009@gmail.com" class="social-icon em"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p><span class="developer-link" onclick="window.location.href='developer.html'">Developed by Farabi Walid</span></p>
+        </div>
+    </div>
+</footer>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
@@ -571,6 +606,12 @@ function setLang(lang) {
         const el = document.getElementById(id);
         if (el) el.placeholder = texts[lang] || texts.en;
     });
+    
+    // Update developer name in footer
+    const devLink = document.querySelector('.developer-link');
+    if (devLink) {
+        devLink.textContent = lang === 'bn' ? 'তৈরি করেছেন ফারাবি ওয়ালিদ' : 'Developed by Farabi Walid';
+    }
     
     // Update toast message
     const toastMsg = document.getElementById('toastMsg');
