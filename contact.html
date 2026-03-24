@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact — Young Sporting Club</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<style>
+:root{--bg:#010101;--card:#111;--card2:#161616;--pink:#FE2C55;--cyan:#25F4EE;--wh:#fff;--gr:#888;--lt:#ccc;--bp:rgba(254,44,85,.25);--bc:rgba(37,244,238,.22);--gp:0 0 22px rgba(254,44,85,.5);--gc:0 0 22px rgba(37,244,238,.5);--gdual:-5px 0 22px rgba(254,44,85,.3),5px 0 22px rgba(37,244,238,.3);--r:14px;--tr:all .3s cubic-bezier(.4,0,.2,1);--danger:#FF4757}
+[data-lang="bn"]{font-family:'Hind Siliguri',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--wh);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Bebas Neue',sans-serif;letter-spacing:1.5px;line-height:1.1}
+[data-lang="bn"] h1,[data-lang="bn"] h2,[data-lang="bn"] h3,[data-lang="bn"] h4{font-family:'Hind Siliguri',sans-serif;letter-spacing:0}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:linear-gradient(var(--pink),var(--cyan));border-radius:3px}
+.container{max-width:1200px;margin:0 auto;padding:0 22px}
+.sp{padding:90px 0}
+.bdg{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--bp);background:rgba(254,44,85,.08);color:var(--pink);padding:5px 16px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.bdg .dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:blink 1.8s infinite;box-shadow:0 0 6px var(--pink)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.sec-title{font-size:clamp(34px,5vw,54px);margin-bottom:10px}
+.divider{width:52px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));margin:12px auto 20px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:50px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none;text-transform:uppercase;letter-spacing:.5px;transition:var(--tr)}
+.btn-pk{background:linear-gradient(135deg,var(--pink),#b0001a);color:#fff}.btn-pk:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(254,44,85,.55)}
+.btn-cy{background:linear-gradient(135deg,var(--cyan),#00adaa);color:#010101;font-weight:800}.btn-cy:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,244,238,.55)}
+.btn-ol{background:transparent;color:var(--wh);border:1.5px solid rgba(255,255,255,.2)}.btn-ol:hover{border-color:var(--cyan);color:var(--cyan)}
+.lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:3px}
+.lb{padding:5px 13px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:var(--tr);background:none;border:none;color:var(--gr)}
+.lb.on{background:linear-gradient(135deg,var(--pink),var(--cyan));color:#010101}
+/* HEADER */
+#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr)}
+#hdr.sc{background:rgba(1,1,1,.94);backdrop-filter:blur(22px);border-bottom:1px solid var(--bp)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:9px 22px;max-width:1200px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:11px}
+.li{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:15px;color:#010101;box-shadow:var(--gdual)}
+.lt{display:flex;flex-direction:column;line-height:1}
+.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.lt .n2{font-size:9px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px}
+.nl{display:flex;align-items:center;gap:3px}
+.nl a{padding:7px 12px;border-radius:8px;font-size:12.5px;font-weight:500;color:var(--gr);transition:var(--tr);position:relative}
+.nl a:hover,.nl a.on{color:#fff;background:rgba(255,255,255,.07)}
+.nl a.on::after{content:'';display:block;width:4px;height:4px;border-radius:50%;background:var(--pink);margin:1px auto 0;box-shadow:var(--gp)}
+.nr{display:flex;align-items:center;gap:10px}
+.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:12px;padding:8px 18px}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.hbg span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:var(--tr)}
+.hbg.op span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hbg.op span:nth-child(2){opacity:0}
+.hbg.op span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mob{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(1,1,1,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--bp);padding:16px 22px;flex-direction:column;gap:3px;z-index:997}
+.mob.op{display:flex}
+.mob a{padding:11px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr)}
+.mob a:hover,.mob a.on{color:#fff;background:rgba(254,44,85,.1)}
+/* PAGE HERO */
+.phero{padding:130px 0 68px;background:linear-gradient(180deg,#0d0d0d,var(--bg));text-align:center;position:relative;overflow:hidden}
+.phero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(254,44,85,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,244,238,.04) 1px,transparent 1px);background-size:55px 55px}
+.phero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--pink),var(--cyan),transparent)}
+.phero h1{font-size:clamp(40px,6vw,70px);position:relative;z-index:1}
+.phero p{color:var(--gr);font-size:15px;max-width:480px;margin:12px auto 0;position:relative;z-index:1}
+.breadcrumb{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12.5px;color:var(--gr);margin-top:16px;position:relative;z-index:1}
+.breadcrumb a{color:var(--cyan);transition:var(--tr)}
+.breadcrumb a:hover{color:var(--pink)}
+
+/* CONTACT GRID */
+.cgrid{display:grid;grid-template-columns:1fr 1.5fr;gap:44px;align-items:flex-start}
+
+/* INFO CARDS */
+.info-card{background:var(--card2);border:1px solid rgba(255,255,255,.07);border-radius:var(--r);padding:28px;margin-bottom:16px;display:flex;align-items:flex-start;gap:16px;transition:var(--tr);cursor:default}
+.info-card:hover{border-color:var(--bp);box-shadow:0 0 22px rgba(254,44,85,.18);transform:translateX(4px)}
+.info-ic{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;transition:var(--tr)}
+.info-card:hover .info-ic{box-shadow:0 0 18px rgba(254,44,85,.4)}
+.info-ic.pk{background:rgba(254,44,85,.12);border:1px solid var(--bp);color:var(--pink)}
+.info-ic.cy{background:rgba(37,244,238,.1);border:1px solid var(--bc);color:var(--cyan)}
+.info-ic.gd{background:rgba(255,214,0,.1);border:1px solid rgba(255,214,0,.3);color:#FFD600}
+.info-h{font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gr);margin-bottom:5px}
+.info-v{color:var(--lt);font-size:14px;line-height:1.65}
+.info-v a{color:var(--lt);transition:var(--tr)}
+.info-v a:hover{color:var(--pink)}
+
+/* SOCIAL BOX */
+.soc-box{background:var(--card2);border:1px solid rgba(255,255,255,.07);border-radius:var(--r);padding:22px}
+.soc-box h4{font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gr);margin-bottom:14px}
+.soc-btns{display:flex;gap:10px;flex-wrap:wrap}
+.soc-b{display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:50px;font-size:12.5px;font-weight:600;cursor:pointer;transition:var(--tr);text-decoration:none}
+.sb-fb{background:rgba(24,119,242,.1);color:#64B5F6;border:1px solid rgba(24,119,242,.3)}.sb-fb:hover{background:#1877F2;color:#fff;box-shadow:0 0 18px rgba(24,119,242,.4)}
+.sb-yt{background:rgba(255,0,0,.1);color:#FF6B6B;border:1px solid rgba(255,0,0,.3)}.sb-yt:hover{background:#FF0000;color:#fff;box-shadow:0 0 18px rgba(255,0,0,.4)}
+.sb-em{background:rgba(254,44,85,.1);color:var(--pink);border:1px solid var(--bp)}.sb-em:hover{background:var(--pink);color:#fff;box-shadow:var(--gp)}
+
+/* FORM */
+.fcard{background:var(--card2);border:1px solid rgba(255,255,255,.07);border-radius:var(--r);padding:36px;box-shadow:0 4px 36px rgba(0,0,0,.3)}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gr);margin-bottom:7px}
+.fg label .req{color:var(--pink)}
+.finput{position:relative}
+.finput input,.fg textarea{width:100%;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.1);color:var(--wh);padding:12px 16px 12px 44px;border-radius:var(--r);font-size:13.5px;font-family:'Poppins',sans-serif;transition:var(--tr);outline:none}
+[data-lang="bn"] .finput input,[data-lang="bn"] .fg textarea{font-family:'Hind Siliguri',sans-serif}
+.finput input:focus,.fg textarea:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(254,44,85,.12)}
+.finput input::placeholder,.fg textarea::placeholder{color:rgba(136,136,136,.5)}
+.finput .fic{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--gr);font-size:15px}
+.fg textarea{padding:12px 16px;border:1px solid rgba(255,255,255,.1);resize:vertical;min-height:130px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.msg{padding:12px 15px;border-radius:var(--r);font-size:13px;font-weight:500;margin-bottom:14px;display:none;align-items:center;gap:9px}
+.msg.show{display:flex;animation:fadein .3s}
+@keyframes fadein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.msg-ok{background:rgba(37,244,238,.08);border:1px solid var(--bc);color:var(--cyan)}
+.msg-err{background:rgba(255,71,87,.08);border:1px solid rgba(255,71,87,.3);color:var(--danger)}
+.sbtn{width:100%;padding:14px;border-radius:50px;background:linear-gradient(135deg,var(--pink),#b0001a);color:#fff;font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;border:none;cursor:pointer;transition:var(--tr);text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;justify-content:center;gap:9px;margin-top:6px}
+.sbtn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(254,44,85,.55)}
+.sbtn:disabled{opacity:.6;transform:none;cursor:not-allowed}
+
+/* MAP / LOCATION */
+.map-box{background:var(--card2);border:1px solid rgba(255,255,255,.07);border-radius:var(--r);padding:28px;margin-top:16px}
+.map-box h4{font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gr);margin-bottom:14px}
+.map-frame{width:100%;height:200px;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.06);background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;position:relative}
+.map-fallback{text-align:center;color:var(--gr);font-size:13px;padding:20px}
+.map-fallback .mf-ic{font-size:36px;display:block;margin-bottom:8px}
+.map-fallback a{color:var(--pink);font-weight:600;font-size:12px}
+
+/* FOOTER */
+footer{background:#050505;border-top:1px solid var(--bp);padding:58px 0 22px}
+.ftgr{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:38px;margin-bottom:44px}
+.ftdesc{color:var(--gr);font-size:13px;line-height:1.85;margin:14px 0 22px}
+.slnks{display:flex;gap:9px}
+.sa{width:38px;height:38px;border-radius:10px;background:var(--card2);border:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;color:var(--gr);font-size:16px;transition:var(--tr)}
+.sa:hover{transform:translateY(-2px)}
+.sa.fb:hover{background:#1877F2;border-color:#1877F2;color:#fff}
+.sa.yt:hover{background:#FF0000;border-color:#FF0000;color:#fff}
+.sa.em:hover{background:var(--pink);border-color:var(--pink);color:#fff}
+.fcol h4{font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#fff;margin-bottom:18px}
+.fcol ul li{margin-bottom:9px}
+.fcol ul li a{color:var(--gr);font-size:13px;transition:var(--tr)}
+.fcol ul li a:hover{color:var(--pink);padding-left:4px}
+.ci2 li{display:flex;align-items:flex-start;gap:8px;color:var(--gr);font-size:12.5px;margin-bottom:9px}
+.ci2 .ico{color:var(--cyan);font-size:13px;margin-top:2px;flex-shrink:0}
+.ftbot{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.ftbot p,.ftbot .dev{color:var(--gr);font-size:11.5px}
+.ftbot .dev span{color:var(--pink)}
+.ldr{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s,visibility .5s;flex-direction:column;gap:16px}
+.ldr.hid{opacity:0;visibility:hidden;pointer-events:none}
+.lring{width:50px;height:50px;border:3px solid rgba(254,44,85,.2);border-top-color:var(--pink);border-right-color:var(--cyan);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ltxt{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:4px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+@media(max-width:900px){.cgrid{grid-template-columns:1fr}.ftgr{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.nl{display:none}.hbg{display:flex}.sp{padding:58px 0}.frow{grid-template-columns:1fr}.ftgr{grid-template-columns:1fr}.nr .lang-sw{display:none}}
+@media(max-width:460px){.ftbot{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+<div class="ldr" id="ldr"><div class="lring"></div><div class="ltxt">YSC</div></div>
+
+<header id="hdr">
+  <nav class="nav">
+    <a href="index.html" class="logo"><div class="li">YSC</div><div class="lt"><span class="n1">YOUNG SPORTING</span><span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span></div></a>
+    <div class="nl">
+      <a href="index.html" data-en="Home" data-bn="হোম">Home</a>
+      <a href="about.html" data-en="About" data-bn="সম্পর্কে">About</a>
+      <a href="members.html" data-en="Members" data-bn="সদস্য">Members</a>
+      <!-- FIXED: add_member.html instead of add-member.html -->
+      <a href="add_member.html" data-en="Add Member" data-bn="সদস্য যোগ">Add Member</a>
+      <a href="contact.html" class="on" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+    </div>
+    <div class="nr">
+      <div class="lang-sw"><button class="lb on" onclick="setLang('en')">EN</button><button class="lb" onclick="setLang('bn')">বাং</button></div>
+      <a href="login.html" class="btn ncta" id="nav-login-btn" data-en="Login" data-bn="লগইন">Login</a>
+    </div>
+    <button class="hbg" id="hbg"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mob" id="mob">
+    <a href="index.html" data-en="Home" data-bn="হোম">Home</a>
+    <a href="about.html" data-en="About" data-bn="সম্পর্কে">About</a>
+    <a href="members.html" data-en="Members" data-bn="সদস্য">Members</a>
+    <!-- FIXED: add_member.html instead of add-member.html -->
+    <a href="add_member.html" data-en="Add Member" data-bn="সদস্য যোগ">Add Member</a>
+    <a href="contact.html" class="on" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+    <a href="login.html" data-en="Login" data-bn="লগইন">Login</a>
+    <div class="lang-sw" style="margin-top:10px"><button class="lb on" onclick="setLang('en')">EN</button><button class="lb" onclick="setLang('bn')">বাং</button></div>
+  </div>
+</header>
+
+<section class="phero">
+  <div class="container" data-aos="fade-down">
+    <span class="bdg"><span class="dot"></span><span data-en="Get In Touch" data-bn="যোগাযোগ করুন">Get In Touch</span></span>
+    <h1><span data-en="Contact" data-bn="যোগাযোগ">Contact</span> <span style="background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text" data-en="Us" data-bn="করুন">Us</span></h1>
+    <p data-en="Have a question or want to connect? We'd love to hear from you!" data-bn="কোনো প্রশ্ন বা যোগাযোগ করতে চান? আমরা আপনার কথা শুনতে পছন্দ করব!">Have a question or want to connect? We'd love to hear from you!</p>
+    <div class="breadcrumb"><a href="index.html" data-en="Home" data-bn="হোম">Home</a><span>›</span><span data-en="Contact" data-bn="যোগাযোগ">Contact</span></div>
+  </div>
+</section>
+
+<section class="sp" style="background:var(--bg)">
+  <div class="container">
+    <div class="cgrid">
+      <!-- LEFT: INFO -->
+      <div data-aos="fade-right">
+        <span class="bdg"><span class="dot"></span><span data-en="Find Us" data-bn="আমাদের খুঁজুন">Find Us</span></span>
+        <h2 class="sec-title" style="text-align:left" data-en="Contact Information" data-bn="যোগাযোগের তথ্য">Contact Information</h2>
+        <div class="divider" style="margin-left:0"></div>
+        <p style="color:var(--gr);font-size:14px;line-height:1.8;margin-bottom:26px" data-en="Young Sporting Club is always open to hearing from supporters, new members, sponsors, and the community." data-bn="ইয়ং স্পোর্টিং ক্লাব সর্বদা সমর্থক, নতুন সদস্য, স্পনসর এবং সমাজ থেকে কথা শুনতে প্রস্তুত।">Young Sporting Club is always open to hearing from supporters, new members, sponsors, and the community.</p>
+
+        <div class="info-card">
+          <div class="info-ic pk"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <div class="info-h" data-en="Our Address" data-bn="আমাদের ঠিকানা">Our Address</div>
+            <div class="info-v" data-en="Young Sporting Club<br>Shingrahully, Shamsher Nagar<br>Kamalganj, Moulvibazar<br>Sylhet, Bangladesh" data-bn="ইয়ং স্পোর্টিং ক্লাব<br>শিংড়াউলী, শমশেরনগর<br>কমলগঞ্জ, মৌলভীবাজার<br>সিলেট, বাংলাদেশ">Young Sporting Club<br>Shingrahully, Shamsher Nagar<br>Kamalganj, Moulvibazar<br>Sylhet, Bangladesh</div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-ic cy"><i class="fas fa-phone"></i></div>
+          <div>
+            <div class="info-h" data-en="Phone Number" data-bn="ফোন নম্বর">Phone Number</div>
+            <div class="info-v"><a href="tel:+8801724238581">+880 1724-238581</a></div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-ic gd"><i class="fas fa-envelope"></i></div>
+          <div>
+            <div class="info-h" data-en="Email Address" data-bn="ইমেইল ঠিকানা">Email Address</div>
+            <div class="info-v"><a href="mailto:support.youngsportingclub@gmail.com">support.youngsportingclub@gmail.com</a></div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-ic pk"><i class="fas fa-calendar"></i></div>
+          <div>
+            <div class="info-h" data-en="Foundation Day" data-bn="প্রতিষ্ঠা দিবস">Foundation Day</div>
+            <div class="info-v" data-en="13 January 2009 · Est. for 15+ years" data-bn="১৩ জানুয়ারি ২০০৯ · ১৭+ বছর ধরে প্রতিষ্ঠিত">13 January 2009 · Est. for 17+ years</div>
+          </div>
+        </div>
+
+        <div class="soc-box">
+          <h4 data-en="Follow Us" data-bn="আমাদের অনুসরণ করুন">Follow Us</h4>
+          <div class="soc-btns">
+            <a href="#" class="soc-b sb-fb"><i class="fab fa-facebook-f"></i><span data-en="Facebook" data-bn="ফেসবুক">Facebook</span></a>
+            <a href="#" class="soc-b sb-yt"><i class="fab fa-youtube"></i><span data-en="YouTube" data-bn="ইউটিউব">YouTube</span></a>
+            <a href="mailto:support.youngsportingclub@gmail.com" class="soc-b sb-em"><i class="fas fa-envelope"></i><span data-en="Email" data-bn="ইমেইল">Email</span></a>
+          </div>
+        </div>
+
+        <div class="map-box">
+          <h4 data-en="📍 Location" data-bn="📍 অবস্থান">📍 Location</h4>
+          <div class="map-frame">
+            <div class="map-fallback">
+              <span class="mf-ic">🗺️</span>
+              <p data-en="Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar" data-bn="শিংড়াউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার">Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar</p>
+              <a href="https://maps.google.com/?q=Shamshernagar,+Kamalganj,+Moulvibazar" target="_blank" rel="noopener" data-en="Open in Google Maps ↗" data-bn="গুগল ম্যাপে খুলুন ↗">Open in Google Maps ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: FORM -->
+      <div data-aos="fade-left" data-aos-delay="150">
+        <div class="fcard">
+          <h2 style="font-size:28px;margin-bottom:6px"><span data-en="Send Us a" data-bn="আমাদেরকে একটি">Send Us a</span> <span style="background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text" data-en="Message" data-bn="বার্তা পাঠান">Message</span></h2>
+          <p style="font-size:13px;color:var(--gr);margin-bottom:26px;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:20px" data-en="Fill in the form and we'll get back to you as soon as possible." data-bn="ফর্মটি পূরণ করুন এবং আমরা যত তাড়াতাড়ি সম্ভব আপনার কাছে ফিরে আসব।">Fill in the form and we'll get back to you as soon as possible.</p>
+
+          <div class="msg msg-ok" id="cok-msg"></div>
+          <div class="msg msg-err" id="cerr-msg"></div>
+
+          <form id="cform" novalidate>
+            <div class="frow">
+              <div class="fg">
+                <label data-en="Your Name" data-bn="আপনার নাম">Your Name <span class="req">*</span></label>
+                <div class="finput"><i class="fic fas fa-user"></i><input type="text" id="cname" data-placeholder-en="Full name" data-placeholder-bn="পুরো নাম" placeholder="Full name" required/></div>
+              </div>
+              <div class="fg">
+                <label data-en="Phone Number" data-bn="ফোন নম্বর">Phone Number</label>
+                <div class="finput"><i class="fic fas fa-phone"></i><input type="tel" id="cphone" data-placeholder-en="+880 1XXX-XXXXXX" data-placeholder-bn="+৮৮০ ১XXX-XXXXXX" placeholder="+880 1XXX-XXXXXX"/></div>
+              </div>
+            </div>
+            <div class="fg">
+              <label data-en="Email Address" data-bn="ইমেইল ঠিকানা">Email Address <span class="req">*</span></label>
+              <div class="finput"><i class="fic fas fa-envelope"></i><input type="email" id="cemail" data-placeholder-en="your@email.com" data-placeholder-bn="আপনার@ইমেইল.কম" placeholder="your@email.com" required/></div>
+            </div>
+            <div class="fg">
+              <label data-en="Subject" data-bn="বিষয়">Subject <span class="req">*</span></label>
+              <div class="finput"><i class="fic fas fa-tag"></i><input type="text" id="csubject" data-placeholder-en="What is this about?" data-placeholder-bn="এটি কি বিষয়ে?" placeholder="What is this about?" required/></div>
+            </div>
+            <div class="fg">
+              <label data-en="Message" data-bn="বার্তা">Message <span class="req">*</span></label>
+              <textarea id="cmsg" data-placeholder-en="Write your message here…" data-placeholder-bn="এখানে আপনার বার্তা লিখুন…" placeholder="Write your message here…" required></textarea>
+            </div>
+            <button type="submit" class="sbtn" id="csubBtn">
+              <i class="fas fa-paper-plane"></i>
+              <span data-en="Send Message" data-bn="বার্তা পাঠান">Send Message</span>
+            </button>
+          </form>
+          <p style="font-size:11.5px;color:var(--gr);margin-top:14px;text-align:center" data-en="* Required fields. Your message will be sent directly to the club." data-bn="* প্রয়োজনীয় ক্ষেত্র। আপনার বার্তা সরাসরি ক্লাবে পাঠানো হবে।">* Required fields. Your message will be sent directly to the club.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="ftgr">
+      <div>
+        <div class="logo"><div class="li">YSC</div><div class="lt"><span class="n1">YOUNG SPORTING CLUB</span><span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জান ২০০৯">Est. 13 Jan 2009</span></div></div>
+        <p class="ftdesc" data-en="A community-based youth organization in Shingrahully, Shamsher Nagar, Moulvibazar since 2009." data-bn="২০০৯ সাল থেকে মৌলভীবাজারের শমশেরনগর, শিংড়াউলীর একটি সমাজভিত্তিক যুব সংগঠন।">A community-based youth organization in Shingrahully, Shamsher Nagar, Moulvibazar since 2009.</p>
+        <div class="slnks">
+          <a href="#" class="sa fb"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="sa yt"><i class="fab fa-youtube"></i></a>
+          <a href="mailto:support.youngsportingclub@gmail.com" class="sa em"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="fcol"><h4 data-en="Quick Links" data-bn="দ্রুত লিংক">Quick Links</h4><ul><li><a href="index.html" data-en="Home" data-bn="হোম">Home</a></li><li><a href="about.html" data-en="About" data-bn="সম্পর্কে">About</a></li><li><a href="members.html" data-en="Members" data-bn="সদস্য">Members</a></li><li><a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a></li></ul></div>
+      <div class="fcol"><h4 data-en="Our Sports" data-bn="আমাদের খেলা">Our Sports</h4><ul><li><a href="#" data-en="⚽ Football" data-bn="⚽ ফুটবল">⚽ Football</a></li><li><a href="#" data-en="🏏 Cricket" data-bn="🏏 ক্রিকেট">🏏 Cricket</a></li><li><a href="#" data-en="🏸 Badminton" data-bn="🏸 ব্যাডমিন্টন">🏸 Badminton</a></li><li><a href="#" data-en="🎭 Cultural Events" data-bn="🎭 সাংস্কৃতিক অনুষ্ঠান">🎭 Cultural Events</a></li></ul></div>
+      <div class="fcol"><h4 data-en="Contact" data-bn="যোগাযোগ">Contact</h4><ul class="ci2"><li><span class="ico"><i class="fas fa-map-marker-alt"></i></span><span data-en="Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar" data-bn="শিংড়াউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার">Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar</span></li><li><span class="ico"><i class="fas fa-phone"></i></span><a href="tel:+8801724238581" style="color:var(--gr)">+880 1724-238581</a></li><li><span class="ico"><i class="fas fa-envelope"></i></span><a href="mailto:support.youngsportingclub@gmail.com" style="color:var(--gr);word-break:break-all">support.youngsportingclub@gmail.com</a></li></ul></div>
+    </div>
+    <div class="ftbot">
+      <p data-en="© 2024 Young Sporting Club. All rights reserved." data-bn="© ২০২৬ ইয়ং স্পোর্টিং ক্লাব। সর্বস্বত্ব সংরক্ষিত।">© 2026 Young Sporting Club. All rights reserved.</p>
+      <p class="dev" data-en="Developed by <span>Farabi Walid</span>" data-bn="তৈরি করেছেন <span>ফারাবি ওয়ালিদ</span>">Developed by <span>Farabi Walid</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",
+  authDomain: "youngsportingclub.firebaseapp.com",
+  databaseURL: "https://youngsportingclub-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "youngsportingclub",
+  storageBucket: "youngsportingclub.firebasestorage.app",
+  messagingSenderId: "724732761340",
+  appId: "1:724732761340:web:dc664c10d55d5bb87cb379"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// Authentication state
+onAuthStateChanged(auth, (user) => {
+  const btn = document.getElementById('nav-login-btn');
+  if (!btn) return;
+  
+  const lang = document.documentElement.getAttribute('data-lang') || 'en';
+  
+  if (user) {
+    const initial = (user.displayName || user.email || 'U')[0].toUpperCase();
+    btn.innerHTML = `<span style="display:inline-flex;align-items:center;gap:7px;background:rgba(254,44,85,.12);border:1px solid rgba(254,44,85,.3);padding:5px 12px 5px 5px;border-radius:50px;font-size:12px;font-weight:700"><span style="width:26px;height:26px;background:linear-gradient(135deg,#FE2C55,#25F4EE);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#010101;font-family:'Bebas Neue',sans-serif;font-size:15px">${initial}</span>${lang === 'bn' ? 'লগআউট' : 'Logout'}</span>`;
+    btn.onclick = async (e) => {
+      e.preventDefault();
+      await signOut(auth);
+      window.location.reload();
+    };
+  } else {
+    btn.innerHTML = lang === 'bn' ? 'লগইন' : 'Login';
+    btn.href = 'login.html';
+    btn.onclick = null;
+  }
+});
+
+// Initialize AOS
+AOS.init({ duration: 700, once: true, offset: 55 });
+
+// Hide loader
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('ldr').classList.add('hid'), 500);
+});
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('hdr');
+  if (window.scrollY > 28) {
+    header.classList.add('sc');
+  } else {
+    header.classList.remove('sc');
+  }
+});
+
+// Mobile menu toggle
+const hbgBtn = document.getElementById('hbg');
+const mobileMenu = document.getElementById('mob');
+if (hbgBtn && mobileMenu) {
+  hbgBtn.addEventListener('click', () => {
+    hbgBtn.classList.toggle('op');
+    mobileMenu.classList.toggle('op');
+  });
+}
+</script>
+
+<script>
+/* ════ EMAILJS CONFIG ════
+   Replace these with your actual EmailJS credentials
+   Sign up free at https://emailjs.com
+   ═════════════════════════ */
+const EMAILJS_PUBLIC_KEY  = '3zACi9KwFInZnKO9s';
+const EMAILJS_SERVICE_ID  = 'service_a2g6hd7';
+const EMAILJS_TEMPLATE_ID = 'template_74k28gd';
+
+/* ════ BILINGUAL SYSTEM ════ */
+let currentLang = (function() {
+  try {
+    return localStorage.getItem('ysc-lang') || 'en';
+  } catch(e) {
+    return 'en';
+  }
+})();
+
+function setLang(lang) {
+  currentLang = lang;
+  try {
+    localStorage.setItem('ysc-lang', lang);
+  } catch(e) {}
+  
+  document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
+  
+  // Update all elements with data attributes
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const value = el.getAttribute('data-' + lang);
+    if (value === null) return;
+    if (value.includes('<')) {
+      el.innerHTML = value;
+    } else {
+      el.textContent = value;
+    }
+  });
+  
+  // Update language buttons
+  document.querySelectorAll('.lb').forEach(btn => {
+    btn.classList.remove('on');
+    if ((lang === 'en' && btn.textContent.trim() === 'EN') || 
+        (lang === 'bn' && btn.textContent.trim() === 'বাং')) {
+      btn.classList.add('on');
+    }
+  });
+  
+  // Update placeholders
+  const placeholderMap = [
+    ['cname', { en: 'Full name', bn: 'পুরো নাম' }],
+    ['cphone', { en: '+880 1XXX-XXXXXX', bn: '+৮৮০ ১XXX-XXXXXX' }],
+    ['cemail', { en: 'your@email.com', bn: 'আপনার@ইমেইল.কম' }],
+    ['csubject', { en: 'What is this about?', bn: 'এটি কি বিষয়ে?' }],
+    ['cmsg', { en: 'Write your message here…', bn: 'এখানে আপনার বার্তা লিখুন…' }]
+  ];
+  
+  placeholderMap.forEach(([id, texts]) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.placeholder = texts[lang] || texts.en;
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setLang(currentLang);
+  
+  // Initialize EmailJS
+  if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'YOUR_EMAILJS_PUBLIC_KEY') {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }
+});
+
+/* ════ CONTACT FORM SUBMIT ════ */
+const contactForm = document.getElementById('cform');
+const okMsg = document.getElementById('cok-msg');
+const errMsg = document.getElementById('cerr-msg');
+const submitBtn = document.getElementById('csubBtn');
+
+function showMessage(element, text, type) {
+  if (element) {
+    element.textContent = text;
+    element.className = 'msg msg-' + type + ' show';
+  }
+}
+
+function hideMessage(element) {
+  if (element) {
+    element.className = 'msg';
+    element.textContent = '';
+  }
+}
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const lang = currentLang;
+    
+    // Get form values
+    const name = document.getElementById('cname')?.value.trim() || '';
+    const email = document.getElementById('cemail')?.value.trim() || '';
+    const subject = document.getElementById('csubject')?.value.trim() || '';
+    const message = document.getElementById('cmsg')?.value.trim() || '';
+    const phone = document.getElementById('cphone')?.value.trim() || '';
+    
+    // Hide previous messages
+    hideMessage(okMsg);
+    hideMessage(errMsg);
+    
+    // Validate required fields
+    if (!name || !email || !subject || !message) {
+      showMessage(errMsg, lang === 'bn' ? '⚠ প্রয়োজনীয় সকল তথ্য পূরণ করুন।' : '⚠ Please fill in all required fields.', 'err');
+      return;
+    }
+    
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      showMessage(errMsg, lang === 'bn' ? '⚠ বৈধ ইমেইল ঠিকানা দিন।' : '⚠ Please enter a valid email address.', 'err');
+      return;
+    }
+    
+    // Disable button and show loading
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> <span>${lang === 'bn' ? 'পাঠানো হচ্ছে…' : 'Sending…'}</span>`;
+    
+    // Check if EmailJS is configured
+    if (EMAILJS_PUBLIC_KEY === 'YOUR_EMAILJS_PUBLIC_KEY' || 
+        EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID' || 
+        EMAILJS_TEMPLATE_ID === 'YOUR_TEMPLATE_ID') {
+      
+      // Fallback to mailto
+      const mailtoLink = `mailto:support.youngsportingclub@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\n\n' + message)}`;
+      window.location.href = mailtoLink;
+      
+      showMessage(okMsg, lang === 'bn' ? '✓ আপনার ইমেইল অ্যাপ খুলে গেছে। বার্তাটি পাঠান।' : '✓ Your email app has opened. Please send the message.', 'ok');
+      contactForm.reset();
+      
+    } else {
+      // Send via EmailJS
+      try {
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          from_name: name,
+          from_email: email,
+          subject: subject,
+          message: message,
+          phone: phone,
+          to_email: 'support.youngsportingclub@gmail.com'
+        });
+        
+        showMessage(okMsg, lang === 'bn' ? '✓ বার্তা সফলভাবে পাঠানো হয়েছে! আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।' : '✓ Message sent successfully! We\'ll get back to you soon.', 'ok');
+        contactForm.reset();
+        
+      } catch (error) {
+        console.error('EmailJS error:', error);
+        showMessage(errMsg, lang === 'bn' ? '⚠ বার্তা পাঠাতে ব্যর্থ হয়েছে। পরে আবার চেষ্টা করুন।' : '⚠ Failed to send message. Please try again later.', 'err');
+      }
+    }
+    
+    // Re-enable button
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = `<i class="fas fa-paper-plane"></i> <span>${lang === 'bn' ? 'বার্তা পাঠান' : 'Send Message'}</span>`;
+  });
+}
+</script>
+</body>
+</html>
