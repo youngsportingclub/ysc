@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>About — Young Sporting Club</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#010101;--bg2:#0a0a0a;--card:#111;--card2:#161616;--pink:#FE2C55;--cyan:#25F4EE;--wh:#fff;--gr:#888;--lt:#ccc;--bp:rgba(254,44,85,.25);--bc:rgba(37,244,238,.22);--gp:0 0 22px rgba(254,44,85,.5);--gc:0 0 22px rgba(37,244,238,.5);--gdual:-5px 0 22px rgba(254,44,85,.3),5px 0 22px rgba(37,244,238,.3);--r:14px;--tr:all .3s cubic-bezier(.4,0,.2,1)}
+[data-lang="bn"]{font-family:'Hind Siliguri',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--wh);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Bebas Neue',sans-serif;letter-spacing:1.5px;line-height:1.1}
+[data-lang="bn"] h1,[data-lang="bn"] h2,[data-lang="bn"] h3,[data-lang="bn"] h4{font-family:'Hind Siliguri',sans-serif;letter-spacing:0}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:linear-gradient(var(--pink),var(--cyan));border-radius:3px}
+.container{max-width:1200px;margin:0 auto;padding:0 22px}
+.sp{padding:90px 0}
+.tc{text-align:center}
+.bdg{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--bp);background:rgba(254,44,85,.08);color:var(--pink);padding:5px 16px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.bdg .dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:blink 1.8s infinite;box-shadow:0 0 6px var(--pink)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.sec-title{font-size:clamp(34px,5vw,54px);margin-bottom:10px}
+.divider{width:52px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));margin:12px auto 20px}
+.sub{color:var(--gr);font-size:15px;max-width:520px;margin:0 auto 46px;line-height:1.75}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:50px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none;text-transform:uppercase;letter-spacing:.5px;transition:var(--tr)}
+.btn-pk{background:linear-gradient(135deg,var(--pink),#b0001a);color:#fff}.btn-pk:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(254,44,85,.55)}
+.btn-ol{background:transparent;color:var(--wh);border:1.5px solid rgba(255,255,255,.2)}.btn-ol:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:var(--gc)}
+.lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:3px}
+.lb{padding:5px 13px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:var(--tr);background:none;border:none;color:var(--gr)}
+.lb.on{background:linear-gradient(135deg,var(--pink),var(--cyan));color:#010101}
+/* HEADER */
+#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr)}
+#hdr.sc{background:rgba(1,1,1,.94);backdrop-filter:blur(22px);border-bottom:1px solid var(--bp);box-shadow:0 2px 28px rgba(254,44,85,.12)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:9px 22px;max-width:1200px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:11px}
+.li{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:15px;color:#010101;box-shadow:var(--gdual)}
+.lt{display:flex;flex-direction:column;line-height:1}
+.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.lt .n2{font-size:9px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px}
+.nl{display:flex;align-items:center;gap:3px}
+.nl a{padding:7px 12px;border-radius:8px;font-size:12.5px;font-weight:500;color:var(--gr);transition:var(--tr);position:relative}
+.nl a:hover,.nl a.on{color:#fff;background:rgba(255,255,255,.07)}
+.nl a.on::after{content:'';display:block;width:4px;height:4px;border-radius:50%;background:var(--pink);margin:1px auto 0;box-shadow:var(--gp)}
+.nr{display:flex;align-items:center;gap:10px}
+.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:12px;padding:8px 18px}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.hbg span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:var(--tr)}
+.hbg.op span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hbg.op span:nth-child(2){opacity:0}
+.hbg.op span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mob{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(1,1,1,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--bp);padding:16px 22px;flex-direction:column;gap:3px;z-index:997}
+.mob.op{display:flex}
+.mob a{padding:11px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr)}
+.mob a:hover,.mob a.on{color:#fff;background:rgba(254,44,85,.1)}
+/* PAGE HERO */
+.phero{padding:130px 0 68px;background:linear-gradient(180deg,#0d0d0d 0%,var(--bg) 100%);text-align:center;position:relative;overflow:hidden}
+.phero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(254,44,85,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,244,238,.04) 1px,transparent 1px);background-size:55px 55px}
+.phero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--pink),var(--cyan),transparent)}
+.phero h1{font-size:clamp(40px,6vw,70px);position:relative;z-index:1}
+.phero p{color:var(--gr);font-size:15px;max-width:480px;margin:12px auto 0;position:relative;z-index:1}
+.breadcrumb{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12.5px;color:var(--gr);margin-top:16px;position:relative;z-index:1}
+.breadcrumb a{color:var(--cyan);transition:var(--tr)}
+.breadcrumb a:hover{color:var(--pink)}
+/* CARDS */
+.card{background:var(--card2);border:1px solid rgba(255,255,255,.06);border-radius:var(--r);padding:30px 26px;text-align:center;transition:var(--tr);position:relative;overflow:hidden;cursor:default}
+.card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--pink),var(--cyan));transform:scaleX(0);transition:var(--tr)}
+.card:hover{transform:translateY(-6px);border-color:var(--bp);box-shadow:0 10px 36px rgba(254,44,85,.2)}
+.card:hover::after{transform:scaleX(1)}
+.cic{width:62px;height:62px;border-radius:16px;background:rgba(254,44,85,.1);border:1px solid var(--bp);display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 18px;transition:var(--tr)}
+.card:hover .cic{box-shadow:0 0 22px rgba(254,44,85,.5);background:rgba(254,44,85,.2)}
+.card h3{font-size:19px;margin-bottom:8px;color:#fff}
+.card p{font-size:13.5px;color:var(--gr);line-height:1.7}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+/* TIMELINE */
+.tl{position:relative;padding-left:44px;max-width:720px;margin:0 auto}
+.tl::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--pink),var(--cyan),transparent)}
+.tli{position:relative;margin-bottom:38px}
+.tli::before{content:'';position:absolute;left:-36px;top:6px;width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--cyan));border:3px solid var(--bg);box-shadow:0 0 12px rgba(254,44,85,.5)}
+.tli-yr{font-family:'Bebas Neue',sans-serif;font-size:30px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:6px}
+.tli-t{font-size:18px;color:var(--wh);margin-bottom:6px;font-family:'Bebas Neue',sans-serif;letter-spacing:1px}
+[data-lang="bn"] .tli-t{font-family:'Hind Siliguri',sans-serif;letter-spacing:0}
+.tli-d{font-size:13.5px;color:var(--gr);line-height:1.75}
+/* MISSION VISION GRID */
+.mvgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.mvcol{background:var(--card2);border:1px solid rgba(255,255,255,.06);border-radius:var(--r);padding:32px 28px;transition:var(--tr)}
+.mvcol:hover{border-color:var(--bp);box-shadow:0 0 28px rgba(254,44,85,.15)}
+.mv-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.mv-ic{width:48px;height:48px;border-radius:12px;background:rgba(254,44,85,.12);border:1px solid var(--bp);display:flex;align-items:center;justify-content:center;font-size:22px}
+.mv-h2{font-size:22px;color:var(--wh)}
+[data-lang="bn"] .mv-h2{font-family:'Hind Siliguri',sans-serif;letter-spacing:0;font-size:20px}
+.mv-list{display:flex;flex-direction:column;gap:10px}
+.mv-li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--lt);line-height:1.6}
+.mv-li::before{content:'▸';color:var(--pink);font-size:12px;margin-top:2px;flex-shrink:0}
+/* ACTIVITY CARDS */
+.act-card{background:var(--card2);border:1px solid rgba(255,255,255,.06);border-radius:var(--r);padding:28px 22px;transition:var(--tr)}
+.act-card:hover{border-color:var(--bp);transform:translateY(-4px);box-shadow:0 0 24px rgba(254,44,85,.18)}
+.act-ic{font-size:36px;margin-bottom:14px;filter:drop-shadow(0 0 8px rgba(254,44,85,.3))}
+.act-card h3{font-size:22px;margin-bottom:10px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+[data-lang="bn"] .act-card h3{font-family:'Hind Siliguri',sans-serif;letter-spacing:0}
+.act-card p{font-size:13px;color:var(--gr);line-height:1.7;margin-bottom:14px}
+.act-card ul li{font-size:13px;color:var(--lt);padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:center;gap:8px}
+.act-card ul li::before{content:'▸';color:var(--cyan);font-size:10px}
+/* HIT ITEMS */
+.hit{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--card2);border-radius:var(--r);border:1px solid rgba(255,255,255,.06);font-size:13px;font-weight:500;transition:var(--tr);cursor:default}
+.hit:hover{border-color:var(--bp);box-shadow:0 0 18px rgba(254,44,85,.2);transform:translateY(-2px)}
+.hic{width:32px;height:32px;border-radius:8px;background:rgba(254,44,85,.12);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+/* FOOTER */
+footer{background:#050505;border-top:1px solid var(--bp);padding:58px 0 22px}
+.ftgr{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:38px;margin-bottom:44px}
+.ftdesc{color:var(--gr);font-size:13px;line-height:1.85;margin:14px 0 22px}
+.slnks{display:flex;gap:9px}
+.sa{width:38px;height:38px;border-radius:10px;background:var(--card2);border:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;color:var(--gr);font-size:16px;transition:var(--tr)}
+.sa:hover{transform:translateY(-2px)}
+.sa.fb:hover{background:#1877F2;border-color:#1877F2;color:#fff;box-shadow:0 0 16px rgba(24,119,242,.4)}
+.sa.yt:hover{background:#FF0000;border-color:#FF0000;color:#fff;box-shadow:0 0 16px rgba(255,0,0,.4)}
+.sa.ig:hover{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:#dc2743;color:#fff}
+.sa.em:hover{background:var(--pink);border-color:var(--pink);color:#fff;box-shadow:var(--gp)}
+.fcol h4{font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#fff;margin-bottom:18px}
+.fcol ul li{margin-bottom:9px}
+.fcol ul li a{color:var(--gr);font-size:13px;transition:var(--tr)}
+.fcol ul li a:hover{color:var(--pink);padding-left:4px}
+.ci2 li{display:flex;align-items:flex-start;gap:8px;color:var(--gr);font-size:12.5px;margin-bottom:9px}
+.ci2 .ico{color:var(--cyan);font-size:13px;margin-top:2px;flex-shrink:0}
+.ftbot{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.ftbot p,.ftbot .dev{color:var(--gr);font-size:11.5px}
+.ftbot .dev span{color:var(--pink)}
+/* LOADER */
+.ldr{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s,visibility .5s;flex-direction:column;gap:16px}
+.ldr.hid{opacity:0;visibility:hidden;pointer-events:none}
+.lring{width:50px;height:50px;border:3px solid rgba(254,44,85,.2);border-top-color:var(--pink);border-right-color:var(--cyan);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ltxt{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:4px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}.mvgrid{grid-template-columns:1fr}.ftgr{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.nl{display:none}.hbg{display:flex}.sp{padding:58px 0}.g3{grid-template-columns:1fr}.ftgr{grid-template-columns:1fr}.nr .lang-sw{display:none}}
+@media(max-width:460px){.ftbot{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+<div class="ldr" id="ldr"><div class="lring"></div><div class="ltxt">YSC</div></div>
+
+<header id="hdr">
+  <nav class="nav">
+    <a href="index.html" class="logo">
+      <div class="li">YSC</div>
+      <div class="lt"><span class="n1">YOUNG SPORTING</span><span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span></div>
+    </a>
+    <div class="nl">
+      <a href="index.html" data-en="Home" data-bn="হোম">Home</a>
+      <a href="about.html" class="on" data-en="About" data-bn="সম্পর্কে">About</a>
+      <a href="members.html" data-en="Members" data-bn="সদস্য">Members</a>
+      <a href="add-member.html" data-en="Add Member" data-bn="সদস্য যোগ">Add Member</a>
+      <a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+    </div>
+    <div class="nr">
+      <div class="lang-sw"><button class="lb on" onclick="setLang('en')">EN</button><button class="lb" onclick="setLang('bn')">বাং</button></div>
+      <a href="login.html" class="btn ncta" id="nav-login-btn" data-en="Login" data-bn="লগইন">Login</a>
+    </div>
+    <button class="hbg" id="hbg"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mob" id="mob">
+    <a href="index.html" data-en="Home" data-bn="হোম">Home</a>
+    <a href="about.html" class="on" data-en="About" data-bn="সম্পর্কে">About</a>
+    <a href="members.html" data-en="Members" data-bn="সদস্য">Members</a>
+    <a href="add-member.html" data-en="Add Member" data-bn="সদস্য যোগ">Add Member</a>
+    <a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+    <a href="login.html" data-en="Login" data-bn="লগইন">Login</a>
+    <div class="lang-sw" style="margin-top:10px"><button class="lb on" onclick="setLang('en')">EN</button><button class="lb" onclick="setLang('bn')">বাং</button></div>
+  </div>
+</header>
+
+<section class="phero">
+  <div class="container" data-aos="fade-down">
+    <span class="bdg"><span class="dot"></span><span data-en="Our Story" data-bn="আমাদের গল্প">Our Story</span></span>
+    <h1><span data-en="About" data-bn="সম্পর্কে">About</span> <span style="background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text" data-en="Us" data-bn="আমাদের">Us</span></h1>
+    <p data-en="Learn about our history, mission, vision and the activities that define Young Sporting Club." data-bn="আমাদের ইতিহাস, লক্ষ্য, দৃষ্টিভঙ্গি এবং ইয়ং স্পোর্টিং ক্লাবের কার্যক্রম সম্পর্কে জানুন।">Learn about our history, mission, vision and the activities that define Young Sporting Club.</p>
+    <div class="breadcrumb"><a href="index.html" data-en="Home" data-bn="হোম">Home</a><span>›</span><span data-en="About" data-bn="সম্পর্কে">About</span></div>
+  </div>
+</section>
+
+<!-- MISSION & VISION -->
+<section class="sp" style="background:var(--card)">
+  <div class="container">
+    <div class="tc" data-aos="fade-up">
+      <span class="bdg"><span class="dot"></span><span data-en="Purpose" data-bn="উদ্দেশ্য">Purpose</span></span>
+      <h2 class="sec-title"><span data-en="Mission &" data-bn="লক্ষ্য ও">Mission &</span> <span style="color:var(--cyan)" data-en="Vision" data-bn="দৃষ্টিভঙ্গি">Vision</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="mvgrid" data-aos="fade-up" data-aos-delay="100">
+      <div class="mvcol">
+        <div class="mv-head">
+          <div class="mv-ic">🎯</div>
+          <h3 class="mv-h2" data-en="Our Mission" data-bn="আমাদের লক্ষ্য">Our Mission</h3>
+        </div>
+        <div class="mv-list">
+          <div class="mv-li" data-en="Promote sports and healthy lifestyles among youth" data-bn="তরুণদের মধ্যে ক্রীড়া ও স্বাস্থ্যকর জীবনযাপন প্রসারিত করা">Promote sports and healthy lifestyles among youth</div>
+          <div class="mv-li" data-en="Encourage youth participation in community activities" data-bn="সামাজিক কার্যক্রমে তরুণদের অংশগ্রহণ উৎসাহিত করা">Encourage youth participation in community activities</div>
+          <div class="mv-li" data-en="Develop teamwork and leadership among young people" data-bn="তরুণদের মধ্যে দলগত কাজ ও নেতৃত্বের বিকাশ ঘটানো">Develop teamwork and leadership among young people</div>
+          <div class="mv-li" data-en="Organize sporting events and tournaments" data-bn="ক্রীড়া অনুষ্ঠান ও টুর্নামেন্ট আয়োজন করা">Organize sporting events and tournaments</div>
+          <div class="mv-li" data-en="Build a strong and united community" data-bn="একটি শক্তিশালী ও ঐক্যবদ্ধ সমাজ গড়ে তোলা">Build a strong and united community</div>
+        </div>
+      </div>
+      <div class="mvcol">
+        <div class="mv-head">
+          <div class="mv-ic" style="background:rgba(37,244,238,.1);border-color:var(--bc)">🔭</div>
+          <h3 class="mv-h2" data-en="Our Vision" data-bn="আমাদের দৃষ্টিভঙ্গি">Our Vision</h3>
+        </div>
+        <div class="mv-list">
+          <div class="mv-li" data-en="Become the most respected community sports club in the region" data-bn="অঞ্চলের সবচেয়ে সম্মানিত সামাজিক ক্রীড়া ক্লাব হওয়া">Become the most respected community sports club in the region</div>
+          <div class="mv-li" data-en="Empower youth through sports, unity and social responsibility" data-bn="ক্রীড়া, ঐক্য ও সামাজিক দায়িত্বের মাধ্যমে তরুণদের ক্ষমতায়ন করা">Empower youth through sports, unity and social responsibility</div>
+          <div class="mv-li" data-en="Create opportunities for young talent to flourish" data-bn="তরুণ প্রতিভার বিকাশে সুযোগ তৈরি করা">Create opportunities for young talent to flourish</div>
+          <div class="mv-li" data-en="Inspire the next generation of community leaders" data-bn="পরবর্তী প্রজন্মের সমাজনেতাদের অনুপ্রাণিত করা">Inspire the next generation of community leaders</div>
+          <div class="mv-li" data-en="Maintain a legacy of excellence since 2009" data-bn="২০০৯ সাল থেকে শ্রেষ্ঠত্বের ঐতিহ্য বজায় রাখা">Maintain a legacy of excellence since 2009</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY / TIMELINE -->
+<section class="sp" style="background:var(--bg)">
+  <div class="container">
+    <div class="tc" data-aos="fade-up">
+      <span class="bdg"><span class="dot"></span><span data-en="Our Journey" data-bn="আমাদের যাত্রা">Our Journey</span></span>
+      <h2 class="sec-title"><span data-en="Club" data-bn="ক্লাবের">Club</span> <span style="color:var(--cyan)" data-en="History" data-bn="ইতিহাস">History</span></h2>
+      <div class="divider"></div>
+      <p class="sub" data-en="From humble beginnings in Shingrahully to a proud sporting legacy in Moulvibazar." data-bn="শিংড়াউলীর বিনম্র সূচনা থেকে মৌলভীবাজারের গর্বিত ক্রীড়া ঐতিহ্যে।">From humble beginnings in Shingrahully to a proud sporting legacy in Moulvibazar.</p>
+    </div>
+    <div class="tl" data-aos="fade-up" data-aos-delay="100">
+      <div class="tli">
+        <div class="tli-yr">2009</div>
+        <div class="tli-t" data-en="The Foundation — 13 January 2009" data-bn="প্রতিষ্ঠা — ১৩ জানুয়ারি ২০০৯">The Foundation — 13 January 2009</div>
+        <div class="tli-d" data-en="Young Sporting Club was founded on Monday, 13 January 2009 by a group of enthusiastic young people in the Shingrahully area of Shamsher Nagar, Kamalganj, Moulvibazar. The founders aimed to create a platform where local youth could participate in sports, build friendships, and contribute to community development." data-bn="ইয়ং স্পোর্টিং ক্লাব ২০০৯ সালের সোমবার, ১৩ জানুয়ারি মৌলভীবাজারের কমলগঞ্জ, শমশেরনগরের শিংড়াউলী এলাকার কিছু উৎসাহী তরুণের দ্বারা প্রতিষ্ঠিত হয়। প্রতিষ্ঠাতারা স্থানীয় তরুণদের ক্রীড়ায় অংশগ্রহণ, বন্ধুত্ব গড়ে তোলা এবং সম্প্রদায়ের উন্নয়নে অবদান রাখার একটি প্ল্যাটফর্ম তৈরি করতে চেয়েছিলেন।">Young Sporting Club was founded on Monday, 13 January 2009 by a group of enthusiastic young people in the Shingrahully area of Shamsher Nagar, Kamalganj, Moulvibazar.</div>
+      </div>
+      <div class="tli">
+        <div class="tli-yr">2010</div>
+        <div class="tli-t" data-en="First Football Tournament" data-bn="প্রথম ফুটবল টুর্নামেন্ট">First Football Tournament</div>
+        <div class="tli-d" data-en="The club organized its first official football tournament, bringing together teams from across Shamsher Nagar. This event established YSC as a serious sporting organization in the local community." data-bn="ক্লাব তার প্রথম অফিসিয়াল ফুটবল টুর্নামেন্ট আয়োজন করে, যেখানে শমশেরনগর জুড়ে দলগুলো একত্রিত হয়। এই আয়োজন স্থানীয় সমাজে YSC-কে একটি গুরুত্বপূর্ণ ক্রীড়া সংগঠন হিসেবে প্রতিষ্ঠিত করে।">The club organized its first official football tournament, establishing YSC as a serious sporting organization in the local community.</div>
+      </div>
+      <div class="tli">
+        <div class="tli-yr">2012</div>
+        <div class="tli-t" data-en="Cricket Wing Established" data-bn="ক্রিকেট শাখা প্রতিষ্ঠা">Cricket Wing Established</div>
+        <div class="tli-d" data-en="A dedicated cricket team was formed, expanding the club beyond football. Regular cricket matches and training sessions began attracting new members and talent from the surrounding areas." data-bn="একটি নিবেদিত ক্রিকেট দল গঠিত হয়, ক্লাবকে ফুটবলের বাইরে প্রসারিত করে। নিয়মিত ক্রিকেট ম্যাচ ও প্রশিক্ষণ সেশন আশেপাশের এলাকা থেকে নতুন সদস্য ও প্রতিভা আকৃষ্ট করতে শুরু করে।">A dedicated cricket team was formed, expanding the club beyond football and attracting new talent from surrounding areas.</div>
+      </div>
+      <div class="tli">
+        <div class="tli-yr">2015</div>
+        <div class="tli-t" data-en="Community Recognition" data-bn="সামাজিক স্বীকৃতি">Community Recognition</div>
+        <div class="tli-d" data-en="Young Sporting Club received recognition as an active youth organization contributing to sports development and community welfare. Badminton events were also introduced during this period." data-bn="ইয়ং স্পোর্টিং ক্লাব ক্রীড়া উন্নয়ন ও সামাজিক কল্যাণে অবদান রাখার জন্য একটি সক্রিয় যুব সংগঠন হিসেবে স্বীকৃতি পায়। এই সময়কালে ব্যাডমিন্টন ইভেন্টও চালু হয়।">YSC received recognition as an active youth organization. Badminton events were also introduced during this period.</div>
+      </div>
+      <div class="tli">
+        <div class="tli-yr">2018</div>
+        <div class="tli-t" data-en="Cultural Wing & Social Programs" data-bn="সাংস্কৃতিক শাখা ও সামাজিক কার্যক্রম">Cultural Wing & Social Programs</div>
+        <div class="tli-d" data-en="The club expanded its activities beyond sports to include annual cultural programs, Eid celebrations, and community service initiatives, cementing its role as a holistic community organization." data-bn="ক্লাব তার কার্যক্রম ক্রীড়ার বাইরে বার্ষিক সাংস্কৃতিক অনুষ্ঠান, ঈদ উদযাপন এবং সামাজিক সেবা উদ্যোগ অন্তর্ভুক্ত করতে প্রসারিত করে।">The club expanded to include annual cultural programs, Eid celebrations and community service initiatives.</div>
+      </div>
+      <div class="tli">
+        <div class="tli-yr">2024</div>
+        <div class="tli-t" data-en="17 Years Strong — Still Going!" data-bn="১৭ বছর শক্তিশালী — এখনও এগিয়ে চলছে!">17 Years Strong — Still Going!</div>
+        <div class="tli-d" data-en="Young Sporting Club celebrates over 15 years of sports, community service, and youth empowerment in Shingrahully. With 100+ active members, the club continues to inspire the next generation of athletes and community leaders." data-bn="ইয়ং স্পোর্টিং ক্লাব শিংড়াউলীতে ক্রীড়া, সামাজিক সেবা এবং যুব ক্ষমতায়নে ১৫ বছরেরও বেশি সময় উদযাপন করে। ১০০+ সক্রিয় সদস্য নিয়ে, ক্লাবটি পরবর্তী প্রজন্মের ক্রীড়াবিদ ও সমাজনেতাদের অনুপ্রাণিত করতে থাকে।">YSC celebrates over 15 years with 100+ active members, continuing to inspire the next generation of athletes and community leaders.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section class="sp" style="background:var(--card)">
+  <div class="container">
+    <div class="tc" data-aos="fade-up">
+      <span class="bdg"><span class="dot"></span><span data-en="What We Do" data-bn="আমরা কী করি">What We Do</span></span>
+      <h2 class="sec-title"><span data-en="Our" data-bn="আমাদের">Our</span> <span style="color:var(--cyan)" data-en="Activities" data-bn="কার্যক্রম">Activities</span></h2>
+      <div class="divider"></div>
+      <p class="sub" data-en="Young Sporting Club organizes various activities throughout the year for youth and community." data-bn="ইয়ং স্পোর্টিং ক্লাব সারা বছর তরুণ ও সমাজের জন্য বিভিন্ন কার্যক্রম আয়োজন করে।">Young Sporting Club organizes various activities throughout the year for youth and community.</p>
+    </div>
+    <div class="g3">
+      <div class="act-card" data-aos="fade-up">
+        <div class="act-ic">⚽</div>
+        <h3 data-en="Sports" data-bn="ক্রীড়া">Sports</h3>
+        <p data-en="Competitive and recreational sports events year-round." data-bn="সারা বছর প্রতিযোগিতামূলক ও বিনোদনমূলক ক্রীড়া ইভেন্ট।">Competitive and recreational sports events year-round.</p>
+        <ul>
+          <li data-en="Football Tournaments" data-bn="ফুটবল টুর্নামেন্ট">Football Tournaments</li>
+          <li data-en="Cricket Matches" data-bn="ক্রিকেট ম্যাচ">Cricket Matches</li>
+          <li data-en="Badminton Championships" data-bn="ব্যাডমিন্টন চ্যাম্পিয়নশিপ">Badminton Championships</li>
+          <li data-en="Youth Sports Training" data-bn="যুব ক্রীড়া প্রশিক্ষণ">Youth Sports Training</li>
+          <li data-en="Annual Sports Day" data-bn="বার্ষিক ক্রীড়া দিবস">Annual Sports Day</li>
+        </ul>
+      </div>
+      <div class="act-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="act-ic">🎭</div>
+        <h3 data-en="Cultural" data-bn="সাংস্কৃতিক">Cultural</h3>
+        <p data-en="Celebrating culture, heritage and talent together as a community." data-bn="সম্প্রদায় হিসেবে সংস্কৃতি, ঐতিহ্য এবং প্রতিভা একসাথে উদযাপন।">Celebrating culture, heritage and talent together as a community.</p>
+        <ul>
+          <li data-en="Eid Celebrations" data-bn="ঈদ উদযাপন">Eid Celebrations</li>
+          <li data-en="Annual Cultural Festival" data-bn="বার্ষিক সাংস্কৃতিক উৎসব">Annual Cultural Festival</li>
+          <li data-en="Foundation Day (13 Jan)" data-bn="প্রতিষ্ঠা দিবস (১৩ জানু)">Foundation Day (13 Jan)</li>
+          <li data-en="Music & Performance Shows" data-bn="সংগীত ও পরিবেশনা অনুষ্ঠান">Music & Performance Shows</li>
+          <li data-en="Community Gatherings" data-bn="সামাজিক সমাবেশ">Community Gatherings</li>
+        </ul>
+      </div>
+      <div class="act-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="act-ic">🤝</div>
+        <h3 data-en="Social Service" data-bn="সমাজসেবা">Social Service</h3>
+        <p data-en="Making a positive difference in our local community through service." data-bn="সেবার মাধ্যমে আমাদের স্থানীয় সমাজে ইতিবাচক পরিবর্তন আনা।">Making a positive difference in our local community through service.</p>
+        <ul>
+          <li data-en="Community Support Programs" data-bn="সামাজিক সহায়তা কার্যক্রম">Community Support Programs</li>
+          <li data-en="Youth Engagement Initiatives" data-bn="যুব সম্পৃক্ততা উদ্যোগ">Youth Engagement Initiatives</li>
+          <li data-en="Local Development Projects" data-bn="স্থানীয় উন্নয়ন প্রকল্প">Local Development Projects</li>
+          <li data-en="Education Support" data-bn="শিক্ষা সহায়তা">Education Support</li>
+          <li data-en="Health Awareness Programs" data-bn="স্বাস্থ্য সচেতনতা কার্যক্রম">Health Awareness Programs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLUB STRUCTURE -->
+<section class="sp" style="background:var(--bg)">
+  <div class="container">
+    <div class="tc" data-aos="fade-up">
+      <span class="bdg"><span class="dot"></span><span data-en="Leadership" data-bn="নেতৃত্ব">Leadership</span></span>
+      <h2 class="sec-title"><span data-en="Club" data-bn="ক্লাব">Club</span> <span style="color:var(--cyan)" data-en="Structure" data-bn="কাঠামো">Structure</span></h2>
+      <div class="divider"></div>
+      <p class="sub" data-en="The organizational structure of Young Sporting Club." data-bn="ইয়ং স্পোর্টিং ক্লাবের সাংগঠনিক কাঠামো।">The organizational structure of Young Sporting Club.</p>
+    </div>
+    <div class="g3" data-aos="fade-up" data-aos-delay="100">
+      <div class="card"><div class="cic">🏅</div><h3 data-en="President" data-bn="সভাপতি">President</h3><p data-en="Leads the club, oversees all operations and represents Young Sporting Club." data-bn="ক্লাবের নেতৃত্ব দেন, সকল কার্যক্রম পরিচালনা করেন এবং YSC প্রতিনিধিত্ব করেন।">Leads the club, oversees all operations and represents Young Sporting Club.</p></div>
+      <div class="card"><div class="cic">🥈</div><h3 data-en="Vice President" data-bn="সহ-সভাপতি">Vice President</h3><p data-en="Supports the President and leads club activities in their absence." data-bn="সভাপতিকে সহায়তা করেন এবং তাঁর অনুপস্থিতিতে ক্লাব পরিচালনা করেন।">Supports the President and leads club activities in their absence.</p></div>
+      <div class="card"><div class="cic">📋</div><h3 data-en="General Secretary" data-bn="সাধারণ সম্পাদক">General Secretary</h3><p data-en="Manages club records, communications and coordinates all club programs." data-bn="ক্লাবের রেকর্ড, যোগাযোগ পরিচালনা করেন এবং সকল ক্লাব কার্যক্রম সমন্বয় করেন।">Manages club records, communications and coordinates all club programs.</p></div>
+      <div class="card"><div class="cic">📝</div><h3 data-en="Asst. Secretary" data-bn="সহকারী সম্পাদক">Asst. Secretary</h3><p data-en="Assists the General Secretary in managing day-to-day administrative tasks." data-bn="সাধারণ সম্পাদককে দৈনিক প্রশাসনিক কাজে সহায়তা করেন।">Assists the General Secretary in managing day-to-day administrative tasks.</p></div>
+      <div class="card"><div class="cic">💰</div><h3 data-en="Treasurer" data-bn="কোষাধ্যক্ষ">Treasurer</h3><p data-en="Manages the club's finances, maintains accounts and oversees all transactions." data-bn="ক্লাবের অর্থ পরিচালনা করেন, হিসাব রাখেন এবং সকল লেনদেন তদারক করেন।">Manages the club's finances, maintains accounts and oversees all transactions.</p></div>
+      <div class="card"><div class="cic">⚽</div><h3 data-en="Sports Secretary" data-bn="ক্রীড়া সম্পাদক">Sports Secretary</h3><p data-en="Organizes and manages all sports events, tournaments and training programs." data-bn="সকল ক্রীড়া ইভেন্ট, টুর্নামেন্ট এবং প্রশিক্ষণ কার্যক্রম আয়োজন ও পরিচালনা করেন।">Organizes and manages all sports events, tournaments and training programs.</p></div>
+    </div>
+    <div class="tc" style="margin-top:36px" data-aos="fade-up">
+      <a href="members.html" class="btn btn-pk"><i class="fas fa-users"></i> <span data-en="View All Members" data-bn="সকল সদস্য দেখুন">View All Members</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="ftgr">
+      <div>
+        <div class="logo"><div class="li">YSC</div><div class="lt"><span class="n1">YOUNG SPORTING CLUB</span><span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জান ২০০৯">Est. 13 Jan 2009</span></div></div>
+        <p class="ftdesc" data-en="A community-based youth organization in Shingrahully, Shamsher Nagar, Moulvibazar since 2009." data-bn="২০০৯ সাল থেকে মৌলভীবাজারের শমশেরনগর, শিংড়াউলীর একটি সমাজভিত্তিক যুব সংগঠন।">A community-based youth organization in Shingrahully, Shamsher Nagar, Moulvibazar since 2009.</p>
+        <div class="slnks">
+          <a href="#" class="sa fb"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="sa yt"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="sa ig"><i class="fab fa-instagram"></i></a>
+          <a href="mailto:support.youngsportingclub@gmail.com" class="sa em"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="fcol">
+        <h4 data-en="Quick Links" data-bn="দ্রুত লিংক">Quick Links</h4>
+        <ul>
+          <li><a href="index.html" data-en="Home" data-bn="হোম">Home</a></li>
+          <li><a href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a></li>
+          <li><a href="members.html" data-en="Members" data-bn="সদস্য">Members</a></li>
+          <li><a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4 data-en="Our Sports" data-bn="আমাদের খেলা">Our Sports</h4>
+        <ul>
+          <li><a href="#" data-en="⚽ Football" data-bn="⚽ ফুটবল">⚽ Football</a></li>
+          <li><a href="#" data-en="🏏 Cricket" data-bn="🏏 ক্রিকেট">🏏 Cricket</a></li>
+          <li><a href="#" data-en="🏸 Badminton" data-bn="🏸 ব্যাডমিন্টন">🏸 Badminton</a></li>
+          <li><a href="#" data-en="🎭 Cultural Events" data-bn="🎭 সাংস্কৃতিক অনুষ্ঠান">🎭 Cultural Events</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4 data-en="Contact" data-bn="যোগাযোগ">Contact</h4>
+        <ul class="ci2">
+          <li><span class="ico"><i class="fas fa-map-marker-alt"></i></span><span data-en="Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar" data-bn="শিংড়াউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার">Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar</span></li>
+          <li><span class="ico"><i class="fas fa-phone"></i></span><a href="tel:+8801724238581" style="color:var(--gr)">+880 1724-238581</a></li>
+          <li><span class="ico"><i class="fas fa-envelope"></i></span><a href="mailto:support.youngsportingclub@gmail.com" style="color:var(--gr);word-break:break-all">support.youngsportingclub@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftbot">
+      <p data-en="© 2024 Young Sporting Club. All rights reserved." data-bn="© ২০২৬ ইয়ং স্পোর্টিং ক্লাব। সর্বস্বত্ব সংরক্ষিত।">© 2026 Young Sporting Club. All rights reserved.</p>
+      <p class="dev" data-en="Developed by <span>Farabi Walid</span>" data-bn="তৈরি করেছেন <span>ফারাবি ওয়ালিদ</span>">Developed by <span>Farabi Walid</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+const FC={apiKey:"AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",authDomain:"youngsportingclub.firebaseapp.com",databaseURL:"https://youngsportingclub-default-rtdb.asia-southeast1.firebasedatabase.app",projectId:"youngsportingclub",storageBucket:"youngsportingclub.firebasestorage.app",messagingSenderId:"724732761340",appId:"1:724732761340:web:dc664c10d55d5bb87cb379"};
+const app=initializeApp(FC),auth=getAuth(app);
+onAuthStateChanged(auth,user=>{
+  const btn=document.getElementById('nav-login-btn');if(!btn)return;
+  if(user){const i=(user.displayName||user.email)[0].toUpperCase();const lg=document.documentElement.getAttribute('data-lang')||'en';btn.innerHTML=`<span style="display:inline-flex;align-items:center;gap:7px;background:rgba(254,44,85,.12);border:1px solid rgba(254,44,85,.3);padding:5px 12px 5px 5px;border-radius:50px;font-size:12px;font-weight:700"><span style="width:26px;height:26px;background:linear-gradient(135deg,#FE2C55,#25F4EE);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#010101;font-family:'Bebas Neue',sans-serif;font-size:15px">${i}</span>${lg==='bn'?'লগআউট':'Logout'}</span>`;btn.onclick=async e=>{e.preventDefault();await signOut(auth);location.reload();};}
+});
+AOS.init({duration:700,once:true,offset:55});
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('ldr').classList.add('hid'),500));
+window.addEventListener('scroll',()=>document.getElementById('hdr').classList.toggle('sc',window.scrollY>28));
+const hbg=document.getElementById('hbg'),mob=document.getElementById('mob');
+hbg.addEventListener('click',()=>{hbg.classList.toggle('op');mob.classList.toggle('op');});
+</script>
+<script>
+let CL=(function(){try{return localStorage.getItem('ysc-lang')||'en';}catch(e){return 'en';}})();
+function setLang(lang){CL=lang;try{localStorage.setItem('ysc-lang',lang);}catch(e){}document.documentElement.setAttribute('data-lang',lang);document.documentElement.lang=lang==='bn'?'bn':'en';document.querySelectorAll('[data-en]').forEach(el=>{const v=el.getAttribute('data-'+lang);if(v===null)return;if(v.includes('<'))el.innerHTML=v;else el.textContent=v;});document.querySelectorAll('.lb').forEach(b=>{b.classList.remove('on');if((lang==='en'&&b.textContent.trim()==='EN')||(lang==='bn'&&b.textContent.trim()==='বাং'))b.classList.add('on');});}
+document.addEventListener('DOMContentLoaded',()=>setLang(CL));
+</script>
+</body>
+</html>
