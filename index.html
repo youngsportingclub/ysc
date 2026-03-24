@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Young Sporting Club</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+            color: #333;
+        }
+
+        header {
+            background: #0d6efd;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav {
+            background: #083c9c;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background: url('https://images.unsplash.com/photo-1505842465776-3d90f6163106') no-repeat center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            background: rgba(0,0,0,0.5);
+            padding: 20px 30px;
+            border-radius: 10px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0d6efd;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background: #0d6efd;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Young Sporting Club</h1>
+    <p>Established 2009</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <h1>Welcome to Young Sporting Club</h1>
+</section>
+
+<div class="container" id="about">
+    <h2 class="section-title">About Our Club</h2>
+    <p style="text-align:center;">
+        Young Sporting Club is a community-based sports organization founded in 2009. 
+        We promote teamwork, fitness, and youth development through football and other sports activities.
+    </p>
+</div>
+
+<div class="container" id="team">
+    <h2 class="section-title">Our Team</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Captain</h3>
+            <p>Team leader and strategist on the field.</p>
+        </div>
+        <div class="card">
+            <h3>Players</h3>
+            <p>Dedicated athletes representing our club in competitions.</p>
+        </div>
+        <div class="card">
+            <h3>Management</h3>
+            <p>Organizing events, matches, and club activities.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="events">
+    <h2 class="section-title">Upcoming Events</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Local Tournament</h3>
+            <p>Date: Coming Soon</p>
+        </div>
+        <div class="card">
+            <h3>Friendly Match</h3>
+            <p>Date: Coming Soon</p>
+        </div>
+    </div>
+</div>
+
+<footer id="contact">
+    <p>&copy; 2009 - 2026 Young Sporting Club. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
