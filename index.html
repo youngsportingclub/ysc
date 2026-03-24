@@ -2,13 +2,31 @@
 <html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes"/>
 <title>Young Sporting Club — Home</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#010101;--bg2:#0a0a0a;--card:#111;--card2:#161616;--pink:#FE2C55;--cyan:#25F4EE;--wh:#fff;--gr:#888;--lt:#ccc;--bp:rgba(254,44,85,.25);--bc:rgba(37,244,238,.22);--gp:0 0 22px rgba(254,44,85,.5);--gc:0 0 22px rgba(37,244,238,.5);--gdual:-5px 0 22px rgba(254,44,85,.3),5px 0 22px rgba(37,244,238,.3);--r:14px;--tr:all .3s cubic-bezier(.4,0,.2,1)}
+:root{
+    --bg:#010101;
+    --bg2:#0a0a0a;
+    --card:#111;
+    --card2:#161616;
+    --pink:#FE2C55;
+    --cyan:#25F4EE;
+    --wh:#fff;
+    --gr:#888;
+    --lt:#ccc;
+    --bp:rgba(254,44,85,.25);
+    --bc:rgba(37,244,238,.22);
+    --gp:0 0 22px rgba(254,44,85,.5);
+    --gc:0 0 22px rgba(37,244,238,.5);
+    --gdual:-5px 0 22px rgba(254,44,85,.3),5px 0 22px rgba(37,244,238,.3);
+    --r:14px;
+    --tr:all .3s cubic-bezier(.4,0,.2,1);
+    --whatsapp:#25D366;
+}
 [data-lang="bn"]{font-family:'Hind Siliguri',sans-serif}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -21,23 +39,19 @@ ul{list-style:none}
 .container{max-width:1200px;margin:0 auto;padding:0 22px}
 .sp{padding:90px 0}
 .tc{text-align:center}
-/* BADGE */
 .bdg{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--bp);background:rgba(254,44,85,.08);color:var(--pink);padding:5px 16px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
 .bdg .dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:blink 1.8s infinite;box-shadow:0 0 6px var(--pink)}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 .sec-title{font-size:clamp(34px,5vw,54px);margin-bottom:10px}
 .divider{width:52px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));margin:12px auto 20px}
 .sub{color:var(--gr);font-size:15px;max-width:520px;margin:0 auto 46px;line-height:1.75}
-/* BUTTONS */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:50px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none;text-transform:uppercase;letter-spacing:.5px;transition:var(--tr)}
 .btn-pk{background:linear-gradient(135deg,var(--pink),#b0001a);color:#fff}.btn-pk:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(254,44,85,.55)}
 .btn-cy{background:linear-gradient(135deg,var(--cyan),#00adaa);color:#010101;font-weight:800}.btn-cy:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,244,238,.55)}
 .btn-ol{background:transparent;color:var(--wh);border:1.5px solid rgba(255,255,255,.2)}.btn-ol:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:var(--gc)}
-/* LANG SWITCHER */
 .lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:3px}
 .lb{padding:5px 13px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:var(--tr);background:none;border:none;color:var(--gr)}
 .lb.on{background:linear-gradient(135deg,var(--pink),var(--cyan));color:#010101}
-/* HEADER */
 #hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr)}
 #hdr.sc{background:rgba(1,1,1,.94);backdrop-filter:blur(22px);border-bottom:1px solid var(--bp);box-shadow:0 2px 28px rgba(254,44,85,.12)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:9px 22px;max-width:1200px;margin:0 auto}
@@ -46,7 +60,7 @@ ul{list-style:none}
 .lt{display:flex;flex-direction:column;line-height:1}
 .lt .n1{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .lt .n2{font-size:9px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px}
-.nl{display:flex;align-items:center;gap:3px}
+.nl{display:flex;align-items:center;gap:3px;flex-wrap:wrap}
 .nl a{padding:7px 12px;border-radius:8px;font-size:12.5px;font-weight:500;color:var(--gr);transition:var(--tr);position:relative}
 .nl a:hover,.nl a.on{color:#fff;background:rgba(255,255,255,.07)}
 .nl a.on::after{content:'';display:block;width:4px;height:4px;border-radius:50%;background:var(--pink);margin:1px auto 0;box-shadow:var(--gp)}
@@ -61,7 +75,6 @@ ul{list-style:none}
 .mob.op{display:flex}
 .mob a{padding:11px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr)}
 .mob a:hover,.mob a.on{color:#fff;background:rgba(254,44,85,.1)}
-/* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:74px}
 .hbg2{position:absolute;inset:0;background:radial-gradient(ellipse 75% 60% at 68% 48%,rgba(254,44,85,.08),transparent 65%),radial-gradient(ellipse 55% 45% at 18% 72%,rgba(37,244,238,.06),transparent 58%),var(--bg);z-index:0}
 .hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(254,44,85,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,244,238,.04) 1px,transparent 1px);background-size:55px 55px;z-index:0}
@@ -88,11 +101,10 @@ ul{list-style:none}
 .hloc{display:flex;align-items:flex-start;gap:7px;font-size:12px;color:var(--cyan);margin-bottom:28px;line-height:1.5}
 .hloc i{margin-top:3px}
 .hbtns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:42px}
-.hstats{display:flex;gap:28px}
+.hstats{display:flex;gap:28px;flex-wrap:wrap}
 .hst .num{font-family:'Bebas Neue',sans-serif;font-size:42px;color:#fff;line-height:1;display:flex;align-items:flex-start}
 .hst .num sup{font-size:20px;color:var(--pink);line-height:1.5}
 .hst .lbl{font-size:11px;color:var(--gr);text-transform:uppercase;letter-spacing:1.5px;font-weight:500}
-/* Hero Right Badge */
 .hro{display:flex;justify-content:center;align-items:center;position:relative}
 .bring{width:310px;height:310px;border-radius:50%;border:3px solid transparent;background:linear-gradient(var(--bg2),var(--bg2)) padding-box,linear-gradient(135deg,var(--pink),var(--cyan)) border-box;display:flex;align-items:center;justify-content:center;animation:spinslow 20s linear infinite;box-shadow:var(--gdual)}
 @keyframes spinslow{to{transform:rotate(360deg)}}
@@ -106,7 +118,6 @@ ul{list-style:none}
 .hscr{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--gr);font-size:10px;letter-spacing:2px;text-transform:uppercase;z-index:2;animation:bncsc 2.2s ease-in-out infinite}
 .hscr .scrl{width:1px;height:36px;background:linear-gradient(to bottom,var(--pink),transparent)}
 @keyframes bncsc{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
-/* STATS BAND */
 .stb{background:var(--card);border-top:1px solid var(--bp);border-bottom:1px solid var(--bc);padding:26px 0;position:relative;overflow:hidden}
 .stb::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(254,44,85,.04),rgba(37,244,238,.04));pointer-events:none}
 .stbg{display:grid;grid-template-columns:repeat(4,1fr)}
@@ -114,7 +125,16 @@ ul{list-style:none}
 .sti:last-child{border-right:none}
 .sti .sn{font-family:'Bebas Neue',sans-serif;font-size:46px;background:linear-gradient(135deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
 .sti .sl{font-size:11px;color:var(--gr);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px}
-/* ABOUT */
+.date-bar{background:rgba(0,0,0,.5);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);border-radius:50px;padding:8px 22px;margin:20px auto;display:inline-flex;flex-wrap:wrap;gap:12px;justify-content:center;font-size:12px;font-weight:500}
+.date-item{display:flex;align-items:center;gap:8px;color:var(--lt)}
+.date-item i{color:var(--cyan);font-size:12px}
+.upcoming-events{background:var(--card2);border-radius:var(--r);padding:24px;margin:40px 0 0;border:1px solid rgba(255,255,255,.06)}
+.upcoming-events h3{font-size:18px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.event-slider{display:flex;gap:16px;overflow-x:auto;padding:8px 4px;scrollbar-width:thin}
+.event-card{min-width:260px;background:var(--bg);border-radius:var(--r);padding:16px;border:1px solid var(--bp);flex-shrink:0}
+.event-card .event-date{font-size:11px;color:var(--pink);font-weight:700;margin-bottom:8px}
+.event-card .event-title{font-size:15px;font-weight:600;margin-bottom:6px}
+.event-card .event-desc{font-size:12px;color:var(--gr)}
 .agrid{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
 .avis{position:relative}
 .afr{width:100%;aspect-ratio:4/3;background:var(--card);border-radius:var(--r);border:1px solid var(--bp);overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative}
@@ -129,7 +149,6 @@ ul{list-style:none}
 .hit{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--card2);border-radius:var(--r);border:1px solid rgba(255,255,255,.06);font-size:13px;font-weight:500;transition:var(--tr);cursor:default}
 .hit:hover{border-color:var(--bp);box-shadow:0 0 18px rgba(254,44,85,.2);transform:translateY(-2px)}
 .hic{width:32px;height:32px;border-radius:8px;background:rgba(254,44,85,.12);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-/* ACHIEVEMENTS */
 .asec{background:var(--card);position:relative;overflow:hidden}
 .asec::before{content:'CHAMPIONS';position:absolute;font-family:'Bebas Neue',sans-serif;font-size:180px;color:rgba(254,44,85,.025);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;letter-spacing:20px;pointer-events:none}
 .agr{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -143,24 +162,21 @@ ul{list-style:none}
 .ac2 h3{font-size:18px;margin-bottom:8px;color:#fff}
 .ac2 p{font-size:12.5px;color:var(--gr);line-height:1.65}
 .ayr{display:inline-block;margin-top:14px;padding:4px 12px;background:rgba(37,244,238,.08);color:var(--cyan);border-radius:50px;font-size:10.5px;font-weight:700;letter-spacing:.5px;border:1px solid var(--bc)}
-/* COMMITTEE */
 .cgr{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:32px}
 .cc{background:var(--card2);border:1px solid rgba(255,255,255,.06);border-radius:var(--r);padding:26px 18px;text-align:center;transition:var(--tr);cursor:default}
 .cc:hover{transform:translateY(-5px);border-color:var(--bp);box-shadow:0 0 28px rgba(254,44,85,.2)}
 .cav{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--cyan));margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:26px;color:#010101;box-shadow:var(--gdual)}
 .cc h4{font-size:15px;margin-bottom:3px;color:#fff}
 .cc .role{font-size:10.5px;color:var(--pink);text-transform:uppercase;letter-spacing:1px;font-weight:700}
-/* CTA */
 .ctasec{background:linear-gradient(135deg,rgba(254,44,85,.1),rgba(37,244,238,.07));border-top:1px solid var(--bp);border-bottom:1px solid var(--bc);text-align:center;position:relative;overflow:hidden}
 .ctasec::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(254,44,85,.08),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 .ctasec h2{font-size:clamp(34px,5vw,58px);margin-bottom:14px}
 .ctasec p{color:var(--gr);font-size:15px;margin-bottom:34px;max-width:480px;margin-left:auto;margin-right:auto}
 .ctabtns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-/* FOOTER */
 footer{background:#050505;border-top:1px solid var(--bp);padding:58px 0 22px}
 .ftgr{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:38px;margin-bottom:44px}
 .ftdesc{color:var(--gr);font-size:13px;line-height:1.85;margin:14px 0 22px}
-.slnks{display:flex;gap:9px}
+.slnks{display:flex;gap:9px;flex-wrap:wrap}
 .sa{width:38px;height:38px;border-radius:10px;background:var(--card2);border:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;color:var(--gr);font-size:16px;transition:var(--tr)}
 .sa:hover{transform:translateY(-2px)}
 .sa.fb:hover{background:#1877F2;border-color:#1877F2;color:#fff;box-shadow:0 0 16px rgba(24,119,242,.4)}
@@ -176,515 +192,532 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:58px 0 22px}
 .ftbot{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .ftbot p,.ftbot .dev{color:var(--gr);font-size:11.5px}
 .ftbot .dev span{color:var(--pink)}
-/* LOADER */
+.fdbox{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+/* Floating WhatsApp Button */
+.whatsapp-float{position:fixed;bottom:25px;right:25px;z-index:999;background:var(--whatsapp);width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:var(--tr);cursor:pointer}
+.whatsapp-float:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.6)}
+.whatsapp-float i{font-size:30px;color:#fff}
+/* Ad Banner */
+.ad-banner{max-width:300px;margin:20px auto;text-align:center;background:rgba(0,0,0,.3);border-radius:12px;padding:6px;border:1px solid rgba(255,255,255,.05)}
+.ad-banner ins.adsbygoogle{display:block}
+/* Toast Notification */
+.toast{position:fixed;bottom:100px;right:25px;background:var(--card2);border-left:4px solid var(--pink);border-radius:12px;padding:12px 18px;font-size:13px;z-index:998;transform:translateX(120%);transition:transform .4s ease;max-width:280px;box-shadow:0 8px 28px rgba(0,0,0,.3)}
+.toast.show{transform:translateX(0)}
+.toast .toast-title{font-weight:700;margin-bottom:4px;color:var(--pink)}
+.toast .toast-close{position:absolute;top:8px;right:12px;cursor:pointer;font-size:14px;color:var(--gr)}
+/* Loader */
 .ldr{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s,visibility .5s;flex-direction:column;gap:16px}
 .ldr.hid{opacity:0;visibility:hidden;pointer-events:none}
 .lring{width:50px;height:50px;border:3px solid rgba(254,44,85,.2);border-top-color:var(--pink);border-right-color:var(--cyan);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .ltxt{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:4px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.toast{position:fixed;bottom:22px;right:22px;background:var(--card2);border:1px solid var(--bp);border-radius:var(--r);padding:13px 18px;font-size:13px;font-weight:500;z-index:9998;transform:translateY(20px);opacity:0;transition:all .3s;max-width:300px;display:flex;align-items:center;gap:9px;box-shadow:0 8px 28px rgba(0,0,0,.4)}
-.toast.show{transform:translateY(0);opacity:1}
-/* FOUNDATION DAY BOX */
-.fdbox{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
-/* RESPONSIVE */
 @media(max-width:900px){
-  .hw{grid-template-columns:1fr;text-align:center}
-  .hdesc,.hloc{margin-left:auto;margin-right:auto;text-align:left;justify-content:center}
-  .hbtns,.hstats{justify-content:center}
-  .hro{display:none}
-  .agrid{grid-template-columns:1fr}
-  .ac .sec-title,.ac .divider{text-align:center;margin-left:auto}
-  .agr{grid-template-columns:1fr 1fr}
-  .cgr{grid-template-columns:1fr 1fr}
-  .stbg{grid-template-columns:1fr 1fr}
-  .sti:nth-child(2){border-right:none}
-  .ftgr{grid-template-columns:1fr 1fr}
-  .fdbox{grid-template-columns:1fr}
+    .hw{grid-template-columns:1fr;text-align:center}
+    .hdesc,.hloc{margin-left:auto;margin-right:auto;text-align:left;justify-content:center}
+    .hbtns,.hstats{justify-content:center}
+    .hro{display:none}
+    .agrid{grid-template-columns:1fr}
+    .ac .sec-title,.ac .divider{text-align:center;margin-left:auto}
+    .agr{grid-template-columns:1fr 1fr}
+    .cgr{grid-template-columns:1fr 1fr}
+    .stbg{grid-template-columns:1fr 1fr}
+    .sti:nth-child(2){border-right:none}
+    .ftgr{grid-template-columns:1fr 1fr}
+    .fdbox{grid-template-columns:1fr}
 }
 @media(max-width:700px){
-  .nl{display:none}.hbg{display:flex}
-  .sp{padding:58px 0}
-  .agr{grid-template-columns:1fr}
-  .ftgr{grid-template-columns:1fr}
-  .ahi{grid-template-columns:1fr}
-  .nr .lang-sw{display:none}
+    .nl{display:none}.hbg{display:flex}
+    .sp{padding:58px 0}
+    .agr{grid-template-columns:1fr}
+    .ftgr{grid-template-columns:1fr}
+    .ahi{grid-template-columns:1fr}
+    .nr .lang-sw{display:none}
+    .cgr{grid-template-columns:1fr}
+    .stbg{grid-template-columns:1fr}
+    .sti{border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}
+    .date-bar{flex-direction:column;align-items:center;gap:8px;border-radius:24px}
+    .whatsapp-float{width:48px;height:48px;bottom:20px;right:20px}
+    .whatsapp-float i{font-size:26px}
+    .toast{bottom:90px;right:16px;left:16px;max-width:calc(100% - 32px)}
 }
-@media(max-width:460px){.cgr{grid-template-columns:1fr}.ftbot{flex-direction:column;text-align:center}}
+@media(max-width:460px){.ftbot{flex-direction:column;text-align:center}}
 </style>
 </head>
 <body>
 
 <div class="ldr" id="ldr"><div class="lring"></div><div class="ltxt">YSC</div></div>
 
-<!-- HEADER -->
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/8801737355553?text=Assalamu%20Alaikum%2C%20I%20want%20to%20know%20about%20Young%20Sporting%20Club" target="_blank" class="whatsapp-float" id="whatsappBtn">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast">
+    <div class="toast-close" onclick="closeToast()">&times;</div>
+    <div class="toast-title">🎉 Welcome!</div>
+    <div id="toastMsg">Welcome to Young Sporting Club</div>
+</div>
+
 <header id="hdr">
-  <nav class="nav">
-    <a href="index.html" class="logo">
-      <div class="li">YSC</div>
-      <div class="lt"><span class="n1">YOUNG SPORTING</span><span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span></div>
-    </a>
-    <div class="nl">
-      <a href="index.html" class="on" data-en="Home" data-bn="হোম">Home</a>
-      <a href="about.html" data-en="About" data-bn="সম্পর্কে">About</a>
-      <a href="members.html" data-en="Members" data-bn="সদস্য">Members</a>
-      <a href="add_member.html" data-en="Add Member" data-bn="সদস্য যোগ">Add Member</a>
-      <a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+    <nav class="nav">
+        <a href="index.html" class="logo">
+            <div class="li">YSC</div>
+            <div class="lt"><span class="n1">YOUNG SPORTING</span><span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span></div>
+        </a>
+        <div class="nl">
+            <a href="index.html" class="on" data-en="Home" data-bn="হোম">Home</a>
+            <a href="about.html" data-en="About" data-bn="সম্পর্কে">About</a>
+            <a href="members.html" data-en="Members" data-bn="সদস্য">Members</a>
+            <a href="add_member.html" data-en="Add Member" data-bn="সদস্য যোগ">Add Member</a>
+            <a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+        </div>
+        <div class="nr">
+            <div class="lang-sw"><button class="lb on" onclick="setLang('en')">EN</button><button class="lb" onclick="setLang('bn')">বাং</button></div>
+            <a href="login.html" class="btn ncta" id="nav-login-btn" data-en="Login" data-bn="লগইন">Login</a>
+        </div>
+        <button class="hbg" id="hbg"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="mob" id="mob">
+        <a href="index.html" class="on" data-en="Home" data-bn="হোম">Home</a>
+        <a href="about.html" data-en="About" data-bn="সম্পর্কে">About</a>
+        <a href="members.html" data-en="Members" data-bn="সদস্য">Members</a>
+        <a href="add_member.html" data-en="Add Member" data-bn="সদস্য যোগ">Add Member</a>
+        <a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+        <a href="login.html" data-en="Login" data-bn="লগইন">Login</a>
+        <div class="lang-sw" style="margin-top:10px"><button class="lb on" onclick="setLang('en')">EN</button><button class="lb" onclick="setLang('bn')">বাং</button></div>
     </div>
-    <div class="nr">
-      <div class="lang-sw"><button class="lb on" onclick="setLang('en')">EN</button><button class="lb" onclick="setLang('bn')">বাং</button></div>
-      <a href="login.html" class="btn ncta" id="nav-login-btn" data-en="Login" data-bn="লগইন">Login</a>
-    </div>
-    <button class="hbg" id="hbg"><span></span><span></span><span></span></button>
-  </nav>
-  <div class="mob" id="mob">
-    <a href="index.html" class="on" data-en="Home" data-bn="হোম">Home</a>
-    <a href="about.html" data-en="About" data-bn="সম্পর্কে">About</a>
-    <a href="members.html" data-en="Members" data-bn="সদস্য">Members</a>
-    <a href="add_member.html" data-en="Add Member" data-bn="সদস্য যোগ">Add Member</a>
-    <a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
-    <a href="login.html" data-en="Login" data-bn="লগইন">Login</a>
-    <div class="lang-sw" style="margin-top:10px"><button class="lb on" onclick="setLang('en')">EN</button><button class="lb" onclick="setLang('bn')">বাং</button></div>
-  </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hbg2"></div><div class="hgrid"></div>
-  <div class="sportbg">
-    <span class="sb2">⚽</span><span class="sb2">🏏</span><span class="sb2">🏸</span>
-    <span class="sb2">🏆</span><span class="sb2">⚽</span><span class="sb2">🎽</span>
-    <span class="sb2">🏅</span><span class="sb2">🏏</span>
-  </div>
-  <div class="hw">
-    <div data-aos="fade-right" data-aos-duration="750">
-      <div class="hew"><span class="pd"></span><span data-en="Est. 13 January 2009" data-bn="প্রতিষ্ঠা: ১৩ জানুয়ারি ২০০৯">Est. 13 January 2009</span></div>
-      <h1 class="htitle">
-        <span class="l1" data-en="YOUNG" data-bn="ইয়ং">YOUNG</span>
-        <span class="l2" data-en="SPORTING" data-bn="স্পোর্টিং">SPORTING</span>
-        <span class="l1" data-en="CLUB" data-bn="ক্লাব">CLUB</span>
-      </h1>
-      <p class="hdesc" data-en="A community-based youth organization dedicated to sports development, youth engagement, and community service since 2009." data-bn="২০০৯ সাল থেকে ক্রীড়া উন্নয়ন, যুব সম্পৃক্ততা এবং সামাজিক সেবায় নিবেদিত একটি সমাজভিত্তিক যুব সংগঠন।">A community-based youth organization dedicated to sports development, youth engagement, and community service since 2009.</p>
-      <div class="hloc"><i class="fas fa-map-marker-alt"></i><span data-en="Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar, Sylhet" data-bn="শিংড়াউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট">Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar, Sylhet</span></div>
-      <div class="hbtns">
-        <a href="members.html" class="btn btn-pk"><i class="fas fa-users"></i> <span data-en="View Members" data-bn="সদস্যদের দেখুন">View Members</span></a>
-        <a href="about.html" class="btn btn-ol"><i class="fas fa-info-circle"></i> <span data-en="Our Story" data-bn="আমাদের গল্প">Our Story</span></a>
-      </div>
-      <div class="hstats">
-        <div class="hst"><div class="num">15<sup>+</sup></div><div class="lbl" data-en="Years Active" data-bn="বছর সক্রিয়">Years Active</div></div>
-        <div class="hst"><div class="num">100<sup>+</sup></div><div class="lbl" data-en="Members" data-bn="সদস্য">Members</div></div>
-        <div class="hst"><div class="num">50<sup>+</sup></div><div class="lbl" data-en="Events" data-bn="ইভেন্ট">Events</div></div>
-      </div>
+    <div class="hbg2"></div><div class="hgrid"></div>
+    <div class="sportbg">
+        <span class="sb2">⚽</span><span class="sb2">🏏</span><span class="sb2">🏸</span>
+        <span class="sb2">🏆</span><span class="sb2">⚽</span><span class="sb2">🎽</span>
+        <span class="sb2">🏅</span><span class="sb2">🏏</span>
     </div>
-    <div class="hro" data-aos="fade-left" data-aos-delay="200">
-      <div class="bring">
-        <div class="binn">
-          <div class="btr">🏆</div>
-          <div class="best">YSC · 2009</div>
-          <div class="bsp"><span>⚽</span><span>🏏</span><span>🏸</span></div>
+    <div class="hw">
+        <div data-aos="fade-right" data-aos-duration="750">
+            <div class="hew"><span class="pd"></span><span data-en="Est. 13 January 2009" data-bn="প্রতিষ্ঠা: ১৩ জানুয়ারি ২০০৯">Est. 13 January 2009</span></div>
+            <h1 class="htitle">
+                <span class="l1" data-en="YOUNG" data-bn="ইয়ং">YOUNG</span>
+                <span class="l2" data-en="SPORTING" data-bn="স্পোর্টিং">SPORTING</span>
+                <span class="l1" data-en="CLUB" data-bn="ক্লাব">CLUB</span>
+            </h1>
+            <p class="hdesc" data-en="A community-based youth organization dedicated to sports development, youth engagement, and community service since 2009." data-bn="২০০৯ সাল থেকে ক্রীড়া উন্নয়ন, যুব সম্পৃক্ততা এবং সামাজিক সেবায় নিবেদিত একটি সমাজভিত্তিক যুব সংগঠন।">A community-based youth organization dedicated to sports development, youth engagement, and community service since 2009.</p>
+            <div class="hloc"><i class="fas fa-map-marker-alt"></i><span data-en="Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar, Sylhet" data-bn="শিংড়াউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট">Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar, Sylhet</span></div>
+            <div class="hbtns">
+                <a href="members.html" class="btn btn-pk"><i class="fas fa-users"></i> <span data-en="View Members" data-bn="সদস্যদের দেখুন">View Members</span></a>
+                <a href="about.html" class="btn btn-ol"><i class="fas fa-info-circle"></i> <span data-en="Our Story" data-bn="আমাদের গল্প">Our Story</span></a>
+            </div>
+            <div class="hstats">
+                <div class="hst"><div class="num">17<sup>+</sup></div><div class="lbl" data-en="Years Active" data-bn="বছর সক্রিয়">Years Active</div></div>
+                <div class="hst"><div class="num" id="visitorCount">0<sup>+</sup></div><div class="lbl" data-en="Visitors" data-bn="দর্শক">Visitors</div></div>
+                <div class="hst"><div class="num">50<sup>+</sup></div><div class="lbl" data-en="Events" data-bn="ইভেন্ট">Events</div></div>
+            </div>
         </div>
-      </div>
-      <div class="borb"><div class="bdot"></div></div>
+        <div class="hro" data-aos="fade-left" data-aos-delay="200">
+            <div class="bring">
+                <div class="binn">
+                    <div class="btr">🏆</div>
+                    <div class="best">YSC · 2009</div>
+                    <div class="bsp"><span>⚽</span><span>🏏</span><span>🏸</span></div>
+                </div>
+            </div>
+            <div class="borb"><div class="bdot"></div></div>
+        </div>
     </div>
-  </div>
-  <div class="hscr"><div class="scrl"></div><span data-en="SCROLL" data-bn="স্ক্রল">SCROLL</span></div>
+    <div class="hscr"><div class="scrl"></div><span data-en="SCROLL" data-bn="স্ক্রল">SCROLL</span></div>
 </section>
+
+<!-- TRIPLE DATE BAR -->
+<div class="container" style="text-align:center;margin-top:-30px;position:relative;z-index:5">
+    <div class="date-bar">
+        <div class="date-item"><i class="fas fa-calendar-alt"></i><span id="dateEn">Loading...</span></div>
+        <div class="date-item"><i class="fas fa-calendar-alt"></i><span id="dateBn">Loading...</span></div>
+        <div class="date-item"><i class="fas fa-calendar-alt"></i><span id="dateAr">Loading...</span></div>
+    </div>
+</div>
 
 <!-- STATS BAND -->
 <div class="stb" data-aos="fade-up">
-  <div class="container">
-    <div class="stbg">
-      <div class="sti"><div class="sn" data-target="100">0</div><div class="sl" data-en="Total Members" data-bn="মোট সদস্য">Total Members</div></div>
-      <div class="sti"><div class="sn" data-target="50">0</div><div class="sl" data-en="Events Held" data-bn="অনুষ্ঠিত ইভেন্ট">Events Held</div></div>
-      <div class="sti"><div class="sn" data-target="15">0</div><div class="sl" data-en="Years Strong" data-bn="বছর শক্তিশালী">Years Strong</div></div>
-      <div class="sti"><div class="sn" data-target="10">0</div><div class="sl" data-en="Trophies Won" data-bn="ট্রফি অর্জন">Trophies Won</div></div>
+    <div class="container">
+        <div class="stbg">
+            <div class="sti"><div class="sn" data-target="120">0</div><div class="sl" data-en="Total Members" data-bn="মোট সদস্য">Total Members</div></div>
+            <div class="sti"><div class="sn" data-target="55">0</div><div class="sl" data-en="Events Held" data-bn="অনুষ্ঠিত ইভেন্ট">Events Held</div></div>
+            <div class="sti"><div class="sn" data-target="17">0</div><div class="sl" data-en="Years Strong" data-bn="বছর শক্তিশালী">Years Strong</div></div>
+            <div class="sti"><div class="sn" data-target="12">0</div><div class="sl" data-en="Trophies Won" data-bn="ট্রফি অর্জন">Trophies Won</div></div>
+        </div>
     </div>
-  </div>
+</div>
+
+<!-- UPCOMING EVENTS SECTION -->
+<div class="container">
+    <div class="upcoming-events" data-aos="fade-up">
+        <h3><i class="fas fa-calendar-week" style="color:var(--pink)"></i> <span data-en="Upcoming Events" data-bn="আসন্ন ইভেন্ট">Upcoming Events</span></h3>
+        <div class="event-slider" id="eventSlider">
+            <div class="event-card"><div class="event-date">13 January 2026</div><div class="event-title">🎉 Foundation Day</div><div class="event-desc">17th Anniversary Celebration</div></div>
+            <div class="event-card"><div class="event-date">February 2026</div><div class="event-title">⚽ Football Tournament</div><div class="event-desc">Inter-village Football Competition</div></div>
+            <div class="event-card"><div class="event-date">March 2026</div><div class="event-title">🏏 Cricket League</div><div class="event-desc">Annual Cricket Championship</div></div>
+            <div class="event-card"><div class="event-date">April 2026</div><div class="event-title">🏸 Badminton Cup</div><div class="event-desc">Open Badminton Tournament</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- AdMob Banner Placeholder -->
+<div class="container" data-aos="fade-up">
+    <div class="ad-banner">
+        <ins class="adsbygoogle" style="display:inline-block;width:300px;height:50px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins>
+        <small style="color:var(--gr);font-size:9px">Advertisement</small>
+    </div>
 </div>
 
 <!-- ABOUT -->
 <section class="sp" style="background:var(--bg)">
-  <div class="container">
-    <div class="agrid">
-      <div class="avis" data-aos="fade-right">
-        <div class="afr">
-          <div class="afrbg"></div>
-          <svg width="78%" viewBox="0 0 400 270" fill="none" style="position:relative;z-index:1">
-            <rect x="10" y="10" width="380" height="250" stroke="#FE2C55" stroke-width="1.5" fill="none" opacity=".18"/>
-            <circle cx="200" cy="135" r="52" stroke="#25F4EE" stroke-width="1.5" fill="none" opacity=".18"/>
-            <line x1="200" y1="10" x2="200" y2="260" stroke="#FE2C55" stroke-width="1.5" opacity=".12"/>
-            <rect x="10" y="77" width="62" height="118" stroke="#25F4EE" stroke-width="1.5" fill="none" opacity=".15"/>
-            <rect x="328" y="77" width="62" height="118" stroke="#25F4EE" stroke-width="1.5" fill="none" opacity=".15"/>
-            <circle cx="200" cy="135" r="4" fill="#FE2C55" opacity=".5"/>
-          </svg>
-          <div class="afrwm">YSC</div>
+    <div class="container">
+        <div class="agrid">
+            <div class="avis" data-aos="fade-right">
+                <div class="afr">
+                    <div class="afrbg"></div>
+                    <svg width="78%" viewBox="0 0 400 270" fill="none" style="position:relative;z-index:1">
+                        <rect x="10" y="10" width="380" height="250" stroke="#FE2C55" stroke-width="1.5" fill="none" opacity=".18"/>
+                        <circle cx="200" cy="135" r="52" stroke="#25F4EE" stroke-width="1.5" fill="none" opacity=".18"/>
+                        <line x1="200" y1="10" x2="200" y2="260" stroke="#FE2C55" stroke-width="1.5" opacity=".12"/>
+                        <rect x="10" y="77" width="62" height="118" stroke="#25F4EE" stroke-width="1.5" fill="none" opacity=".15"/>
+                        <rect x="328" y="77" width="62" height="118" stroke="#25F4EE" stroke-width="1.5" fill="none" opacity=".15"/>
+                        <circle cx="200" cy="135" r="4" fill="#FE2C55" opacity=".5"/>
+                    </svg>
+                    <div class="afrwm">YSC</div>
+                </div>
+                <div class="abc"><div class="yr">2009</div><div class="sn2" data-en="Founded" data-bn="প্রতিষ্ঠিত">Founded</div></div>
+            </div>
+            <div class="ac" data-aos="fade-left" data-aos-delay="150">
+                <span class="bdg"><span class="dot"></span><span data-en="Who We Are" data-bn="আমরা কারা">Who We Are</span></span>
+                <h2 class="sec-title" data-en="More Than Just A Sports Club" data-bn="শুধু একটি স্পোর্টস ক্লাব নয়">More Than Just A<br><span style="background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Sports Club</span></h2>
+                <div class="divider"></div>
+                <p class="atxt" data-en="Young Sporting Club was founded on 13 January 2009 by enthusiastic young people in Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar." data-bn="ইয়ং স্পোর্টিং ক্লাব ২০০৯ সালের ১৩ জানুয়ারি মৌলভীবাজারের কমলগঞ্জ, শমশেরনগরের শিংড়াউলীর উৎসাহী তরুণদের দ্বারা প্রতিষ্ঠিত হয়।">Young Sporting Club was founded on 13 January 2009 by enthusiastic young people in Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar.</p>
+                <p class="atxt" data-en="For over 17 years, the club has been a home for young athletes building teamwork, character and community spirit through sports and social activities." data-bn="১৭ বছরেরও বেশি সময় ধরে এই ক্লাব তরুণ ক্রীড়াবিদদের দলগত কাজ, চরিত্র গঠন এবং খেলাধুলা ও সামাজিক কার্যকলাপের মাধ্যমে সম্প্রদায়ের মনোভাব তৈরির ঘর হয়ে উঠেছে।">For over 17 years, the club has been a home for young athletes building teamwork, character and community spirit through sports and social activities.</p>
+                <div class="ahi">
+                    <div class="hit"><div class="hic">⚽</div><span data-en="Football & Cricket" data-bn="ফুটবল ও ক্রিকেট">Football & Cricket</span></div>
+                    <div class="hit"><div class="hic">🏸</div><span data-en="Badminton Events" data-bn="ব্যাডমিন্টন ইভেন্ট">Badminton Events</span></div>
+                    <div class="hit"><div class="hic">🤝</div><span data-en="Community Service" data-bn="সামাজিক সেবা">Community Service</span></div>
+                    <div class="hit"><div class="hic">🎉</div><span data-en="Cultural Programs" data-bn="সাংস্কৃতিক অনুষ্ঠান">Cultural Programs</span></div>
+                </div>
+                <a href="about.html" class="btn btn-pk"><i class="fas fa-arrow-right"></i> <span data-en="Read Full Story" data-bn="পুরো গল্প পড়ুন">Read Full Story</span></a>
+            </div>
         </div>
-        <div class="abc"><div class="yr">2009</div><div class="sn2" data-en="Founded" data-bn="প্রতিষ্ঠিত">Founded</div></div>
-      </div>
-      <div class="ac" data-aos="fade-left" data-aos-delay="150">
-        <span class="bdg"><span class="dot"></span><span data-en="Who We Are" data-bn="আমরা কারা">Who We Are</span></span>
-        <h2 class="sec-title" data-en="More Than Just A Sports Club" data-bn="শুধু একটি স্পোর্টস ক্লাব নয়">More Than Just A<br><span style="background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Sports Club</span></h2>
-        <div class="divider"></div>
-        <p class="atxt" data-en="Young Sporting Club was founded on 13 January 2009 by enthusiastic young people in Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar." data-bn="ইয়ং স্পোর্টিং ক্লাব ২০০৯ সালের ১৩ জানুয়ারি মৌলভীবাজারের কমলগঞ্জ, শমশেরনগরের শিংড়াউলীর উৎসাহী তরুণদের দ্বারা প্রতিষ্ঠিত হয়।">Young Sporting Club was founded on 13 January 2009 by enthusiastic young people in Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar.</p>
-        <p class="atxt" data-en="For over 15 years, the club has been a home for young athletes building teamwork, character and community spirit through sports and social activities." data-bn="১৫ বছরেরও বেশি সময় ধরে এই ক্লাব তরুণ ক্রীড়াবিদদের দলগত কাজ, চরিত্র গঠন এবং খেলাধুলা ও সামাজিক কার্যকলাপের মাধ্যমে সম্প্রদায়ের মনোভাব তৈরির ঘর হয়ে উঠেছে।">For over 15 years, the club has been a home for young athletes building teamwork, character and community spirit through sports and social activities.</p>
-        <div class="ahi">
-          <div class="hit"><div class="hic">⚽</div><span data-en="Football & Cricket" data-bn="ফুটবল ও ক্রিকেট">Football & Cricket</span></div>
-          <div class="hit"><div class="hic">🏸</div><span data-en="Badminton Events" data-bn="ব্যাডমিন্টন ইভেন্ট">Badminton Events</span></div>
-          <div class="hit"><div class="hic">🤝</div><span data-en="Community Service" data-bn="সামাজিক সেবা">Community Service</span></div>
-          <div class="hit"><div class="hic">🎉</div><span data-en="Cultural Programs" data-bn="সাংস্কৃতিক অনুষ্ঠান">Cultural Programs</span></div>
-        </div>
-        <a href="about.html" class="btn btn-pk"><i class="fas fa-arrow-right"></i> <span data-en="Read Full Story" data-bn="পুরো গল্প পড়ুন">Read Full Story</span></a>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- ACHIEVEMENTS -->
 <section class="sp asec">
-  <div class="container">
-    <div class="tc" data-aos="fade-up">
-      <span class="bdg"><span class="dot"></span><span data-en="Our Victories" data-bn="আমাদের অর্জন">Our Victories</span></span>
-      <h2 class="sec-title"><span data-en="Achievements &" data-bn="অর্জন ও">Achievements &</span> <span style="color:var(--cyan)" data-en="Milestones" data-bn="মাইলফলক">Milestones</span></h2>
-      <div class="divider"></div>
-      <p class="sub" data-en="Years of dedication and teamwork have earned us these proud moments." data-bn="বছরের পর বছর নিষ্ঠা ও দলগত কাজ আমাদের এই গর্বিত মুহূর্তগুলো এনে দিয়েছে।">Years of dedication and teamwork have earned us these proud moments.</p>
+    <div class="container">
+        <div class="tc" data-aos="fade-up">
+            <span class="bdg"><span class="dot"></span><span data-en="Our Victories" data-bn="আমাদের অর্জন">Our Victories</span></span>
+            <h2 class="sec-title"><span data-en="Achievements &" data-bn="অর্জন ও">Achievements &</span> <span style="color:var(--cyan)" data-en="Milestones" data-bn="মাইলফলক">Milestones</span></h2>
+            <div class="divider"></div>
+            <p class="sub" data-en="Years of dedication and teamwork have earned us these proud moments." data-bn="বছরের পর বছর নিষ্ঠা ও দলগত কাজ আমাদের এই গর্বিত মুহূর্তগুলো এনে দিয়েছে।">Years of dedication and teamwork have earned us these proud moments.</p>
+        </div>
+        <div class="agr">
+            <div class="ac2" data-aos="fade-up"><div class="aic">⚽</div><h3 data-en="Football Tournaments" data-bn="ফুটবল টুর্নামেন্ট">Football Tournaments</h3><p data-en="Actively participated in local football leagues and tournaments across Moulvibazar district." data-bn="মৌলভীবাজার জেলায় স্থানীয় ফুটবল লিগ ও টুর্নামেন্টে সক্রিয়ভাবে অংশগ্রহণ করেছে।">Actively participated in local football leagues and tournaments across Moulvibazar district.</p><span class="ayr">2009 – Ongoing</span></div>
+            <div class="ac2" data-aos="fade-up" data-aos-delay="100"><div class="aic">🏏</div><h3 data-en="Cricket Development" data-bn="ক্রিকেট উন্নয়ন">Cricket Development</h3><p data-en="Promoted cricket with regular matches, training sessions and inter-club competitions." data-bn="নিয়মিত ম্যাচ, প্রশিক্ষণ সেশন এবং ক্লাবের মধ্যে প্রতিযোগিতার মাধ্যমে ক্রিকেটকে প্রসারিত করেছে।">Promoted cricket with regular matches, training sessions and inter-club competitions.</p><span class="ayr">2010 – Ongoing</span></div>
+            <div class="ac2" data-aos="fade-up" data-aos-delay="200"><div class="aic">🏆</div><h3 data-en="Community Recognition" data-bn="সামাজিক স্বীকৃতি">Community Recognition</h3><p data-en="Recognized as an active youth organization contributing to sports and community welfare in the region." data-bn="এই অঞ্চলে ক্রীড়া উন্নয়ন এবং সামাজিক কল্যাণে অবদান রাখার জন্য স্বীকৃত।">Recognized as an active youth organization contributing to sports and community welfare in the region.</p><span class="ayr">2015</span></div>
+            <div class="ac2" data-aos="fade-up"><div class="aic">🎽</div><h3 data-en="Youth Training" data-bn="যুব প্রশিক্ষণ">Youth Training</h3><p data-en="Conducted youth sports training programs inspiring dozens of young athletes to pursue sports." data-bn="তরুণ ক্রীড়াবিদদের অনুপ্রাণিত করে যুব ক্রীড়া প্রশিক্ষণ কার্যক্রম পরিচালনা করেছে।">Conducted youth sports training programs inspiring dozens of young athletes to pursue sports.</p><span class="ayr">Ongoing</span></div>
+            <div class="ac2" data-aos="fade-up" data-aos-delay="100"><div class="aic">🎭</div><h3 data-en="Cultural Events" data-bn="সাংস্কৃতিক অনুষ্ঠান">Cultural Events</h3><p data-en="Organized annual cultural programs, Eid celebrations and community gatherings for the locality." data-bn="বার্ষিক সাংস্কৃতিক অনুষ্ঠান, ঈদ উদযাপন এবং সামাজিক সমাবেশ আয়োজন করেছে।">Organized annual cultural programs, Eid celebrations and community gatherings for the locality.</p><span class="ayr">Annual</span></div>
+            <div class="ac2" data-aos="fade-up" data-aos-delay="200"><div class="aic">🤝</div><h3 data-en="Social Welfare" data-bn="সমাজকল্যাণ">Social Welfare</h3><p data-en="Conducted social service activities including community support and local development initiatives." data-bn="সামাজিক সহায়তা এবং স্থানীয় উন্নয়ন উদ্যোগসহ সমাজসেবামূলক কার্যক্রম পরিচালনা করেছে।">Conducted social service activities including community support and local development initiatives.</p><span class="ayr">2009 – Ongoing</span></div>
+        </div>
     </div>
-    <div class="agr">
-      <div class="ac2" data-aos="fade-up"><div class="aic">⚽</div><h3 data-en="Football Tournaments" data-bn="ফুটবল টুর্নামেন্ট">Football Tournaments</h3><p data-en="Actively participated in local football leagues and tournaments across Moulvibazar district." data-bn="মৌলভীবাজার জেলায় স্থানীয় ফুটবল লিগ ও টুর্নামেন্টে সক্রিয়ভাবে অংশগ্রহণ করেছে।">Actively participated in local football leagues and tournaments across Moulvibazar district.</p><span class="ayr">2009 – Ongoing</span></div>
-      <div class="ac2" data-aos="fade-up" data-aos-delay="100"><div class="aic">🏏</div><h3 data-en="Cricket Development" data-bn="ক্রিকেট উন্নয়ন">Cricket Development</h3><p data-en="Promoted cricket with regular matches, training sessions and inter-club competitions." data-bn="নিয়মিত ম্যাচ, প্রশিক্ষণ সেশন এবং ক্লাবের মধ্যে প্রতিযোগিতার মাধ্যমে ক্রিকেটকে প্রসারিত করেছে।">Promoted cricket with regular matches, training sessions and inter-club competitions.</p><span class="ayr">2010 – Ongoing</span></div>
-      <div class="ac2" data-aos="fade-up" data-aos-delay="200"><div class="aic">🏆</div><h3 data-en="Community Recognition" data-bn="সামাজিক স্বীকৃতি">Community Recognition</h3><p data-en="Recognized as an active youth organization contributing to sports and community welfare in the region." data-bn="এই অঞ্চলে ক্রীড়া উন্নয়ন এবং সামাজিক কল্যাণে অবদান রাখার জন্য স্বীকৃত।">Recognized as an active youth organization contributing to sports and community welfare in the region.</p><span class="ayr">2015</span></div>
-      <div class="ac2" data-aos="fade-up"><div class="aic">🎽</div><h3 data-en="Youth Training" data-bn="যুব প্রশিক্ষণ">Youth Training</h3><p data-en="Conducted youth sports training programs inspiring dozens of young athletes to pursue sports." data-bn="তরুণ ক্রীড়াবিদদের অনুপ্রাণিত করে যুব ক্রীড়া প্রশিক্ষণ কার্যক্রম পরিচালনা করেছে।">Conducted youth sports training programs inspiring dozens of young athletes to pursue sports.</p><span class="ayr">Ongoing</span></div>
-      <div class="ac2" data-aos="fade-up" data-aos-delay="100"><div class="aic">🎭</div><h3 data-en="Cultural Events" data-bn="সাংস্কৃতিক অনুষ্ঠান">Cultural Events</h3><p data-en="Organized annual cultural programs, Eid celebrations and community gatherings for the locality." data-bn="বার্ষিক সাংস্কৃতিক অনুষ্ঠান, ঈদ উদযাপন এবং সামাজিক সমাবেশ আয়োজন করেছে।">Organized annual cultural programs, Eid celebrations and community gatherings for the locality.</p><span class="ayr">Annual</span></div>
-      <div class="ac2" data-aos="fade-up" data-aos-delay="200"><div class="aic">🤝</div><h3 data-en="Social Welfare" data-bn="সমাজকল্যাণ">Social Welfare</h3><p data-en="Conducted social service activities including community support and local development initiatives." data-bn="সামাজিক সহায়তা এবং স্থানীয় উন্নয়ন উদ্যোগসহ সমাজসেবামূলক কার্যক্রম পরিচালনা করেছে।">Conducted social service activities including community support and local development initiatives.</p><span class="ayr">2009 – Ongoing</span></div>
-    </div>
-  </div>
 </section>
 
-<!-- COMMITTEE (DYNAMIC - LOADED FROM FIREBASE) -->
+<!-- COMMITTEE -->
 <section class="sp" style="background:var(--bg)">
-  <div class="container">
-    <div class="tc" data-aos="fade-up">
-      <span class="bdg"><span class="dot"></span><span data-en="Leadership" data-bn="নেতৃত্ব">Leadership</span></span>
-      <h2 class="sec-title" data-en="Club Committee" data-bn="ক্লাব কমিটি">Club Committee</h2>
-      <div class="divider"></div>
-      <p class="sub" data-en="The dedicated leaders who keep Young Sporting Club running and the spirit alive." data-bn="যারা ইয়ং স্পোর্টিং ক্লাবকে সচল রাখেন এবং চেতনাকে জীবন্ত রাখেন।">The dedicated leaders who keep Young Sporting Club running and the spirit alive.</p>
+    <div class="container">
+        <div class="tc" data-aos="fade-up">
+            <span class="bdg"><span class="dot"></span><span data-en="Leadership" data-bn="নেতৃত্ব">Leadership</span></span>
+            <h2 class="sec-title" data-en="Club Committee" data-bn="ক্লাব কমিটি">Club Committee</h2>
+            <div class="divider"></div>
+            <p class="sub" data-en="The dedicated leaders who keep Young Sporting Club running and the spirit alive." data-bn="যারা ইয়ং স্পোর্টিং ক্লাবকে সচল রাখেন এবং চেতনাকে জীবন্ত রাখেন।">The dedicated leaders who keep Young Sporting Club running and the spirit alive.</p>
+        </div>
+        <div class="cgr" id="committee-container">
+            <div class="cc" data-aos="fade-up"><div class="cav">প</div><h4>মোঃ আব্দুল্লাহ</h4><div class="role">সভাপতি</div></div>
+            <div class="cc" data-aos="fade-up"><div class="cav">উ</div><h4>মোঃ ইমরান</h4><div class="role">সহ-সভাপতি</div></div>
+            <div class="cc" data-aos="fade-up"><div class="cav">স</div><h4>মোঃ সাদ্দাম</h4><div class="role">সাধারণ সম্পাদক</div></div>
+            <div class="cc" data-aos="fade-up"><div class="cav">ক</div><h4>মোঃ রাসেল</h4><div class="role">কোষাধ্যক্ষ</div></div>
+        </div>
+        <div class="tc" style="margin-top:8px" data-aos="fade-up">
+            <a href="members.html" class="btn btn-ol"><i class="fas fa-users"></i> <span data-en="View All Members" data-bn="সকল সদস্য দেখুন">View All Members</span></a>
+        </div>
     </div>
-    <div class="cgr" id="committee-container">
-      <!-- কমিটি সদস্যদের এখানে ফায়ারবেস থেকে লোড করা হবে -->
-      <div class="cc" data-aos="fade-up"><div class="cav">প</div><h4 data-en="Loading..." data-bn="লোড হচ্ছে...">Loading...</h4><div class="role">-</div></div>
-      <div class="cc" data-aos="fade-up"><div class="cav">স</div><h4 data-en="Loading..." data-bn="লোড হচ্ছে...">Loading...</h4><div class="role">-</div></div>
-      <div class="cc" data-aos="fade-up"><div class="cav">ক</div><h4 data-en="Loading..." data-bn="লোড হচ্ছে...">Loading...</h4><div class="role">-</div></div>
-      <div class="cc" data-aos="fade-up"><div class="cav">স</div><h4 data-en="Loading..." data-bn="লোড হচ্ছে...">Loading...</h4><div class="role">-</div></div>
-    </div>
-    <div class="tc" style="margin-top:8px" data-aos="fade-up">
-      <a href="members.html" class="btn btn-ol"><i class="fas fa-users"></i> <span data-en="View All Members" data-bn="সকল সদস্য দেখুন">View All Members</span></a>
-    </div>
-  </div>
 </section>
 
 <!-- FOUNDATION DAY -->
 <section class="sp" style="background:var(--card)">
-  <div class="container">
-    <div class="fdbox" data-aos="fade-up">
-      <div>
-        <span class="bdg"><span class="dot"></span><span data-en="Annual Celebration" data-bn="বার্ষিক উদযাপন">Annual Celebration</span></span>
-        <h2 class="sec-title" data-en="Foundation Day" data-bn="প্রতিষ্ঠা বার্ষিকী">Foundation Day</h2>
-        <div class="divider" style="margin-left:0"></div>
-        <p class="atxt" data-en="Every year on 13 January, Young Sporting Club celebrates its Foundation Day — marking the club's establishment in 2009 with great enthusiasm and community spirit." data-bn="প্রতি বছর ১৩ জানুয়ারি ইয়ং স্পোর্টিং ক্লাব তার প্রতিষ্ঠা বার্ষিকী উদযাপন করে — ২০০৯ সালে ক্লাবের প্রতিষ্ঠার স্মরণে ব্যাপক উৎসাহ ও সামাজিক চেতনার সাথে।">Every year on 13 January, Young Sporting Club celebrates its Foundation Day — marking the club's establishment in 2009 with great enthusiasm and community spirit.</p>
-        <div style="display:flex;flex-direction:column;gap:10px;margin-top:18px">
-          <div class="hit"><div class="hic">⚽</div><span data-en="Friendly Football Matches" data-bn="প্রীতি ফুটবল ম্যাচ">Friendly Football Matches</span></div>
-          <div class="hit"><div class="hic">🎭</div><span data-en="Cultural Programs" data-bn="সাংস্কৃতিক অনুষ্ঠান">Cultural Programs</span></div>
-          <div class="hit"><div class="hic">🏅</div><span data-en="Member Recognition Ceremony" data-bn="সদস্য সম্মাননা অনুষ্ঠান">Member Recognition Ceremony</span></div>
+    <div class="container">
+        <div class="fdbox" data-aos="fade-up">
+            <div>
+                <span class="bdg"><span class="dot"></span><span data-en="Annual Celebration" data-bn="বার্ষিক উদযাপন">Annual Celebration</span></span>
+                <h2 class="sec-title" data-en="Foundation Day" data-bn="প্রতিষ্ঠা বার্ষিকী">Foundation Day</h2>
+                <div class="divider" style="margin-left:0"></div>
+                <p class="atxt" data-en="Every year on 13 January, Young Sporting Club celebrates its Foundation Day — marking the club's establishment in 2009 with great enthusiasm and community spirit." data-bn="প্রতি বছর ১৩ জানুয়ারি ইয়ং স্পোর্টিং ক্লাব তার প্রতিষ্ঠা বার্ষিকী উদযাপন করে — ২০০৯ সালে ক্লাবের প্রতিষ্ঠার স্মরণে ব্যাপক উৎসাহ ও সামাজিক চেতনার সাথে।">Every year on 13 January, Young Sporting Club celebrates its Foundation Day — marking the club's establishment in 2009 with great enthusiasm and community spirit.</p>
+                <div style="display:flex;flex-direction:column;gap:10px;margin-top:18px">
+                    <div class="hit"><div class="hic">⚽</div><span data-en="Friendly Football Matches" data-bn="প্রীতি ফুটবল ম্যাচ">Friendly Football Matches</span></div>
+                    <div class="hit"><div class="hic">🎭</div><span data-en="Cultural Programs" data-bn="সাংস্কৃতিক অনুষ্ঠান">Cultural Programs</span></div>
+                    <div class="hit"><div class="hic">🏅</div><span data-en="Member Recognition Ceremony" data-bn="সদস্য সম্মাননা অনুষ্ঠান">Member Recognition Ceremony</span></div>
+                </div>
+            </div>
+            <div class="tc" data-aos="fade-left" data-aos-delay="150">
+                <div style="width:220px;height:220px;border-radius:50%;background:linear-gradient(135deg,rgba(254,44,85,.15),rgba(37,244,238,.1));border:2px solid var(--bp);margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;box-shadow:0 0 40px rgba(254,44,85,.2),0 0 70px rgba(37,244,238,.1)">
+                    <div style="font-size:52px">🎂</div>
+                    <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">13 JAN</div>
+                    <div style="font-size:11px;color:var(--gr);letter-spacing:2px" data-en="FOUNDATION DAY" data-bn="প্রতিষ্ঠা দিবস">FOUNDATION DAY</div>
+                    <div style="font-size:13px;color:var(--lt);font-weight:600" data-en="Since 2009" data-bn="২০০৯ সাল থেকে">Since 2009</div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="tc" data-aos="fade-left" data-aos-delay="150">
-        <div style="width:220px;height:220px;border-radius:50%;background:linear-gradient(135deg,rgba(254,44,85,.15),rgba(37,244,238,.1));border:2px solid var(--bp);margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;box-shadow:0 0 40px rgba(254,44,85,.2),0 0 70px rgba(37,244,238,.1)">
-          <div style="font-size:52px">🎂</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">13 JAN</div>
-          <div style="font-size:11px;color:var(--gr);letter-spacing:2px" data-en="FOUNDATION DAY" data-bn="প্রতিষ্ঠা দিবস">FOUNDATION DAY</div>
-          <div style="font-size:13px;color:var(--lt);font-weight:600" data-en="Since 2009" data-bn="২০০৯ সাল থেকে">Since 2009</div>
-        </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- CTA -->
 <section class="sp ctasec">
-  <div class="container" data-aos="zoom-in">
-    <span class="bdg"><span class="dot"></span><span data-en="Join Us" data-bn="আমাদের সাথে যোগ দিন">Join Us</span></span>
-    <h2 class="sec-title" data-en="Be Part of the" data-bn="এর অংশ হোন">Be Part of the</h2>
-    <h2 class="sec-title" style="background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-top:-4px" data-en="Winning Team!" data-bn="বিজয়ী দলের!">Winning Team!</h2>
-    <p data-en="Whether you're a passionate athlete or want to be part of a vibrant community — Young Sporting Club welcomes you!" data-bn="আপনি একজন উৎসাহী খেলোয়াড় হোন বা একটি প্রাণবন্ত সম্প্রদায়ের অংশ হতে চান — ইয়াং স্পোর্টিং ক্লাব আপনাকে স্বাগত জানায়!">Whether you're a passionate athlete or want to be part of a vibrant community — Young Sporting Club welcomes you!</p>
-    <div class="ctabtns">
-      <a href="add_member.html" class="btn btn-pk"><i class="fas fa-user-plus"></i> <span data-en="Become a Member" data-bn="সদস্য হোন">Become a Member</span></a>
-      <a href="contact.html" class="btn btn-cy"><i class="fas fa-envelope"></i> <span data-en="Get in Touch" data-bn="যোগাযোগ করুন">Get in Touch</span></a>
+    <div class="container" data-aos="zoom-in">
+        <span class="bdg"><span class="dot"></span><span data-en="Join Us" data-bn="আমাদের সাথে যোগ দিন">Join Us</span></span>
+        <h2 class="sec-title" data-en="Be Part of the" data-bn="এর অংশ হোন">Be Part of the</h2>
+        <h2 class="sec-title" style="background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-top:-4px" data-en="Winning Team!" data-bn="বিজয়ী দলের!">Winning Team!</h2>
+        <p data-en="Whether you're a passionate athlete or want to be part of a vibrant community — Young Sporting Club welcomes you!" data-bn="আপনি একজন উৎসাহী খেলোয়াড় হোন বা একটি প্রাণবন্ত সম্প্রদায়ের অংশ হতে চান — ইয়ং স্পোর্টিং ক্লাব আপনাকে স্বাগত জানায়!">Whether you're a passionate athlete or want to be part of a vibrant community — Young Sporting Club welcomes you!</p>
+        <div class="ctabtns">
+            <a href="add_member.html" class="btn btn-pk"><i class="fas fa-user-plus"></i> <span data-en="Become a Member" data-bn="সদস্য হোন">Become a Member</span></a>
+            <a href="contact.html" class="btn btn-cy"><i class="fas fa-envelope"></i> <span data-en="Get in Touch" data-bn="যোগাযোগ করুন">Get in Touch</span></a>
+        </div>
     </div>
-  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="ftgr">
-      <div>
-        <div class="logo"><div class="li">YSC</div><div class="lt"><span class="n1">YOUNG SPORTING CLUB</span><span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জান ২০০৯">Est. 13 Jan 2009</span></div></div>
-        <p class="ftdesc" data-en="A community-based youth organization dedicated to sports development, youth engagement, and community service in Shingrahully, Shamsher Nagar, Moulvibazar since 2009." data-bn="২০০৯ সাল থেকে মৌলভীবাজারের শমশেরনগর, শিংড়াউলীতে ক্রীড়া উন্নয়ন, যুব সম্পৃক্ততা এবং সামাজিক সেবায় নিবেদিত একটি সমাজভিত্তিক যুব সংগঠন।">A community-based youth organization dedicated to sports development, youth engagement, and community service in Shingrahully, Shamsher Nagar, Moulvibazar since 2009.</p>
-        <div class="slnks">
-          <a href="#" class="sa fb"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="sa yt"><i class="fab fa-youtube"></i></a>
-          <a href="#" class="sa ig"><i class="fab fa-instagram"></i></a>
-          <a href="mailto:support.youngsportingclub@gmail.com" class="sa em"><i class="fas fa-envelope"></i></a>
+    <div class="container">
+        <div class="ftgr">
+            <div>
+                <div class="logo"><div class="li">YSC</div><div class="lt"><span class="n1">YOUNG SPORTING CLUB</span><span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জান ২০০৯">Est. 13 Jan 2009</span></div></div>
+                <p class="ftdesc" data-en="A community-based youth organization dedicated to sports development, youth engagement, and community service in Shingrahully, Shamsher Nagar, Moulvibazar since 2009." data-bn="২০০৯ সাল থেকে মৌলভীবাজারের শমশেরনগর, শিংড়াউলীতে ক্রীড়া উন্নয়ন, যুব সম্পৃক্ততা এবং সামাজিক সেবায় নিবেদিত একটি সমাজভিত্তিক যুব সংগঠন।">A community-based youth organization dedicated to sports development, youth engagement, and community service in Shingrahully, Shamsher Nagar, Moulvibazar since 2009.</p>
+                <div class="slnks">
+                    <a href="#" class="sa fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="sa yt"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="sa ig"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:youngsportingclub2009@gmail.com" class="sa em"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="fcol">
+                <h4 data-en="Quick Links" data-bn="দ্রুত লিংক">Quick Links</h4>
+                <ul>
+                    <li><a href="index.html" data-en="Home" data-bn="হোম">Home</a></li>
+                    <li><a href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a></li>
+                    <li><a href="members.html" data-en="Members" data-bn="সদস্য">Members</a></li>
+                    <li><a href="add_member.html" data-en="Add Member" data-bn="সদস্য যোগ">Add Member</a></li>
+                    <li><a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a></li>
+                </ul>
+            </div>
+            <div class="fcol">
+                <h4 data-en="Our Sports" data-bn="আমাদের খেলা">Our Sports</h4>
+                <ul>
+                    <li><a href="#" data-en="⚽ Football" data-bn="⚽ ফুটবল">⚽ Football</a></li>
+                    <li><a href="#" data-en="🏏 Cricket" data-bn="🏏 ক্রিকেট">🏏 Cricket</a></li>
+                    <li><a href="#" data-en="🏸 Badminton" data-bn="🏸 ব্যাডমিন্টন">🏸 Badminton</a></li>
+                    <li><a href="#" data-en="🎽 Youth Training" data-bn="🎽 যুব প্রশিক্ষণ">🎽 Youth Training</a></li>
+                    <li><a href="#" data-en="🎭 Cultural Events" data-bn="🎭 সাংস্কৃতিক অনুষ্ঠান">🎭 Cultural Events</a></li>
+                </ul>
+            </div>
+            <div class="fcol">
+                <h4 data-en="Contact Us" data-bn="যোগাযোগ">Contact Us</h4>
+                <ul class="ci2">
+                    <li><span class="ico"><i class="fas fa-map-marker-alt"></i></span><span data-en="Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar, Sylhet, Bangladesh" data-bn="শিংড়াউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট, বাংলাদেশ">Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar, Sylhet, Bangladesh</span></li>
+                    <li><span class="ico"><i class="fas fa-phone"></i></span><a href="tel:+8801737355553" style="color:var(--gr)">+880 1737-355553</a></li>
+                    <li><span class="ico"><i class="fas fa-envelope"></i></span><a href="mailto:youngsportingclub2009@gmail.com" style="color:var(--gr);word-break:break-all">youngsportingclub2009@gmail.com</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
-      <div class="fcol">
-        <h4 data-en="Quick Links" data-bn="দ্রুত লিংক">Quick Links</h4>
-        <ul>
-          <li><a href="index.html" data-en="Home" data-bn="হোম">Home</a></li>
-          <li><a href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a></li>
-          <li><a href="members.html" data-en="Members" data-bn="সদস্য">Members</a></li>
-          <li><a href="add_member.html" data-en="Add Member" data-bn="সদস্য যোগ">Add Member</a></li>
-          <li><a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a></li>
-        </ul>
-      </div>
-      <div class="fcol">
-        <h4 data-en="Our Sports" data-bn="আমাদের খেলা">Our Sports</h4>
-        <ul>
-          <li><a href="#" data-en="⚽ Football" data-bn="⚽ ফুটবল">⚽ Football</a></li>
-          <li><a href="#" data-en="🏏 Cricket" data-bn="🏏 ক্রিকেট">🏏 Cricket</a></li>
-          <li><a href="#" data-en="🏸 Badminton" data-bn="🏸 ব্যাডমিন্টন">🏸 Badminton</a></li>
-          <li><a href="#" data-en="🎽 Youth Training" data-bn="🎽 যুব প্রশিক্ষণ">🎽 Youth Training</a></li>
-          <li><a href="#" data-en="🎭 Cultural Events" data-bn="🎭 সাংস্কৃতিক অনুষ্ঠান">🎭 Cultural Events</a></li>
-        </ul>
-      </div>
-      <div class="fcol">
-        <h4 data-en="Contact Us" data-bn="যোগাযোগ">Contact Us</h4>
-        <ul class="ci2">
-          <li><span class="ico"><i class="fas fa-map-marker-alt"></i></span><span data-en="Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar, Sylhet, Bangladesh" data-bn="শিংড়াউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট, বাংলাদেশ">Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar, Sylhet, Bangladesh</span></li>
-          <li><span class="ico"><i class="fas fa-phone"></i></span><a href="tel:+8801724238581" style="color:var(--gr)">+880 1724-238581</a></li>
-          <li><span class="ico"><i class="fas fa-envelope"></i></span><a href="mailto:support.youngsportingclub@gmail.com" style="color:var(--gr);word-break:break-all">support.youngsportingclub@gmail.com</a></li>
-        </ul>
-      </div>
+        <div class="ftbot">
+            <p data-en="© 2026 Young Sporting Club. All rights reserved." data-bn="© ২০২৬ ইয়ং স্পোর্টিং ক্লাব। সর্বস্বত্ব সংরক্ষিত।">© 2026 Young Sporting Club. All rights reserved.</p>
+            <p class="dev" data-en="Developed by <span>Farabi Walid</span>" data-bn="তৈরি করেছেন <span>ফারাবি ওয়ালিদ</span>">Developed by <span>Farabi Walid</span></p>
+        </div>
     </div>
-    <div class="ftbot">
-      <p data-en="© 2024 Young Sporting Club. All rights reserved." data-bn="© ২০২৬ ইয়ং স্পোর্টিং ক্লাব। সর্বস্বত্ব সংরক্ষিত।">© 2026 Young Sporting Club. All rights reserved.</p>
-      <p class="dev" data-en="Developed by <span>Farabi Walid</span>" data-bn="তৈরি করেছেন <span>ফারাবি ওয়ালিদ</span>">Developed by <span>Farabi Walid</span></p>
-    </div>
-  </div>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getFirestore, collection, getDocs, query, where, limit } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",
-  authDomain: "youngsportingclub.firebaseapp.com",
-  databaseURL: "https://youngsportingclub-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "youngsportingclub",
-  storageBucket: "youngsportingclub.firebasestorage.app",
-  messagingSenderId: "724732761340",
-  appId: "1:724732761340:web:dc664c10d55d5bb87cb379",
-  measurementId: "G-8VBTXPWVJE"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-// ==================== AUTHENTICATION ====================
-onAuthStateChanged(auth, user => {
-  const btn = document.getElementById('nav-login-btn');
-  if (!btn) return;
-  
-  const lang = document.documentElement.getAttribute('data-lang') || 'en';
-  
-  if (user) {
-    const initial = (user.displayName || user.email || 'U')[0].toUpperCase();
-    btn.innerHTML = `<span style="display:inline-flex;align-items:center;gap:7px;background:rgba(254,44,85,.12);border:1px solid rgba(254,44,85,.3);padding:5px 12px 5px 5px;border-radius:50px;font-size:12px;font-weight:700"><span style="width:26px;height:26px;background:linear-gradient(135deg,#FE2C55,#25F4EE);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#010101;font-family:'Bebas Neue',sans-serif;font-size:15px">${initial}</span>${lang === 'bn' ? 'লগআউট' : 'Logout'}</span>`;
-    
-    btn.onclick = async e => {
-      e.preventDefault();
-      try {
-        await signOut(auth);
-        window.location.reload();
-      } catch (error) {
-        console.error('Logout error:', error);
-      }
-    };
-  } else {
-    btn.innerHTML = lang === 'bn' ? 'লগইন' : 'Login';
-    btn.href = 'login.html';
-    btn.onclick = null;
-  }
-});
-
-// ==================== LOAD COMMITTEE MEMBERS ====================
-async function loadCommitteeMembers() {
-  try {
-    // কমিটি পদগুলো
-    const positions = ['President', 'Vice President', 'General Secretary', 'Treasurer'];
-    const positionMap = {
-      'President': { bn: 'সভাপতি', initial: 'প' },
-      'Vice President': { bn: 'সহ-সভাপতি', initial: 'উ' },
-      'General Secretary': { bn: 'সাধারণ সম্পাদক', initial: 'স' },
-      'Treasurer': { bn: 'কোষাধ্যক্ষ', initial: 'ক' }
-    };
-    
-    const committeeContainer = document.getElementById('committee-container');
-    if (!committeeContainer) return;
-    
-    // ফায়ারবেস থেকে ডাটা লোড
-    const membersRef = collection(db, 'members');
-    const q = query(membersRef, where('position', 'in', positions), limit(4));
-    const querySnapshot = await getDocs(q);
-    
-    if (!querySnapshot.empty) {
-      committeeContainer.innerHTML = '';
-      
-      querySnapshot.forEach((doc, index) => {
-        const member = doc.data();
-        const position = member.position;
-        const posData = positionMap[position] || { initial: position.charAt(0), bn: position };
-        const lang = document.documentElement.getAttribute('data-lang') || 'en';
-        
-        const memberCard = document.createElement('div');
-        memberCard.className = 'cc';
-        memberCard.setAttribute('data-aos', 'fade-up');
-        memberCard.setAttribute('data-aos-delay', index * 80);
-        
-        memberCard.innerHTML = `
-          <div class="cav">${posData.initial}</div>
-          <h4>${member.name || 'Unknown'}</h4>
-          <div class="role">${lang === 'bn' ? posData.bn : position}</div>
-        `;
-        
-        committeeContainer.appendChild(memberCard);
-      });
-    }
-    
-  } catch (error) {
-    console.error('Error loading committee members:', error);
-  }
-}
-
-// ==================== UPDATE STATS ====================
-async function updateStats() {
-  try {
-    const membersRef = collection(db, 'members');
-    const snapshot = await getDocs(membersRef);
-    const totalMembers = snapshot.size;
-    
-    // স্ট্যাটস আপডেট
-    const statElements = document.querySelectorAll('.sti .sn');
-    if (statElements.length >= 4) {
-      statElements[0].setAttribute('data-target', totalMembers || 100);
-    }
-    
-  } catch (error) {
-    console.error('Error loading stats:', error);
-  }
-}
-
+<script>
 // ==================== INITIALIZATION ====================
 AOS.init({ duration: 700, once: true, offset: 55 });
 
+// Hide loader
 window.addEventListener('load', () => {
-  setTimeout(() => document.getElementById('ldr').classList.add('hid'), 500);
-  loadCommitteeMembers();
-  updateStats();
+    setTimeout(() => document.getElementById('ldr').classList.add('hid'), 500);
+    showWelcomeToast();
+    updateVisitorCount();
 });
 
+// Header scroll effect
 window.addEventListener('scroll', () => {
-  document.getElementById('hdr').classList.toggle('sc', window.scrollY > 28);
+    document.getElementById('hdr').classList.toggle('sc', window.scrollY > 28);
 });
 
-// Mobile menu
+// Mobile menu toggle
 const hbg = document.getElementById('hbg');
 const mob = document.getElementById('mob');
 if (hbg && mob) {
-  hbg.addEventListener('click', () => {
-    hbg.classList.toggle('op');
-    mob.classList.toggle('op');
-  });
-  
-  document.querySelectorAll('.mob a').forEach(a => {
-    a.addEventListener('click', () => {
-      hbg.classList.remove('op');
-      mob.classList.remove('op');
+    hbg.addEventListener('click', () => {
+        hbg.classList.toggle('op');
+        mob.classList.toggle('op');
     });
-  });
+    document.querySelectorAll('.mob a').forEach(a => {
+        a.addEventListener('click', () => {
+            hbg.classList.remove('op');
+            mob.classList.remove('op');
+        });
+    });
 }
 
-// Counter animation
-function animC() {
-  document.querySelectorAll('[data-target]').forEach(el => {
-    const target = parseInt(el.dataset.target);
-    const step = target / (1800 / 16);
-    let current = 0;
+// ==================== TRIPLE DATE ====================
+function updateDates() {
+    const now = new Date();
     
-    const timer = setInterval(() => {
-      current = Math.min(current + step, target);
-      el.textContent = Math.floor(current) + '+';
-      if (current >= target) clearInterval(timer);
-    }, 16);
-  });
+    // English Date
+    const enOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('dateEn').textContent = now.toLocaleDateString('en-US', enOptions);
+    
+    // Bengali Date
+    const bnOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('dateBn').textContent = now.toLocaleDateString('bn-BD', bnOptions);
+    
+    // Arabic Date
+    const arOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('dateAr').textContent = now.toLocaleDateString('ar-SA', arOptions);
+}
+updateDates();
+setInterval(updateDates, 60000);
+
+// ==================== VISITOR COUNTER ====================
+function updateVisitorCount() {
+    let count = localStorage.getItem('ysc_visitors');
+    if (!count) {
+        count = Math.floor(Math.random() * 500) + 1500;
+        localStorage.setItem('ysc_visitors', count);
+    } else {
+        count = parseInt(count) + 1;
+        localStorage.setItem('ysc_visitors', count);
+    }
+    const visitorEl = document.getElementById('visitorCount');
+    if (visitorEl) {
+        visitorEl.textContent = count.toLocaleString();
+    }
 }
 
-// Intersection Observer for stats
+// ==================== TOAST NOTIFICATION ====================
+function showWelcomeToast() {
+    const toast = document.getElementById('toast');
+    const msgEl = document.getElementById('toastMsg');
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    
+    const messages = {
+        en: '🎉 Welcome to Young Sporting Club! Stay connected for updates.',
+        bn: '🎉 ইয়ং স্পোর্টিং ক্লাবে স্বাগতম! আপডেটের সাথে সংযুক্ত থাকুন।'
+    };
+    
+    msgEl.textContent = messages[lang] || messages.en;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 5000);
+}
+
+function closeToast() {
+    document.getElementById('toast').classList.remove('show');
+}
+
+// ==================== COUNTER ANIMATION ====================
+function animC() {
+    document.querySelectorAll('[data-target]').forEach(el => {
+        const target = parseInt(el.dataset.target);
+        const step = target / (1800 / 16);
+        let current = 0;
+        const timer = setInterval(() => {
+            current = Math.min(current + step, target);
+            el.textContent = Math.floor(current);
+            if (current >= target) clearInterval(timer);
+        }, 16);
+    });
+}
+
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animC();
-      observer.disconnect();
-    }
-  });
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animC();
+            observer.disconnect();
+        }
+    });
 }, { threshold: 0.3 });
 
 const statsBand = document.querySelector('.stb');
 if (statsBand) observer.observe(statsBand);
-</script>
 
-<script>
-/* ════ BILINGUAL SYSTEM ════ */
+// ==================== AUTHENTICATION (Firebase) ====================
+// Firebase will be loaded from other pages, but we'll set login state
+if (typeof localStorage !== 'undefined') {
+    const loggedInUser = localStorage.getItem('ysc_user');
+    const loginBtn = document.getElementById('nav-login-btn');
+    if (loginBtn && loggedInUser) {
+        const lang = document.documentElement.getAttribute('data-lang') || 'en';
+        const initial = loggedInUser.charAt(0).toUpperCase();
+        loginBtn.innerHTML = `<span style="display:inline-flex;align-items:center;gap:7px;background:rgba(254,44,85,.12);border:1px solid rgba(254,44,85,.3);padding:5px 12px 5px 5px;border-radius:50px;font-size:12px;font-weight:700"><span style="width:26px;height:26px;background:linear-gradient(135deg,#FE2C55,#25F4EE);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#010101;font-family:'Bebas Neue',sans-serif;font-size:15px">${initial}</span>${lang === 'bn' ? 'লগআউট' : 'Logout'}</span>`;
+        loginBtn.onclick = () => {
+            localStorage.removeItem('ysc_user');
+            window.location.reload();
+        };
+    }
+}
+
+// ==================== LANGUAGE SWITCHER ====================
 let currentLang = (function() {
-  try {
-    return localStorage.getItem('ysc-lang') || 'en';
-  } catch(e) {
-    return 'en';
-  }
+    try {
+        return localStorage.getItem('ysc-lang') || 'en';
+    } catch(e) {
+        return 'en';
+    }
 })();
 
 function setLang(lang) {
-  currentLang = lang;
-  try {
-    localStorage.setItem('ysc-lang', lang);
-  } catch(e) {}
-  
-  document.documentElement.setAttribute('data-lang', lang);
-  document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
-  
-  document.querySelectorAll('[data-en]').forEach(el => {
-    const value = el.getAttribute('data-' + lang);
-    if (value === null) return;
+    currentLang = lang;
+    try {
+        localStorage.setItem('ysc-lang', lang);
+    } catch(e) {}
     
-    if (value.includes('<')) {
-      el.innerHTML = value;
-    } else {
-      el.textContent = value;
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
+    
+    document.querySelectorAll('[data-en]').forEach(el => {
+        const value = el.getAttribute('data-' + lang);
+        if (value === null) return;
+        if (value.includes('<')) {
+            el.innerHTML = value;
+        } else {
+            el.textContent = value;
+        }
+    });
+    
+    document.querySelectorAll('.lb').forEach(btn => {
+        btn.classList.remove('on');
+        if ((lang === 'en' && btn.textContent.trim() === 'EN') || 
+            (lang === 'bn' && btn.textContent.trim() === 'বাং')) {
+            btn.classList.add('on');
+        }
+    });
+    
+    // Update toast message if visible
+    const toastMsg = document.getElementById('toastMsg');
+    if (toastMsg && document.getElementById('toast').classList.contains('show')) {
+        toastMsg.textContent = lang === 'bn' ? 
+            '🎉 ইয়ং স্পোর্টিং ক্লাবে স্বাগতম! আপডেটের সাথে সংযুক্ত থাকুন।' : 
+            '🎉 Welcome to Young Sporting Club! Stay connected for updates.';
     }
-  });
-  
-  document.querySelectorAll('.lb').forEach(btn => {
-    btn.classList.remove('on');
-    if ((lang === 'en' && btn.textContent.trim() === 'EN') || 
-        (lang === 'bn' && btn.textContent.trim() === 'বাং')) {
-      btn.classList.add('on');
-    }
-  });
 }
 
 document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
 </script>
 </body>
-</html> 
+</html>
