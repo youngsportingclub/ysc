@@ -30,7 +30,6 @@
     --facebook:#1877F2;
     --youtube:#FF0000;
     --instagram:#E4405F;
-    --github:#333;
 }
 [data-lang="bn"]{font-family:'Hind Siliguri',sans-serif}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -279,7 +278,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 <section class="phero">
     <div class="container" data-aos="fade-down">
         <span class="bdg"><span class="dot"></span><span data-en="Our Story" data-bn="আমাদের গল্প">Our Story</span></span>
-        <h1><span data-en="About" data-bn="সম্পর্কে">About</span> <span style="background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent" data-en="Us" data-bn="আমাদের">Us</span></h1>
+        <h1 id="pageTitle"><span data-en="About" data-bn="সম্পর্কে">About</span> <span style="background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent" data-en="Us" data-bn="আমাদের">Us</span></h1>
         <p data-en="Learn about our history, mission, vision and the activities that define Young Sporting Club." data-bn="আমাদের ইতিহাস, লক্ষ্য, দৃষ্টিভঙ্গি এবং ইয়ং স্পোর্টিং ক্লাবের কার্যক্রম সম্পর্কে জানুন।">Learn about our history, mission, vision and the activities that define Young Sporting Club.</p>
         <div class="breadcrumb"><a href="index.html" data-en="Home" data-bn="হোম">Home</a><span>›</span><span data-en="About" data-bn="সম্পর্কে">About</span></div>
     </div>
@@ -464,16 +463,18 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Language data
+// Language data - MATCHING INDEX.HTML STRUCTURE
 const langData = {
     en: {
-        clubName: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
+        clubNameHeader: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
+        clubNameFooter: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
         footerDesc: "Young Sporting Club is a voluntary, non-political, and non-profit organization established in West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet, dedicated to engaging youth in sports, community development, and welfare activities since 2009.",
         footerLocation: "West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet, Bangladesh",
         devName: "Developed by Farabi Walid"
     },
     bn: {
-        clubName: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
+        clubNameHeader: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
+        clubNameFooter: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
         footerDesc: "ইয়ং স্পোর্টিং ক্লাব পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেটে প্রতিষ্ঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক সংগঠন যা ২০০৯ সাল থেকে তরুণদের ক্রীড়া, সমাজ উন্নয়ন এবং কল্যাণমূলক কার্যক্রমে নিয়োজিত রাখতে নিবেদিত।",
         footerLocation: "পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট, বাংলাদেশ",
         devName: "তৈরি করেছেন ফারাবি ওয়ালিদ"
@@ -563,23 +564,29 @@ function setLang(lang) {
         if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
     });
     
-    // Update club name in header and footer
+    // Update club name in header and footer (using innerHTML to preserve gold-letter spans)
     const clubNameHeader = document.getElementById('clubNameHeader');
     const clubNameFooter = document.getElementById('clubNameFooter');
     const footerDescription = document.getElementById('footerDescription');
     const footerLocation = document.getElementById('footerLocation');
     const developerName = document.getElementById('developerName');
     
-    if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubName;
-    if (clubNameFooter) clubNameFooter.innerHTML = langData[lang].clubName;
+    if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubNameHeader;
+    if (clubNameFooter) clubNameFooter.innerHTML = langData[lang].clubNameFooter;
     if (footerDescription) footerDescription.textContent = langData[lang].footerDesc;
     if (footerLocation) footerLocation.textContent = langData[lang].footerLocation;
     if (developerName) developerName.textContent = langData[lang].devName;
     
-    // Update toast message
+    // Update toast message if visible
     const toastMsg = document.getElementById('toastMsg');
     if (toastMsg && document.getElementById('toast').classList.contains('show')) {
         toastMsg.textContent = lang === 'bn' ? '📖 ইয়ং স্পোর্টিং ক্লাবের ইতিহাস ও লক্ষ্য সম্পর্কে জানুন।' : '📖 Learn about Young Sporting Club\'s history and mission.';
+    }
+    
+    // Update login button text
+    const loginBtn = document.getElementById('nav-login-btn');
+    if (loginBtn && !loginBtn.querySelector('span')) {
+        loginBtn.textContent = lang === 'bn' ? 'লগইন' : 'Login';
     }
 }
 
