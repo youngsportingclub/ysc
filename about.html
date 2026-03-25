@@ -59,30 +59,30 @@ ul{list-style:none}
 #hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr);background:rgba(10,10,15,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(254,44,85,.2)}
 #hdr.sc{background:rgba(10,10,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--pink);box-shadow:0 4px 20px rgba(254,44,85,.1)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;max-width:1200px;margin:0 auto}
-.logo{display:flex;align-items:center;gap:16px}
-.logo-img{width:70px;height:70px;border-radius:18px;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:3px;transition:var(--tr)}
+.logo{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.logo-img{width:60px;height:60px;border-radius:18px;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:3px;transition:var(--tr);flex-shrink:0}
 .logo-img:hover{transform:scale(1.02);box-shadow:0 0 20px rgba(254,44,85,.3)}
 .logo-img img{width:100%;height:100%;border-radius:15px;object-fit:cover}
-.lt{display:flex;flex-direction:column;line-height:1.2}
-.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px}
+.lt{display:flex;flex-direction:column;line-height:1.2;justify-content:center}
+.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1.5px;white-space:nowrap}
 .lt .n1 .gold-letter{color:var(--gold);text-shadow:0 0 5px rgba(255,215,0,.3)}
 /* বাংলা ভাষায় হেডারের নামের জন্য স্টাইল */
-[data-lang="bn"] .lt .n1{font-family:'Hind Siliguri',sans-serif;font-size:26px;letter-spacing:0}
-.lt .n2{font-size:11px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
-.nl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.nl a{padding:8px 18px;border-radius:40px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
+[data-lang="bn"] .lt .n1{font-family:'Hind Siliguri',sans-serif;font-size:22px;letter-spacing:0;white-space:nowrap}
+.lt .n2{font-size:10px;color:var(--gr);letter-spacing:1px;text-transform:uppercase;margin-top:3px}
+.nl{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.nl a{padding:6px 14px;border-radius:40px;font-size:13px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
 .nl a:hover{color:var(--pink);background:rgba(254,44,85,.1)}
 .nl a.on{color:var(--pink);background:rgba(254,44,85,.15)}
-.nl a.on::after{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--pink);margin:4px auto 0;box-shadow:0 0 10px var(--pink)}
-.nr{display:flex;align-items:center;gap:12px}
-.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:13px;padding:9px 22px;transition:var(--tr)}
+.nl a.on::after{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--pink);margin:3px auto 0;box-shadow:0 0 8px var(--pink)}
+.nr{display:flex;align-items:center;gap:10px}
+.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:12px;padding:7px 18px;transition:var(--tr)}
 .ncta:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(254,44,85,.4)}
 .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
 .hbg span{display:block;width:26px;height:2.5px;background:#fff;border-radius:2px;transition:var(--tr)}
 .hbg.op span:nth-child(1){transform:rotate(45deg) translate(7px,7px)}
 .hbg.op span:nth-child(2){opacity:0}
 .hbg.op span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
-.mob{display:none;position:fixed;top:75px;left:0;right:0;background:rgba(10,10,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(254,44,85,.2);padding:20px 22px;flex-direction:column;gap:8px;z-index:997}
+.mob{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(10,10,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(254,44,85,.2);padding:20px 22px;flex-direction:column;gap:8px;z-index:997}
 .mob.op{display:flex}
 .mob a{padding:12px 18px;border-radius:14px;font-size:16px;font-weight:500;color:var(--lt);transition:var(--tr)}
 .mob a:hover,.mob a.on{color:var(--pink);background:rgba(254,44,85,.15)}
@@ -142,17 +142,17 @@ ul{list-style:none}
 footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0 25px}
 .ftgr{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:45px}
 .ftlogo{display:flex;align-items:center;gap:14px;margin-bottom:20px}
-.ftlogo-img{width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:2px}
+.ftlogo-img{width:55px;height:55px;border-radius:16px;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:2px;flex-shrink:0}
 .ftlogo-img img{width:100%;height:100%;border-radius:14px;object-fit:cover}
 .ftlogo-text{display:flex;flex-direction:column}
-.ftlogo-text .name{font-family:'Bebas Neue',sans-serif;font-size:24px}
+.ftlogo-text .name{font-family:'Bebas Neue',sans-serif;font-size:20px;white-space:nowrap}
 .ftlogo-text .name .gold-letter{color:var(--gold);text-shadow:0 0 5px rgba(255,215,0,.3)}
 /* বাংলা ভাষায় ফুটারের নামের জন্য স্টাইল */
-[data-lang="bn"] .ftlogo-text .name{font-family:'Hind Siliguri',sans-serif;font-size:22px;letter-spacing:0}
-.ftlogo-text .est{font-size:10px;color:var(--gr);margin-top:2px}
+[data-lang="bn"] .ftlogo-text .name{font-family:'Hind Siliguri',sans-serif;font-size:18px;white-space:nowrap;letter-spacing:0}
+.ftlogo-text .est{font-size:9px;color:var(--gr);margin-top:2px}
 .ftdesc{color:var(--gr);font-size:13px;line-height:1.85;margin:15px 0 25px}
 .slnks{display:flex;gap:12px;flex-wrap:wrap}
-.sa{width:44px;height:44px;border-radius:14px;background:var(--card2);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:var(--gr);font-size:20px;transition:var(--tr)}
+.sa{width:40px;height:40px;border-radius:12px;background:var(--card2);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:var(--gr);font-size:18px;transition:var(--tr)}
 .sa:hover{transform:translateY(-3px)}
 .sa.fb:hover{background:var(--facebook);color:#fff;box-shadow:0 0 16px rgba(24,119,242,.4)}
 .sa.yt:hover{background:var(--youtube);color:#fff;box-shadow:0 0 16px rgba(255,0,0,.4)}
@@ -177,35 +177,91 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 .date-bar{background:rgba(0,0,0,.6);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:60px;padding:10px 28px;margin:25px auto;display:inline-flex;flex-wrap:wrap;gap:18px;justify-content:center;font-size:12px;font-weight:500}
 .date-item{display:flex;align-items:center;gap:8px;color:var(--lt)}
 .date-item i{color:var(--cyan);font-size:12px}
-.whatsapp-float{position:fixed;bottom:25px;right:25px;z-index:999;background:var(--whatsapp);width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:var(--tr);cursor:pointer}
+.whatsapp-float{position:fixed;bottom:25px;right:25px;z-index:999;background:var(--whatsapp);width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:var(--tr);cursor:pointer}
 .whatsapp-float:hover{transform:scale(1.08)}
-.whatsapp-float i{font-size:30px;color:#fff}
+.whatsapp-float i{font-size:28px;color:#fff}
 .toast{position:fixed;bottom:100px;right:25px;background:var(--card2);border-left:4px solid var(--pink);border-radius:12px;padding:12px 18px;font-size:13px;z-index:998;transform:translateX(120%);transition:transform .4s ease;max-width:280px;box-shadow:0 8px 28px rgba(0,0,0,.3)}
 .toast.show{transform:translateX(0)}
 .toast .toast-title{font-weight:700;margin-bottom:4px;color:var(--pink)}
 .toast .toast-close{position:absolute;top:8px;right:12px;cursor:pointer;font-size:14px;color:var(--gr)}
 .visitor-badge{position:fixed;bottom:20px;left:20px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border-radius:40px;padding:7px 16px;font-size:11px;color:var(--gr);z-index:998;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15)}
 .visitor-badge i{color:var(--cyan);font-size:11px}
+
+/* ========== মোবাইল রেস্পন্সিভ স্টাইল ========== */
 @media(max-width:900px){
     .g3{grid-template-columns:1fr 1fr}
     .mvgrid{grid-template-columns:1fr}
     .ftgr{grid-template-columns:1fr 1fr}
     .objectives-grid{grid-template-columns:1fr}
+    .phero{padding:120px 0 50px}
+    .sp{padding:70px 0}
 }
-@media(max-width:700px){
-    .nl{display:none}.hbg{display:flex}
-    .sp{padding:60px 0}
+
+@media(max-width:768px){
+    .nav{padding:10px 16px}
+    .logo{gap:10px}
+    .logo-img{width:48px;height:48px}
+    .lt .n1{font-size:18px;white-space:normal;line-height:1.2}
+    [data-lang="bn"] .lt .n1{font-size:17px;white-space:normal}
+    .lt .n2{font-size:9px}
+    .nl{display:none}
+    .hbg{display:flex}
+    .nr .lang-sw{display:none}
+    .nr{gap:6px}
+    .ncta{padding:5px 14px;font-size:11px}
+    .phero{padding:100px 0 40px}
+    .phero h1{font-size:clamp(36px,8vw,60px)}
+    .phero p{font-size:14px;padding:0 16px}
+    .sp{padding:50px 0}
+    .sec-title{font-size:clamp(28px,6vw,44px)}
+    .sub{font-size:13px;margin-bottom:30px}
+}
+
+@media(max-width:600px){
+    .logo-img{width:42px;height:42px}
+    .lt .n1{font-size:15px}
+    [data-lang="bn"] .lt .n1{font-size:14px}
+    .lt .n2{font-size:8px}
+    .ncta{padding:4px 12px;font-size:10px}
     .g3{grid-template-columns:1fr}
     .ftgr{grid-template-columns:1fr}
-    .nr .lang-sw{display:none}
-    .whatsapp-float{width:48px;height:48px}
-    .whatsapp-float i{font-size:26px}
-    .toast{bottom:90px;right:16px;left:16px;max-width:calc(100% - 32px)}
-    .visitor-badge{bottom:16px;left:16px}
-    .date-bar{flex-direction:column;align-items:center;gap:10px;padding:12px 20px}
-    .objectives-section{padding:25px}
+    .ftlogo-img{width:45px;height:45px}
+    .ftlogo-text .name{font-size:16px;white-space:normal}
+    [data-lang="bn"] .ftlogo-text .name{font-size:15px;white-space:normal}
+    .whatsapp-float{width:45px;height:45px;bottom:15px;right:15px}
+    .whatsapp-float i{font-size:24px}
+    .toast{bottom:80px;right:16px;left:16px;max-width:calc(100% - 32px)}
+    .visitor-badge{bottom:12px;left:12px;padding:5px 12px;font-size:10px}
+    .date-bar{flex-direction:column;align-items:center;gap:8px;padding:10px 16px}
+    .date-item{font-size:10px}
+    .objectives-section{padding:20px}
+    .mvcol{padding:25px 20px}
+    .mv-h2{font-size:20px}
+    [data-lang="bn"] .mv-h2{font-size:18px}
+    .tl{padding-left:30px}
+    .tl::before{left:6px}
+    .tli::before{left:-28px;width:10px;height:10px}
+    .tli-yr{font-size:24px}
+    .tli-t{font-size:16px}
+    .tli-d{font-size:12px}
 }
-@media(max-width:460px){.ftbot{flex-direction:column;text-align:center}}
+
+@media(max-width:480px){
+    .nav{padding:8px 12px}
+    .logo{gap:8px}
+    .logo-img{width:38px;height:38px}
+    .lt .n1{font-size:13px}
+    [data-lang="bn"] .lt .n1{font-size:12px}
+    .lt .n2{font-size:7px;letter-spacing:0.5px}
+    .ncta{padding:3px 10px;font-size:9px}
+    .mob{padding:15px}
+    .mob a{padding:10px 14px;font-size:14px}
+    .ftbot{flex-direction:column;text-align:center}
+    .ftdesc{font-size:12px}
+    .fcol h4{font-size:12px}
+    .fcol ul li a{font-size:12px}
+    .ci2 li{font-size:12px}
+}
 </style>
 </head>
 <body>
@@ -534,7 +590,6 @@ window.closeToast = closeToast;
 </script>
 
 <script>
-// ভাষা ডাটা - index.html এর সাথে মিল রেখে
 const langData = {
     en: {
         clubNameHeader: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
@@ -563,7 +618,6 @@ function setLang(lang) {
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
     
-    // সকল data-en/data-bn এলিমেন্ট আপডেট করুন
     document.querySelectorAll('[data-en]').forEach(el => {
         const value = el.getAttribute('data-' + lang);
         if (value !== null) {
@@ -572,7 +626,6 @@ function setLang(lang) {
         }
     });
     
-    // ল্যাঙ্গুয়েজ বাটন আপডেট করুন
     document.querySelectorAll('.lb').forEach(btn => {
         btn.classList.remove('on');
         if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) {
@@ -580,7 +633,6 @@ function setLang(lang) {
         }
     });
     
-    // ক্লাবের নাম হেডার এবং ফুটারে আপডেট করুন (innerHTML ব্যবহার করে gold-letter সংরক্ষণ করুন)
     const clubNameHeader = document.getElementById('clubNameHeader');
     const clubNameFooter = document.getElementById('clubNameFooter');
     const footerDescription = document.getElementById('footerDescription');
@@ -593,13 +645,11 @@ function setLang(lang) {
     if (footerLocation) footerLocation.textContent = langData[lang].footerLocation;
     if (developerName) developerName.textContent = langData[lang].devName;
     
-    // টোস্ট মেসেজ আপডেট করুন যদি দেখানো হয়
     const toastMsg = document.getElementById('toastMsg');
     if (toastMsg && document.getElementById('toast').classList.contains('show')) {
         toastMsg.textContent = lang === 'bn' ? '📖 ইয়ং স্পোর্টিং ক্লাবের ইতিহাস ও লক্ষ্য সম্পর্কে জানুন।' : '📖 Learn about Young Sporting Club\'s history and mission.';
     }
     
-    // লগইন বাটন আপডেট করুন
     const loginBtn = document.getElementById('nav-login-btn');
     if (loginBtn && !loginBtn.querySelector('span')) {
         loginBtn.textContent = lang === 'bn' ? 'লগইন' : 'Login';
