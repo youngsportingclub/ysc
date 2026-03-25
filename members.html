@@ -355,12 +355,12 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
                         <th data-en="Position" data-bn="পদ">Position</th>
                         <th data-en="Address" data-bn="ঠিকানা">Address</th>
                         <th data-en="Joined" data-bn="যোগদান">Joined</th>
-                    </tr>
+                     </tr>
                 </thead>
                 <tbody id="mBody">
-                    <tr><td colspan="4" style="text-align:center;padding:60px 20px;"><div class="lring" style="margin:0 auto 14px"></div><span data-en="Loading members…" data-bn="সদস্যদের লোড হচ্ছে…">Loading members…</span></td></tr>
+                     <tr><td colspan="4" style="text-align:center;padding:60px 20px;"><div class="lring" style="margin:0 auto 14px"></div><span data-en="Loading members…" data-bn="সদস্যদের লোড হচ্ছে…">Loading members…</span></td></tr>
                 </tbody>
-            </table>
+             </table>
         </div>
 
         <!-- Add Member Button -->
@@ -458,7 +458,7 @@ const positionOrder = {
     'Member': 28
 };
 
-// Position-based emoji mapping
+// Position-based emoji mapping (fallback)
 const positionEmoji = {
     'President': '👨‍💼',
     'Senior Vice President': '👨‍⚖️',
@@ -489,6 +489,9 @@ const positionEmoji = {
     'Religious Secretary': '🕌',
     'Member': '👤'
 };
+
+// Club logo URL
+const clubLogoUrl = window.location.origin + '/ysc.png';
 
 // Language data
 const langData = {
@@ -573,17 +576,9 @@ function escapeHtml(text) {
     });
 }
 
-// Get club logo URL
-const clubLogoUrl = window.location.origin + '/ysc.png';
-
 function getAvatarHtml(member) {
     const emoji = positionEmoji[member.position] || '👤';
-    
-    // If photo URL exists in database, try to load it
-    if (member.photoURL) {
-        return `<img src="${member.photoURL}" alt="${escapeHtml(member.name)}" onerror="this.onerror=null; this.parentElement.innerHTML='<img src=\'${clubLogoUrl}\' alt=\'Club Logo\' onerror=\'this.onerror=null; this.parentElement.innerHTML=\\'${emoji}\\'\'>'">`;
-    }
-    // If no photo, try club logo
+    // Always show club logo for all members
     return `<img src="${clubLogoUrl}" alt="Club Logo" onerror="this.onerror=null; this.parentElement.innerHTML='${emoji}'">`;
 }
 
@@ -694,7 +689,7 @@ onSnapshot(membersQuery, (snapshot) => {
     filterMembers();
 }, (error) => {
     console.error('Firestore error:', error);
-    tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;padding:40px;color:#FE2C55">⚠ Failed to load members. Please check your connection.</td></tr>`;
+    tbody.innerHTML = `}<td colspan="4" style="text-align:center;padding:40px;color:#FE2C55">⚠ Failed to load members. Please check your connection.</td></tr>`;
 });
 
 // Add event listeners
