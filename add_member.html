@@ -434,14 +434,17 @@ const positionEmoji = {
     'Member': '👤'
 };
 
+// Club logo URL
+const clubLogoUrl = window.location.origin + '/ysc.png';
+
 // Language data
 const langData = {
     en: {
-        clubName: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
+        clubNameHeader: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
         devName: "Developed by Farabi Walid"
     },
     bn: {
-        clubName: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
+        clubNameHeader: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
         devName: "তৈরি করেছেন ফারাবি ওয়ালিদ"
     }
 };
@@ -458,7 +461,6 @@ const photoInput = document.getElementById('memberPhoto');
 const uploadPreview = document.getElementById('uploadPreview');
 
 let selectedPhoto = null;
-let uploadedPhotoURL = null;
 
 // Preview photo when selected
 photoInput.addEventListener('change', (e) => {
@@ -509,7 +511,6 @@ if (resetBtn) {
         photoInput.value = '';
         uploadPreview.innerHTML = '<i class="fas fa-camera"></i>';
         selectedPhoto = null;
-        uploadedPhotoURL = null;
         hideMessage(okMsg);
         hideMessage(errMsg);
         updatePreview();
@@ -554,7 +555,7 @@ document.getElementById('addForm').addEventListener('submit', async (e) => {
         if (selectedPhoto) {
             photoURL = await uploadImage(selectedPhoto);
             if (!photoURL) {
-                showMessage(errMsg, lang === 'bn' ? '⚠ ছবি আপলোড ব্যর্থ হয়েছে। ইমোজি ব্যবহার করা হবে।' : '⚠ Photo upload failed. Emoji will be used.', 'err');
+                showMessage(errMsg, lang === 'bn' ? '⚠ ছবি আপলোড ব্যর্থ হয়েছে। ক্লাব লোগো ব্যবহার হবে।' : '⚠ Photo upload failed. Club logo will be used.', 'err');
             }
         }
         
@@ -638,8 +639,7 @@ function updatePreview() {
             };
             reader.readAsDataURL(selectedPhoto);
         } else {
-            const emoji = positionEmoji[position] || '👤';
-            previewAvatar.innerHTML = emoji;
+            previewAvatar.innerHTML = `<img src="${clubLogoUrl}" alt="Club Logo" onerror="this.onerror=null; this.parentElement.innerHTML='${positionEmoji[position] || '👤'}'">`;
         }
     } else {
         previewDiv.classList.remove('show');
@@ -711,11 +711,11 @@ function setLang(lang) {
         if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
     });
     
-    // Update club name in header and footer
+    // Update club name in header
     const clubNameHeader = document.getElementById('clubNameHeader');
     const developerName = document.getElementById('developerName');
     
-    if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubName;
+    if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubNameHeader;
     if (developerName) developerName.textContent = langData[lang].devName;
     
     // Update placeholders
