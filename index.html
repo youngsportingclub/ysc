@@ -58,14 +58,15 @@ ul{list-style:none}
 #hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr);background:rgba(1,1,1,.85);backdrop-filter:blur(12px)}
 #hdr.sc{background:rgba(1,1,1,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--bp);box-shadow:0 4px 20px rgba(0,0,0,.3)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;max-width:1200px;margin:0 auto}
-.logo{display:flex;align-items:center;gap:12px}
-.li{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:20px;color:#010101;box-shadow:var(--gdual);font-weight:bold}
+.logo{display:flex;align-items:center;gap:14px}
+.logo-img{width:52px;height:52px;border-radius:14px;object-fit:cover;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:2px}
+.logo-img img{width:100%;height:100%;border-radius:12px;object-fit:cover}
 .lt{display:flex;flex-direction:column;line-height:1}
-.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2.5px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .lt .n2{font-size:11px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:3px}
 .nl{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
-.nl a{padding:8px 16px;border-radius:30px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
-.nl a:hover,.nl a.on{color:var(--wh);background:rgba(254,44,85,.15)}
+.nl a{padding:8px 18px;border-radius:30px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
+.nl a:hover,.nl a.on{color:var(--wh);background:rgba(254,44,85,.2)}
 .nl a.on::after{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--pink);margin:3px auto 0;box-shadow:0 0 8px var(--pink)}
 .nr{display:flex;align-items:center;gap:12px}
 .ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:13px;padding:9px 20px;transition:var(--tr)}
@@ -78,7 +79,7 @@ ul{list-style:none}
 .mob{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(1,1,1,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--bp);padding:20px 22px;flex-direction:column;gap:5px;z-index:997}
 .mob.op{display:flex}
 .mob a{padding:12px 16px;border-radius:12px;font-size:15px;font-weight:500;color:var(--lt);transition:var(--tr)}
-.mob a:hover,.mob a.on{color:#fff;background:rgba(254,44,85,.15)}
+.mob a:hover,.mob a.on{color:#fff;background:rgba(254,44,85,.2)}
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:80px}
 .hbg2{position:absolute;inset:0;background:radial-gradient(ellipse 75% 60% at 68% 48%,rgba(254,44,85,.08),transparent 65%),radial-gradient(ellipse 55% 45% at 18% 72%,rgba(37,244,238,.06),transparent 58%),var(--bg);z-index:0}
 .hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(254,44,85,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,244,238,.04) 1px,transparent 1px);background-size:55px 55px;z-index:0}
@@ -97,10 +98,10 @@ ul{list-style:none}
 .hew{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--bc);background:rgba(37,244,238,.07);color:var(--cyan);padding:6px 16px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:20px}
 .hew .pd{width:7px;height:7px;border-radius:50%;background:var(--cyan);animation:pc 2s infinite;box-shadow:0 0 8px var(--cyan)}
 @keyframes pc{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.3}}
-.htitle{font-size:clamp(52px,8vw,88px);line-height:.92;margin-bottom:20px}
+.htitle{font-size:clamp(56px,9vw,96px);line-height:.9;margin-bottom:20px}
 .htitle .l1{display:block;color:#fff}
 .htitle .l2{display:block;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-[data-lang="bn"] .htitle{font-family:'Hind Siliguri',sans-serif;font-size:clamp(42px,6vw,70px)}
+[data-lang="bn"] .htitle{font-family:'Hind Siliguri',sans-serif;font-size:clamp(46px,7vw,78px)}
 .hdesc{font-size:15px;color:var(--gr);line-height:1.8;margin-bottom:10px;max-width:440px}
 .hloc{display:flex;align-items:flex-start;gap:7px;font-size:12px;color:var(--cyan);margin-bottom:28px;line-height:1.5}
 .hloc i{margin-top:3px}
@@ -241,6 +242,7 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
     .sti:nth-child(2){border-right:none}
     .ftgr{grid-template-columns:1fr 1fr}
     .fdbox{grid-template-columns:1fr}
+    .lt .n1{font-size:20px}
 }
 @media(max-width:700px){
     .nl{display:none}.hbg{display:flex}
@@ -257,6 +259,8 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
     .whatsapp-float i{font-size:26px}
     .toast{bottom:90px;right:16px;left:16px;max-width:calc(100% - 32px)}
     .visitor-badge{bottom:16px;left:16px}
+    .lt .n1{font-size:18px}
+    .logo-img{width:44px;height:44px}
 }
 @media(max-width:460px){.ftbot{flex-direction:column;text-align:center}}
 </style>
@@ -287,8 +291,13 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
 <header id="hdr">
     <nav class="nav">
         <a href="index.html" class="logo">
-            <div class="li">YSC</div>
-            <div class="lt"><span class="n1">YOUNG SPORTING</span><span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span></div>
+            <div class="logo-img">
+                <img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/52x52/FE2C55/FFFFFF?text=YSC'">
+            </div>
+            <div class="lt">
+                <span class="n1">YOUNG SPORTING</span>
+                <span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span>
+            </div>
         </a>
         <div class="nl">
             <a href="index.html" class="on" data-en="Home" data-bn="হোম">Home</a>
@@ -387,7 +396,6 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
             </div>
         </div>
         <div class="event-slider" id="eventSlider">
-            <!-- Events will be loaded dynamically from Firebase -->
             <div class="event-card"><div class="event-date">Loading...</div><div class="event-title">Loading events</div><div class="event-desc">Please wait...</div></div>
         </div>
         <div class="add-event-form" id="addEventForm">
@@ -468,7 +476,7 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
     </div>
 </section>
 
-<!-- COMMITTEE (DYNAMIC FROM FIREBASE) -->
+<!-- COMMITTEE (LIVE FROM FIREBASE) -->
 <section class="sp" style="background:var(--bg)">
     <div class="container">
         <div class="tc" data-aos="fade-up">
@@ -478,10 +486,7 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
             <p class="sub" data-en="The dedicated leaders who keep Young Sporting Club running and the spirit alive." data-bn="যারা ইয়ং স্পোর্টিং ক্লাবকে সচল রাখেন এবং চেতনাকে জীবন্ত রাখেন।">The dedicated leaders who keep Young Sporting Club running and the spirit alive.</p>
         </div>
         <div class="cgr" id="committee-container">
-            <div class="cc" data-aos="fade-up"><div class="cav">প</div><h4>মোঃ আব্দুল্লাহ</h4><div class="role">সভাপতি</div></div>
-            <div class="cc" data-aos="fade-up"><div class="cav">উ</div><h4>মোঃ ইমরান</h4><div class="role">সহ-সভাপতি</div></div>
-            <div class="cc" data-aos="fade-up"><div class="cav">স</div><h4>মোঃ সাদ্দাম</h4><div class="role">সাধারণ সম্পাদক</div></div>
-            <div class="cc" data-aos="fade-up"><div class="cav">ক</div><h4>মোঃ রাসেল</h4><div class="role">কোষাধ্যক্ষ</div></div>
+            <div class="cc" data-aos="fade-up"><div class="cav">⏳</div><h4>Loading...</h4><div class="role">Please wait</div></div>
         </div>
         <div class="tc" style="margin-top:8px" data-aos="fade-up">
             <a href="members.html" class="btn btn-ol"><i class="fas fa-users"></i> <span data-en="View All Members" data-bn="সকল সদস্য দেখুন">View All Members</span></a>
@@ -535,10 +540,19 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
     <div class="container">
         <div class="ftgr">
             <div>
-                <div class="logo"><div class="li">YSC</div><div class="lt"><span class="n1">YOUNG SPORTING CLUB</span><span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জান ২০০৯">Est. 13 Jan 2009</span></div></div>
+                <div class="logo">
+                    <div class="logo-img">
+                        <img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/52x52/FE2C55/FFFFFF?text=YSC'">
+                    </div>
+                    <div class="lt">
+                        <span class="n1">YOUNG SPORTING CLUB</span>
+                        <span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জান ২০০৯">Est. 13 Jan 2009</span>
+                    </div>
+                </div>
                 <p class="ftdesc" data-en="A community-based youth organization dedicated to sports development, youth engagement, and community service in Shingrahully, Shamsher Nagar, Moulvibazar since 2009." data-bn="২০০৯ সাল থেকে মৌলভীবাজারের শমশেরনগর, শিংড়াউলীতে ক্রীড়া উন্নয়ন, যুব সম্পৃক্ততা এবং সামাজিক সেবায় নিবেদিত একটি সমাজভিত্তিক যুব সংগঠন।">A community-based youth organization dedicated to sports development, youth engagement, and community service in Shingrahully, Shamsher Nagar, Moulvibazar since 2009.</p>
                 <div class="slnks">
-                    <a href="https://www.facebook.com/youngsportingclub" target="_blank" class="sa fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.facebook.com/youngsportingclubofficial" target="_blank" class="sa fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.facebook.com/groups/youngsportingclub" target="_blank" class="sa fb"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.youtube.com/@youngsportingclub" target="_blank" class="sa yt"><i class="fab fa-youtube"></i></a>
                     <a href="https://www.instagram.com/youngsportingclubofficial/" target="_blank" class="sa ig"><i class="fab fa-instagram"></i></a>
                     <a href="mailto:youngsportingclub2009@gmail.com" class="sa em"><i class="fas fa-envelope"></i></a>
@@ -585,8 +599,8 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getFirestore, collection, query, orderBy, onSnapshot, addDoc, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getFirestore, collection, query, orderBy, onSnapshot, addDoc, deleteDoc, doc, updateDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",
@@ -602,6 +616,78 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+// ==================== LOAD COMMITTEE MEMBERS FROM FIREBASE ====================
+async function loadCommitteeMembers() {
+    try {
+        const positions = ['President', 'Vice President', 'General Secretary', 'Treasurer'];
+        const positionMap = {
+            'President': { bn: 'সভাপতি', initial: 'প' },
+            'Vice President': { bn: 'সহ-সভাপতি', initial: 'উ' },
+            'General Secretary': { bn: 'সাধারণ সম্পাদক', initial: 'স' },
+            'Treasurer': { bn: 'কোষাধ্যক্ষ', initial: 'ক' }
+        };
+        
+        const committeeContainer = document.getElementById('committee-container');
+        if (!committeeContainer) return;
+        
+        const membersRef = collection(db, 'members');
+        const querySnapshot = await getDocs(membersRef);
+        
+        const committeeMembers = [];
+        querySnapshot.forEach((doc) => {
+            const member = doc.data();
+            if (positions.includes(member.position)) {
+                committeeMembers.push(member);
+            }
+        });
+        
+        if (committeeMembers.length > 0) {
+            committeeContainer.innerHTML = '';
+            committeeMembers.forEach((member, index) => {
+                const position = member.position;
+                const posData = positionMap[position] || { initial: position.charAt(0), bn: position };
+                const lang = document.documentElement.getAttribute('data-lang') || 'en';
+                
+                const memberCard = document.createElement('div');
+                memberCard.className = 'cc';
+                memberCard.setAttribute('data-aos', 'fade-up');
+                memberCard.setAttribute('data-aos-delay', index * 80);
+                
+                memberCard.innerHTML = `
+                    <div class="cav">${posData.initial}</div>
+                    <h4>${member.name || 'Unknown'}</h4>
+                    <div class="role">${lang === 'bn' ? posData.bn : position}</div>
+                `;
+                committeeContainer.appendChild(memberCard);
+            });
+        } else {
+            committeeContainer.innerHTML = '<div class="cc" style="grid-column:span 4"><div class="cav">👥</div><h4>No committee members added yet</h4><div class="role">Add members from admin panel</div></div>';
+        }
+    } catch (error) {
+        console.error('Error loading committee members:', error);
+        const committeeContainer = document.getElementById('committee-container');
+        if (committeeContainer) {
+            committeeContainer.innerHTML = '<div class="cc" style="grid-column:span 4"><div class="cav">⚠️</div><h4>Error loading members</h4><div class="role">Please check connection</div></div>';
+        }
+    }
+}
+
+// ==================== UPDATE STATS ====================
+async function updateStats() {
+    try {
+        const membersRef = collection(db, 'members');
+        const snapshot = await getDocs(membersRef);
+        const totalMembers = snapshot.size;
+        
+        const statElements = document.querySelectorAll('.sti .sn');
+        if (statElements.length >= 4) {
+            statElements[0].setAttribute('data-target', totalMembers || 120);
+        }
+    } catch (error) {
+        console.error('Error loading stats:', error);
+    }
+}
+
 // ==================== EVENT MANAGEMENT ====================
 let events = [];
 let editingEventId = null;
@@ -616,7 +702,6 @@ const eventTitle = document.getElementById('eventTitle');
 const eventDate = document.getElementById('eventDate');
 const eventDesc = document.getElementById('eventDesc');
 
-// Check if user is logged in to show event controls
 onAuthStateChanged(auth, (user) => {
     if (user && eventControls) {
         eventControls.style.display = 'flex';
@@ -625,7 +710,6 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-// Load events from Firebase
 const eventsQuery = query(collection(db, 'events'), orderBy('date', 'asc'));
 onSnapshot(eventsQuery, (snapshot) => {
     events = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -636,7 +720,7 @@ function renderEvents() {
     if (!eventSlider) return;
     
     if (events.length === 0) {
-        eventSlider.innerHTML = `<div class="event-card"><div class="event-date">No Events</div><div class="event-title">No upcoming events</div><div class="event-desc">Check back later for updates</div></div>`;
+        eventSlider.innerHTML = `<div class="event-card"><div class="event-date">📅</div><div class="event-title">No Upcoming Events</div><div class="event-desc">Check back later for updates on tournaments and celebrations</div></div>`;
         return;
     }
     
@@ -668,7 +752,6 @@ function escapeHtml(text) {
     });
 }
 
-// Add Event
 window.addEvent = function() {
     editingEventId = null;
     eventTitle.value = '';
@@ -677,11 +760,9 @@ window.addEvent = function() {
     addEventForm.classList.add('show');
 };
 
-// Edit Event
 window.editEvent = async function(eventId) {
     const event = events.find(e => e.id === eventId);
     if (!event) return;
-    
     editingEventId = eventId;
     eventTitle.value = event.title;
     eventDate.value = event.date;
@@ -689,7 +770,6 @@ window.editEvent = async function(eventId) {
     addEventForm.classList.add('show');
 };
 
-// Delete Event
 window.deleteEvent = async function(eventId) {
     if (confirm('Are you sure you want to delete this event?')) {
         try {
@@ -702,7 +782,6 @@ window.deleteEvent = async function(eventId) {
     }
 };
 
-// Save Event
 if (saveEventBtn) {
     saveEventBtn.addEventListener('click', async () => {
         const title = eventTitle.value.trim();
@@ -716,14 +795,10 @@ if (saveEventBtn) {
         
         try {
             if (editingEventId) {
-                await updateDoc(doc(db, 'events', editingEventId), {
-                    title, date, description
-                });
+                await updateDoc(doc(db, 'events', editingEventId), { title, date, description });
                 showToastMessage('Event updated successfully!');
             } else {
-                await addDoc(collection(db, 'events'), {
-                    title, date, description
-                });
+                await addDoc(collection(db, 'events'), { title, date, description });
                 showToastMessage('Event added successfully!');
             }
             addEventForm.classList.remove('show');
@@ -738,7 +813,6 @@ if (saveEventBtn) {
     });
 }
 
-// Cancel Event Form
 if (cancelEventBtn) {
     cancelEventBtn.addEventListener('click', () => {
         addEventForm.classList.remove('show');
@@ -761,73 +835,6 @@ function showToastMessage(msg) {
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
-// ==================== LOAD COMMITTEE MEMBERS ====================
-async function loadCommitteeMembers() {
-    try {
-        const positions = ['President', 'Vice President', 'General Secretary', 'Treasurer'];
-        const positionMap = {
-            'President': { bn: 'সভাপতি', initial: 'প' },
-            'Vice President': { bn: 'সহ-সভাপতি', initial: 'উ' },
-            'General Secretary': { bn: 'সাধারণ সম্পাদক', initial: 'স' },
-            'Treasurer': { bn: 'কোষাধ্যক্ষ', initial: 'ক' }
-        };
-        
-        const committeeContainer = document.getElementById('committee-container');
-        if (!committeeContainer) return;
-        
-        const membersRef = collection(db, 'members');
-        const q = query(membersRef);
-        const querySnapshot = await getDocs(q);
-        
-        const committeeMembers = [];
-        querySnapshot.forEach((doc) => {
-            const member = doc.data();
-            if (positions.includes(member.position)) {
-                committeeMembers.push(member);
-            }
-        });
-        
-        if (committeeMembers.length > 0) {
-            committeeContainer.innerHTML = '';
-            committeeMembers.forEach((member, index) => {
-                const position = member.position;
-                const posData = positionMap[position] || { initial: position.charAt(0), bn: position };
-                const lang = document.documentElement.getAttribute('data-lang') || 'en';
-                
-                const memberCard = document.createElement('div');
-                memberCard.className = 'cc';
-                memberCard.setAttribute('data-aos', 'fade-up');
-                memberCard.setAttribute('data-aos-delay', index * 80);
-                
-                memberCard.innerHTML = `
-                    <div class="cav">${posData.initial}</div>
-                    <h4>${member.name || 'Unknown'}</h4>
-                    <div class="role">${lang === 'bn' ? posData.bn : position}</div>
-                `;
-                committeeContainer.appendChild(memberCard);
-            });
-        }
-    } catch (error) {
-        console.error('Error loading committee members:', error);
-    }
-}
-
-// ==================== UPDATE STATS ====================
-async function updateStats() {
-    try {
-        const membersRef = collection(db, 'members');
-        const snapshot = await getDocs(membersRef);
-        const totalMembers = snapshot.size;
-        
-        const statElements = document.querySelectorAll('.sti .sn');
-        if (statElements.length >= 4) {
-            statElements[0].setAttribute('data-target', totalMembers || 120);
-        }
-    } catch (error) {
-        console.error('Error loading stats:', error);
-    }
-}
-
 // ==================== INITIALIZATION ====================
 AOS.init({ duration: 700, once: true, offset: 55 });
 
@@ -840,12 +847,10 @@ window.addEventListener('load', () => {
     showWelcomeToast();
 });
 
-// Header scroll effect
 window.addEventListener('scroll', () => {
     document.getElementById('hdr').classList.toggle('sc', window.scrollY > 28);
 });
 
-// Mobile menu toggle
 const hbg = document.getElementById('hbg');
 const mob = document.getElementById('mob');
 if (hbg && mob) {
@@ -861,7 +866,6 @@ if (hbg && mob) {
     });
 }
 
-// ==================== TRIPLE DATE ====================
 function updateDates() {
     const now = new Date();
     document.getElementById('dateEn').textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
@@ -870,7 +874,6 @@ function updateDates() {
 }
 setInterval(updateDates, 60000);
 
-// ==================== VISITOR COUNTER ====================
 function updateVisitorCount() {
     let count = localStorage.getItem('ysc_visitors');
     if (!count) {
@@ -884,7 +887,6 @@ function updateVisitorCount() {
     if (visitorEl) visitorEl.textContent = count.toLocaleString();
 }
 
-// ==================== TOAST NOTIFICATION ====================
 function showWelcomeToast() {
     const toast = document.getElementById('toast');
     const msgEl = document.getElementById('toastMsg');
@@ -898,11 +900,8 @@ function showWelcomeToast() {
     setTimeout(() => toast.classList.remove('show'), 5000);
 }
 
-function closeToast() {
-    document.getElementById('toast').classList.remove('show');
-}
+function closeToast() { document.getElementById('toast').classList.remove('show'); }
 
-// ==================== COUNTER ANIMATION ====================
 function animC() {
     document.querySelectorAll('[data-target]').forEach(el => {
         const target = parseInt(el.dataset.target);
@@ -928,7 +927,6 @@ const observer = new IntersectionObserver(entries => {
 const statsBand = document.querySelector('.stb');
 if (statsBand) observer.observe(statsBand);
 
-// ==================== AUTHENTICATION (Firebase) ====================
 onAuthStateChanged(auth, (user) => {
     const loginBtn = document.getElementById('nav-login-btn');
     if (!loginBtn) return;
@@ -936,10 +934,7 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         const initial = (user.displayName || user.email || 'U')[0].toUpperCase();
         loginBtn.innerHTML = `<span style="display:inline-flex;align-items:center;gap:7px;background:rgba(254,44,85,.12);border:1px solid rgba(254,44,85,.3);padding:5px 12px 5px 5px;border-radius:50px;font-size:12px;font-weight:700"><span style="width:26px;height:26px;background:linear-gradient(135deg,#FE2C55,#25F4EE);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#010101;font-family:'Bebas Neue',sans-serif;font-size:15px">${initial}</span>${lang === 'bn' ? 'লগআউট' : 'Logout'}</span>`;
-        loginBtn.onclick = async () => {
-            await signOut(auth);
-            window.location.reload();
-        };
+        loginBtn.onclick = async () => { await signOut(auth); window.location.reload(); };
     } else {
         loginBtn.innerHTML = lang === 'bn' ? 'লগইন' : 'Login';
         loginBtn.href = 'login.html';
@@ -947,62 +942,37 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-// ==================== LANGUAGE SWITCHER ====================
-let currentLang = (function() {
-    try { return localStorage.getItem('ysc-lang') || 'en'; } catch(e) { return 'en'; }
-})();
+let currentLang = (function() { try { return localStorage.getItem('ysc-lang') || 'en'; } catch(e) { return 'en'; } })();
 
 function setLang(lang) {
     currentLang = lang;
     try { localStorage.setItem('ysc-lang', lang); } catch(e) {}
-    
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
-    
     document.querySelectorAll('[data-en]').forEach(el => {
         const value = el.getAttribute('data-' + lang);
-        if (value !== null) {
-            if (value.includes('<')) el.innerHTML = value;
-            else el.textContent = value;
-        }
+        if (value !== null) { if (value.includes('<')) el.innerHTML = value; else el.textContent = value; }
     });
-    
     document.querySelectorAll('.lb').forEach(btn => {
         btn.classList.remove('on');
-        if ((lang === 'en' && btn.textContent.trim() === 'EN') || 
-            (lang === 'bn' && btn.textContent.trim() === 'বাং')) {
-            btn.classList.add('on');
-        }
+        if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
     });
-    
-    // Update placeholder texts
     const placeholders = [
         ['eventTitle', lang === 'bn' ? 'ইভেন্টের শিরোনাম' : 'Event Title'],
         ['eventDate', lang === 'bn' ? 'তারিখ (যেমন: ২৫ মার্চ ২০২৬)' : 'Date (e.g., 25 March 2026)'],
         ['eventDesc', lang === 'bn' ? 'ইভেন্টের বিবরণ' : 'Event Description']
     ];
-    placeholders.forEach(([id, text]) => {
-        const el = document.getElementById(id);
-        if (el) el.placeholder = text;
-    });
-    
-    // Update developer name in footer
+    placeholders.forEach(([id, text]) => { const el = document.getElementById(id); if (el) el.placeholder = text; });
     const devSpan = document.querySelector('.dev span');
-    if (devSpan) {
-        devSpan.textContent = lang === 'bn' ? 'তৈরি করেছেন ফারাবি ওয়ালিদ' : 'Developed by Farabi Walid';
-    }
-    
-    // Update toast message
+    if (devSpan) devSpan.textContent = lang === 'bn' ? 'তৈরি করেছেন ফারাবি ওয়ালিদ' : 'Developed by Farabi Walid';
     const toastMsg = document.getElementById('toastMsg');
     if (toastMsg && document.getElementById('toast').classList.contains('show')) {
-        toastMsg.textContent = lang === 'bn' ? 
-            '🎉 ইয়ং স্পোর্টিং ক্লাবে স্বাগতম! আপডেটের সাথে সংযুক্ত থাকুন।' : 
-            '🎉 Welcome to Young Sporting Club! Stay connected for updates.';
+        toastMsg.textContent = lang === 'bn' ? '🎉 ইয়ং স্পোর্টিং ক্লাবে স্বাগতম! আপডেটের সাথে সংযুক্ত থাকুন।' : '🎉 Welcome to Young Sporting Club! Stay connected for updates.';
     }
+    loadCommitteeMembers();
 }
 
 document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
-
 window.closeToast = closeToast;
 window.editEvent = editEvent;
 window.deleteEvent = deleteEvent;
