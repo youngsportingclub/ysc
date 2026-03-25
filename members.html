@@ -111,7 +111,7 @@ tbody tr:last-child td{border-bottom:none}
 tbody tr{transition:var(--tr);cursor:pointer}
 tbody tr:hover{background:rgba(254,44,85,.06)}
 .mname{display:flex;align-items:center;gap:14px}
-.member-avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:22px;color:#010101;flex-shrink:0}
+.member-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:24px;color:#010101;flex-shrink:0}
 .member-avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
 .mname .nm{color:var(--wh);font-weight:600;font-size:14px}
 .mname .bio{font-size:11px;color:var(--gr);margin-top:3px;max-width:220px}
@@ -308,19 +308,19 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 
         <!-- Members Table -->
         <div class="twrap" data-aos="fade-up" data-aos-delay="100">
-             <table>
+            能
                 <thead>
-                     <tr>
+                    <tr>
                         <th data-en="Member" data-bn="সদস্য">Member</th>
                         <th data-en="Position" data-bn="পদ">Position</th>
                         <th data-en="Address" data-bn="ঠিকানা">Address</th>
                         <th data-en="Joined" data-bn="যোগদান">Joined</th>
-                     </tr>
+                    </tr>
                 </thead>
                 <tbody id="mBody">
-                     <tr><td colspan="4" style="text-align:center;padding:60px 20px;"><div class="lring" style="margin:0 auto 14px"></div><span data-en="Loading members…" data-bn="সদস্যদের লোড হচ্ছে…">Loading members…</span></td></tr>
+                    <tr><td colspan="4" style="text-align:center;padding:60px 20px;"><div class="lring" style="margin:0 auto 14px"></div><span data-en="Loading members…" data-bn="সদস্যদের লোড হচ্ছে…">Loading members…</span></td></tr>
                 </tbody>
-             </table>
+            </table>
         </div>
 
         <!-- Add Member Button -->
@@ -371,7 +371,6 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, collection, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",
@@ -386,7 +385,17 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-const storage = getStorage(app);
+
+// Position-based emoji mapping
+const positionEmoji = {
+    'President': '👨‍💼',
+    'Vice President': '👨‍⚖️',
+    'General Secretary': '📋',
+    'Assistant Secretary': '📝',
+    'Treasurer': '💰',
+    'Sports Secretary': '⚽',
+    'Member': '👤'
+};
 
 // Language data
 const langData = {
@@ -448,7 +457,15 @@ function escapeHtml(text) {
     });
 }
 
-async function renderMembers(members) {
+function getAvatarHtml(member) {
+    const emoji = positionEmoji[member.position] || '👤';
+    if (member.photoURL) {
+        return `<img src="${member.photoURL}" alt="${escapeHtml(member.name)}" onerror="this.onerror=null; this.parentElement.innerHTML='${emoji}'">`;
+    }
+    return emoji;
+}
+
+function renderMembers(members) {
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
     
     if (!members || members.length === 0) {
@@ -457,32 +474,19 @@ async function renderMembers(members) {
         return;
     }
     
-    let html = '';
-    for (const member of members) {
+    tbody.innerHTML = members.map(member => {
         const posClass = positionClass[member.position] || 'p-member';
         const positionLabel = member.position || 'Member';
         const bioText = member.bio ? escapeHtml(member.bio.substring(0, 50)) + (member.bio.length > 50 ? '…' : '') : '';
+        const avatarHtml = getAvatarHtml(member);
         
-        let avatarHtml = '';
-        if (member.photoURL) {
-            try {
-                const url = await getDownloadURL(ref(storage, member.photoURL));
-                avatarHtml = `<img src="${url}" alt="${escapeHtml(member.name)}">`;
-            } catch(e) {
-                avatarHtml = member.name ? member.name.charAt(0).toUpperCase() : '👤';
-            }
-        } else {
-            avatarHtml = member.name ? member.name.charAt(0).toUpperCase() : '👤';
-        }
-        
-        html += `<tr>
+        return `<tr>
             <td><div class="mname"><div class="member-avatar">${avatarHtml}</div><div><div class="nm">${escapeHtml(member.name)}</div><div class="bio">${bioText}</div></div></div></td>
             <td><span class="pbdg ${posClass}">${escapeHtml(positionLabel)}</span></td>
             <td>${escapeHtml(member.address)}</td>
             <td>${escapeHtml(member.joinDate || member.joinYear || 'N/A')}</td>
         </tr>`;
-    }
-    tbody.innerHTML = html;
+    }).join('');
     
     countEl.textContent = lang === 'bn' ? `দেখাচ্ছে ${members.length} জন সদস্য` : `Showing ${members.length} members`;
     updateStats(members);
@@ -561,7 +565,7 @@ onSnapshot(membersQuery, (snapshot) => {
     filterMembers();
 }, (error) => {
     console.error('Firestore error:', error);
-    tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;padding:40px;color:#FE2C55">⚠ Failed to load members. Please check your connection.</td></tr>`;
+    tbody.innerHTML = `<td><td colspan="4" style="text-align:center;padding:40px;color:#FE2C55">⚠ Failed to load members. Please check your connection.</td>`;
 });
 
 // Add event listeners
