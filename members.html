@@ -21,9 +21,6 @@
     --lt:#dddddd;
     --bp:rgba(254,44,85,.25);
     --bc:rgba(37,244,238,.22);
-    --gp:0 0 22px rgba(254,44,85,.5);
-    --gc:0 0 22px rgba(37,244,238,.5);
-    --gdual:-5px 0 22px rgba(254,44,85,.3),5px 0 22px rgba(37,244,238,.3);
     --r:14px;
     --tr:all .3s cubic-bezier(.4,0,.2,1);
     --whatsapp:#25D366;
@@ -118,29 +115,9 @@ tbody tr:hover{background:rgba(254,44,85,.06)}
 .pbdg{padding:4px 12px;border-radius:50px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;display:inline-block}
 .p-president{background:rgba(255,214,0,.15);color:#FFD600;border:1px solid rgba(255,214,0,.4)}
 .p-vice-president{background:rgba(254,44,85,.15);color:var(--pink);border:1px solid var(--bp)}
-.p-senior-vice-president{background:rgba(254,44,85,.15);color:var(--pink);border:1px solid var(--bp)}
 .p-general-secretary{background:rgba(37,244,238,.15);color:var(--cyan);border:1px solid var(--bc)}
-.p-joint-secretary{background:rgba(37,244,238,.1);color:#4CD964;border:1px solid rgba(76,217,100,.3)}
-.p-assistant-secretary{background:rgba(100,181,246,.15);color:#64B5F6;border:1px solid rgba(100,181,246,.4)}
-.p-organizing-secretary{background:rgba(156,39,176,.15);color:#CE93D8;border:1px solid rgba(156,39,176,.3)}
-.p-assistant-organizing{background:rgba(156,39,176,.1);color:#BA68C8;border:1px solid rgba(156,39,176,.3)}
 .p-treasurer{background:rgba(255,152,0,.15);color:#FF9800;border:1px solid rgba(255,152,0,.4)}
-.p-assistant-treasurer{background:rgba(255,152,0,.1);color:#FFB74D;border:1px solid rgba(255,152,0,.3)}
-.p-office-secretary{background:rgba(33,150,243,.15);color:#64B5F6;border:1px solid rgba(33,150,243,.3)}
-.p-assistant-office{background:rgba(33,150,243,.1);color:#4FC3F7;border:1px solid rgba(33,150,243,.3)}
 .p-sports-secretary{background:rgba(102,187,106,.15);color:#66BB6A;border:1px solid rgba(102,187,106,.4)}
-.p-assistant-sports{background:rgba(102,187,106,.1);color:#81C784;border:1px solid rgba(102,187,106,.3)}
-.p-publicity-secretary{background:rgba(255,87,34,.15);color:#FF7043;border:1px solid rgba(255,87,34,.3)}
-.p-assistant-publicity{background:rgba(255,87,34,.1);color:#FF8A65;border:1px solid rgba(255,87,34,.3)}
-.p-social-welfare{background:rgba(233,30,99,.15);color:#F06292;border:1px solid rgba(233,30,99,.3)}
-.p-education-secretary{background:rgba(63,81,181,.15);color:#7986CB;border:1px solid rgba(63,81,181,.3)}
-.p-culture-secretary{background:rgba(156,39,176,.15);color:#CE93D8;border:1px solid rgba(156,39,176,.3)}
-.p-training-secretary{background:rgba(0,150,136,.15);color:#4DB6AC;border:1px solid rgba(0,150,136,.3)}
-.p-science-secretary{background:rgba(96,125,139,.15);color:#90A4AE;border:1px solid rgba(96,125,139,.3)}
-.p-disaster-secretary{background:rgba(244,67,54,.15);color:#E57373;border:1px solid rgba(244,67,54,.3)}
-.p-liberation-secretary{background:rgba(0,150,136,.15);color:#4DB6AC;border:1px solid rgba(0,150,136,.3)}
-.p-international-secretary{background:rgba(33,150,243,.15);color:#64B5F6;border:1px solid rgba(33,150,243,.3)}
-.p-religious-secretary{background:rgba(76,175,80,.15);color:#81C784;border:1px solid rgba(76,175,80,.3)}
 .p-member{background:rgba(255,255,255,.08);color:var(--gr);border:1px solid rgba(255,255,255,.12)}
 .nodata{text-align:center;padding:60px 20px;color:var(--gr)}
 .nodata .nic{font-size:48px;margin-bottom:16px;opacity:.5}
@@ -372,7 +349,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getFirestore, collection, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",
@@ -493,32 +470,32 @@ const countEl = document.getElementById('mCount');
 
 const positionClass = {
     'President': 'p-president',
-    'Senior Vice President': 'p-senior-vice-president',
+    'Senior Vice President': 'p-vice-president',
     'Vice President 1': 'p-vice-president',
     'Vice President 2': 'p-vice-president',
     'Vice President 3': 'p-vice-president',
     'General Secretary': 'p-general-secretary',
-    'Joint General Secretary': 'p-joint-secretary',
-    'Assistant General Secretary': 'p-assistant-secretary',
-    'Organizing Secretary': 'p-organizing-secretary',
-    'Assistant Organizing Secretary': 'p-assistant-organizing',
+    'Joint General Secretary': 'p-general-secretary',
+    'Assistant General Secretary': 'p-general-secretary',
+    'Organizing Secretary': 'p-general-secretary',
+    'Assistant Organizing Secretary': 'p-general-secretary',
     'Treasurer': 'p-treasurer',
-    'Assistant Treasurer': 'p-assistant-treasurer',
-    'Office Secretary': 'p-office-secretary',
-    'Assistant Office Secretary': 'p-assistant-office',
+    'Assistant Treasurer': 'p-treasurer',
+    'Office Secretary': 'p-general-secretary',
+    'Assistant Office Secretary': 'p-general-secretary',
     'Sports Secretary': 'p-sports-secretary',
-    'Assistant Sports Secretary': 'p-assistant-sports',
-    'Publicity Secretary': 'p-publicity-secretary',
-    'Assistant Publicity Secretary': 'p-assistant-publicity',
-    'Social Welfare Secretary': 'p-social-welfare',
-    'Education Secretary': 'p-education-secretary',
-    'Culture Secretary': 'p-culture-secretary',
-    'Training Secretary': 'p-training-secretary',
-    'Science Secretary': 'p-science-secretary',
-    'Disaster Secretary': 'p-disaster-secretary',
-    'Liberation Secretary': 'p-liberation-secretary',
-    'International Secretary': 'p-international-secretary',
-    'Religious Secretary': 'p-religious-secretary',
+    'Assistant Sports Secretary': 'p-sports-secretary',
+    'Publicity Secretary': 'p-general-secretary',
+    'Assistant Publicity Secretary': 'p-general-secretary',
+    'Social Welfare Secretary': 'p-general-secretary',
+    'Education Secretary': 'p-general-secretary',
+    'Culture Secretary': 'p-general-secretary',
+    'Training Secretary': 'p-general-secretary',
+    'Science Secretary': 'p-general-secretary',
+    'Disaster Secretary': 'p-general-secretary',
+    'Liberation Secretary': 'p-general-secretary',
+    'International Secretary': 'p-general-secretary',
+    'Religious Secretary': 'p-general-secretary',
     'Member': 'p-member'
 };
 
@@ -536,7 +513,7 @@ function getAvatarHtml(member) {
     const emoji = positionEmoji[member.position] || '👤';
     
     // If photo URL exists in database, try to load it
-    if (member.photoURL) {
+    if (member.photoURL && member.photoURL !== '') {
         return `<img src="${member.photoURL}" alt="${escapeHtml(member.name)}" onerror="this.onerror=null; this.parentElement.innerHTML='<img src=\\'${clubLogoUrl}\\' alt=\\'Club Logo\\' onerror=\\'this.onerror=null; this.parentElement.innerHTML=\\'${emoji}\\'\\'>'">`;
     }
     // If no photo, try club logo
@@ -643,15 +620,20 @@ function showToastMessage(msg) {
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
-// Real-time Firebase listener
-const membersQuery = query(collection(db, 'members'), orderBy('addedAt', 'desc'));
-onSnapshot(membersQuery, (snapshot) => {
-    allMembers = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    filterMembers();
-}, (error) => {
-    console.error('Firestore error:', error);
-    tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;padding:40px;color:#FE2C55">⚠ Failed to load members. Please check your connection.</td></tr>`;
-});
+// Load members - using getDocs without orderBy to avoid index requirement
+async function loadMembers() {
+    try {
+        const membersRef = collection(db, 'members');
+        const querySnapshot = await getDocs(membersRef);
+        allMembers = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        console.log('✅ Members loaded successfully:', allMembers.length);
+        filterMembers();
+    } catch (error) {
+        console.error('❌ Firestore error:', error);
+        const lang = document.documentElement.getAttribute('data-lang') || 'en';
+        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;padding:40px;color:#FE2C55">⚠ ${lang === 'bn' ? 'সদস্য লোড করতে ব্যর্থ হয়েছে। ইন্টারনেট সংযোগ চেক করুন।' : 'Failed to load members. Check your internet connection.'}</td></tr>`;
+    }
+}
 
 // Add event listeners
 if (searchEl) searchEl.addEventListener('input', filterMembers);
@@ -683,8 +665,8 @@ function showWelcomeToast() {
     const msgEl = document.getElementById('toastMsg');
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
     const messages = {
-        en: '👥 Browse all club members of Young Sporting Club. Total members count updated in real-time.',
-        bn: '👥 ইয়ং স্পোর্টিং ক্লাবের সকল সদস্য দেখুন। মোট সদস্য সংখ্যা রিয়েল-টাইমে আপডেট হয়।'
+        en: '👥 Browse all club members of Young Sporting Club.',
+        bn: '👥 ইয়ং স্পোর্টিং ক্লাবের সকল সদস্য দেখুন।'
     };
     msgEl.textContent = messages[lang] || messages.en;
     setTimeout(() => toast.classList.add('show'), 500);
@@ -701,6 +683,7 @@ window.addEventListener('load', () => {
     updateVisitorCount();
     updateDates();
     showWelcomeToast();
+    loadMembers(); // Load members on page load
 });
 
 setInterval(updateDates, 60000);
@@ -754,7 +737,7 @@ function setLang(lang) {
     // Update toast message
     const toastMsg = document.getElementById('toastMsg');
     if (toastMsg && document.getElementById('toast').classList.contains('show')) {
-        toastMsg.textContent = lang === 'bn' ? '👥 ইয়ং স্পোর্টিং ক্লাবের সকল সদস্য দেখুন। মোট সদস্য সংখ্যা রিয়েল-টাইমে আপডেট হয়।' : '👥 Browse all club members of Young Sporting Club. Total members count updated in real-time.';
+        toastMsg.textContent = lang === 'bn' ? '👥 ইয়ং স্পোর্টিং ক্লাবের সকল সদস্য দেখুন।' : '👥 Browse all club members of Young Sporting Club.';
     }
     
     // Update login button text if not logged in
