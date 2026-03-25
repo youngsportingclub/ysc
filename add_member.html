@@ -9,14 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 :root{
-    --bg:#010101;
-    --card:#111;
-    --card2:#161616;
+    --bg:#0a0a0f;
+    --bg2:#0f0f15;
+    --card:#111117;
+    --card2:#16161f;
     --pink:#FE2C55;
     --cyan:#25F4EE;
-    --wh:#fff;
-    --gr:#888;
-    --lt:#ccc;
+    --gold:#FFD700;
+    --wh:#ffffff;
+    --gr:#aaaaaa;
+    --lt:#dddddd;
     --bp:rgba(254,44,85,.25);
     --bc:rgba(37,244,238,.22);
     --gp:0 0 22px rgba(254,44,85,.5);
@@ -44,38 +46,42 @@ ul{list-style:none}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:50px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none;text-transform:uppercase;letter-spacing:.5px;transition:var(--tr)}
 .btn-pk{background:linear-gradient(135deg,var(--pink),#b0001a);color:#fff}.btn-pk:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(254,44,85,.55)}
 .btn-cy{background:linear-gradient(135deg,var(--cyan),#00adaa);color:#010101;font-weight:800}.btn-cy:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,244,238,.55)}
-.btn-ol{background:transparent;color:var(--wh);border:1.5px solid rgba(255,255,255,.2)}.btn-ol:hover{border-color:var(--cyan);color:var(--cyan)}
+.btn-ol{background:transparent;color:var(--wh);border:1.5px solid rgba(255,255,255,.2)}.btn-ol:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:var(--gc)}
 .bdg{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--bp);background:rgba(254,44,85,.08);color:var(--pink);padding:5px 16px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
 .bdg .dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:blink 1.8s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-.lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:3px}
+.lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:3px}
 .lb{padding:5px 13px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:var(--tr);background:none;border:none;color:var(--gr)}
 .lb.on{background:linear-gradient(135deg,var(--pink),var(--cyan));color:#010101}
-#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr);background:rgba(1,1,1,.85);backdrop-filter:blur(12px)}
-#hdr.sc{background:rgba(1,1,1,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--bp);box-shadow:0 4px 20px rgba(0,0,0,.3)}
+#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr);background:rgba(10,10,15,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(254,44,85,.2)}
+#hdr.sc{background:rgba(10,10,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--pink);box-shadow:0 4px 20px rgba(254,44,85,.1)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;max-width:1200px;margin:0 auto}
-.logo{display:flex;align-items:center;gap:14px}
-.logo-img{width:52px;height:52px;border-radius:14px;object-fit:cover;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:2px}
-.logo-img img{width:100%;height:100%;border-radius:12px;object-fit:cover}
-.lt{display:flex;flex-direction:column;line-height:1}
-.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2.5px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.lt .n2{font-size:11px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:3px}
-.nl{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
-.nl a{padding:8px 18px;border-radius:30px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
-.nl a:hover,.nl a.on{color:var(--wh);background:rgba(254,44,85,.2)}
-.nl a.on::after{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--pink);margin:3px auto 0;box-shadow:0 0 8px var(--pink)}
+.logo{display:flex;align-items:center;gap:16px}
+.logo-img{width:70px;height:70px;border-radius:18px;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:3px;transition:var(--tr)}
+.logo-img:hover{transform:scale(1.02);box-shadow:0 0 20px rgba(254,44,85,.3)}
+.logo-img img{width:100%;height:100%;border-radius:15px;object-fit:cover}
+.lt{display:flex;flex-direction:column;line-height:1.2}
+.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px}
+.lt .n1 .gold-letter{color:var(--gold);text-shadow:0 0 5px rgba(255,215,0,.3)}
+[data-lang="bn"] .lt .n1{font-family:'Hind Siliguri',sans-serif;font-size:26px;letter-spacing:0}
+.lt .n2{font-size:11px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
+.nl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.nl a{padding:8px 18px;border-radius:40px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
+.nl a:hover{color:var(--pink);background:rgba(254,44,85,.1)}
+.nl a.on{color:var(--pink);background:rgba(254,44,85,.15)}
+.nl a.on::after{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--pink);margin:4px auto 0;box-shadow:0 0 10px var(--pink)}
 .nr{display:flex;align-items:center;gap:12px}
-.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:13px;padding:9px 20px;transition:var(--tr)}
-.ncta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(254,44,85,.4)}
+.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:13px;padding:9px 22px;transition:var(--tr)}
+.ncta:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(254,44,85,.4)}
 .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
-.hbg span{display:block;width:24px;height:2.5px;background:#fff;border-radius:2px;transition:var(--tr)}
-.hbg.op span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
+.hbg span{display:block;width:26px;height:2.5px;background:#fff;border-radius:2px;transition:var(--tr)}
+.hbg.op span:nth-child(1){transform:rotate(45deg) translate(7px,7px)}
 .hbg.op span:nth-child(2){opacity:0}
-.hbg.op span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
-.mob{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(1,1,1,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--bp);padding:20px 22px;flex-direction:column;gap:5px;z-index:997}
+.hbg.op span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+.mob{display:none;position:fixed;top:75px;left:0;right:0;background:rgba(10,10,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(254,44,85,.2);padding:20px 22px;flex-direction:column;gap:8px;z-index:997}
 .mob.op{display:flex}
-.mob a{padding:12px 16px;border-radius:12px;font-size:15px;font-weight:500;color:var(--lt);transition:var(--tr)}
-.mob a:hover,.mob a.on{color:#fff;background:rgba(254,44,85,.2)}
+.mob a{padding:12px 18px;border-radius:14px;font-size:16px;font-weight:500;color:var(--lt);transition:var(--tr)}
+.mob a:hover,.mob a.on{color:var(--pink);background:rgba(254,44,85,.15)}
 .phero{padding:140px 0 70px;background:linear-gradient(180deg,#0a0a0a,var(--bg));text-align:center;position:relative;overflow:hidden}
 .phero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(254,44,85,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,244,238,.04) 1px,transparent 1px);background-size:55px 55px}
 .phero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--pink),var(--cyan),transparent)}
@@ -98,6 +104,13 @@ ul{list-style:none}
 .fg select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center;cursor:pointer}
 .fg select option{background:var(--card)}
 .fg textarea{resize:vertical;min-height:100px}
+.image-upload{background:var(--card);border-radius:var(--r);padding:20px;margin-bottom:20px;text-align:center;border:1px dashed var(--bp)}
+.image-upload .upload-preview{width:100px;height:100px;border-radius:50%;margin:0 auto 15px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden;border:2px solid var(--pink)}
+.image-upload .upload-preview img{width:100%;height:100%;object-fit:cover}
+.image-upload .upload-preview i{font-size:40px;color:var(--gr)}
+.image-upload input{display:none}
+.image-upload .upload-btn{background:rgba(254,44,85,.1);border:1px solid var(--bp);padding:8px 16px;border-radius:50px;font-size:12px;cursor:pointer;transition:var(--tr)}
+.image-upload .upload-btn:hover{background:var(--pink);color:#fff}
 .fact{display:flex;gap:15px;justify-content:flex-end;margin-top:15px;padding-top:25px;border-top:1px solid rgba(255,255,255,.08)}
 .msg{padding:13px 18px;border-radius:var(--r);font-size:13px;font-weight:500;margin-bottom:20px;display:none;align-items:center;gap:10px}
 .msg.show{display:flex;animation:fadein .3s}
@@ -105,7 +118,7 @@ ul{list-style:none}
 .msg-ok{background:rgba(37,244,238,.1);border:1px solid var(--bc);color:var(--cyan)}
 .msg-err{background:rgba(255,71,87,.1);border:1px solid rgba(255,71,87,.3);color:var(--danger)}
 .msg i{margin-right:6px}
-footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
+footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0 25px}
 .ftbot{border-top:1px solid rgba(255,255,255,.08);padding-top:25px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:45px}
 .ftbot p,.ftbot .dev{color:var(--gr);font-size:12px}
 .ftbot .dev{cursor:pointer}
@@ -132,7 +145,8 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
 .member-preview.show{display:block}
 .member-preview h4{font-size:12px;margin-bottom:10px;color:var(--gr);display:flex;align-items:center;gap:6px}
 .preview-content{display:flex;gap:14px;align-items:center}
-.preview-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:22px;color:#010101;flex-shrink:0}
+.preview-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:22px;color:#010101;flex-shrink:0;overflow:hidden}
+.preview-avatar img{width:100%;height:100%;object-fit:cover}
 .preview-info{flex:1}
 .preview-name{font-weight:700;font-size:15px}
 .preview-pos{font-size:11px;color:var(--cyan);margin-top:3px}
@@ -149,7 +163,7 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
     .auth-notice{padding:14px 18px}
     .phero{padding:120px 0 50px}
     .lt .n1{font-size:18px}
-    .logo-img{width:44px;height:44px}
+    .logo-img{width:55px;height:55px}
 }
 @media(max-width:460px){.ftbot{flex-direction:column;text-align:center}}
 </style>
@@ -182,11 +196,11 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
     <nav class="nav">
         <a href="index.html" class="logo">
             <div class="logo-img">
-                <img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/52x52/FE2C55/FFFFFF?text=YSC'">
+                <img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/70x70/FE2C55/FFFFFF?text=YSC'">
             </div>
             <div class="lt">
-                <span class="n1">YOUNG SPORTING</span>
-                <span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span>
+                <span class="n1" id="clubNameHeader"><span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB</span>
+                <span class="n2" id="estDateHeader" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span>
             </div>
         </a>
         <div class="nl">
@@ -259,6 +273,18 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
             <div class="msg msg-ok" id="okMsg"></div>
             <div class="msg msg-err" id="errMsg"></div>
 
+            <!-- Image Upload -->
+            <div class="image-upload">
+                <div class="upload-preview" id="uploadPreview">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <input type="file" id="memberPhoto" accept="image/*">
+                <div class="upload-btn" onclick="document.getElementById('memberPhoto').click()">
+                    <i class="fas fa-upload"></i> <span data-en="Upload Photo" data-bn="ছবি আপলোড">Upload Photo</span>
+                </div>
+                <p style="font-size:10px;color:var(--gr);margin-top:8px" data-en="Optional. Max 2MB" data-bn="ঐচ্ছিক। সর্বোচ্চ ২ এমবি">Optional. Max 2MB</p>
+            </div>
+
             <!-- Add Member Form -->
             <form id="addForm">
                 <div class="frow">
@@ -283,18 +309,13 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
 
                 <div class="frow">
                     <div class="fg">
-                        <label data-en="Phone Number" data-bn="ফোন নম্বর">Phone Number <span class="req">*</span></label>
-                        <input type="tel" id="fphone" placeholder="+880 1XXX-XXXXXX" required/>
+                        <label data-en="Join Date" data-bn="যোগদানের তারিখ">Join Date <span class="req">*</span></label>
+                        <input type="date" id="fjoinDate" required/>
                     </div>
                     <div class="fg">
-                        <label data-en="Join Year" data-bn="যোগদানের বছর">Join Year <span class="req">*</span></label>
-                        <input type="number" id="fyear" placeholder="2009" min="2009" max="2099" required/>
+                        <label data-en="Address" data-bn="ঠিকানা">Address <span class="req">*</span></label>
+                        <input type="text" id="faddr" data-placeholder-en="e.g. West Shingrauli, Shamshernagar" data-placeholder-bn="যেমন: পশ্চিম শিংরাউলী, শমশেরনগর" placeholder="e.g. West Shingrauli, Shamshernagar" required/>
                     </div>
-                </div>
-
-                <div class="fg">
-                    <label data-en="Address" data-bn="ঠিকানা">Address <span class="req">*</span></label>
-                    <input type="text" id="faddr" data-placeholder-en="e.g. Shingrahully, Shamsher Nagar" data-placeholder-bn="যেমন: শিংড়াউলী, শমশেরনগর" placeholder="e.g. Shingrahully, Shamsher Nagar" required/>
                 </div>
 
                 <div class="fg">
@@ -329,7 +350,7 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
         <div class="ftbot">
             <p data-en="© 2026 Young Sporting Club. All rights reserved." data-bn="© ২০২৬ ইয়ং স্পোর্টিং ক্লাব। সর্বস্বত্ব সংরক্ষিত।">© 2026 Young Sporting Club. All rights reserved.</p>
             <div class="dev" onclick="window.location.href='developer.html'">
-                <span data-en="Developed by Farabi Walid" data-bn="তৈরি করেছেন ফারাবি ওয়ালিদ">Developed by Farabi Walid</span>
+                <span id="developerName" data-en="Developed by Farabi Walid" data-bn="তৈরি করেছেন ফারাবি ওয়ালিদ">Developed by Farabi Walid</span>
             </div>
         </div>
     </div>
@@ -340,6 +361,7 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",
@@ -354,7 +376,21 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
+// Language data
+const langData = {
+    en: {
+        clubName: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
+        devName: "Developed by Farabi Walid"
+    },
+    bn: {
+        clubName: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
+        devName: "তৈরি করেছেন ফারাবি ওয়ালিদ"
+    }
+};
+
+// DOM Elements
 const authNotice = document.getElementById('authNotice');
 const formCard = document.getElementById('formCard');
 const navLoginBtn = document.getElementById('nav-login-btn');
@@ -362,7 +398,27 @@ const okMsg = document.getElementById('okMsg');
 const errMsg = document.getElementById('errMsg');
 const subBtn = document.getElementById('subBtn');
 const resetBtn = document.getElementById('resetBtn');
+const photoInput = document.getElementById('memberPhoto');
+const uploadPreview = document.getElementById('uploadPreview');
 
+let selectedPhoto = null;
+let photoURL = null;
+
+// Preview photo when selected
+photoInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+        selectedPhoto = file;
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            uploadPreview.innerHTML = `<img src="${event.target.result}" alt="Preview">`;
+        };
+        reader.readAsDataURL(file);
+        updatePreview();
+    }
+});
+
+// ==================== AUTHENTICATION ====================
 onAuthStateChanged(auth, (user) => {
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
     if (user) {
@@ -380,6 +436,7 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
+// ==================== FORM HANDLING ====================
 function showMessage(element, text, type) {
     if (element) {
         element.innerHTML = `<i class="fas fa-${type === 'ok' ? 'check-circle' : 'exclamation-circle'}"></i> ${text}`;
@@ -393,6 +450,10 @@ function hideMessage(element) { if (element) element.className = 'msg'; }
 if (resetBtn) {
     resetBtn.addEventListener('click', () => {
         document.getElementById('addForm').reset();
+        photoInput.value = '';
+        uploadPreview.innerHTML = '<i class="fas fa-camera"></i>';
+        selectedPhoto = null;
+        photoURL = null;
         hideMessage(okMsg);
         hideMessage(errMsg);
         updatePreview();
@@ -404,42 +465,58 @@ document.getElementById('addForm').addEventListener('submit', async (e) => {
     hideMessage(okMsg);
     hideMessage(errMsg);
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    const memberData = {
-        name: document.getElementById('fname').value.trim(),
-        position: document.getElementById('fpos').value,
-        phone: document.getElementById('fphone').value.trim(),
-        joinYear: document.getElementById('fyear').value,
-        address: document.getElementById('faddr').value.trim(),
-        bio: document.getElementById('fbio').value.trim()
-    };
-    if (!memberData.name || !memberData.position || !memberData.phone || !memberData.joinYear || !memberData.address) {
+    
+    const name = document.getElementById('fname').value.trim();
+    const position = document.getElementById('fpos').value;
+    const joinDate = document.getElementById('fjoinDate').value;
+    const address = document.getElementById('faddr').value.trim();
+    const bio = document.getElementById('fbio').value.trim();
+    
+    if (!name || !position || !joinDate || !address) {
         showMessage(errMsg, lang === 'bn' ? '⚠ সকল প্রয়োজনীয় ক্ষেত্র পূরণ করুন।' : '⚠ Please fill in all required fields.', 'err');
         return;
     }
-    if (memberData.phone.length < 10) {
-        showMessage(errMsg, lang === 'bn' ? '⚠ বৈধ ফোন নম্বর দিন।' : '⚠ Please enter a valid phone number.', 'err');
-        return;
-    }
-    const year = parseInt(memberData.joinYear);
-    if (year < 2009 || year > 2099) {
-        showMessage(errMsg, lang === 'bn' ? '⚠ বৈধ বছর দিন (২০০৯-২০৯৯)।' : '⚠ Please enter a valid year (2009-2099).', 'err');
-        return;
-    }
+    
     subBtn.disabled = true;
     subBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${lang === 'bn' ? 'যোগ হচ্ছে…' : 'Adding…'}`;
+    
     try {
-        await addDoc(collection(db, 'members'), { ...memberData, addedAt: serverTimestamp() });
-        showMessage(okMsg, lang === 'bn' ? '✓ সদস্য সফলভাবে যোগ হয়েছে! <a href="members.html" style="color:var(--cyan);text-decoration:underline">সকল সদস্য দেখুন →</a>' : '✓ Member added successfully! <a href="members.html" style="color:var(--cyan);text-decoration:underline">View all members →</a>', 'ok');
+        let imageUrl = null;
+        if (selectedPhoto) {
+            const storageRef = ref(storage, `member_photos/${Date.now()}_${selectedPhoto.name}`);
+            await uploadBytes(storageRef, selectedPhoto);
+            imageUrl = await getDownloadURL(storageRef);
+        }
+        
+        await addDoc(collection(db, 'members'), {
+            name,
+            position,
+            joinDate,
+            address,
+            bio: bio || '',
+            photoURL: imageUrl,
+            addedAt: serverTimestamp()
+        });
+        
+        showMessage(okMsg, lang === 'bn' ? 
+            '✓ সদস্য সফলভাবে যোগ হয়েছে! <a href="members.html" style="color:var(--cyan);text-decoration:underline">সকল সদস্য দেখুন →</a>' : 
+            '✓ Member added successfully! <a href="members.html" style="color:var(--cyan);text-decoration:underline">View all members →</a>', 'ok');
         document.getElementById('addForm').reset();
+        photoInput.value = '';
+        uploadPreview.innerHTML = '<i class="fas fa-camera"></i>';
+        selectedPhoto = null;
         updatePreview();
+        
     } catch (error) {
         console.error('Error adding member:', error);
         showMessage(errMsg, lang === 'bn' ? '⚠ ত্রুটি: ' + error.message : '⚠ Error: ' + error.message, 'err');
     }
+    
     subBtn.disabled = false;
     subBtn.innerHTML = `<i class="fas fa-user-plus"></i> ${lang === 'bn' ? 'সদস্য যোগ করুন' : 'Add Member'}`;
 });
 
+// ==================== PREVIEW FUNCTION ====================
 function updatePreview() {
     const name = document.getElementById('fname').value.trim();
     const position = document.getElementById('fpos').value;
@@ -447,16 +524,33 @@ function updatePreview() {
     const previewName = document.getElementById('previewName');
     const previewPos = document.getElementById('previewPos');
     const previewAvatar = document.getElementById('previewAvatar');
+    
     if (name || position) {
         previewDiv.classList.add('show');
         previewName.textContent = name || 'Member Name';
-        const posMap = { 'President': 'সভাপতি', 'Vice President': 'সহ-সভাপতি', 'General Secretary': 'সাধারণ সম্পাদক', 'Assistant Secretary': 'সহকারী সম্পাদক', 'Treasurer': 'কোষাধ্যক্ষ', 'Sports Secretary': 'ক্রীড়া সম্পাদক', 'Member': 'সদস্য' };
+        const posMap = {
+            'President': 'সভাপতি', 'Vice President': 'সহ-সভাপতি',
+            'General Secretary': 'সাধারণ সম্পাদক', 'Assistant Secretary': 'সহকারী সম্পাদক',
+            'Treasurer': 'কোষাধ্যক্ষ', 'Sports Secretary': 'ক্রীড়া সম্পাদক', 'Member': 'সদস্য'
+        };
         const lang = document.documentElement.getAttribute('data-lang') || 'en';
         previewPos.textContent = lang === 'bn' ? (posMap[position] || position) : position;
-        previewAvatar.textContent = name ? name.charAt(0).toUpperCase() : '👤';
-    } else { previewDiv.classList.remove('show'); }
+        
+        if (selectedPhoto) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                previewAvatar.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+            };
+            reader.readAsDataURL(selectedPhoto);
+        } else {
+            previewAvatar.innerHTML = name ? name.charAt(0).toUpperCase() : '👤';
+        }
+    } else {
+        previewDiv.classList.remove('show');
+    }
 }
 
+// ==================== VISITOR COUNTER ====================
 function updateVisitorCount() {
     let count = localStorage.getItem('ysc_visitors');
     if (!count) { count = Math.floor(Math.random() * 500) + 1500; localStorage.setItem('ysc_visitors', count); }
@@ -465,6 +559,7 @@ function updateVisitorCount() {
     if (visitorEl) visitorEl.textContent = count.toLocaleString();
 }
 
+// ==================== TRIPLE DATE ====================
 function updateDates() {
     const now = new Date();
     document.getElementById('dateEn').textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
@@ -472,6 +567,7 @@ function updateDates() {
     document.getElementById('dateAr').textContent = now.toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 }
 
+// ==================== TOAST ====================
 function showWelcomeToast() {
     const toast = document.getElementById('toast');
     const msgEl = document.getElementById('toastMsg');
@@ -484,6 +580,7 @@ function showWelcomeToast() {
 
 function closeToast() { document.getElementById('toast').classList.remove('show'); }
 
+// ==================== INITIALIZATION ====================
 AOS.init({ duration: 700, once: true, offset: 55 });
 window.addEventListener('load', () => { setTimeout(() => document.getElementById('ldr').classList.add('hid'), 500); updateVisitorCount(); updateDates(); showWelcomeToast(); });
 setInterval(updateDates, 60000);
@@ -494,6 +591,7 @@ window.updatePreview = updatePreview; window.closeToast = closeToast;
 </script>
 
 <script>
+// ==================== LANGUAGE SWITCHER ====================
 let currentLang = (function() { try { return localStorage.getItem('ysc-lang') || 'en'; } catch(e) { return 'en'; } })();
 
 function setLang(lang) {
@@ -501,23 +599,39 @@ function setLang(lang) {
     try { localStorage.setItem('ysc-lang', lang); } catch(e) {}
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
+    
+    // Update all data-en/data-bn elements
     document.querySelectorAll('[data-en]').forEach(el => {
         const value = el.getAttribute('data-' + lang);
-        if (value !== null) { if (value.includes('<')) el.innerHTML = value; else el.textContent = value; }
+        if (value !== null) {
+            if (value.includes('<')) el.innerHTML = value;
+            else el.textContent = value;
+        }
     });
+    
+    // Update language buttons
     document.querySelectorAll('.lb').forEach(btn => {
         btn.classList.remove('on');
         if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
     });
+    
+    // Update club name in header and footer
+    const clubNameHeader = document.getElementById('clubNameHeader');
+    const developerName = document.getElementById('developerName');
+    
+    if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubName;
+    if (developerName) developerName.textContent = langData[lang].devName;
+    
+    // Update placeholders
     const placeholders = [
         ['fname', lang === 'bn' ? 'যেমন: রহিম হোসেন' : 'e.g. Rahim Hossain'],
-        ['faddr', lang === 'bn' ? 'যেমন: শিংড়াউলী, শমশেরনগর' : 'e.g. Shingrahully, Shamsher Nagar'],
+        ['faddr', lang === 'bn' ? 'যেমন: পশ্চিম শিংরাউলী, শমশেরনগর' : 'e.g. West Shingrauli, Shamshernagar'],
         ['fbio', lang === 'bn' ? 'এই সদস্য সম্পর্কে সংক্ষিপ্ত বিবরণ…' : 'Brief description about this member…']
     ];
     placeholders.forEach(([id, text]) => { const el = document.getElementById(id); if (el) el.placeholder = text; });
-    const devSpan = document.querySelector('.dev span');
-    if (devSpan) devSpan.textContent = lang === 'bn' ? 'তৈরি করেছেন ফারাবি ওয়ালিদ' : 'Developed by Farabi Walid';
+    
     if (window.updatePreview) window.updatePreview();
+    
     const toastMsg = document.getElementById('toastMsg');
     if (toastMsg && document.getElementById('toast').classList.contains('show')) {
         toastMsg.textContent = lang === 'bn' ? '➕ ইয়ং স্পোর্টিং ক্লাবে নতুন সদস্য যোগ করতে ফর্মটি পূরণ করুন।' : '➕ Fill the form to add a new club member to Young Sporting Club.';
@@ -525,6 +639,7 @@ function setLang(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
+window.setLang = setLang;
 </script>
 </body>
 </html>
