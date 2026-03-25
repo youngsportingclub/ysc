@@ -58,33 +58,33 @@ ul{list-style:none}
 #hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr);background:rgba(10,10,15,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(254,44,85,.2)}
 #hdr.sc{background:rgba(10,10,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--pink);box-shadow:0 4px 20px rgba(254,44,85,.1)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;max-width:1200px;margin:0 auto}
-.logo{display:flex;align-items:center;gap:16px}
-.logo-img{width:70px;height:70px;border-radius:18px;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:3px;transition:var(--tr)}
+.logo{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.logo-img{width:60px;height:60px;border-radius:18px;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:3px;transition:var(--tr);flex-shrink:0}
 .logo-img:hover{transform:scale(1.02);box-shadow:0 0 20px rgba(254,44,85,.3)}
 .logo-img img{width:100%;height:100%;border-radius:15px;object-fit:cover}
-.lt{display:flex;flex-direction:column;line-height:1.2}
-.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px}
+.lt{display:flex;flex-direction:column;line-height:1.2;justify-content:center}
+.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1.5px;white-space:nowrap}
 .lt .n1 .gold-letter{color:var(--gold);text-shadow:0 0 5px rgba(255,215,0,.3)}
-[data-lang="bn"] .lt .n1{font-family:'Hind Siliguri',sans-serif;font-size:26px;letter-spacing:0}
-.lt .n2{font-size:11px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
-.nl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.nl a{padding:8px 18px;border-radius:40px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
+[data-lang="bn"] .lt .n1{font-family:'Hind Siliguri',sans-serif;font-size:22px;letter-spacing:0;white-space:nowrap}
+.lt .n2{font-size:10px;color:var(--gr);letter-spacing:1px;text-transform:uppercase;margin-top:3px}
+.nl{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.nl a{padding:6px 14px;border-radius:40px;font-size:13px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
 .nl a:hover{color:var(--pink);background:rgba(254,44,85,.1)}
 .nl a.on{color:var(--pink);background:rgba(254,44,85,.15)}
-.nl a.on::after{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--pink);margin:4px auto 0;box-shadow:0 0 10px var(--pink)}
-.nr{display:flex;align-items:center;gap:12px}
-.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:13px;padding:9px 22px;transition:var(--tr)}
+.nl a.on::after{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--pink);margin:3px auto 0;box-shadow:0 0 8px var(--pink)}
+.nr{display:flex;align-items:center;gap:10px}
+.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:12px;padding:7px 18px;transition:var(--tr)}
 .ncta:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(254,44,85,.4)}
 .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
 .hbg span{display:block;width:26px;height:2.5px;background:#fff;border-radius:2px;transition:var(--tr)}
 .hbg.op span:nth-child(1){transform:rotate(45deg) translate(7px,7px)}
 .hbg.op span:nth-child(2){opacity:0}
 .hbg.op span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
-.mob{display:none;position:fixed;top:75px;left:0;right:0;background:rgba(10,10,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(254,44,85,.2);padding:20px 22px;flex-direction:column;gap:8px;z-index:997}
+.mob{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(10,10,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(254,44,85,.2);padding:20px 22px;flex-direction:column;gap:8px;z-index:997}
 .mob.op{display:flex}
 .mob a{padding:12px 18px;border-radius:14px;font-size:16px;font-weight:500;color:var(--lt);transition:var(--tr)}
 .mob a:hover,.mob a.on{color:var(--pink);background:rgba(254,44,85,.15)}
-.phero{padding:140px 0 70px;background:linear-gradient(180deg,#0a0a0a,var(--bg));text-align:center;position:relative;overflow:hidden}
+.phero{padding:120px 0 60px;background:linear-gradient(180deg,#0a0a0a,var(--bg));text-align:center;position:relative;overflow:hidden}
 .phero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(254,44,85,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,244,238,.04) 1px,transparent 1px);background-size:55px 55px}
 .phero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--pink),var(--cyan),transparent)}
 .phero h1{font-size:clamp(44px,7vw,80px);position:relative;z-index:1}
@@ -92,30 +92,30 @@ ul{list-style:none}
 .breadcrumb{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--gr);margin-top:18px;position:relative;z-index:1}
 .breadcrumb a{color:var(--cyan);transition:var(--tr)}
 .breadcrumb a:hover{color:var(--pink)}
-.mctrl{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:24px;margin-bottom:28px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-.sbox{flex:1;min-width:220px;position:relative}
-.sbox input{width:100%;background:var(--bg);border:1px solid rgba(255,255,255,.12);color:var(--wh);padding:13px 16px 13px 46px;border-radius:50px;font-size:14px;font-family:'Poppins',sans-serif;transition:var(--tr);outline:none}
+.mctrl{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:20px;margin-bottom:28px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.sbox{flex:1;min-width:200px;position:relative}
+.sbox input{width:100%;background:var(--bg);border:1px solid rgba(255,255,255,.12);color:var(--wh);padding:12px 16px 12px 44px;border-radius:50px;font-size:14px;font-family:'Poppins',sans-serif;transition:var(--tr);outline:none}
 .sbox input:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(254,44,85,.12)}
 .sbox input::placeholder{color:rgba(136,136,136,.6)}
-.sbox i{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--gr);font-size:16px}
-.fsel{background:var(--bg);border:1px solid rgba(255,255,255,.12);color:var(--wh);padding:13px 42px 13px 18px;border-radius:50px;font-size:14px;font-family:'Poppins',sans-serif;outline:none;cursor:pointer;transition:var(--tr);appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center}
+.sbox i{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--gr);font-size:14px}
+.fsel{background:var(--bg);border:1px solid rgba(255,255,255,.12);color:var(--wh);padding:12px 42px 12px 18px;border-radius:50px;font-size:13px;font-family:'Poppins',sans-serif;outline:none;cursor:pointer;transition:var(--tr);appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center}
 .fsel:focus{border-color:var(--pink)}
 .fsel option{background:var(--card)}
-.mcnt{margin-left:auto;font-size:13px;color:var(--gr);white-space:nowrap}
-.twrap{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);overflow:hidden;box-shadow:0 4px 28px rgba(0,0,0,.3)}
-table{width:100%;border-collapse:collapse}
+.mcnt{margin-left:auto;font-size:12px;color:var(--gr);white-space:nowrap}
+.twrap{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);overflow-x:auto;box-shadow:0 4px 28px rgba(0,0,0,.3)}
+table{width:100%;border-collapse:collapse;min-width:600px}
 thead{background:rgba(254,44,85,.1);border-bottom:1px solid var(--bp)}
-th{padding:16px 20px;text-align:left;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--pink)}
-td{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;color:var(--lt);vertical-align:middle}
+th{padding:14px 18px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--pink)}
+td{padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;color:var(--lt);vertical-align:middle}
 tbody tr:last-child td{border-bottom:none}
 tbody tr{transition:var(--tr);cursor:pointer}
 tbody tr:hover{background:rgba(254,44,85,.06)}
-.mname{display:flex;align-items:center;gap:14px}
-.member-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:24px;color:#010101;flex-shrink:0;overflow:hidden}
+.mname{display:flex;align-items:center;gap:12px}
+.member-avatar{width:45px;height:45px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:20px;color:#010101;flex-shrink:0;overflow:hidden}
 .member-avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
 .mname .nm{color:var(--wh);font-weight:600;font-size:14px}
-.mname .bio{font-size:11px;color:var(--gr);margin-top:3px;max-width:220px}
-.pbdg{padding:5px 14px;border-radius:50px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;display:inline-block}
+.mname .bio{font-size:10px;color:var(--gr);margin-top:2px;max-width:200px}
+.pbdg{padding:4px 12px;border-radius:50px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;display:inline-block}
 .p-president{background:rgba(255,214,0,.15);color:#FFD600;border:1px solid rgba(255,214,0,.4)}
 .p-vice-president{background:rgba(254,44,85,.15);color:var(--pink);border:1px solid var(--bp)}
 .p-senior-vice-president{background:rgba(254,44,85,.15);color:var(--pink);border:1px solid var(--bp)}
@@ -142,32 +142,15 @@ tbody tr:hover{background:rgba(254,44,85,.06)}
 .p-international-secretary{background:rgba(33,150,243,.15);color:#64B5F6;border:1px solid rgba(33,150,243,.3)}
 .p-religious-secretary{background:rgba(76,175,80,.15);color:#81C784;border:1px solid rgba(76,175,80,.3)}
 .p-member{background:rgba(255,255,255,.08);color:var(--gr);border:1px solid rgba(255,255,255,.12)}
-.nodata{text-align:center;padding:70px 20px;color:var(--gr)}
-.nodata .nic{font-size:52px;margin-bottom:16px;opacity:.5}
-footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0 25px}
-.ftgr{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:45px}
-.ftlogo{display:flex;align-items:center;gap:14px;margin-bottom:20px}
-.ftlogo-img{width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:2px}
-.ftlogo-img img{width:100%;height:100%;border-radius:14px;object-fit:cover}
-.ftlogo-text{display:flex;flex-direction:column}
-.ftlogo-text .name{font-family:'Bebas Neue',sans-serif;font-size:24px}
-.ftlogo-text .name .gold-letter{color:var(--gold);text-shadow:0 0 5px rgba(255,215,0,.3)}
-[data-lang="bn"] .ftlogo-text .name{font-family:'Hind Siliguri',sans-serif;font-size:22px}
-.ftlogo-text .est{font-size:10px;color:var(--gr);margin-top:2px}
-.ftdesc{color:var(--gr);font-size:13px;line-height:1.85;margin:15px 0 25px}
-.slnks{display:flex;gap:12px;flex-wrap:wrap}
-.sa{width:44px;height:44px;border-radius:14px;background:var(--card2);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:var(--gr);font-size:20px;transition:var(--tr)}
-.sa:hover{transform:translateY(-3px)}
-.sa.fb:hover{background:var(--facebook);color:#fff;box-shadow:0 0 16px rgba(24,119,242,.4)}
-.sa.yt:hover{background:var(--youtube);color:#fff;box-shadow:0 0 16px rgba(255,0,0,.4)}
-.sa.ig:hover{background:var(--instagram);color:#fff;box-shadow:0 0 16px rgba(228,64,95,.4)}
-.sa.em:hover{background:var(--pink);color:#fff;box-shadow:0 0 16px rgba(254,44,85,.4)}
-.fcol h4{font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#fff;margin-bottom:20px}
-.fcol ul li{margin-bottom:10px}
-.fcol ul li a{color:var(--gr);font-size:13px;transition:var(--tr)}
-.fcol ul li a:hover{color:var(--pink);padding-left:5px}
-.ci2 li{display:flex;align-items:flex-start;gap:10px;color:var(--gr);font-size:13px;margin-bottom:10px}
-.ci2 .ico{color:var(--cyan);font-size:14px;margin-top:2px;flex-shrink:0}
+.nodata{text-align:center;padding:60px 20px;color:var(--gr)}
+.nodata .nic{font-size:48px;margin-bottom:16px;opacity:.5}
+.stats-card{background:linear-gradient(135deg,rgba(254,44,85,.1),rgba(37,244,238,.07));border-radius:var(--r);padding:18px 24px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+.stats-item{text-align:center}
+.stats-num{font-family:'Bebas Neue',sans-serif;font-size:32px;background:linear-gradient(135deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stats-label{font-size:10px;color:var(--gr);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+.export-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:8px 16px;border-radius:50px;font-size:11px;cursor:pointer;transition:var(--tr);display:flex;align-items:center;gap:8px}
+.export-btn:hover{background:var(--pink);color:#fff;border-color:var(--pink)}
+footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0 25px}
 .ftbot{border-top:1px solid rgba(255,255,255,.08);padding-top:25px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .ftbot p,.ftbot .dev{color:var(--gr);font-size:12px}
 .ftbot .dev{cursor:pointer}
@@ -178,43 +161,46 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 .lring{width:50px;height:50px;border:3px solid rgba(254,44,85,.2);border-top-color:var(--pink);border-right-color:var(--cyan);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .ltxt{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:4px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.date-bar{background:rgba(0,0,0,.6);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:60px;padding:10px 28px;margin:25px auto;display:inline-flex;flex-wrap:wrap;gap:18px;justify-content:center;font-size:12px;font-weight:500}
+.date-bar{background:rgba(0,0,0,.6);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:60px;padding:8px 22px;margin:20px auto;display:inline-flex;flex-wrap:wrap;gap:15px;justify-content:center;font-size:11px;font-weight:500}
 .date-item{display:flex;align-items:center;gap:8px;color:var(--lt)}
-.date-item i{color:var(--cyan);font-size:12px}
-.whatsapp-float{position:fixed;bottom:25px;right:25px;z-index:999;background:var(--whatsapp);width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:var(--tr);cursor:pointer}
+.date-item i{color:var(--cyan);font-size:11px}
+.whatsapp-float{position:fixed;bottom:25px;right:25px;z-index:999;background:var(--whatsapp);width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:var(--tr);cursor:pointer}
 .whatsapp-float:hover{transform:scale(1.08)}
-.whatsapp-float i{font-size:30px;color:#fff}
-.toast{position:fixed;bottom:100px;right:25px;background:var(--card2);border-left:4px solid var(--pink);border-radius:12px;padding:12px 18px;font-size:13px;z-index:998;transform:translateX(120%);transition:transform .4s ease;max-width:280px;box-shadow:0 8px 28px rgba(0,0,0,.3)}
+.whatsapp-float i{font-size:28px;color:#fff}
+.toast{position:fixed;bottom:90px;right:25px;background:var(--card2);border-left:4px solid var(--pink);border-radius:12px;padding:12px 18px;font-size:13px;z-index:998;transform:translateX(120%);transition:transform .4s ease;max-width:280px;box-shadow:0 8px 28px rgba(0,0,0,.3)}
 .toast.show{transform:translateX(0)}
 .toast .toast-title{font-weight:700;margin-bottom:4px;color:var(--pink)}
 .toast .toast-close{position:absolute;top:8px;right:12px;cursor:pointer;font-size:14px;color:var(--gr)}
-.visitor-badge{position:fixed;bottom:20px;left:20px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border-radius:40px;padding:7px 16px;font-size:11px;color:var(--gr);z-index:998;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15)}
-.visitor-badge i{color:var(--cyan);font-size:11px}
-.stats-card{background:linear-gradient(135deg,rgba(254,44,85,.1),rgba(37,244,238,.07));border-radius:var(--r);padding:22px 28px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
-.stats-item{text-align:center}
-.stats-num{font-family:'Bebas Neue',sans-serif;font-size:34px;background:linear-gradient(135deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.stats-label{font-size:11px;color:var(--gr);margin-top:5px;text-transform:uppercase;letter-spacing:1px}
-.export-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:9px 18px;border-radius:50px;font-size:12px;cursor:pointer;transition:var(--tr);display:flex;align-items:center;gap:8px}
-.export-btn:hover{background:var(--pink);color:#fff;border-color:var(--pink)}
-@media(max-width:900px){
-    .ftgr{grid-template-columns:1fr 1fr}
-}
+.visitor-badge{position:fixed;bottom:20px;left:20px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border-radius:40px;padding:5px 14px;font-size:10px;color:var(--gr);z-index:998;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15)}
+.visitor-badge i{color:var(--cyan);font-size:10px}
 @media(max-width:700px){
     .nl{display:none}.hbg{display:flex}
     .sp{padding:60px 0}
-    .ftgr{grid-template-columns:1fr}
-    .nr .lang-sw{display:none}
     .mctrl{flex-direction:column}
-    .mcnt{margin-left:0;margin-top:12px}
+    .mcnt{margin-left:0;margin-top:10px}
     .stats-card{flex-direction:column;text-align:center}
-    th:nth-child(4),td:nth-child(4){display:none}
-    .whatsapp-float{width:48px;height:48px}
-    .whatsapp-float i{font-size:26px}
-    .toast{bottom:90px;right:16px;left:16px;max-width:calc(100% - 32px)}
-    .visitor-badge{bottom:16px;left:16px}
-    .date-bar{flex-direction:column;align-items:center;gap:10px;padding:12px 20px}
+    th:nth-child(3),td:nth-child(3){display:none}
+    .whatsapp-float{width:45px;height:45px;bottom:15px;right:15px}
+    .whatsapp-float i{font-size:24px}
+    .toast{bottom:80px;right:16px;left:16px;max-width:calc(100% - 32px)}
+    .visitor-badge{bottom:12px;left:12px}
+    .date-bar{flex-direction:column;align-items:center;gap:8px;padding:10px 16px}
+    .phero{padding:100px 0 40px}
+    .lt .n1{font-size:18px;white-space:normal}
+    [data-lang="bn"] .lt .n1{font-size:17px;white-space:normal}
+    .logo-img{width:48px;height:48px}
 }
-@media(max-width:460px){.ftbot{flex-direction:column;text-align:center}}
+@media(max-width:480px){
+    .logo-img{width:42px;height:42px}
+    .lt .n1{font-size:15px}
+    [data-lang="bn"] .lt .n1{font-size:14px}
+    .lt .n2{font-size:8px}
+    .ncta{padding:5px 12px;font-size:10px}
+    .ftbot{flex-direction:column;text-align:center}
+    .mname .nm{font-size:12px}
+    .member-avatar{width:38px;height:38px;font-size:16px}
+    .pbdg{font-size:9px;padding:3px 8px}
+}
 </style>
 </head>
 <body>
@@ -277,7 +263,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 </header>
 
 <!-- TRIPLE DATE BAR -->
-<div style="text-align:center;padding-top:90px;position:relative;z-index:2">
+<div style="text-align:center;padding-top:85px;position:relative;z-index:2">
     <div class="date-bar">
         <div class="date-item"><i class="fas fa-calendar-alt"></i><span id="dateEn">Loading...</span></div>
         <div class="date-item"><i class="fas fa-calendar-alt"></i><span id="dateBn">Loading...</span></div>
@@ -296,7 +282,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 </section>
 
 <!-- Main Content -->
-<section class="sp" style="background:var(--bg)">
+<section class="sp" style="background:var(--bg);padding-top:30px;padding-bottom:70px">
     <div class="container">
         <!-- Stats Overview -->
         <div class="stats-card" data-aos="fade-up">
@@ -348,19 +334,19 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 
         <!-- Members Table -->
         <div class="twrap" data-aos="fade-up" data-aos-delay="100">
-            能
+            <table>
                 <thead>
                     <tr>
                         <th data-en="Member" data-bn="সদস্য">Member</th>
                         <th data-en="Position" data-bn="পদ">Position</th>
                         <th data-en="Address" data-bn="ঠিকানা">Address</th>
                         <th data-en="Joined" data-bn="যোগদান">Joined</th>
-                     </tr>
+                    </tr>
                 </thead>
                 <tbody id="mBody">
-                     <tr><td colspan="4" style="text-align:center;padding:60px 20px;"><div class="lring" style="margin:0 auto 14px"></div><span data-en="Loading members…" data-bn="সদস্যদের লোড হচ্ছে…">Loading members…</span></td></tr>
+                    <tr><td colspan="4" style="text-align:center;padding:60px 20px;"><div class="lring" style="margin:0 auto 14px"></div><span data-en="Loading members…" data-bn="সদস্যদের লোড হচ্ছে…">Loading members…</span></td></tr>
                 </tbody>
-             </table>
+            </table>
         </div>
 
         <!-- Add Member Button -->
@@ -373,35 +359,11 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 <!-- Footer -->
 <footer>
     <div class="container">
-        <div class="ftgr">
-            <div>
-                <div class="ftlogo">
-                    <div class="ftlogo-img">
-                        <img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/60x60/FE2C55/FFFFFF?text=YSC'">
-                    </div>
-                    <div class="ftlogo-text">
-                        <span class="name" id="clubNameFooter"><span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB</span>
-                        <span class="est" id="estDateFooter" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span>
-                    </div>
-                </div>
-                <p class="ftdesc" id="footerDescription" data-en="A community-based youth sports organization in West Shingrauli, Moulvibazar since 2009." data-bn="২০০৯ সাল থেকে পশ্চিম শিংরাউলী, মৌলভীবাজারে একটি সমাজভিত্তিক যুব ক্রীড়া সংগঠন।">A community-based youth sports organization in West Shingrauli, Moulvibazar since 2009.</p>
-                <div class="slnks">
-                    <a href="https://www.facebook.com/youngsportingclubofficial" target="_blank" class="sa fb"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.facebook.com/groups/youngsportingclub" target="_blank" class="sa fb"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.youtube.com/@youngsportingclub" target="_blank" class="sa yt"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/youngsportingclubofficial/" target="_blank" class="sa ig"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:youngsportingclub2009@gmail.com" class="sa em"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-            <div class="fcol"><h4 data-en="Quick Links" data-bn="দ্রুত লিংক">Quick Links</h4><ul><li><a href="index.html" data-en="Home" data-bn="হোম">Home</a></li><li><a href="about.html" data-en="About" data-bn="সম্পর্কে">About</a></li><li><a href="members.html" data-en="Members" data-bn="সদস্য">Members</a></li><li><a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a></li></ul></div>
-            <div class="fcol"><h4 data-en="Positions" data-bn="পদসমূহ">Positions</h4><ul><li><a href="#" data-en="President" data-bn="সভাপতি">President</a></li><li><a href="#" data-en="General Secretary" data-bn="সাধারণ সম্পাদক">General Secretary</a></li><li><a href="#" data-en="Treasurer" data-bn="কোষাধ্যক্ষ">Treasurer</a></li><li><a href="#" data-en="Sports Secretary" data-bn="ক্রীড়া সম্পাদক">Sports Secretary</a></li></ul></div>
-            <div class="fcol"><h4 data-en="Contact" data-bn="যোগাযোগ">Contact</h4><ul class="ci2"><li><span class="ico"><i class="fas fa-map-marker-alt"></i></span><span id="footerLocation" data-en="West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet" data-bn="পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট">West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet</span></li><li><span class="ico"><i class="fas fa-phone"></i></span><a href="tel:+8801737355553" style="color:var(--gr)">+880 1737-355553</a></li></ul></div>
-        </div>
         <div class="ftbot">
             <p data-en="© 2026 Young Sporting Club. All rights reserved." data-bn="© ২০২৬ ইয়ং স্পোর্টিং ক্লাব। সর্বস্বত্ব সংরক্ষিত।">© 2026 Young Sporting Club. All rights reserved.</p>
-            <p class="dev" onclick="window.location.href='developer.html'">
+            <div class="dev" onclick="window.location.href='developer.html'">
                 <span id="developerName" data-en="Developed by Farabi Walid" data-bn="তৈরি করেছেন ফারাবি ওয়ালিদ">Developed by Farabi Walid</span>
-            </p>
+            </div>
         </div>
     </div>
 </footer>
@@ -458,7 +420,7 @@ const positionOrder = {
     'Member': 28
 };
 
-// Position-based emoji mapping (fallback)
+// Position-based emoji mapping for fallback
 const positionEmoji = {
     'President': '👨‍💼',
     'Senior Vice President': '👨‍⚖️',
@@ -490,39 +452,33 @@ const positionEmoji = {
     'Member': '👤'
 };
 
-// Club logo URL
-const clubLogoUrl = window.location.origin + '/ysc.png';
-
 // Language data
 const langData = {
     en: {
         clubNameHeader: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
-        clubNameFooter: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
-        footerDesc: "A community-based youth sports organization in West Shingrauli, Moulvibazar since 2009.",
-        footerLocation: "West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet",
         devName: "Developed by Farabi Walid"
     },
     bn: {
         clubNameHeader: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
-        clubNameFooter: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
-        footerDesc: "২০০৯ সাল থেকে পশ্চিম শিংরাউলী, মৌলভীবাজারে একটি সমাজভিত্তিক যুব ক্রীড়া সংগঠন।",
-        footerLocation: "পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট",
         devName: "তৈরি করেছেন ফারাবি ওয়ালিদ"
     }
 };
+
+// Club logo URL
+const clubLogoUrl = window.location.origin + '/ysc.png';
 
 // Authentication state
 onAuthStateChanged(auth, (user) => {
     const btn = document.getElementById('nav-login-btn');
     if (!btn) return;
-    
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
     if (user) {
         const initial = (user.displayName || user.email || 'U')[0].toUpperCase();
-        const lang = document.documentElement.getAttribute('data-lang') || 'en';
         btn.innerHTML = `<span style="display:inline-flex;align-items:center;gap:7px;background:rgba(254,44,85,.12);border:1px solid rgba(254,44,85,.3);padding:5px 12px 5px 5px;border-radius:50px;font-size:12px;font-weight:700"><span style="width:26px;height:26px;background:linear-gradient(135deg,#FE2C55,#25F4EE);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#010101;font-family:'Bebas Neue',sans-serif;font-size:15px">${initial}</span>${lang === 'bn' ? 'লগআউট' : 'Logout'}</span>`;
         btn.onclick = async (e) => { e.preventDefault(); await signOut(auth); window.location.reload(); };
+        btn.href = 'javascript:void(0)';
     } else {
-        btn.innerHTML = document.documentElement.getAttribute('data-lang') === 'bn' ? 'লগইন' : 'Login';
+        btn.innerHTML = lang === 'bn' ? 'লগইন' : 'Login';
         btn.href = 'login.html';
         btn.onclick = null;
     }
@@ -578,7 +534,12 @@ function escapeHtml(text) {
 
 function getAvatarHtml(member) {
     const emoji = positionEmoji[member.position] || '👤';
-    // Always show club logo for all members
+    
+    // If photo URL exists in database, try to load it
+    if (member.photoURL) {
+        return `<img src="${member.photoURL}" alt="${escapeHtml(member.name)}" onerror="this.onerror=null; this.parentElement.innerHTML='<img src=\\'${clubLogoUrl}\\' alt=\\'Club Logo\\' onerror=\\'this.onerror=null; this.parentElement.innerHTML=\\'${emoji}\\'\\'>'">`;
+    }
+    // If no photo, try club logo
     return `<img src="${clubLogoUrl}" alt="Club Logo" onerror="this.onerror=null; this.parentElement.innerHTML='${emoji}'">`;
 }
 
@@ -689,7 +650,7 @@ onSnapshot(membersQuery, (snapshot) => {
     filterMembers();
 }, (error) => {
     console.error('Firestore error:', error);
-    tbody.innerHTML = `}<td colspan="4" style="text-align:center;padding:40px;color:#FE2C55">⚠ Failed to load members. Please check your connection.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;padding:40px;color:#FE2C55">⚠ Failed to load members. Please check your connection.</td></tr>`;
 });
 
 // Add event listeners
@@ -708,9 +669,12 @@ function updateVisitorCount() {
 // ==================== TRIPLE DATE ====================
 function updateDates() {
     const now = new Date();
-    document.getElementById('dateEn').textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    document.getElementById('dateBn').textContent = now.toLocaleDateString('bn-BD', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    document.getElementById('dateAr').textContent = now.toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    const dateEn = document.getElementById('dateEn');
+    const dateBn = document.getElementById('dateBn');
+    const dateAr = document.getElementById('dateAr');
+    if (dateEn) dateEn.textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    if (dateBn) dateBn.textContent = now.toLocaleDateString('bn-BD', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    if (dateAr) dateAr.textContent = now.toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 }
 
 // ==================== TOAST ====================
@@ -774,17 +738,11 @@ function setLang(lang) {
         if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
     });
     
-    // Update club name in header and footer
+    // Update club name in header
     const clubNameHeader = document.getElementById('clubNameHeader');
-    const clubNameFooter = document.getElementById('clubNameFooter');
-    const footerDescription = document.getElementById('footerDescription');
-    const footerLocation = document.getElementById('footerLocation');
     const developerName = document.getElementById('developerName');
     
     if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubNameHeader;
-    if (clubNameFooter) clubNameFooter.innerHTML = langData[lang].clubNameFooter;
-    if (footerDescription) footerDescription.textContent = langData[lang].footerDesc;
-    if (footerLocation) footerLocation.textContent = langData[lang].footerLocation;
     if (developerName) developerName.textContent = langData[lang].devName;
     
     // Update search placeholder
@@ -797,6 +755,12 @@ function setLang(lang) {
     const toastMsg = document.getElementById('toastMsg');
     if (toastMsg && document.getElementById('toast').classList.contains('show')) {
         toastMsg.textContent = lang === 'bn' ? '👥 ইয়ং স্পোর্টিং ক্লাবের সকল সদস্য দেখুন। মোট সদস্য সংখ্যা রিয়েল-টাইমে আপডেট হয়।' : '👥 Browse all club members of Young Sporting Club. Total members count updated in real-time.';
+    }
+    
+    // Update login button text if not logged in
+    const loginBtn = document.getElementById('nav-login-btn');
+    if (loginBtn && !loginBtn.querySelector('span')) {
+        loginBtn.textContent = lang === 'bn' ? 'লগইন' : 'Login';
     }
     
     // Re-filter to update count text
