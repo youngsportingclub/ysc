@@ -15,6 +15,7 @@
     --card2:#16161f;
     --pink:#FE2C55;
     --cyan:#25F4EE;
+    --gold:#FFD700;
     --wh:#ffffff;
     --gr:#aaaaaa;
     --lt:#dddddd;
@@ -64,7 +65,7 @@ ul{list-style:none}
 .logo-img img{width:100%;height:100%;border-radius:15px;object-fit:cover}
 .lt{display:flex;flex-direction:column;line-height:1.2}
 .lt .n1{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px}
-.lt .n1 .colored-letter{color:var(--pink)}
+.lt .n1 .gold-letter{color:var(--gold);text-shadow:0 0 5px rgba(255,215,0,.3)}
 [data-lang="bn"] .lt .n1{font-family:'Hind Siliguri',sans-serif;font-size:26px;letter-spacing:0}
 .lt .n2{font-size:11px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
 .nl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -203,7 +204,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 .ftlogo-img img{width:100%;height:100%;border-radius:14px;object-fit:cover}
 .ftlogo-text{display:flex;flex-direction:column}
 .ftlogo-text .name{font-family:'Bebas Neue',sans-serif;font-size:24px}
-.ftlogo-text .name .colored-letter{color:var(--pink)}
+.ftlogo-text .name .gold-letter{color:var(--gold);text-shadow:0 0 5px rgba(255,215,0,.3)}
 [data-lang="bn"] .ftlogo-text .name{font-family:'Hind Siliguri',sans-serif;font-size:22px}
 .ftlogo-text .est{font-size:10px;color:var(--gr);margin-top:2px}
 .ftdesc{color:var(--gr);font-size:13px;line-height:1.85;margin:15px 0 25px}
@@ -310,7 +311,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
                 <img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/70x70/FE2C55/FFFFFF?text=YSC'">
             </div>
             <div class="lt">
-                <span class="n1" id="clubNameHeader"><span class="colored-letter">Y</span>OUNG <span class="colored-letter">S</span>PORTING <span class="colored-letter">C</span>LUB</span>
+                <span class="n1" id="clubNameHeader"><span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB</span>
                 <span class="n2" id="estDateHeader" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span>
             </div>
         </a>
@@ -322,7 +323,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
             <a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
         </div>
         <div class="nr">
-            <div class="lang-sw"><button class="lb on" onclick="setLang('en')">EN</button><button class="lb" onclick="setLang('bn')">বাং</button></div>
+            <div class="lang-sw"><button class="lb on" id="langBtnEn" onclick="setLang('en')">EN</button><button class="lb" id="langBtnBn" onclick="setLang('bn')">বাং</button></div>
             <a href="login.html" class="btn ncta" id="nav-login-btn" data-en="Login" data-bn="লগইন">Login</a>
         </div>
         <button class="hbg" id="hbg"><span></span><span></span><span></span></button>
@@ -354,7 +355,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
                 <span class="l2" data-en="SPORTING" data-bn="স্পোর্টিং">SPORTING</span>
                 <span class="l1" data-en="CLUB" data-bn="ক্লাব">CLUB</span>
             </h1>
-            <p class="hdesc" id="clubDescription" data-en="Young Sporting Club is one of the premier sports clubs in the Shingrauli area of Shamshernagar Union, Kamalganj Upazila, Moulvibazar District, Sylhet Division, Bangladesh. Established in compliance with all national laws, Young Sporting Club is a voluntary, non-political, and non-profit organization dedicated to engaging local youth in sports, community development, and welfare activities." data-bn="ইয়ং স্পোর্টিং ক্লাব বাংলাদেশের সিলেট বিভাগের অন্তর্গত মৌলভীবাজার জেলার কমলগঞ্জ উপজেলার ৪নং শমশেরনগর ইউনিয়ন পরিষদের শিংরাউলী গ্রামের তথা আশপাশের এলাকার মানুষের খেলাধুলা করার জন্য অন্যতম একটি ক্লাব। দেশের সকল আইনকানুন মেনে ইয়ং স্পোর্টিং ক্লাব এলাকার সকল কিশোর, যুবক তথা ক্লাবের সকল সদস্যদের ক্রীড়াঙ্গনে সংযুক্ত রাখা, সমাজ উন্নয়নমূলক ও কল্যাণমূলক কার্যক্রম সুন্দরভাবে পরিচালনার জন্য গঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক ক্লাব বা সংগঠন।">ইয়ং স্পোর্টিং ক্লাব বাংলাদেশের সিলেট বিভাগের অন্তর্গত মৌলভীবাজার জেলার কমলগঞ্জ উপজেলার ৪নং শমশেরনগর ইউনিয়ন পরিষদের শিংরাউলী গ্রামের তথা আশপাশের এলাকার মানুষের খেলাধুলা করার জন্য অন্যতম একটি ক্লাব। দেশের সকল আইনকানুন মেনে ইয়ং স্পোর্টিং ক্লাব এলাকার সকল কিশোর, যুবক তথা ক্লাবের সকল সদস্যদের ক্রীড়াঙ্গনে সংযুক্ত রাখা, সমাজ উন্নয়নমূলক ও কল্যাণমূলক কার্যক্রম সুন্দরভাবে পরিচালনার জন্য গঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক ক্লাব বা সংগঠন।</p>
+            <p class="hdesc" id="clubDescription" data-en="Young Sporting Club is one of the premier sports clubs in the West Shingrauli area of Shamshernagar Union, Kamalganj Upazila, Moulvibazar District, Sylhet Division, Bangladesh. Established in compliance with all national laws, Young Sporting Club is a voluntary, non-political, and non-profit organization dedicated to engaging local youth in sports, community development, and welfare activities." data-bn="ইয়ং স্পোর্টিং ক্লাব বাংলাদেশের সিলেট বিভাগের অন্তর্গত মৌলভীবাজার জেলার কমলগঞ্জ উপজেলার ৪নং শমশেরনগর ইউনিয়ন পরিষদের পশ্চিম শিংরাউলী গ্রামের তথা আশপাশের এলাকার মানুষের খেলাধুলা করার জন্য অন্যতম একটি ক্লাব। দেশের সকল আইনকানুন মেনে ইয়ং স্পোর্টিং ক্লাব এলাকার সকল কিশোর, যুবক তথা ক্লাবের সকল সদস্যদের ক্রীড়াঙ্গনে সংযুক্ত রাখা, সমাজ উন্নয়নমূলক ও কল্যাণমূলক কার্যক্রম সুন্দরভাবে পরিচালনার জন্য গঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক ক্লাব বা সংগঠন।">ইয়ং স্পোর্টিং ক্লাব বাংলাদেশের সিলেট বিভাগের অন্তর্গত মৌলভীবাজার জেলার কমলগঞ্জ উপজেলার ৪নং শমশেরনগর ইউনিয়ন পরিষদের পশ্চিম শিংরাউলী গ্রামের তথা আশপাশের এলাকার মানুষের খেলাধুলা করার জন্য অন্যতম একটি ক্লাব। দেশের সকল আইনকানুন মেনে ইয়ং স্পোর্টিং ক্লাব এলাকার সকল কিশোর, যুবক তথা ক্লাবের সকল সদস্যদের ক্রীড়াঙ্গনে সংযুক্ত রাখা, সমাজ উন্নয়নমূলক ও কল্যাণমূলক কার্যক্রম সুন্দরভাবে পরিচালনার জন্য গঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক ক্লাব বা সংগঠন।</p>
             <div class="hloc"><i class="fas fa-map-marker-alt"></i><span id="clubLocation" data-en="West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet" data-bn="পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট">পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট</span></div>
             <div class="hbtns">
                 <a href="members.html" class="btn btn-pk"><i class="fas fa-users"></i> <span data-en="View Members" data-bn="সদস্যদের দেখুন">View Members</span></a>
@@ -560,7 +561,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
                         <img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/60x60/FE2C55/FFFFFF?text=YSC'">
                     </div>
                     <div class="ftlogo-text">
-                        <span class="name" id="clubNameFooter"><span class="colored-letter">Y</span>OUNG <span class="colored-letter">S</span>PORTING <span class="colored-letter">C</span>LUB</span>
+                        <span class="name" id="clubNameFooter"><span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB</span>
                         <span class="est" id="estDateFooter" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span>
                     </div>
                 </div>
@@ -634,7 +635,7 @@ const db = getFirestore(app);
 // ==================== LANGUAGE VARIABLES ====================
 const langData = {
     en: {
-        clubName: '<span class="colored-letter">Y</span>OUNG <span class="colored-letter">S</span>PORTING <span class="colored-letter">C</span>LUB',
+        clubName: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
         clubDescription: "Young Sporting Club is one of the premier sports clubs in the West Shingrauli area of Shamshernagar Union, Kamalganj Upazila, Moulvibazar District, Sylhet Division, Bangladesh. Established in compliance with all national laws, Young Sporting Club is a voluntary, non-political, and non-profit organization dedicated to engaging local youth in sports, community development, and welfare activities.",
         location: "West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet",
         footerDesc: "Young Sporting Club is a voluntary, non-political, and non-profit organization established in West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet, dedicated to engaging youth in sports, community development, and welfare activities since 2009.",
@@ -642,7 +643,7 @@ const langData = {
         devName: "Developed by Farabi Walid"
     },
     bn: {
-        clubName: '<span class="colored-letter">ই</span>য়ং <span class="colored-letter">স</span>্পোর্টিং <span class="colored-letter">ক</span>্লাব',
+        clubName: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
         clubDescription: "ইয়ং স্পোর্টিং ক্লাব বাংলাদেশের সিলেট বিভাগের অন্তর্গত মৌলভীবাজার জেলার কমলগঞ্জ উপজেলার ৪নং শমশেরনগর ইউনিয়ন পরিষদের পশ্চিম শিংরাউলী গ্রামের তথা আশপাশের এলাকার মানুষের খেলাধুলা করার জন্য অন্যতম একটি ক্লাব। দেশের সকল আইনকানুন মেনে ইয়ং স্পোর্টিং ক্লাব এলাকার সকল কিশোর, যুবক তথা ক্লাবের সকল সদস্যদের ক্রীড়াঙ্গনে সংযুক্ত রাখা, সমাজ উন্নয়নমূলক ও কল্যাণমূলক কার্যক্রম সুন্দরভাবে পরিচালনার জন্য গঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক ক্লাব বা সংগঠন।",
         location: "পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট",
         footerDesc: "ইয়ং স্পোর্টিং ক্লাব পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেটে প্রতিষ্ঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক সংগঠন যা ২০০৯ সাল থেকে তরুণদের ক্রীড়া, সমাজ উন্নয়ন এবং কল্যাণমূলক কার্যক্রমে নিয়োজিত রাখতে নিবেদিত।",
@@ -845,6 +846,9 @@ function setLang(lang) {
     // Reload committee members to update language
     loadCommitteeMembers();
 }
+
+// Make setLang available globally
+window.setLang = setLang;
 
 document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
 window.closeToast = closeToast;
