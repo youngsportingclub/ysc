@@ -54,14 +54,15 @@ ul{list-style:none}
 #hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr);background:rgba(1,1,1,.85);backdrop-filter:blur(12px)}
 #hdr.sc{background:rgba(1,1,1,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--bp);box-shadow:0 4px 20px rgba(0,0,0,.3)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;max-width:1200px;margin:0 auto}
-.logo{display:flex;align-items:center;gap:11px}
-.li{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#010101;box-shadow:var(--gdual)}
+.logo{display:flex;align-items:center;gap:14px}
+.logo-img{width:52px;height:52px;border-radius:14px;object-fit:cover;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:2px}
+.logo-img img{width:100%;height:100%;border-radius:12px;object-fit:cover}
 .lt{display:flex;flex-direction:column;line-height:1}
-.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.lt .n2{font-size:10px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
+.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2.5px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.lt .n2{font-size:11px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:3px}
 .nl{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
-.nl a{padding:8px 16px;border-radius:30px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
-.nl a:hover,.nl a.on{color:var(--wh);background:rgba(254,44,85,.15)}
+.nl a{padding:8px 18px;border-radius:30px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
+.nl a:hover,.nl a.on{color:var(--wh);background:rgba(254,44,85,.2)}
 .nl a.on::after{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--pink);margin:3px auto 0;box-shadow:0 0 8px var(--pink)}
 .nr{display:flex;align-items:center;gap:12px}
 .ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:13px;padding:9px 20px;transition:var(--tr)}
@@ -74,7 +75,7 @@ ul{list-style:none}
 .mob{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(1,1,1,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--bp);padding:20px 22px;flex-direction:column;gap:5px;z-index:997}
 .mob.op{display:flex}
 .mob a{padding:12px 16px;border-radius:12px;font-size:15px;font-weight:500;color:var(--lt);transition:var(--tr)}
-.mob a:hover,.mob a.on{color:#fff;background:rgba(254,44,85,.15)}
+.mob a:hover,.mob a.on{color:#fff;background:rgba(254,44,85,.2)}
 .phero{padding:140px 0 70px;background:linear-gradient(180deg,#0a0a0a,var(--bg));text-align:center;position:relative;overflow:hidden}
 .phero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(254,44,85,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,244,238,.04) 1px,transparent 1px);background-size:55px 55px}
 .phero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--pink),var(--cyan),transparent)}
@@ -147,6 +148,8 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
     .date-bar{flex-direction:column;align-items:center;gap:10px;padding:12px 20px}
     .auth-notice{padding:14px 18px}
     .phero{padding:120px 0 50px}
+    .lt .n1{font-size:18px}
+    .logo-img{width:44px;height:44px}
 }
 @media(max-width:460px){.ftbot{flex-direction:column;text-align:center}}
 </style>
@@ -178,8 +181,13 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
 <header id="hdr">
     <nav class="nav">
         <a href="index.html" class="logo">
-            <div class="li">YSC</div>
-            <div class="lt"><span class="n1">YOUNG SPORTING</span><span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span></div>
+            <div class="logo-img">
+                <img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/52x52/FE2C55/FFFFFF?text=YSC'">
+            </div>
+            <div class="lt">
+                <span class="n1">YOUNG SPORTING</span>
+                <span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span>
+            </div>
         </a>
         <div class="nl">
             <a href="index.html" data-en="Home" data-bn="হোম">Home</a>
@@ -347,7 +355,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// DOM Elements
 const authNotice = document.getElementById('authNotice');
 const formCard = document.getElementById('formCard');
 const navLoginBtn = document.getElementById('nav-login-btn');
@@ -356,35 +363,23 @@ const errMsg = document.getElementById('errMsg');
 const subBtn = document.getElementById('subBtn');
 const resetBtn = document.getElementById('resetBtn');
 
-// ==================== AUTHENTICATION ====================
 onAuthStateChanged(auth, (user) => {
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    
     if (user) {
         authNotice.style.display = 'none';
         formCard.style.display = 'block';
-        
         if (navLoginBtn) {
             const initial = (user.displayName || user.email || 'U')[0].toUpperCase();
             navLoginBtn.innerHTML = `<span style="display:inline-flex;align-items:center;gap:7px;background:rgba(254,44,85,.12);border:1px solid rgba(254,44,85,.3);padding:5px 12px 5px 5px;border-radius:50px;font-size:12px;font-weight:700"><span style="width:26px;height:26px;background:linear-gradient(135deg,#FE2C55,#25F4EE);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#010101;font-family:'Bebas Neue',sans-serif;font-size:15px">${initial}</span>${lang === 'bn' ? 'লগআউট' : 'Logout'}</span>`;
-            navLoginBtn.onclick = async (e) => {
-                e.preventDefault();
-                await signOut(auth);
-                window.location.reload();
-            };
+            navLoginBtn.onclick = async (e) => { e.preventDefault(); await signOut(auth); window.location.reload(); };
         }
     } else {
         authNotice.style.display = 'flex';
         formCard.style.display = 'none';
-        if (navLoginBtn) {
-            navLoginBtn.innerHTML = lang === 'bn' ? 'লগইন' : 'Login';
-            navLoginBtn.href = 'login.html';
-            navLoginBtn.onclick = null;
-        }
+        if (navLoginBtn) { navLoginBtn.innerHTML = lang === 'bn' ? 'লগইন' : 'Login'; navLoginBtn.href = 'login.html'; navLoginBtn.onclick = null; }
     }
 });
 
-// ==================== FORM HANDLING ====================
 function showMessage(element, text, type) {
     if (element) {
         element.innerHTML = `<i class="fas fa-${type === 'ok' ? 'check-circle' : 'exclamation-circle'}"></i> ${text}`;
@@ -393,9 +388,7 @@ function showMessage(element, text, type) {
     }
 }
 
-function hideMessage(element) {
-    if (element) element.className = 'msg';
-}
+function hideMessage(element) { if (element) element.className = 'msg'; }
 
 if (resetBtn) {
     resetBtn.addEventListener('click', () => {
@@ -408,12 +401,9 @@ if (resetBtn) {
 
 document.getElementById('addForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    
     hideMessage(okMsg);
     hideMessage(errMsg);
-    
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    
     const memberData = {
         name: document.getElementById('fname').value.trim(),
         position: document.getElementById('fpos').value,
@@ -422,48 +412,34 @@ document.getElementById('addForm').addEventListener('submit', async (e) => {
         address: document.getElementById('faddr').value.trim(),
         bio: document.getElementById('fbio').value.trim()
     };
-    
     if (!memberData.name || !memberData.position || !memberData.phone || !memberData.joinYear || !memberData.address) {
         showMessage(errMsg, lang === 'bn' ? '⚠ সকল প্রয়োজনীয় ক্ষেত্র পূরণ করুন।' : '⚠ Please fill in all required fields.', 'err');
         return;
     }
-    
     if (memberData.phone.length < 10) {
         showMessage(errMsg, lang === 'bn' ? '⚠ বৈধ ফোন নম্বর দিন।' : '⚠ Please enter a valid phone number.', 'err');
         return;
     }
-    
     const year = parseInt(memberData.joinYear);
     if (year < 2009 || year > 2099) {
         showMessage(errMsg, lang === 'bn' ? '⚠ বৈধ বছর দিন (২০০৯-২০৯৯)।' : '⚠ Please enter a valid year (2009-2099).', 'err');
         return;
     }
-    
     subBtn.disabled = true;
     subBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${lang === 'bn' ? 'যোগ হচ্ছে…' : 'Adding…'}`;
-    
     try {
-        await addDoc(collection(db, 'members'), {
-            ...memberData,
-            addedAt: serverTimestamp()
-        });
-        
-        showMessage(okMsg, lang === 'bn' ? 
-            '✓ সদস্য সফলভাবে যোগ হয়েছে! <a href="members.html" style="color:var(--cyan);text-decoration:underline">সকল সদস্য দেখুন →</a>' : 
-            '✓ Member added successfully! <a href="members.html" style="color:var(--cyan);text-decoration:underline">View all members →</a>', 'ok');
+        await addDoc(collection(db, 'members'), { ...memberData, addedAt: serverTimestamp() });
+        showMessage(okMsg, lang === 'bn' ? '✓ সদস্য সফলভাবে যোগ হয়েছে! <a href="members.html" style="color:var(--cyan);text-decoration:underline">সকল সদস্য দেখুন →</a>' : '✓ Member added successfully! <a href="members.html" style="color:var(--cyan);text-decoration:underline">View all members →</a>', 'ok');
         document.getElementById('addForm').reset();
         updatePreview();
-        
     } catch (error) {
         console.error('Error adding member:', error);
         showMessage(errMsg, lang === 'bn' ? '⚠ ত্রুটি: ' + error.message : '⚠ Error: ' + error.message, 'err');
     }
-    
     subBtn.disabled = false;
     subBtn.innerHTML = `<i class="fas fa-user-plus"></i> ${lang === 'bn' ? 'সদস্য যোগ করুন' : 'Add Member'}`;
 });
 
-// ==================== PREVIEW FUNCTION ====================
 function updatePreview() {
     const name = document.getElementById('fname').value.trim();
     const position = document.getElementById('fpos').value;
@@ -471,38 +447,24 @@ function updatePreview() {
     const previewName = document.getElementById('previewName');
     const previewPos = document.getElementById('previewPos');
     const previewAvatar = document.getElementById('previewAvatar');
-    
     if (name || position) {
         previewDiv.classList.add('show');
         previewName.textContent = name || 'Member Name';
-        const posMap = {
-            'President': 'সভাপতি', 'Vice President': 'সহ-সভাপতি',
-            'General Secretary': 'সাধারণ সম্পাদক', 'Assistant Secretary': 'সহকারী সম্পাদক',
-            'Treasurer': 'কোষাধ্যক্ষ', 'Sports Secretary': 'ক্রীড়া সম্পাদক', 'Member': 'সদস্য'
-        };
+        const posMap = { 'President': 'সভাপতি', 'Vice President': 'সহ-সভাপতি', 'General Secretary': 'সাধারণ সম্পাদক', 'Assistant Secretary': 'সহকারী সম্পাদক', 'Treasurer': 'কোষাধ্যক্ষ', 'Sports Secretary': 'ক্রীড়া সম্পাদক', 'Member': 'সদস্য' };
         const lang = document.documentElement.getAttribute('data-lang') || 'en';
         previewPos.textContent = lang === 'bn' ? (posMap[position] || position) : position;
         previewAvatar.textContent = name ? name.charAt(0).toUpperCase() : '👤';
-    } else {
-        previewDiv.classList.remove('show');
-    }
+    } else { previewDiv.classList.remove('show'); }
 }
 
-// ==================== VISITOR COUNTER ====================
 function updateVisitorCount() {
     let count = localStorage.getItem('ysc_visitors');
-    if (!count) {
-        count = Math.floor(Math.random() * 500) + 1500;
-        localStorage.setItem('ysc_visitors', count);
-    } else {
-        count = parseInt(count) + 1;
-        localStorage.setItem('ysc_visitors', count);
-    }
+    if (!count) { count = Math.floor(Math.random() * 500) + 1500; localStorage.setItem('ysc_visitors', count); }
+    else { count = parseInt(count) + 1; localStorage.setItem('ysc_visitors', count); }
     const visitorEl = document.getElementById('visitorCount');
     if (visitorEl) visitorEl.textContent = count.toLocaleString();
 }
 
-// ==================== TRIPLE DATE ====================
 function updateDates() {
     const now = new Date();
     document.getElementById('dateEn').textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
@@ -510,105 +472,55 @@ function updateDates() {
     document.getElementById('dateAr').textContent = now.toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-// ==================== TOAST ====================
 function showWelcomeToast() {
     const toast = document.getElementById('toast');
     const msgEl = document.getElementById('toastMsg');
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    const messages = {
-        en: '➕ Fill the form to add a new club member to Young Sporting Club.',
-        bn: '➕ ইয়ং স্পোর্টিং ক্লাবে নতুন সদস্য যোগ করতে ফর্মটি পূরণ করুন।'
-    };
+    const messages = { en: '➕ Fill the form to add a new club member to Young Sporting Club.', bn: '➕ ইয়ং স্পোর্টিং ক্লাবে নতুন সদস্য যোগ করতে ফর্মটি পূরণ করুন।' };
     msgEl.textContent = messages[lang] || messages.en;
     setTimeout(() => toast.classList.add('show'), 500);
     setTimeout(() => toast.classList.remove('show'), 5000);
 }
 
-function closeToast() {
-    document.getElementById('toast').classList.remove('show');
-}
+function closeToast() { document.getElementById('toast').classList.remove('show'); }
 
-// ==================== INITIALIZATION ====================
 AOS.init({ duration: 700, once: true, offset: 55 });
-
-window.addEventListener('load', () => {
-    setTimeout(() => document.getElementById('ldr').classList.add('hid'), 500);
-    updateVisitorCount();
-    updateDates();
-    showWelcomeToast();
-});
-
+window.addEventListener('load', () => { setTimeout(() => document.getElementById('ldr').classList.add('hid'), 500); updateVisitorCount(); updateDates(); showWelcomeToast(); });
 setInterval(updateDates, 60000);
-
-window.addEventListener('scroll', () => {
-    document.getElementById('hdr').classList.toggle('sc', window.scrollY > 28);
-});
-
-const hbgBtn = document.getElementById('hbg');
-const mobileMenu = document.getElementById('mob');
-if (hbgBtn && mobileMenu) {
-    hbgBtn.addEventListener('click', () => {
-        hbgBtn.classList.toggle('op');
-        mobileMenu.classList.toggle('op');
-    });
-}
-
-window.updatePreview = updatePreview;
-window.closeToast = closeToast;
+window.addEventListener('scroll', () => { document.getElementById('hdr').classList.toggle('sc', window.scrollY > 28); });
+const hbgBtn = document.getElementById('hbg'), mobileMenu = document.getElementById('mob');
+if (hbgBtn && mobileMenu) { hbgBtn.addEventListener('click', () => { hbgBtn.classList.toggle('op'); mobileMenu.classList.toggle('op'); }); }
+window.updatePreview = updatePreview; window.closeToast = closeToast;
 </script>
 
 <script>
-// ==================== LANGUAGE SWITCHER ====================
-let currentLang = (function() {
-    try { return localStorage.getItem('ysc-lang') || 'en'; } catch(e) { return 'en'; }
-})();
+let currentLang = (function() { try { return localStorage.getItem('ysc-lang') || 'en'; } catch(e) { return 'en'; } })();
 
 function setLang(lang) {
     currentLang = lang;
     try { localStorage.setItem('ysc-lang', lang); } catch(e) {}
-    
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
-    
     document.querySelectorAll('[data-en]').forEach(el => {
         const value = el.getAttribute('data-' + lang);
-        if (value !== null) {
-            if (value.includes('<')) el.innerHTML = value;
-            else el.textContent = value;
-        }
+        if (value !== null) { if (value.includes('<')) el.innerHTML = value; else el.textContent = value; }
     });
-    
     document.querySelectorAll('.lb').forEach(btn => {
         btn.classList.remove('on');
-        if ((lang === 'en' && btn.textContent.trim() === 'EN') || 
-            (lang === 'bn' && btn.textContent.trim() === 'বাং')) {
-            btn.classList.add('on');
-        }
+        if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
     });
-    
     const placeholders = [
         ['fname', lang === 'bn' ? 'যেমন: রহিম হোসেন' : 'e.g. Rahim Hossain'],
         ['faddr', lang === 'bn' ? 'যেমন: শিংড়াউলী, শমশেরনগর' : 'e.g. Shingrahully, Shamsher Nagar'],
         ['fbio', lang === 'bn' ? 'এই সদস্য সম্পর্কে সংক্ষিপ্ত বিবরণ…' : 'Brief description about this member…']
     ];
-    placeholders.forEach(([id, text]) => {
-        const el = document.getElementById(id);
-        if (el) el.placeholder = text;
-    });
-    
-    // Update developer name in footer
+    placeholders.forEach(([id, text]) => { const el = document.getElementById(id); if (el) el.placeholder = text; });
     const devSpan = document.querySelector('.dev span');
-    if (devSpan) {
-        devSpan.textContent = lang === 'bn' ? 'তৈরি করেছেন ফারাবি ওয়ালিদ' : 'Developed by Farabi Walid';
-    }
-    
+    if (devSpan) devSpan.textContent = lang === 'bn' ? 'তৈরি করেছেন ফারাবি ওয়ালিদ' : 'Developed by Farabi Walid';
     if (window.updatePreview) window.updatePreview();
-    
     const toastMsg = document.getElementById('toastMsg');
     if (toastMsg && document.getElementById('toast').classList.contains('show')) {
-        toastMsg.textContent = lang === 'bn' ? 
-            '➕ ইয়ং স্পোর্টিং ক্লাবে নতুন সদস্য যোগ করতে ফর্মটি পূরণ করুন।' : 
-            '➕ Fill the form to add a new club member to Young Sporting Club.';
+        toastMsg.textContent = lang === 'bn' ? '➕ ইয়ং স্পোর্টিং ক্লাবে নতুন সদস্য যোগ করতে ফর্মটি পূরণ করুন।' : '➕ Fill the form to add a new club member to Young Sporting Club.';
     }
 }
 
