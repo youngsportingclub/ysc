@@ -26,6 +26,9 @@
     --r:14px;
     --tr:all .3s cubic-bezier(.4,0,.2,1);
     --whatsapp:#25D366;
+    --facebook:#1877F2;
+    --youtube:#FF0000;
+    --instagram:#E4405F;
 }
 [data-lang="bn"]{font-family:'Hind Siliguri',sans-serif}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -52,30 +55,31 @@ ul{list-style:none}
 .lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:3px}
 .lb{padding:5px 13px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:var(--tr);background:none;border:none;color:var(--gr)}
 .lb.on{background:linear-gradient(135deg,var(--pink),var(--cyan));color:#010101}
-#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr)}
-#hdr.sc{background:rgba(1,1,1,.94);backdrop-filter:blur(22px);border-bottom:1px solid var(--bp);box-shadow:0 2px 28px rgba(254,44,85,.12)}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:9px 22px;max-width:1200px;margin:0 auto}
-.logo{display:flex;align-items:center;gap:11px}
-.li{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:15px;color:#010101;box-shadow:var(--gdual)}
+#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr);background:rgba(1,1,1,.85);backdrop-filter:blur(12px)}
+#hdr.sc{background:rgba(1,1,1,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--bp);box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;max-width:1200px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:12px}
+.li{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:20px;color:#010101;box-shadow:var(--gdual);font-weight:bold}
 .lt{display:flex;flex-direction:column;line-height:1}
-.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.lt .n2{font-size:9px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px}
-.nl{display:flex;align-items:center;gap:3px;flex-wrap:wrap}
-.nl a{padding:7px 12px;border-radius:8px;font-size:12.5px;font-weight:500;color:var(--gr);transition:var(--tr);position:relative}
-.nl a:hover,.nl a.on{color:#fff;background:rgba(255,255,255,.07)}
-.nl a.on::after{content:'';display:block;width:4px;height:4px;border-radius:50%;background:var(--pink);margin:1px auto 0;box-shadow:var(--gp)}
-.nr{display:flex;align-items:center;gap:10px}
-.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:12px;padding:8px 18px}
+.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.lt .n2{font-size:11px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:3px}
+.nl{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.nl a{padding:8px 16px;border-radius:30px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
+.nl a:hover,.nl a.on{color:var(--wh);background:rgba(254,44,85,.15)}
+.nl a.on::after{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--pink);margin:3px auto 0;box-shadow:0 0 8px var(--pink)}
+.nr{display:flex;align-items:center;gap:12px}
+.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:13px;padding:9px 20px;transition:var(--tr)}
+.ncta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(254,44,85,.4)}
 .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
-.hbg span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:var(--tr)}
-.hbg.op span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hbg span{display:block;width:24px;height:2.5px;background:#fff;border-radius:2px;transition:var(--tr)}
+.hbg.op span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
 .hbg.op span:nth-child(2){opacity:0}
-.hbg.op span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.mob{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(1,1,1,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--bp);padding:16px 22px;flex-direction:column;gap:3px;z-index:997}
+.hbg.op span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
+.mob{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(1,1,1,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--bp);padding:20px 22px;flex-direction:column;gap:5px;z-index:997}
 .mob.op{display:flex}
-.mob a{padding:11px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr)}
-.mob a:hover,.mob a.on{color:#fff;background:rgba(254,44,85,.1)}
-.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:74px}
+.mob a{padding:12px 16px;border-radius:12px;font-size:15px;font-weight:500;color:var(--lt);transition:var(--tr)}
+.mob a:hover,.mob a.on{color:#fff;background:rgba(254,44,85,.15)}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:80px}
 .hbg2{position:absolute;inset:0;background:radial-gradient(ellipse 75% 60% at 68% 48%,rgba(254,44,85,.08),transparent 65%),radial-gradient(ellipse 55% 45% at 18% 72%,rgba(37,244,238,.06),transparent 58%),var(--bg);z-index:0}
 .hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(254,44,85,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,244,238,.04) 1px,transparent 1px);background-size:55px 55px;z-index:0}
 .sportbg{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
@@ -93,10 +97,10 @@ ul{list-style:none}
 .hew{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--bc);background:rgba(37,244,238,.07);color:var(--cyan);padding:6px 16px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:20px}
 .hew .pd{width:7px;height:7px;border-radius:50%;background:var(--cyan);animation:pc 2s infinite;box-shadow:0 0 8px var(--cyan)}
 @keyframes pc{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.3}}
-.htitle{font-size:clamp(48px,7vw,82px);line-height:.92;margin-bottom:20px}
+.htitle{font-size:clamp(52px,8vw,88px);line-height:.92;margin-bottom:20px}
 .htitle .l1{display:block;color:#fff}
 .htitle .l2{display:block;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-[data-lang="bn"] .htitle{font-family:'Hind Siliguri',sans-serif;font-size:clamp(36px,5.5vw,64px)}
+[data-lang="bn"] .htitle{font-family:'Hind Siliguri',sans-serif;font-size:clamp(42px,6vw,70px)}
 .hdesc{font-size:15px;color:var(--gr);line-height:1.8;margin-bottom:10px;max-width:440px}
 .hloc{display:flex;align-items:flex-start;gap:7px;font-size:12px;color:var(--cyan);margin-bottom:28px;line-height:1.5}
 .hloc i{margin-top:3px}
@@ -125,16 +129,30 @@ ul{list-style:none}
 .sti:last-child{border-right:none}
 .sti .sn{font-family:'Bebas Neue',sans-serif;font-size:46px;background:linear-gradient(135deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
 .sti .sl{font-size:11px;color:var(--gr);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px}
-.date-bar{background:rgba(0,0,0,.5);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);border-radius:50px;padding:8px 22px;margin:20px auto;display:inline-flex;flex-wrap:wrap;gap:12px;justify-content:center;font-size:12px;font-weight:500}
+.date-bar{background:rgba(0,0,0,.6);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:60px;padding:10px 28px;margin:25px auto;display:inline-flex;flex-wrap:wrap;gap:18px;justify-content:center;font-size:12px;font-weight:500}
 .date-item{display:flex;align-items:center;gap:8px;color:var(--lt)}
 .date-item i{color:var(--cyan);font-size:12px}
-.upcoming-events{background:var(--card2);border-radius:var(--r);padding:24px;margin:40px 0 0;border:1px solid rgba(255,255,255,.06)}
-.upcoming-events h3{font-size:18px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.event-slider{display:flex;gap:16px;overflow-x:auto;padding:8px 4px;scrollbar-width:thin}
-.event-card{min-width:260px;background:var(--bg);border-radius:var(--r);padding:16px;border:1px solid var(--bp);flex-shrink:0}
+.upcoming-events{background:var(--card2);border-radius:var(--r);padding:28px;margin:40px 0 0;border:1px solid rgba(255,255,255,.08)}
+.upcoming-events-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px;margin-bottom:20px}
+.upcoming-events h3{font-size:20px;display:flex;align-items:center;gap:10px}
+.event-controls{display:flex;gap:10px}
+.event-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:6px 12px;border-radius:30px;font-size:11px;cursor:pointer;transition:var(--tr)}
+.event-btn:hover{background:var(--pink);border-color:var(--pink)}
+.event-slider{display:flex;gap:18px;overflow-x:auto;padding:8px 4px;scrollbar-width:thin}
+.event-card{min-width:280px;background:var(--bg);border-radius:var(--r);padding:18px;border:1px solid var(--bp);flex-shrink:0;transition:var(--tr)}
+.event-card:hover{border-color:var(--cyan);transform:translateY(-3px)}
 .event-card .event-date{font-size:11px;color:var(--pink);font-weight:700;margin-bottom:8px}
-.event-card .event-title{font-size:15px;font-weight:600;margin-bottom:6px}
-.event-card .event-desc{font-size:12px;color:var(--gr)}
+.event-card .event-title{font-size:16px;font-weight:600;margin-bottom:6px}
+.event-card .event-desc{font-size:12px;color:var(--gr);line-height:1.5}
+.event-card .event-actions{display:flex;gap:8px;margin-top:12px;justify-content:flex-end}
+.event-edit,.event-delete{background:none;border:none;color:var(--gr);cursor:pointer;font-size:12px;transition:var(--tr)}
+.event-edit:hover{color:var(--cyan)}
+.event-delete:hover{color:var(--pink)}
+.add-event-form{background:var(--card2);border-radius:var(--r);padding:20px;margin-top:20px;display:none;border:1px solid var(--bp)}
+.add-event-form.show{display:block}
+.add-event-form input,.add-event-form textarea{width:100%;background:var(--bg);border:1px solid rgba(255,255,255,.1);color:var(--wh);padding:10px 14px;border-radius:var(--r);font-size:13px;margin-bottom:10px}
+.add-event-form textarea{resize:vertical;min-height:70px}
+.add-event-form .form-btns{display:flex;gap:10px;justify-content:flex-end}
 .agrid{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
 .avis{position:relative}
 .afr{width:100%;aspect-ratio:4/3;background:var(--card);border-radius:var(--r);border:1px solid var(--bp);overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative}
@@ -173,44 +191,43 @@ ul{list-style:none}
 .ctasec h2{font-size:clamp(34px,5vw,58px);margin-bottom:14px}
 .ctasec p{color:var(--gr);font-size:15px;margin-bottom:34px;max-width:480px;margin-left:auto;margin-right:auto}
 .ctabtns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-footer{background:#050505;border-top:1px solid var(--bp);padding:58px 0 22px}
-.ftgr{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:38px;margin-bottom:44px}
-.ftdesc{color:var(--gr);font-size:13px;line-height:1.85;margin:14px 0 22px}
-.slnks{display:flex;gap:9px;flex-wrap:wrap}
-.sa{width:38px;height:38px;border-radius:10px;background:var(--card2);border:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;color:var(--gr);font-size:16px;transition:var(--tr)}
-.sa:hover{transform:translateY(-2px)}
-.sa.fb:hover{background:#1877F2;border-color:#1877F2;color:#fff;box-shadow:0 0 16px rgba(24,119,242,.4)}
-.sa.yt:hover{background:#FF0000;border-color:#FF0000;color:#fff;box-shadow:0 0 16px rgba(255,0,0,.4)}
-.sa.ig:hover{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:#dc2743;color:#fff}
-.sa.em:hover{background:var(--pink);border-color:var(--pink);color:#fff;box-shadow:var(--gp)}
-.fcol h4{font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#fff;margin-bottom:18px}
-.fcol ul li{margin-bottom:9px}
+footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
+.ftgr{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:45px}
+.ftdesc{color:var(--gr);font-size:13px;line-height:1.85;margin:15px 0 25px}
+.slnks{display:flex;gap:12px;flex-wrap:wrap}
+.sa{width:42px;height:42px;border-radius:12px;background:var(--card2);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:var(--gr);font-size:18px;transition:var(--tr)}
+.sa:hover{transform:translateY(-3px)}
+.sa.fb:hover{background:var(--facebook);color:#fff;box-shadow:0 0 16px rgba(24,119,242,.4)}
+.sa.yt:hover{background:var(--youtube);color:#fff;box-shadow:0 0 16px rgba(255,0,0,.4)}
+.sa.ig:hover{background:var(--instagram);color:#fff;box-shadow:0 0 16px rgba(228,64,95,.4)}
+.sa.em:hover{background:var(--pink);color:#fff;box-shadow:0 0 16px rgba(254,44,85,.4)}
+.fcol h4{font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#fff;margin-bottom:20px}
+.fcol ul li{margin-bottom:10px}
 .fcol ul li a{color:var(--gr);font-size:13px;transition:var(--tr)}
-.fcol ul li a:hover{color:var(--pink);padding-left:4px}
-.ci2 li{display:flex;align-items:flex-start;gap:8px;color:var(--gr);font-size:12.5px;margin-bottom:9px}
-.ci2 .ico{color:var(--cyan);font-size:13px;margin-top:2px;flex-shrink:0}
-.ftbot{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.ftbot p,.ftbot .dev{color:var(--gr);font-size:11.5px}
-.ftbot .dev span{color:var(--pink)}
+.fcol ul li a:hover{color:var(--pink);padding-left:5px}
+.ci2 li{display:flex;align-items:flex-start;gap:10px;color:var(--gr);font-size:13px;margin-bottom:10px}
+.ci2 .ico{color:var(--cyan);font-size:14px;margin-top:2px;flex-shrink:0}
+.ftbot{border-top:1px solid rgba(255,255,255,.08);padding-top:25px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ftbot p,.ftbot .dev{color:var(--gr);font-size:12px}
+.ftbot .dev{cursor:pointer}
+.ftbot .dev span{color:var(--pink);transition:var(--tr);font-weight:600}
+.ftbot .dev span:hover{color:var(--cyan);text-decoration:underline}
 .fdbox{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
-/* Floating WhatsApp Button */
 .whatsapp-float{position:fixed;bottom:25px;right:25px;z-index:999;background:var(--whatsapp);width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:var(--tr);cursor:pointer}
 .whatsapp-float:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.6)}
 .whatsapp-float i{font-size:30px;color:#fff}
-/* Ad Banner */
 .ad-banner{max-width:300px;margin:20px auto;text-align:center;background:rgba(0,0,0,.3);border-radius:12px;padding:6px;border:1px solid rgba(255,255,255,.05)}
-.ad-banner ins.adsbygoogle{display:block}
-/* Toast Notification */
 .toast{position:fixed;bottom:100px;right:25px;background:var(--card2);border-left:4px solid var(--pink);border-radius:12px;padding:12px 18px;font-size:13px;z-index:998;transform:translateX(120%);transition:transform .4s ease;max-width:280px;box-shadow:0 8px 28px rgba(0,0,0,.3)}
 .toast.show{transform:translateX(0)}
 .toast .toast-title{font-weight:700;margin-bottom:4px;color:var(--pink)}
 .toast .toast-close{position:absolute;top:8px;right:12px;cursor:pointer;font-size:14px;color:var(--gr)}
-/* Loader */
 .ldr{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s,visibility .5s;flex-direction:column;gap:16px}
 .ldr.hid{opacity:0;visibility:hidden;pointer-events:none}
 .lring{width:50px;height:50px;border:3px solid rgba(254,44,85,.2);border-top-color:var(--pink);border-right-color:var(--cyan);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .ltxt{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:4px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.visitor-badge{position:fixed;bottom:20px;left:20px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border-radius:40px;padding:7px 16px;font-size:11px;color:var(--gr);z-index:998;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15)}
+.visitor-badge i{color:var(--cyan);font-size:11px}
 @media(max-width:900px){
     .hw{grid-template-columns:1fr;text-align:center}
     .hdesc,.hloc{margin-left:auto;margin-right:auto;text-align:left;justify-content:center}
@@ -227,7 +244,7 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:58px 0 22px}
 }
 @media(max-width:700px){
     .nl{display:none}.hbg{display:flex}
-    .sp{padding:58px 0}
+    .sp{padding:60px 0}
     .agr{grid-template-columns:1fr}
     .ftgr{grid-template-columns:1fr}
     .ahi{grid-template-columns:1fr}
@@ -235,10 +252,11 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:58px 0 22px}
     .cgr{grid-template-columns:1fr}
     .stbg{grid-template-columns:1fr}
     .sti{border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}
-    .date-bar{flex-direction:column;align-items:center;gap:8px;border-radius:24px}
+    .date-bar{flex-direction:column;align-items:center;gap:10px;border-radius:24px;padding:12px 20px}
     .whatsapp-float{width:48px;height:48px;bottom:20px;right:20px}
     .whatsapp-float i{font-size:26px}
     .toast{bottom:90px;right:16px;left:16px;max-width:calc(100% - 32px)}
+    .visitor-badge{bottom:16px;left:16px}
 }
 @media(max-width:460px){.ftbot{flex-direction:column;text-align:center}}
 </style>
@@ -251,6 +269,13 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:58px 0 22px}
 <a href="https://wa.me/8801737355553?text=Assalamu%20Alaikum%2C%20I%20want%20to%20know%20about%20Young%20Sporting%20Club" target="_blank" class="whatsapp-float" id="whatsappBtn">
     <i class="fab fa-whatsapp"></i>
 </a>
+
+<!-- Visitor Counter Badge -->
+<div class="visitor-badge" id="visitorBadge">
+    <i class="fas fa-eye"></i>
+    <span id="visitorCount">0</span>
+    <span data-en="visitors" data-bn="দর্শক">visitors</span>
+</div>
 
 <!-- Toast Notification -->
 <div class="toast" id="toast">
@@ -285,7 +310,7 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:58px 0 22px}
         <a href="add_member.html" data-en="Add Member" data-bn="সদস্য যোগ">Add Member</a>
         <a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
         <a href="login.html" data-en="Login" data-bn="লগইন">Login</a>
-        <div class="lang-sw" style="margin-top:10px"><button class="lb on" onclick="setLang('en')">EN</button><button class="lb" onclick="setLang('bn')">বাং</button></div>
+        <div class="lang-sw" style="margin-top:15px"><button class="lb on" onclick="setLang('en')">EN</button><button class="lb" onclick="setLang('bn')">বাং</button></div>
     </div>
 </header>
 
@@ -352,15 +377,28 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:58px 0 22px}
     </div>
 </div>
 
-<!-- UPCOMING EVENTS SECTION -->
+<!-- UPCOMING EVENTS SECTION (ADMIN CONTROLLED) -->
 <div class="container">
     <div class="upcoming-events" data-aos="fade-up">
-        <h3><i class="fas fa-calendar-week" style="color:var(--pink)"></i> <span data-en="Upcoming Events" data-bn="আসন্ন ইভেন্ট">Upcoming Events</span></h3>
+        <div class="upcoming-events-header">
+            <h3><i class="fas fa-calendar-week" style="color:var(--pink)"></i> <span data-en="Upcoming Events" data-bn="আসন্ন ইভেন্ট">Upcoming Events</span></h3>
+            <div class="event-controls" id="eventControls" style="display:none">
+                <button class="event-btn" id="addEventBtn"><i class="fas fa-plus"></i> <span data-en="Add Event" data-bn="ইভেন্ট যোগ">Add Event</span></button>
+            </div>
+        </div>
         <div class="event-slider" id="eventSlider">
-            <div class="event-card"><div class="event-date">13 January 2026</div><div class="event-title">🎉 Foundation Day</div><div class="event-desc">17th Anniversary Celebration</div></div>
-            <div class="event-card"><div class="event-date">February 2026</div><div class="event-title">⚽ Football Tournament</div><div class="event-desc">Inter-village Football Competition</div></div>
-            <div class="event-card"><div class="event-date">March 2026</div><div class="event-title">🏏 Cricket League</div><div class="event-desc">Annual Cricket Championship</div></div>
-            <div class="event-card"><div class="event-date">April 2026</div><div class="event-title">🏸 Badminton Cup</div><div class="event-desc">Open Badminton Tournament</div></div>
+            <!-- Events will be loaded dynamically from Firebase -->
+            <div class="event-card"><div class="event-date">Loading...</div><div class="event-title">Loading events</div><div class="event-desc">Please wait...</div></div>
+        </div>
+        <div class="add-event-form" id="addEventForm">
+            <h4 style="margin-bottom:12px"><i class="fas fa-plus-circle"></i> <span data-en="Add New Event" data-bn="নতুন ইভেন্ট যোগ করুন">Add New Event</span></h4>
+            <input type="text" id="eventTitle" placeholder="Event Title" data-placeholder-en="Event Title" data-placeholder-bn="ইভেন্টের শিরোনাম">
+            <input type="text" id="eventDate" placeholder="Date (e.g., 25 March 2026)" data-placeholder-en="Date (e.g., 25 March 2026)" data-placeholder-bn="তারিখ (যেমন: ২৫ মার্চ ২০২৬)">
+            <textarea id="eventDesc" placeholder="Event Description" data-placeholder-en="Event Description" data-placeholder-bn="ইভেন্টের বিবরণ"></textarea>
+            <div class="form-btns">
+                <button class="event-btn" id="cancelEventBtn"><span data-en="Cancel" data-bn="বাতিল">Cancel</span></button>
+                <button class="event-btn" id="saveEventBtn" style="background:var(--pink)"><span data-en="Save Event" data-bn="ইভেন্ট সংরক্ষণ">Save Event</span></button>
+            </div>
         </div>
     </div>
 </div>
@@ -430,7 +468,7 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:58px 0 22px}
     </div>
 </section>
 
-<!-- COMMITTEE -->
+<!-- COMMITTEE (DYNAMIC FROM FIREBASE) -->
 <section class="sp" style="background:var(--bg)">
     <div class="container">
         <div class="tc" data-aos="fade-up">
@@ -500,9 +538,9 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:58px 0 22px}
                 <div class="logo"><div class="li">YSC</div><div class="lt"><span class="n1">YOUNG SPORTING CLUB</span><span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জান ২০০৯">Est. 13 Jan 2009</span></div></div>
                 <p class="ftdesc" data-en="A community-based youth organization dedicated to sports development, youth engagement, and community service in Shingrahully, Shamsher Nagar, Moulvibazar since 2009." data-bn="২০০৯ সাল থেকে মৌলভীবাজারের শমশেরনগর, শিংড়াউলীতে ক্রীড়া উন্নয়ন, যুব সম্পৃক্ততা এবং সামাজিক সেবায় নিবেদিত একটি সমাজভিত্তিক যুব সংগঠন।">A community-based youth organization dedicated to sports development, youth engagement, and community service in Shingrahully, Shamsher Nagar, Moulvibazar since 2009.</p>
                 <div class="slnks">
-                    <a href="#" class="sa fb"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="sa yt"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="sa ig"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/youngsportingclub" target="_blank" class="sa fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/@youngsportingclub" target="_blank" class="sa yt"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/youngsportingclubofficial/" target="_blank" class="sa ig"><i class="fab fa-instagram"></i></a>
                     <a href="mailto:youngsportingclub2009@gmail.com" class="sa em"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
@@ -537,21 +575,269 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:58px 0 22px}
         </div>
         <div class="ftbot">
             <p data-en="© 2026 Young Sporting Club. All rights reserved." data-bn="© ২০২৬ ইয়ং স্পোর্টিং ক্লাব। সর্বস্বত্ব সংরক্ষিত।">© 2026 Young Sporting Club. All rights reserved.</p>
-            <p class="dev" data-en="Developed by <span>Farabi Walid</span>" data-bn="তৈরি করেছেন <span>ফারাবি ওয়ালিদ</span>">Developed by <span>Farabi Walid</span></p>
+            <p class="dev" onclick="window.location.href='developer.html'">
+                <span data-en="Developed by Farabi Walid" data-bn="তৈরি করেছেন ফারাবি ওয়ালিদ">Developed by Farabi Walid</span>
+            </p>
         </div>
     </div>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getFirestore, collection, query, orderBy, onSnapshot, addDoc, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",
+    authDomain: "youngsportingclub.firebaseapp.com",
+    databaseURL: "https://youngsportingclub-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "youngsportingclub",
+    storageBucket: "youngsportingclub.firebasestorage.app",
+    messagingSenderId: "724732761340",
+    appId: "1:724732761340:web:dc664c10d55d5bb87cb379"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// ==================== EVENT MANAGEMENT ====================
+let events = [];
+let editingEventId = null;
+
+const eventSlider = document.getElementById('eventSlider');
+const eventControls = document.getElementById('eventControls');
+const addEventForm = document.getElementById('addEventForm');
+const addEventBtn = document.getElementById('addEventBtn');
+const cancelEventBtn = document.getElementById('cancelEventBtn');
+const saveEventBtn = document.getElementById('saveEventBtn');
+const eventTitle = document.getElementById('eventTitle');
+const eventDate = document.getElementById('eventDate');
+const eventDesc = document.getElementById('eventDesc');
+
+// Check if user is logged in to show event controls
+onAuthStateChanged(auth, (user) => {
+    if (user && eventControls) {
+        eventControls.style.display = 'flex';
+    } else if (eventControls) {
+        eventControls.style.display = 'none';
+    }
+});
+
+// Load events from Firebase
+const eventsQuery = query(collection(db, 'events'), orderBy('date', 'asc'));
+onSnapshot(eventsQuery, (snapshot) => {
+    events = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    renderEvents();
+});
+
+function renderEvents() {
+    if (!eventSlider) return;
+    
+    if (events.length === 0) {
+        eventSlider.innerHTML = `<div class="event-card"><div class="event-date">No Events</div><div class="event-title">No upcoming events</div><div class="event-desc">Check back later for updates</div></div>`;
+        return;
+    }
+    
+    const user = auth.currentUser;
+    const isLoggedIn = !!user;
+    
+    eventSlider.innerHTML = events.map(event => `
+        <div class="event-card" data-id="${event.id}">
+            <div class="event-date">${escapeHtml(event.date)}</div>
+            <div class="event-title">${escapeHtml(event.title)}</div>
+            <div class="event-desc">${escapeHtml(event.description)}</div>
+            ${isLoggedIn ? `
+                <div class="event-actions">
+                    <button class="event-edit" onclick="editEvent('${event.id}')"><i class="fas fa-edit"></i> Edit</button>
+                    <button class="event-delete" onclick="deleteEvent('${event.id}')"><i class="fas fa-trash"></i> Delete</button>
+                </div>
+            ` : ''}
+        </div>
+    `).join('');
+}
+
+function escapeHtml(text) {
+    if (!text) return '';
+    return String(text).replace(/[&<>]/g, function(match) {
+        if (match === '&') return '&amp;';
+        if (match === '<') return '&lt;';
+        if (match === '>') return '&gt;';
+        return match;
+    });
+}
+
+// Add Event
+window.addEvent = function() {
+    editingEventId = null;
+    eventTitle.value = '';
+    eventDate.value = '';
+    eventDesc.value = '';
+    addEventForm.classList.add('show');
+};
+
+// Edit Event
+window.editEvent = async function(eventId) {
+    const event = events.find(e => e.id === eventId);
+    if (!event) return;
+    
+    editingEventId = eventId;
+    eventTitle.value = event.title;
+    eventDate.value = event.date;
+    eventDesc.value = event.description;
+    addEventForm.classList.add('show');
+};
+
+// Delete Event
+window.deleteEvent = async function(eventId) {
+    if (confirm('Are you sure you want to delete this event?')) {
+        try {
+            await deleteDoc(doc(db, 'events', eventId));
+            showToastMessage('Event deleted successfully!');
+        } catch (error) {
+            console.error('Error deleting event:', error);
+            showToastMessage('Failed to delete event.');
+        }
+    }
+};
+
+// Save Event
+if (saveEventBtn) {
+    saveEventBtn.addEventListener('click', async () => {
+        const title = eventTitle.value.trim();
+        const date = eventDate.value.trim();
+        const description = eventDesc.value.trim();
+        
+        if (!title || !date || !description) {
+            showToastMessage('Please fill all fields.');
+            return;
+        }
+        
+        try {
+            if (editingEventId) {
+                await updateDoc(doc(db, 'events', editingEventId), {
+                    title, date, description
+                });
+                showToastMessage('Event updated successfully!');
+            } else {
+                await addDoc(collection(db, 'events'), {
+                    title, date, description
+                });
+                showToastMessage('Event added successfully!');
+            }
+            addEventForm.classList.remove('show');
+            editingEventId = null;
+            eventTitle.value = '';
+            eventDate.value = '';
+            eventDesc.value = '';
+        } catch (error) {
+            console.error('Error saving event:', error);
+            showToastMessage('Failed to save event.');
+        }
+    });
+}
+
+// Cancel Event Form
+if (cancelEventBtn) {
+    cancelEventBtn.addEventListener('click', () => {
+        addEventForm.classList.remove('show');
+        editingEventId = null;
+        eventTitle.value = '';
+        eventDate.value = '';
+        eventDesc.value = '';
+    });
+}
+
+if (addEventBtn) {
+    addEventBtn.addEventListener('click', () => window.addEvent());
+}
+
+function showToastMessage(msg) {
+    const toast = document.getElementById('toast');
+    const msgEl = document.getElementById('toastMsg');
+    msgEl.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+// ==================== LOAD COMMITTEE MEMBERS ====================
+async function loadCommitteeMembers() {
+    try {
+        const positions = ['President', 'Vice President', 'General Secretary', 'Treasurer'];
+        const positionMap = {
+            'President': { bn: 'সভাপতি', initial: 'প' },
+            'Vice President': { bn: 'সহ-সভাপতি', initial: 'উ' },
+            'General Secretary': { bn: 'সাধারণ সম্পাদক', initial: 'স' },
+            'Treasurer': { bn: 'কোষাধ্যক্ষ', initial: 'ক' }
+        };
+        
+        const committeeContainer = document.getElementById('committee-container');
+        if (!committeeContainer) return;
+        
+        const membersRef = collection(db, 'members');
+        const q = query(membersRef);
+        const querySnapshot = await getDocs(q);
+        
+        const committeeMembers = [];
+        querySnapshot.forEach((doc) => {
+            const member = doc.data();
+            if (positions.includes(member.position)) {
+                committeeMembers.push(member);
+            }
+        });
+        
+        if (committeeMembers.length > 0) {
+            committeeContainer.innerHTML = '';
+            committeeMembers.forEach((member, index) => {
+                const position = member.position;
+                const posData = positionMap[position] || { initial: position.charAt(0), bn: position };
+                const lang = document.documentElement.getAttribute('data-lang') || 'en';
+                
+                const memberCard = document.createElement('div');
+                memberCard.className = 'cc';
+                memberCard.setAttribute('data-aos', 'fade-up');
+                memberCard.setAttribute('data-aos-delay', index * 80);
+                
+                memberCard.innerHTML = `
+                    <div class="cav">${posData.initial}</div>
+                    <h4>${member.name || 'Unknown'}</h4>
+                    <div class="role">${lang === 'bn' ? posData.bn : position}</div>
+                `;
+                committeeContainer.appendChild(memberCard);
+            });
+        }
+    } catch (error) {
+        console.error('Error loading committee members:', error);
+    }
+}
+
+// ==================== UPDATE STATS ====================
+async function updateStats() {
+    try {
+        const membersRef = collection(db, 'members');
+        const snapshot = await getDocs(membersRef);
+        const totalMembers = snapshot.size;
+        
+        const statElements = document.querySelectorAll('.sti .sn');
+        if (statElements.length >= 4) {
+            statElements[0].setAttribute('data-target', totalMembers || 120);
+        }
+    } catch (error) {
+        console.error('Error loading stats:', error);
+    }
+}
+
 // ==================== INITIALIZATION ====================
 AOS.init({ duration: 700, once: true, offset: 55 });
 
-// Hide loader
 window.addEventListener('load', () => {
     setTimeout(() => document.getElementById('ldr').classList.add('hid'), 500);
-    showWelcomeToast();
+    loadCommitteeMembers();
+    updateStats();
     updateVisitorCount();
+    updateDates();
+    showWelcomeToast();
 });
 
 // Header scroll effect
@@ -578,20 +864,10 @@ if (hbg && mob) {
 // ==================== TRIPLE DATE ====================
 function updateDates() {
     const now = new Date();
-    
-    // English Date
-    const enOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('dateEn').textContent = now.toLocaleDateString('en-US', enOptions);
-    
-    // Bengali Date
-    const bnOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('dateBn').textContent = now.toLocaleDateString('bn-BD', bnOptions);
-    
-    // Arabic Date
-    const arOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('dateAr').textContent = now.toLocaleDateString('ar-SA', arOptions);
+    document.getElementById('dateEn').textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    document.getElementById('dateBn').textContent = now.toLocaleDateString('bn-BD', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    document.getElementById('dateAr').textContent = now.toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 }
-updateDates();
 setInterval(updateDates, 60000);
 
 // ==================== VISITOR COUNTER ====================
@@ -605,9 +881,7 @@ function updateVisitorCount() {
         localStorage.setItem('ysc_visitors', count);
     }
     const visitorEl = document.getElementById('visitorCount');
-    if (visitorEl) {
-        visitorEl.textContent = count.toLocaleString();
-    }
+    if (visitorEl) visitorEl.textContent = count.toLocaleString();
 }
 
 // ==================== TOAST NOTIFICATION ====================
@@ -615,12 +889,10 @@ function showWelcomeToast() {
     const toast = document.getElementById('toast');
     const msgEl = document.getElementById('toastMsg');
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    
     const messages = {
         en: '🎉 Welcome to Young Sporting Club! Stay connected for updates.',
         bn: '🎉 ইয়ং স্পোর্টিং ক্লাবে স্বাগতম! আপডেটের সাথে সংযুক্ত থাকুন।'
     };
-    
     msgEl.textContent = messages[lang] || messages.en;
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 5000);
@@ -657,46 +929,41 @@ const statsBand = document.querySelector('.stb');
 if (statsBand) observer.observe(statsBand);
 
 // ==================== AUTHENTICATION (Firebase) ====================
-// Firebase will be loaded from other pages, but we'll set login state
-if (typeof localStorage !== 'undefined') {
-    const loggedInUser = localStorage.getItem('ysc_user');
+onAuthStateChanged(auth, (user) => {
     const loginBtn = document.getElementById('nav-login-btn');
-    if (loginBtn && loggedInUser) {
-        const lang = document.documentElement.getAttribute('data-lang') || 'en';
-        const initial = loggedInUser.charAt(0).toUpperCase();
+    if (!loginBtn) return;
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    if (user) {
+        const initial = (user.displayName || user.email || 'U')[0].toUpperCase();
         loginBtn.innerHTML = `<span style="display:inline-flex;align-items:center;gap:7px;background:rgba(254,44,85,.12);border:1px solid rgba(254,44,85,.3);padding:5px 12px 5px 5px;border-radius:50px;font-size:12px;font-weight:700"><span style="width:26px;height:26px;background:linear-gradient(135deg,#FE2C55,#25F4EE);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#010101;font-family:'Bebas Neue',sans-serif;font-size:15px">${initial}</span>${lang === 'bn' ? 'লগআউট' : 'Logout'}</span>`;
-        loginBtn.onclick = () => {
-            localStorage.removeItem('ysc_user');
+        loginBtn.onclick = async () => {
+            await signOut(auth);
             window.location.reload();
         };
+    } else {
+        loginBtn.innerHTML = lang === 'bn' ? 'লগইন' : 'Login';
+        loginBtn.href = 'login.html';
+        loginBtn.onclick = null;
     }
-}
+});
 
 // ==================== LANGUAGE SWITCHER ====================
 let currentLang = (function() {
-    try {
-        return localStorage.getItem('ysc-lang') || 'en';
-    } catch(e) {
-        return 'en';
-    }
+    try { return localStorage.getItem('ysc-lang') || 'en'; } catch(e) { return 'en'; }
 })();
 
 function setLang(lang) {
     currentLang = lang;
-    try {
-        localStorage.setItem('ysc-lang', lang);
-    } catch(e) {}
+    try { localStorage.setItem('ysc-lang', lang); } catch(e) {}
     
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
     
     document.querySelectorAll('[data-en]').forEach(el => {
         const value = el.getAttribute('data-' + lang);
-        if (value === null) return;
-        if (value.includes('<')) {
-            el.innerHTML = value;
-        } else {
-            el.textContent = value;
+        if (value !== null) {
+            if (value.includes('<')) el.innerHTML = value;
+            else el.textContent = value;
         }
     });
     
@@ -708,7 +975,24 @@ function setLang(lang) {
         }
     });
     
-    // Update toast message if visible
+    // Update placeholder texts
+    const placeholders = [
+        ['eventTitle', lang === 'bn' ? 'ইভেন্টের শিরোনাম' : 'Event Title'],
+        ['eventDate', lang === 'bn' ? 'তারিখ (যেমন: ২৫ মার্চ ২০২৬)' : 'Date (e.g., 25 March 2026)'],
+        ['eventDesc', lang === 'bn' ? 'ইভেন্টের বিবরণ' : 'Event Description']
+    ];
+    placeholders.forEach(([id, text]) => {
+        const el = document.getElementById(id);
+        if (el) el.placeholder = text;
+    });
+    
+    // Update developer name in footer
+    const devSpan = document.querySelector('.dev span');
+    if (devSpan) {
+        devSpan.textContent = lang === 'bn' ? 'তৈরি করেছেন ফারাবি ওয়ালিদ' : 'Developed by Farabi Walid';
+    }
+    
+    // Update toast message
     const toastMsg = document.getElementById('toastMsg');
     if (toastMsg && document.getElementById('toast').classList.contains('show')) {
         toastMsg.textContent = lang === 'bn' ? 
@@ -718,6 +1002,10 @@ function setLang(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
+
+window.closeToast = closeToast;
+window.editEvent = editEvent;
+window.deleteEvent = deleteEvent;
 </script>
 </body>
 </html>
