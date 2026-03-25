@@ -9,15 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 :root{
-    --bg:#010101;
-    --bg2:#0a0a0a;
-    --card:#111;
-    --card2:#161616;
+    --bg:#0a0a0f;
+    --bg2:#0f0f15;
+    --card:#111117;
+    --card2:#16161f;
     --pink:#FE2C55;
     --cyan:#25F4EE;
-    --wh:#fff;
-    --gr:#888;
-    --lt:#ccc;
+    --gold:#FFD700;
+    --wh:#ffffff;
+    --gr:#aaaaaa;
+    --lt:#dddddd;
     --bp:rgba(254,44,85,.25);
     --bc:rgba(37,244,238,.22);
     --gp:0 0 22px rgba(254,44,85,.5);
@@ -29,7 +30,6 @@
     --facebook:#1877F2;
     --youtube:#FF0000;
     --instagram:#E4405F;
-    --success:#00C851;
 }
 [data-lang="bn"]{font-family:'Hind Siliguri',sans-serif}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -44,41 +44,46 @@ ul{list-style:none}
 .sp{padding:90px 0}
 .tc{text-align:center}
 .bdg{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--bp);background:rgba(254,44,85,.08);color:var(--pink);padding:5px 16px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
-.bdg .dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:blink 1.8s infinite}
+.bdg .dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:blink 1.8s infinite;box-shadow:0 0 6px var(--pink)}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 .sec-title{font-size:clamp(34px,5vw,54px);margin-bottom:10px}
 .divider{width:52px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));margin:12px auto 20px}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:50px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none;text-transform:uppercase;letter-spacing:.5px;transition:var(--tr)}
 .btn-pk{background:linear-gradient(135deg,var(--pink),#b0001a);color:#fff}.btn-pk:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(254,44,85,.55)}
 .btn-cy{background:linear-gradient(135deg,var(--cyan),#00adaa);color:#010101;font-weight:800}.btn-cy:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,244,238,.55)}
-.btn-ol{background:transparent;color:var(--wh);border:1.5px solid rgba(255,255,255,.2)}.btn-ol:hover{border-color:var(--cyan);color:var(--cyan)}
-.lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:3px}
+.btn-ol{background:transparent;color:var(--wh);border:1.5px solid rgba(255,255,255,.2)}.btn-ol:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:var(--gc)}
+.lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:3px}
 .lb{padding:5px 13px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:var(--tr);background:none;border:none;color:var(--gr)}
 .lb.on{background:linear-gradient(135deg,var(--pink),var(--cyan));color:#010101}
-#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr);background:rgba(1,1,1,.85);backdrop-filter:blur(12px)}
-#hdr.sc{background:rgba(1,1,1,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--bp);box-shadow:0 4px 20px rgba(0,0,0,.3)}
+#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr);background:rgba(10,10,15,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(254,44,85,.2)}
+#hdr.sc{background:rgba(10,10,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--pink);box-shadow:0 4px 20px rgba(254,44,85,.1)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;max-width:1200px;margin:0 auto}
-.logo{display:flex;align-items:center;gap:11px}
-.li{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#010101;box-shadow:var(--gdual)}
-.lt{display:flex;flex-direction:column;line-height:1}
-.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.lt .n2{font-size:10px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
-.nl{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
-.nl a{padding:8px 16px;border-radius:30px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
-.nl a:hover,.nl a.on{color:var(--wh);background:rgba(254,44,85,.15)}
-.nl a.on::after{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--pink);margin:3px auto 0;box-shadow:0 0 8px var(--pink)}
+.logo{display:flex;align-items:center;gap:16px}
+.logo-img{width:70px;height:70px;border-radius:18px;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:3px;transition:var(--tr)}
+.logo-img:hover{transform:scale(1.02);box-shadow:0 0 20px rgba(254,44,85,.3)}
+.logo-img img{width:100%;height:100%;border-radius:15px;object-fit:cover}
+.lt{display:flex;flex-direction:column;line-height:1.2}
+.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px}
+.lt .n1 .gold-letter{color:var(--gold);text-shadow:0 0 5px rgba(255,215,0,.3)}
+[data-lang="bn"] .lt .n1{font-family:'Hind Siliguri',sans-serif;font-size:26px;letter-spacing:0}
+.lt .n2{font-size:11px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
+.nl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.nl a{padding:8px 18px;border-radius:40px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
+.nl a:hover{color:var(--pink);background:rgba(254,44,85,.1)}
+.nl a.on{color:var(--pink);background:rgba(254,44,85,.15)}
+.nl a.on::after{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--pink);margin:4px auto 0;box-shadow:0 0 10px var(--pink)}
 .nr{display:flex;align-items:center;gap:12px}
-.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:13px;padding:9px 20px;transition:var(--tr)}
-.ncta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(254,44,85,.4)}
+.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:13px;padding:9px 22px;transition:var(--tr)}
+.ncta:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(254,44,85,.4)}
 .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
-.hbg span{display:block;width:24px;height:2.5px;background:#fff;border-radius:2px;transition:var(--tr)}
-.hbg.op span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
+.hbg span{display:block;width:26px;height:2.5px;background:#fff;border-radius:2px;transition:var(--tr)}
+.hbg.op span:nth-child(1){transform:rotate(45deg) translate(7px,7px)}
 .hbg.op span:nth-child(2){opacity:0}
-.hbg.op span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
-.mob{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(1,1,1,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--bp);padding:20px 22px;flex-direction:column;gap:5px;z-index:997}
+.hbg.op span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+.mob{display:none;position:fixed;top:75px;left:0;right:0;background:rgba(10,10,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(254,44,85,.2);padding:20px 22px;flex-direction:column;gap:8px;z-index:997}
 .mob.op{display:flex}
-.mob a{padding:12px 16px;border-radius:12px;font-size:15px;font-weight:500;color:var(--lt);transition:var(--tr)}
-.mob a:hover,.mob a.on{color:#fff;background:rgba(254,44,85,.15)}
+.mob a{padding:12px 18px;border-radius:14px;font-size:16px;font-weight:500;color:var(--lt);transition:var(--tr)}
+.mob a:hover,.mob a.on{color:var(--pink);background:rgba(254,44,85,.15)}
 .phero{padding:140px 0 70px;background:linear-gradient(180deg,#0a0a0a,var(--bg));text-align:center;position:relative;overflow:hidden}
 .phero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(254,44,85,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,244,238,.04) 1px,transparent 1px);background-size:55px 55px}
 .phero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--pink),var(--cyan),transparent)}
@@ -105,8 +110,9 @@ td{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.05);font-size:13p
 tbody tr:last-child td{border-bottom:none}
 tbody tr{transition:var(--tr);cursor:pointer}
 tbody tr:hover{background:rgba(254,44,85,.06)}
-.mname{display:flex;align-items:center;gap:12px}
-.mav{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:20px;color:#010101;flex-shrink:0;box-shadow:0 0 12px rgba(254,44,85,.4)}
+.mname{display:flex;align-items:center;gap:14px}
+.member-avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:22px;color:#010101;flex-shrink:0}
+.member-avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
 .mname .nm{color:var(--wh);font-weight:600;font-size:14px}
 .mname .bio{font-size:11px;color:var(--gr);margin-top:3px;max-width:220px}
 .pbdg{padding:5px 14px;border-radius:50px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;display:inline-block}
@@ -119,11 +125,19 @@ tbody tr:hover{background:rgba(254,44,85,.06)}
 .p-member{background:rgba(255,255,255,.08);color:var(--gr);border:1px solid rgba(255,255,255,.12)}
 .nodata{text-align:center;padding:70px 20px;color:var(--gr)}
 .nodata .nic{font-size:52px;margin-bottom:16px;opacity:.5}
-footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
+footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0 25px}
 .ftgr{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:45px}
+.ftlogo{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.ftlogo-img{width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:2px}
+.ftlogo-img img{width:100%;height:100%;border-radius:14px;object-fit:cover}
+.ftlogo-text{display:flex;flex-direction:column}
+.ftlogo-text .name{font-family:'Bebas Neue',sans-serif;font-size:24px}
+.ftlogo-text .name .gold-letter{color:var(--gold);text-shadow:0 0 5px rgba(255,215,0,.3)}
+[data-lang="bn"] .ftlogo-text .name{font-family:'Hind Siliguri',sans-serif;font-size:22px}
+.ftlogo-text .est{font-size:10px;color:var(--gr);margin-top:2px}
 .ftdesc{color:var(--gr);font-size:13px;line-height:1.85;margin:15px 0 25px}
 .slnks{display:flex;gap:12px;flex-wrap:wrap}
-.sa{width:42px;height:42px;border-radius:12px;background:var(--card2);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:var(--gr);font-size:18px;transition:var(--tr)}
+.sa{width:44px;height:44px;border-radius:14px;background:var(--card2);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:var(--gr);font-size:20px;transition:var(--tr)}
 .sa:hover{transform:translateY(-3px)}
 .sa.fb:hover{background:var(--facebook);color:#fff;box-shadow:0 0 16px rgba(24,119,242,.4)}
 .sa.yt:hover{background:var(--youtube);color:#fff;box-shadow:0 0 16px rgba(255,0,0,.4)}
@@ -211,8 +225,13 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
 <header id="hdr">
     <nav class="nav">
         <a href="index.html" class="logo">
-            <div class="li">YSC</div>
-            <div class="lt"><span class="n1">YOUNG SPORTING</span><span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span></div>
+            <div class="logo-img">
+                <img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/70x70/FE2C55/FFFFFF?text=YSC'">
+            </div>
+            <div class="lt">
+                <span class="n1" id="clubNameHeader"><span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB</span>
+                <span class="n2" id="estDateHeader" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span>
+            </div>
         </a>
         <div class="nl">
             <a href="index.html" data-en="Home" data-bn="হোম">Home</a>
@@ -252,7 +271,7 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
     <div class="container" data-aos="fade-down">
         <span class="bdg"><span class="dot"></span><span data-en="Our Team" data-bn="আমাদের দল">Our Team</span></span>
         <h1><span data-en="Club" data-bn="ক্লাব">Club</span> <span style="background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent" data-en="Members" data-bn="সদস্য">Members</span></h1>
-        <p data-en="Meet the dedicated members of Young Sporting Club, Shingrahully." data-bn="ইয়ং স্পোর্টিং ক্লাব, শিংড়াউলীর নিবেদিত সদস্যদের সাথে পরিচিত হোন।">Meet the dedicated members of Young Sporting Club, Shingrahully.</p>
+        <p data-en="Meet the dedicated members of Young Sporting Club, West Shingrauli." data-bn="ইয়ং স্পোর্টিং ক্লাব, পশ্চিম শিংরাউলীর নিবেদিত সদস্যদের সাথে পরিচিত হোন।">Meet the dedicated members of Young Sporting Club, West Shingrauli.</p>
         <div class="breadcrumb"><a href="index.html" data-en="Home" data-bn="হোম">Home</a><span>›</span><span data-en="Members" data-bn="সদস্য">Members</span></div>
     </div>
 </section>
@@ -272,7 +291,7 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
         <div class="mctrl" data-aos="fade-up">
             <div class="sbox">
                 <i class="fas fa-search"></i>
-                <input type="text" id="searchInput" data-placeholder-en="Search by name, phone or address…" data-placeholder-bn="নাম, ফোন বা ঠিকানা দিয়ে খুঁজুন…" placeholder="Search by name, phone or address…"/>
+                <input type="text" id="searchInput" data-placeholder-en="Search by name or address…" data-placeholder-bn="নাম বা ঠিকানা দিয়ে খুঁজুন…" placeholder="Search by name or address…"/>
             </div>
             <select class="fsel" id="posFilter">
                 <option value="all" data-en="All Positions" data-bn="সকল পদ">All Positions</option>
@@ -289,20 +308,19 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
 
         <!-- Members Table -->
         <div class="twrap" data-aos="fade-up" data-aos-delay="100">
-            <table>
+             <table>
                 <thead>
-                    <tr>
-                        <th data-en="Name" data-bn="নাম">Name</th>
+                     <tr>
+                        <th data-en="Member" data-bn="সদস্য">Member</th>
                         <th data-en="Position" data-bn="পদ">Position</th>
-                        <th data-en="Phone" data-bn="ফোন">Phone</th>
                         <th data-en="Address" data-bn="ঠিকানা">Address</th>
                         <th data-en="Joined" data-bn="যোগদান">Joined</th>
-                    </tr>
+                     </tr>
                 </thead>
                 <tbody id="mBody">
-                    <tr><td colspan="5" style="text-align:center;padding:60px 20px;"><div class="lring" style="margin:0 auto 14px"></div><span data-en="Loading members…" data-bn="সদস্যদের লোড হচ্ছে…">Loading members…</span></td></tr>
+                     <tr><td colspan="4" style="text-align:center;padding:60px 20px;"><div class="lring" style="margin:0 auto 14px"></div><span data-en="Loading members…" data-bn="সদস্যদের লোড হচ্ছে…">Loading members…</span></td></tr>
                 </tbody>
-            </table>
+             </table>
         </div>
 
         <!-- Add Member Button -->
@@ -317,10 +335,19 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
     <div class="container">
         <div class="ftgr">
             <div>
-                <div class="logo"><div class="li">YSC</div><div class="lt"><span class="n1">YOUNG SPORTING CLUB</span><span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জান ২০০৯">Est. 13 Jan 2009</span></div></div>
-                <p class="ftdesc" data-en="A community-based youth sports organization in Moulvibazar since 2009." data-bn="২০০৯ সাল থেকে মৌলভীবাজারে একটি সমাজভিত্তিক যুব ক্রীড়া সংগঠন।">A community-based youth sports organization in Moulvibazar since 2009.</p>
+                <div class="ftlogo">
+                    <div class="ftlogo-img">
+                        <img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/60x60/FE2C55/FFFFFF?text=YSC'">
+                    </div>
+                    <div class="ftlogo-text">
+                        <span class="name" id="clubNameFooter"><span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB</span>
+                        <span class="est" id="estDateFooter" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span>
+                    </div>
+                </div>
+                <p class="ftdesc" id="footerDescription" data-en="A community-based youth sports organization in West Shingrauli, Moulvibazar since 2009." data-bn="২০০৯ সাল থেকে পশ্চিম শিংরাউলী, মৌলভীবাজারে একটি সমাজভিত্তিক যুব ক্রীড়া সংগঠন।">A community-based youth sports organization in West Shingrauli, Moulvibazar since 2009.</p>
                 <div class="slnks">
-                    <a href="https://www.facebook.com/youngsportingclub" target="_blank" class="sa fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.facebook.com/youngsportingclubofficial" target="_blank" class="sa fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.facebook.com/groups/youngsportingclub" target="_blank" class="sa fb"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.youtube.com/@youngsportingclub" target="_blank" class="sa yt"><i class="fab fa-youtube"></i></a>
                     <a href="https://www.instagram.com/youngsportingclubofficial/" target="_blank" class="sa ig"><i class="fab fa-instagram"></i></a>
                     <a href="mailto:youngsportingclub2009@gmail.com" class="sa em"><i class="fas fa-envelope"></i></a>
@@ -328,12 +355,12 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
             </div>
             <div class="fcol"><h4 data-en="Quick Links" data-bn="দ্রুত লিংক">Quick Links</h4><ul><li><a href="index.html" data-en="Home" data-bn="হোম">Home</a></li><li><a href="about.html" data-en="About" data-bn="সম্পর্কে">About</a></li><li><a href="members.html" data-en="Members" data-bn="সদস্য">Members</a></li><li><a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a></li></ul></div>
             <div class="fcol"><h4 data-en="Positions" data-bn="পদসমূহ">Positions</h4><ul><li><a href="#" data-en="President" data-bn="সভাপতি">President</a></li><li><a href="#" data-en="Vice President" data-bn="সহ-সভাপতি">Vice President</a></li><li><a href="#" data-en="Secretary" data-bn="সম্পাদক">Secretary</a></li><li><a href="#" data-en="Treasurer" data-bn="কোষাধ্যক্ষ">Treasurer</a></li></ul></div>
-            <div class="fcol"><h4 data-en="Contact" data-bn="যোগাযোগ">Contact</h4><ul class="ci2"><li><span class="ico"><i class="fas fa-map-marker-alt"></i></span><span data-en="Shingrahully, Shamsher Nagar, Moulvibazar" data-bn="শিংড়াউলী, শমশেরনগর, মৌলভীবাজার">Shingrahully, Shamsher Nagar, Moulvibazar</span></li><li><span class="ico"><i class="fas fa-phone"></i></span><a href="tel:+8801737355553" style="color:var(--gr)">+880 1737-355553</a></li></ul></div>
+            <div class="fcol"><h4 data-en="Contact" data-bn="যোগাযোগ">Contact</h4><ul class="ci2"><li><span class="ico"><i class="fas fa-map-marker-alt"></i></span><span id="footerLocation" data-en="West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet" data-bn="পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট">West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet</span></li><li><span class="ico"><i class="fas fa-phone"></i></span><a href="tel:+8801737355553" style="color:var(--gr)">+880 1737-355553</a></li></ul></div>
         </div>
         <div class="ftbot">
             <p data-en="© 2026 Young Sporting Club. All rights reserved." data-bn="© ২০২৬ ইয়ং স্পোর্টিং ক্লাব। সর্বস্বত্ব সংরক্ষিত।">© 2026 Young Sporting Club. All rights reserved.</p>
             <p class="dev" onclick="window.location.href='developer.html'">
-                <span data-en="Developed by Farabi Walid" data-bn="তৈরি করেছেন ফারাবি ওয়ালিদ">Developed by Farabi Walid</span>
+                <span id="developerName" data-en="Developed by Farabi Walid" data-bn="তৈরি করেছেন ফারাবি ওয়ালিদ">Developed by Farabi Walid</span>
             </p>
         </div>
     </div>
@@ -344,6 +371,7 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, collection, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",
@@ -358,6 +386,23 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
+
+// Language data
+const langData = {
+    en: {
+        clubName: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
+        footerDesc: "A community-based youth sports organization in West Shingrauli, Moulvibazar since 2009.",
+        footerLocation: "West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet",
+        devName: "Developed by Farabi Walid"
+    },
+    bn: {
+        clubName: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
+        footerDesc: "২০০৯ সাল থেকে পশ্চিম শিংরাউলী, মৌলভীবাজারে একটি সমাজভিত্তিক যুব ক্রীড়া সংগঠন।",
+        footerLocation: "পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট",
+        devName: "তৈরি করেছেন ফারাবি ওয়ালিদ"
+    }
+};
 
 // Authentication state
 onAuthStateChanged(auth, (user) => {
@@ -368,11 +413,7 @@ onAuthStateChanged(auth, (user) => {
         const initial = (user.displayName || user.email || 'U')[0].toUpperCase();
         const lang = document.documentElement.getAttribute('data-lang') || 'en';
         btn.innerHTML = `<span style="display:inline-flex;align-items:center;gap:7px;background:rgba(254,44,85,.12);border:1px solid rgba(254,44,85,.3);padding:5px 12px 5px 5px;border-radius:50px;font-size:12px;font-weight:700"><span style="width:26px;height:26px;background:linear-gradient(135deg,#FE2C55,#25F4EE);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#010101;font-family:'Bebas Neue',sans-serif;font-size:15px">${initial}</span>${lang === 'bn' ? 'লগআউট' : 'Logout'}</span>`;
-        btn.onclick = async (e) => {
-            e.preventDefault();
-            await signOut(auth);
-            window.location.reload();
-        };
+        btn.onclick = async (e) => { e.preventDefault(); await signOut(auth); window.location.reload(); };
     } else {
         btn.innerHTML = document.documentElement.getAttribute('data-lang') === 'bn' ? 'লগইন' : 'Login';
         btn.href = 'login.html';
@@ -397,11 +438,6 @@ const positionClass = {
     'Member': 'p-member'
 };
 
-function getInitials(name) {
-    if (!name) return '?';
-    return name.split(' ').map(x => x[0]).slice(0, 2).join('').toUpperCase();
-}
-
 function escapeHtml(text) {
     if (!text) return '';
     return String(text).replace(/[&<>]/g, function(match) {
@@ -412,28 +448,41 @@ function escapeHtml(text) {
     });
 }
 
-function renderMembers(members) {
+async function renderMembers(members) {
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
     
     if (!members || members.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5"><div class="nodata"><div class="nic">👥</div><p>${lang === 'bn' ? 'কোনো সদস্য পাওয়া যায়নি।' : 'No members found.'}</p></div></td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="4"><div class="nodata"><div class="nic">👥</div><p>${lang === 'bn' ? 'কোনো সদস্য পাওয়া যায়নি।' : 'No members found.'}</p></div></td></tr>`;
         countEl.textContent = lang === 'bn' ? 'দেখাচ্ছে 0 জন সদস্য' : 'Showing 0 members';
         return;
     }
     
-    tbody.innerHTML = members.map(member => {
+    let html = '';
+    for (const member of members) {
         const posClass = positionClass[member.position] || 'p-member';
         const positionLabel = member.position || 'Member';
         const bioText = member.bio ? escapeHtml(member.bio.substring(0, 50)) + (member.bio.length > 50 ? '…' : '') : '';
         
-        return `<tr>
-            <td><div class="mname"><div class="mav">${getInitials(member.name)}</div><div><div class="nm">${escapeHtml(member.name)}</div><div class="bio">${bioText}</div></div></div></td>
+        let avatarHtml = '';
+        if (member.photoURL) {
+            try {
+                const url = await getDownloadURL(ref(storage, member.photoURL));
+                avatarHtml = `<img src="${url}" alt="${escapeHtml(member.name)}">`;
+            } catch(e) {
+                avatarHtml = member.name ? member.name.charAt(0).toUpperCase() : '👤';
+            }
+        } else {
+            avatarHtml = member.name ? member.name.charAt(0).toUpperCase() : '👤';
+        }
+        
+        html += `<tr>
+            <td><div class="mname"><div class="member-avatar">${avatarHtml}</div><div><div class="nm">${escapeHtml(member.name)}</div><div class="bio">${bioText}</div></div></div></td>
             <td><span class="pbdg ${posClass}">${escapeHtml(positionLabel)}</span></td>
-            <td>${escapeHtml(member.phone)}</td>
             <td>${escapeHtml(member.address)}</td>
-            <td>${escapeHtml(member.joinYear)}</td>
+            <td>${escapeHtml(member.joinDate || member.joinYear || 'N/A')}</td>
         </tr>`;
-    }).join('');
+    }
+    tbody.innerHTML = html;
     
     countEl.textContent = lang === 'bn' ? `দেখাচ্ছে ${members.length} জন সদস্য` : `Showing ${members.length} members`;
     updateStats(members);
@@ -454,7 +503,6 @@ function filterMembers() {
     const filtered = allMembers.filter(member => {
         const matchesSearch = !searchTerm || 
             (member.name && member.name.toLowerCase().includes(searchTerm)) ||
-            (member.phone && String(member.phone).includes(searchTerm)) ||
             (member.address && member.address.toLowerCase().includes(searchTerm));
         
         const matchesPosition = !position || position === 'all' || member.position === position;
@@ -468,8 +516,8 @@ function filterMembers() {
 // Export to CSV
 window.exportToCSV = function() {
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    const headers = ['Name', 'Position', 'Phone', 'Address', 'Join Year', 'Bio'];
-    const bnHeaders = ['নাম', 'পদ', 'ফোন', 'ঠিকানা', 'যোগদানের বছর', 'বায়ো'];
+    const headers = ['Name', 'Position', 'Address', 'Join Date', 'Bio'];
+    const bnHeaders = ['নাম', 'পদ', 'ঠিকানা', 'যোগদানের তারিখ', 'বায়ো'];
     const useHeaders = lang === 'bn' ? bnHeaders : headers;
     
     const csvRows = [useHeaders];
@@ -477,9 +525,8 @@ window.exportToCSV = function() {
         csvRows.push([
             `"${member.name || ''}"`,
             `"${member.position || ''}"`,
-            `"${member.phone || ''}"`,
             `"${member.address || ''}"`,
-            `"${member.joinYear || ''}"`,
+            `"${member.joinDate || member.joinYear || ''}"`,
             `"${member.bio || ''}"`
         ].join(','));
     });
@@ -514,7 +561,7 @@ onSnapshot(membersQuery, (snapshot) => {
     filterMembers();
 }, (error) => {
     console.error('Firestore error:', error);
-    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:40px;color:#FE2C55">⚠ Failed to load members. Please check your connection.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;padding:40px;color:#FE2C55">⚠ Failed to load members. Please check your connection.</td></tr>`;
 });
 
 // Add event listeners
@@ -524,13 +571,8 @@ if (filterEl) filterEl.addEventListener('change', filterMembers);
 // ==================== VISITOR COUNTER ====================
 function updateVisitorCount() {
     let count = localStorage.getItem('ysc_visitors');
-    if (!count) {
-        count = Math.floor(Math.random() * 500) + 1500;
-        localStorage.setItem('ysc_visitors', count);
-    } else {
-        count = parseInt(count) + 1;
-        localStorage.setItem('ysc_visitors', count);
-    }
+    if (!count) { count = Math.floor(Math.random() * 500) + 1500; localStorage.setItem('ysc_visitors', count); }
+    else { count = parseInt(count) + 1; localStorage.setItem('ysc_visitors', count); }
     const visitorEl = document.getElementById('visitorCount');
     if (visitorEl) visitorEl.textContent = count.toLocaleString();
 }
@@ -557,9 +599,7 @@ function showWelcomeToast() {
     setTimeout(() => toast.classList.remove('show'), 5000);
 }
 
-function closeToast() {
-    document.getElementById('toast').classList.remove('show');
-}
+function closeToast() { document.getElementById('toast').classList.remove('show'); }
 
 // ==================== INITIALIZATION ====================
 AOS.init({ duration: 700, once: true, offset: 55 });
@@ -572,36 +612,26 @@ window.addEventListener('load', () => {
 });
 
 setInterval(updateDates, 60000);
+window.addEventListener('scroll', () => document.getElementById('hdr').classList.toggle('sc', window.scrollY > 28));
 
-window.addEventListener('scroll', () => {
-    document.getElementById('hdr').classList.toggle('sc', window.scrollY > 28);
-});
-
-const hbgBtn = document.getElementById('hbg');
-const mobileMenu = document.getElementById('mob');
-if (hbgBtn && mobileMenu) {
-    hbgBtn.addEventListener('click', () => {
-        hbgBtn.classList.toggle('op');
-        mobileMenu.classList.toggle('op');
-    });
-}
+const hbgBtn = document.getElementById('hbg'), mobileMenu = document.getElementById('mob');
+if (hbgBtn && mobileMenu) hbgBtn.addEventListener('click', () => { hbgBtn.classList.toggle('op'); mobileMenu.classList.toggle('op'); });
 
 window.closeToast = closeToast;
+window.filterMembers = filterMembers;
 </script>
 
 <script>
 // ==================== LANGUAGE SWITCHER ====================
-let currentLang = (function() {
-    try { return localStorage.getItem('ysc-lang') || 'en'; } catch(e) { return 'en'; }
-})();
+let currentLang = (function() { try { return localStorage.getItem('ysc-lang') || 'en'; } catch(e) { return 'en'; } })();
 
 function setLang(lang) {
     currentLang = lang;
     try { localStorage.setItem('ysc-lang', lang); } catch(e) {}
-    
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
     
+    // Update all data-en/data-bn elements
     document.querySelectorAll('[data-en]').forEach(el => {
         const value = el.getAttribute('data-' + lang);
         if (value !== null) {
@@ -610,36 +640,43 @@ function setLang(lang) {
         }
     });
     
+    // Update language buttons
     document.querySelectorAll('.lb').forEach(btn => {
         btn.classList.remove('on');
-        if ((lang === 'en' && btn.textContent.trim() === 'EN') || 
-            (lang === 'bn' && btn.textContent.trim() === 'বাং')) {
-            btn.classList.add('on');
-        }
+        if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
     });
     
+    // Update club name in header and footer
+    const clubNameHeader = document.getElementById('clubNameHeader');
+    const clubNameFooter = document.getElementById('clubNameFooter');
+    const footerDescription = document.getElementById('footerDescription');
+    const footerLocation = document.getElementById('footerLocation');
+    const developerName = document.getElementById('developerName');
+    
+    if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubName;
+    if (clubNameFooter) clubNameFooter.innerHTML = langData[lang].clubName;
+    if (footerDescription) footerDescription.textContent = langData[lang].footerDesc;
+    if (footerLocation) footerLocation.textContent = langData[lang].footerLocation;
+    if (developerName) developerName.textContent = langData[lang].devName;
+    
+    // Update search placeholder
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
-        searchInput.placeholder = lang === 'bn' ? 'নাম, ফোন বা ঠিকানা দিয়ে খুঁজুন…' : 'Search by name, phone or address…';
+        searchInput.placeholder = lang === 'bn' ? 'নাম বা ঠিকানা দিয়ে খুঁজুন…' : 'Search by name or address…';
     }
     
-    // Update developer name in footer
-    const devSpan = document.querySelector('.dev span');
-    if (devSpan) {
-        devSpan.textContent = lang === 'bn' ? 'তৈরি করেছেন ফারাবি ওয়ালিদ' : 'Developed by Farabi Walid';
-    }
-    
-    if (window.filterMembers) setTimeout(window.filterMembers, 100);
-    
+    // Update toast message
     const toastMsg = document.getElementById('toastMsg');
     if (toastMsg && document.getElementById('toast').classList.contains('show')) {
-        toastMsg.textContent = lang === 'bn' ? 
-            '👥 ইয়ং স্পোর্টিং ক্লাবের সকল সদস্য দেখুন। মোট সদস্য সংখ্যা রিয়েল-টাইমে আপডেট হয়।' : 
-            '👥 Browse all club members of Young Sporting Club. Total members count updated in real-time.';
+        toastMsg.textContent = lang === 'bn' ? '👥 ইয়ং স্পোর্টিং ক্লাবের সকল সদস্য দেখুন। মোট সদস্য সংখ্যা রিয়েল-টাইমে আপডেট হয়।' : '👥 Browse all club members of Young Sporting Club. Total members count updated in real-time.';
     }
+    
+    // Re-filter to update count text
+    if (window.filterMembers) setTimeout(window.filterMembers, 100);
 }
 
 document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
+window.setLang = setLang;
 </script>
 </body>
 </html>
