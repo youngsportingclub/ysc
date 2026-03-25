@@ -107,6 +107,8 @@ ul{list-style:none}
 .htitle .l1{display:block;color:#fff}
 .htitle .l2{display:block;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 [data-lang="bn"] .htitle{font-family:'Hind Siliguri',sans-serif;font-size:clamp(46px,7vw,78px)}
+/* Hero title gold letters styling */
+.hero-title-gold{color:var(--gold);text-shadow:0 0 8px rgba(255,215,0,.4);display:inline-block}
 .hdesc{font-size:15px;color:var(--gr);line-height:1.8;margin-bottom:10px;max-width:100%}
 .hloc{display:flex;align-items:flex-start;gap:7px;font-size:12px;color:var(--cyan);margin-bottom:28px;line-height:1.5}
 .hloc i{margin-top:3px}
@@ -338,7 +340,8 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
         <div class="lang-sw" style="margin-top:15px"><button class="lb on" onclick="setLang('en')">EN</button><button class="lb" onclick="setLang('bn')">বাং</button></div>
     </div>
 </header>
-<!-- HERO -->
+
+<!-- HERO SECTION with Gold Letters -->
 <section class="hero">
     <div class="hbg2"></div><div class="hgrid"></div>
     <div class="sportbg">
@@ -349,12 +352,10 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
     <div class="hw">
         <div data-aos="fade-right" data-aos-duration="750">
             <div class="hew"><span class="pd"></span><span data-en="Est. 13 January 2009" data-bn="প্রতিষ্ঠা: ১৩ জানুয়ারি ২০০৯">Est. 13 January 2009</span></div>
-            <h1 class="htitle">
-                <span class="club-name-inline">
-                    <span class="gold-letter" data-en="Y" data-bn="ই">Y</span><span data-en="OUNG" data-bn="য়ং">OUNG</span>
-                    <span class="gold-letter" data-en="S" data-bn="স">S</span><span data-en="PORTING" data-bn="্পোর্টিং">PORTING</span>
-                    <span class="gold-letter" data-en="C" data-bn="ক">C</span><span data-en="LUB" data-bn="্লাব">LUB</span>
-                </span>
+            <h1 class="htitle" id="heroTitle">
+                <span><span class="hero-title-gold">Y</span>OUNG</span>
+                <span><span class="hero-title-gold">S</span>PORTING</span>
+                <span><span class="hero-title-gold">C</span>LUB</span>
             </h1>
             <p class="hdesc" id="clubDescription" data-en="Young Sporting Club is one of the premier sports clubs in the West Shingrauli area of Shamshernagar Union, Kamalganj Upazila, Moulvibazar District, Sylhet Division, Bangladesh. Established in compliance with all national laws, Young Sporting Club is a voluntary, non-political, and non-profit organization dedicated to engaging local youth in sports, community development, and welfare activities." data-bn="ইয়ং স্পোর্টিং ক্লাব বাংলাদেশের সিলেট বিভাগের অন্তর্গত মৌলভীবাজার জেলার কমলগঞ্জ উপজেলার ৪নং শমশেরনগর ইউনিয়ন পরিষদের পশ্চিম শিংরাউলী গ্রামের তথা আশপাশের এলাকার মানুষের খেলাধুলা করার জন্য অন্যতম একটি ক্লাব। দেশের সকল আইনকানুন মেনে ইয়ং স্পোর্টিং ক্লাব এলাকার সকল কিশোর, যুবক তথা ক্লাবের সকল সদস্যদের ক্রীড়াঙ্গনে সংযুক্ত রাখা, সমাজ উন্নয়নমূলক ও কল্যাণমূলক কার্যক্রম সুন্দরভাবে পরিচালনার জন্য গঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক ক্লাব বা সংগঠন।">ইয়ং স্পোর্টিং ক্লাব বাংলাদেশের সিলেট বিভাগের অন্তর্গত মৌলভীবাজার জেলার কমলগঞ্জ উপজেলার ৪নং শমশেরনগর ইউনিয়ন পরিষদের পশ্চিম শিংরাউলী গ্রামের তথা আশপাশের এলাকার মানুষের খেলাধুলা করার জন্য অন্যতম একটি ক্লাব। দেশের সকল আইনকানুন মেনে ইয়ং স্পোর্টিং ক্লাব এলাকার সকল কিশোর, যুবক তথা ক্লাবের সকল সদস্যদের ক্রীড়াঙ্গনে সংযুক্ত রাখা, সমাজ উন্নয়নমূলক ও কল্যাণমূলক কার্যক্রম সুন্দরভাবে পরিচালনার জন্য গঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক ক্লাব বা সংগঠন।</p>
             <div class="hloc"><i class="fas fa-map-marker-alt"></i><span id="clubLocation" data-en="West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet" data-bn="পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট । ">পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট ।</span></div>
@@ -364,7 +365,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
             </div>
             <div class="hstats">
                 <div class="hst"><div class="num">17<sup>+</sup></div><div class="lbl" data-en="Years Active" data-bn="বছর সক্রিয়">Years Active</div></div>
-                <div class="hst"><div class="num" id="visitorCount">0<sup>+</sup></div><div class="lbl" data-en="Visitors" data-bn="দর্শক">Visitors</div></div>
+                <div class="hst"><div class="num" id="visitorCountHero">0<sup>+</sup></div><div class="lbl" data-en="Visitors" data-bn="দর্শক">Visitors</div></div>
                 <div class="hst"><div class="num">50<sup>+</sup></div><div class="lbl" data-en="Events" data-bn="ইভেন্ট">Events</div></div>
             </div>
         </div>
@@ -636,7 +637,9 @@ const db = getFirestore(app);
 // ==================== LANGUAGE VARIABLES ====================
 const langData = {
     en: {
-        clubName: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
+        clubNameHeader: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
+        clubNameFooter: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
+        heroTitle: '<span><span class="hero-title-gold">Y</span>OUNG</span> <span><span class="hero-title-gold">S</span>PORTING</span> <span><span class="hero-title-gold">C</span>LUB</span>',
         clubDescription: "Young Sporting Club is one of the premier sports clubs in the West Shingrauli area of Shamshernagar Union, Kamalganj Upazila, Moulvibazar District, Sylhet Division, Bangladesh. Established in compliance with all national laws, Young Sporting Club is a voluntary, non-political, and non-profit organization dedicated to engaging local youth in sports, community development, and welfare activities.",
         location: "West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet",
         footerDesc: "Young Sporting Club is a voluntary, non-political, and non-profit organization established in West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet, dedicated to engaging youth in sports, community development, and welfare activities since 2009.",
@@ -644,7 +647,9 @@ const langData = {
         devName: "Developed by Farabi Walid"
     },
     bn: {
-        clubName: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
+        clubNameHeader: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
+        clubNameFooter: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
+        heroTitle: '<span><span class="hero-title-gold">ই</span>য়ং</span> <span><span class="hero-title-gold">স</span>্পোর্টিং</span> <span><span class="hero-title-gold">ক</span>্লাব</span>',
         clubDescription: "ইয়ং স্পোর্টিং ক্লাব বাংলাদেশের সিলেট বিভাগের অন্তর্গত মৌলভীবাজার জেলার কমলগঞ্জ উপজেলার ৪নং শমশেরনগর ইউনিয়ন পরিষদের পশ্চিম শিংরাউলী গ্রামের তথা আশপাশের এলাকার মানুষের খেলাধুলা করার জন্য অন্যতম একটি ক্লাব। দেশের সকল আইনকানুন মেনে ইয়ং স্পোর্টিং ক্লাব এলাকার সকল কিশোর, যুবক তথা ক্লাবের সকল সদস্যদের ক্রীড়াঙ্গনে সংযুক্ত রাখা, সমাজ উন্নয়নমূলক ও কল্যাণমূলক কার্যক্রম সুন্দরভাবে পরিচালনার জন্য গঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক ক্লাব বা সংগঠন।",
         location: "পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট",
         footerDesc: "ইয়ং স্পোর্টিং ক্লাব পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেটে প্রতিষ্ঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক সংগঠন যা ২০০৯ সাল থেকে তরুণদের ক্রীড়া, সমাজ উন্নয়ন এবং কল্যাণমূলক কার্যক্রমে নিয়োজিত রাখতে নিবেদিত।",
@@ -779,7 +784,7 @@ const hbg = document.getElementById('hbg'), mob = document.getElementById('mob')
 if (hbg && mob) { hbg.addEventListener('click', () => { hbg.classList.toggle('op'); mob.classList.toggle('op'); }); document.querySelectorAll('.mob a').forEach(a => { a.addEventListener('click', () => { hbg.classList.remove('op'); mob.classList.remove('op'); }); }); }
 function updateDates() { const now = new Date(); document.getElementById('dateEn').textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); document.getElementById('dateBn').textContent = now.toLocaleDateString('bn-BD', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); document.getElementById('dateAr').textContent = now.toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); }
 setInterval(updateDates, 60000);
-function updateVisitorCount() { let count = localStorage.getItem('ysc_visitors'); if (!count) { count = Math.floor(Math.random() * 500) + 1500; localStorage.setItem('ysc_visitors', count); } else { count = parseInt(count) + 1; localStorage.setItem('ysc_visitors', count); } const visitorEl = document.getElementById('visitorCount'); if (visitorEl) visitorEl.textContent = count.toLocaleString(); }
+function updateVisitorCount() { let count = localStorage.getItem('ysc_visitors'); if (!count) { count = Math.floor(Math.random() * 500) + 1500; localStorage.setItem('ysc_visitors', count); } else { count = parseInt(count) + 1; localStorage.setItem('ysc_visitors', count); } const visitorEls = document.querySelectorAll('#visitorCount, #visitorCountHero'); visitorEls.forEach(el => { if (el) el.textContent = count.toLocaleString(); }); }
 function showWelcomeToast() { const toast = document.getElementById('toast'); const msgEl = document.getElementById('toastMsg'); const lang = document.documentElement.getAttribute('data-lang') || 'en'; const messages = { en: '🎉 Welcome to Young Sporting Club! Stay connected for updates.', bn: '🎉 ইয়ং স্পোর্টিং ক্লাবে স্বাগতম! আপডেটের সাথে সংযুক্ত থাকুন।' }; msgEl.textContent = messages[lang] || messages.en; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 5000); }
 function closeToast() { document.getElementById('toast').classList.remove('show'); }
 function animC() { document.querySelectorAll('[data-target]').forEach(el => { const target = parseInt(el.dataset.target); const step = target / (1800 / 16); let current = 0; const timer = setInterval(() => { current = Math.min(current + step, target); el.textContent = Math.floor(current); if (current >= target) clearInterval(timer); }, 16); }); }
@@ -811,11 +816,14 @@ function setLang(lang) {
         if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
     });
     
-    // Update club name with colored letters
+    // Update club name in header and footer
     const clubNameHeader = document.getElementById('clubNameHeader');
     const clubNameFooter = document.getElementById('clubNameFooter');
-    if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubName;
-    if (clubNameFooter) clubNameFooter.innerHTML = langData[lang].clubName;
+    const heroTitle = document.getElementById('heroTitle');
+    
+    if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubNameHeader;
+    if (clubNameFooter) clubNameFooter.innerHTML = langData[lang].clubNameFooter;
+    if (heroTitle) heroTitle.innerHTML = langData[lang].heroTitle;
     
     // Update descriptions
     const clubDescription = document.getElementById('clubDescription');
