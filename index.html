@@ -64,12 +64,13 @@ ul{list-style:none}
 .logo-img img{width:100%;height:100%;border-radius:15px;object-fit:cover}
 .lt{display:flex;flex-direction:column;line-height:1.2}
 .lt .n1{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px}
+.lt .n1 .colored-letter{color:var(--pink)}
 [data-lang="bn"] .lt .n1{font-family:'Hind Siliguri',sans-serif;font-size:26px;letter-spacing:0}
 .lt .n2{font-size:11px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
 .nl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .nl a{padding:8px 18px;border-radius:40px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
-.nl a:hover{color:var(--wh);background:rgba(254,44,85,.15)}
-.nl a.on{color:var(--wh);background:linear-gradient(135deg,rgba(254,44,85,.2),rgba(37,244,238,.1))}
+.nl a:hover{color:var(--pink);background:rgba(254,44,85,.1)}
+.nl a.on{color:var(--pink);background:rgba(254,44,85,.15)}
 .nl a.on::after{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--pink);margin:4px auto 0;box-shadow:0 0 10px var(--pink)}
 .nr{display:flex;align-items:center;gap:12px}
 .ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:13px;padding:9px 22px;transition:var(--tr)}
@@ -82,7 +83,7 @@ ul{list-style:none}
 .mob{display:none;position:fixed;top:75px;left:0;right:0;background:rgba(10,10,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(254,44,85,.2);padding:20px 22px;flex-direction:column;gap:8px;z-index:997}
 .mob.op{display:flex}
 .mob a{padding:12px 18px;border-radius:14px;font-size:16px;font-weight:500;color:var(--lt);transition:var(--tr)}
-.mob a:hover,.mob a.on{color:#fff;background:rgba(254,44,85,.15)}
+.mob a:hover,.mob a.on{color:var(--pink);background:rgba(254,44,85,.15)}
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:85px}
 .hbg2{position:absolute;inset:0;background:radial-gradient(ellipse 75% 60% at 68% 48%,rgba(254,44,85,.08),transparent 65%),radial-gradient(ellipse 55% 45% at 18% 72%,rgba(37,244,238,.06),transparent 58%),var(--bg);z-index:0}
 .hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(254,44,85,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,244,238,.04) 1px,transparent 1px);background-size:55px 55px;z-index:0}
@@ -105,7 +106,7 @@ ul{list-style:none}
 .htitle .l1{display:block;color:#fff}
 .htitle .l2{display:block;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 [data-lang="bn"] .htitle{font-family:'Hind Siliguri',sans-serif;font-size:clamp(46px,7vw,78px)}
-.hdesc{font-size:15px;color:var(--gr);line-height:1.8;margin-bottom:10px;max-width:440px}
+.hdesc{font-size:15px;color:var(--gr);line-height:1.8;margin-bottom:10px;max-width:100%}
 .hloc{display:flex;align-items:flex-start;gap:7px;font-size:12px;color:var(--cyan);margin-bottom:28px;line-height:1.5}
 .hloc i{margin-top:3px}
 .hbtns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:42px}
@@ -202,6 +203,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 .ftlogo-img img{width:100%;height:100%;border-radius:14px;object-fit:cover}
 .ftlogo-text{display:flex;flex-direction:column}
 .ftlogo-text .name{font-family:'Bebas Neue',sans-serif;font-size:24px}
+.ftlogo-text .name .colored-letter{color:var(--pink)}
 [data-lang="bn"] .ftlogo-text .name{font-family:'Hind Siliguri',sans-serif;font-size:22px}
 .ftlogo-text .est{font-size:10px;color:var(--gr);margin-top:2px}
 .ftdesc{color:var(--gr);font-size:13px;line-height:1.85;margin:15px 0 25px}
@@ -308,7 +310,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
                 <img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/70x70/FE2C55/FFFFFF?text=YSC'">
             </div>
             <div class="lt">
-                <span class="n1" id="clubNameHeader">YOUNG SPORTING CLUB</span>
+                <span class="n1" id="clubNameHeader"><span class="colored-letter">Y</span>OUNG <span class="colored-letter">S</span>PORTING <span class="colored-letter">C</span>LUB</span>
                 <span class="n2" id="estDateHeader" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span>
             </div>
         </a>
@@ -352,8 +354,8 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
                 <span class="l2" data-en="SPORTING" data-bn="স্পোর্টিং">SPORTING</span>
                 <span class="l1" data-en="CLUB" data-bn="ক্লাব">CLUB</span>
             </h1>
-            <p class="hdesc" data-en="A community-based youth organization dedicated to sports development, youth engagement, and community service since 2009." data-bn="২০০৯ সাল থেকে ক্রীড়া উন্নয়ন, যুব সম্পৃক্ততা এবং সামাজিক সেবায় নিবেদিত একটি সমাজভিত্তিক যুব সংগঠন।">A community-based youth organization dedicated to sports development, youth engagement, and community service since 2009.</p>
-            <div class="hloc"><i class="fas fa-map-marker-alt"></i><span data-en="Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar, Sylhet" data-bn="শিংড়াউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট">Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar, Sylhet</span></div>
+            <p class="hdesc" id="clubDescription" data-en="Young Sporting Club is one of the premier sports clubs in the Shingrauli area of Shamshernagar Union, Kamalganj Upazila, Moulvibazar District, Sylhet Division, Bangladesh. Established in compliance with all national laws, Young Sporting Club is a voluntary, non-political, and non-profit organization dedicated to engaging local youth in sports, community development, and welfare activities." data-bn="ইয়ং স্পোর্টিং ক্লাব বাংলাদেশের সিলেট বিভাগের অন্তর্গত মৌলভীবাজার জেলার কমলগঞ্জ উপজেলার ৪নং শমশেরনগর ইউনিয়ন পরিষদের শিংরাউলী গ্রামের তথা আশপাশের এলাকার মানুষের খেলাধুলা করার জন্য অন্যতম একটি ক্লাব। দেশের সকল আইনকানুন মেনে ইয়ং স্পোর্টিং ক্লাব এলাকার সকল কিশোর, যুবক তথা ক্লাবের সকল সদস্যদের ক্রীড়াঙ্গনে সংযুক্ত রাখা, সমাজ উন্নয়নমূলক ও কল্যাণমূলক কার্যক্রম সুন্দরভাবে পরিচালনার জন্য গঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক ক্লাব বা সংগঠন।">ইয়ং স্পোর্টিং ক্লাব বাংলাদেশের সিলেট বিভাগের অন্তর্গত মৌলভীবাজার জেলার কমলগঞ্জ উপজেলার ৪নং শমশেরনগর ইউনিয়ন পরিষদের শিংরাউলী গ্রামের তথা আশপাশের এলাকার মানুষের খেলাধুলা করার জন্য অন্যতম একটি ক্লাব। দেশের সকল আইনকানুন মেনে ইয়ং স্পোর্টিং ক্লাব এলাকার সকল কিশোর, যুবক তথা ক্লাবের সকল সদস্যদের ক্রীড়াঙ্গনে সংযুক্ত রাখা, সমাজ উন্নয়নমূলক ও কল্যাণমূলক কার্যক্রম সুন্দরভাবে পরিচালনার জন্য গঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক ক্লাব বা সংগঠন।</p>
+            <div class="hloc"><i class="fas fa-map-marker-alt"></i><span id="clubLocation" data-en="West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet" data-bn="পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট">পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট</span></div>
             <div class="hbtns">
                 <a href="members.html" class="btn btn-pk"><i class="fas fa-users"></i> <span data-en="View Members" data-bn="সদস্যদের দেখুন">View Members</span></a>
                 <a href="about.html" class="btn btn-ol"><i class="fas fa-info-circle"></i> <span data-en="Our Story" data-bn="আমাদের গল্প">Our Story</span></a>
@@ -455,7 +457,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
                 <span class="bdg"><span class="dot"></span><span data-en="Who We Are" data-bn="আমরা কারা">Who We Are</span></span>
                 <h2 class="sec-title" data-en="More Than Just A Sports Club" data-bn="শুধু একটি স্পোর্টস ক্লাব নয়">More Than Just A<br><span style="background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Sports Club</span></h2>
                 <div class="divider"></div>
-                <p class="atxt" data-en="Young Sporting Club was founded on 13 January 2009 by enthusiastic young people in Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar." data-bn="ইয়ং স্পোর্টিং ক্লাব ২০০৯ সালের ১৩ জানুয়ারি মৌলভীবাজারের কমলগঞ্জ, শমশেরনগরের শিংড়াউলীর উৎসাহী তরুণদের দ্বারা প্রতিষ্ঠিত হয়।">Young Sporting Club was founded on 13 January 2009 by enthusiastic young people in Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar.</p>
+                <p class="atxt" data-en="Young Sporting Club was founded on 13 January 2009 by enthusiastic young people in West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar." data-bn="ইয়ং স্পোর্টিং ক্লাব ২০০৯ সালের ১৩ জানুয়ারি পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজারের উৎসাহী তরুণদের দ্বারা প্রতিষ্ঠিত হয়।">ইয়ং স্পোর্টিং ক্লাব ২০০৯ সালের ১৩ জানুয়ারি পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজারের উৎসাহী তরুণদের দ্বারা প্রতিষ্ঠিত হয়।</p>
                 <p class="atxt" data-en="For over 17 years, the club has been a home for young athletes building teamwork, character and community spirit through sports and social activities." data-bn="১৭ বছরেরও বেশি সময় ধরে এই ক্লাব তরুণ ক্রীড়াবিদদের দলগত কাজ, চরিত্র গঠন এবং খেলাধুলা ও সামাজিক কার্যকলাপের মাধ্যমে সম্প্রদায়ের মনোভাব তৈরির ঘর হয়ে উঠেছে।">For over 17 years, the club has been a home for young athletes building teamwork, character and community spirit through sports and social activities.</p>
                 <div class="ahi">
                     <div class="hit"><div class="hic">⚽</div><span data-en="Football & Cricket" data-bn="ফুটবল ও ক্রিকেট">Football & Cricket</span></div>
@@ -558,11 +560,11 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
                         <img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/60x60/FE2C55/FFFFFF?text=YSC'">
                     </div>
                     <div class="ftlogo-text">
-                        <span class="name" id="clubNameFooter">YOUNG SPORTING CLUB</span>
+                        <span class="name" id="clubNameFooter"><span class="colored-letter">Y</span>OUNG <span class="colored-letter">S</span>PORTING <span class="colored-letter">C</span>LUB</span>
                         <span class="est" id="estDateFooter" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span>
                     </div>
                 </div>
-                <p class="ftdesc" data-en="A community-based youth organization dedicated to sports development, youth engagement, and community service in Shingrahully, Shamsher Nagar, Moulvibazar since 2009." data-bn="২০০৯ সাল থেকে মৌলভীবাজারের শমশেরনগর, শিংড়াউলীতে ক্রীড়া উন্নয়ন, যুব সম্পৃক্ততা এবং সামাজিক সেবায় নিবেদিত একটি সমাজভিত্তিক যুব সংগঠন।">A community-based youth organization dedicated to sports development, youth engagement, and community service in Shingrahully, Shamsher Nagar, Moulvibazar since 2009.</p>
+                <p class="ftdesc" id="footerDescription" data-en="Young Sporting Club is a voluntary, non-political, and non-profit organization established in West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet, dedicated to engaging youth in sports, community development, and welfare activities since 2009." data-bn="ইয়ং স্পোর্টিং ক্লাব পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেটে প্রতিষ্ঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক সংগঠন যা ২০০৯ সাল থেকে তরুণদের ক্রীড়া, সমাজ উন্নয়ন এবং কল্যাণমূলক কার্যক্রমে নিয়োজিত রাখতে নিবেদিত।">ইয়ং স্পোর্টিং ক্লাব পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেটে প্রতিষ্ঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক সংগঠন যা ২০০৯ সাল থেকে তরুণদের ক্রীড়া, সমাজ উন্নয়ন এবং কল্যাণমূলক কার্যক্রমে নিয়োজিত রাখতে নিবেদিত।</p>
                 <div class="slnks">
                     <a href="https://www.facebook.com/youngsportingclubofficial" target="_blank" class="sa fb"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.facebook.com/groups/youngsportingclub" target="_blank" class="sa fb"><i class="fab fa-facebook"></i></a>
@@ -594,7 +596,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
             <div class="fcol">
                 <h4 data-en="Contact Us" data-bn="যোগাযোগ">Contact Us</h4>
                 <ul class="ci2">
-                    <li><span class="ico"><i class="fas fa-map-marker-alt"></i></span><span data-en="Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar, Sylhet, Bangladesh" data-bn="শিংড়াউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট, বাংলাদেশ">Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar, Sylhet, Bangladesh</span></li>
+                    <li><span class="ico"><i class="fas fa-map-marker-alt"></i></span><span id="footerLocation" data-en="West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet, Bangladesh" data-bn="পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট, বাংলাদেশ">পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট, বাংলাদেশ</span></li>
                     <li><span class="ico"><i class="fas fa-phone"></i></span><a href="tel:+8801737355553" style="color:var(--gr)">+880 1737-355553</a></li>
                     <li><span class="ico"><i class="fas fa-envelope"></i></span><a href="mailto:youngsportingclub2009@gmail.com" style="color:var(--gr);word-break:break-all">youngsportingclub2009@gmail.com</a></li>
                 </ul>
@@ -603,7 +605,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
         <div class="ftbot">
             <p data-en="© 2026 Young Sporting Club. All rights reserved." data-bn="© ২০২৬ ইয়ং স্পোর্টিং ক্লাব। সর্বস্বত্ব সংরক্ষিত।">© 2026 Young Sporting Club. All rights reserved.</p>
             <p class="dev" onclick="window.location.href='developer.html'">
-                <span data-en="Developed by Farabi Walid" data-bn="তৈরি করেছেন ফারাবি ওয়ালিদ">Developed by Farabi Walid</span>
+                <span id="developerName" data-en="Developed by Farabi Walid" data-bn="তৈরি করেছেন ফারাবি ওয়ালিদ">Developed by Farabi Walid</span>
             </p>
         </div>
     </div>
@@ -630,9 +632,23 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 // ==================== LANGUAGE VARIABLES ====================
-const langNames = {
-    en: { clubName: "YOUNG SPORTING CLUB", devName: "Developed by Farabi Walid" },
-    bn: { clubName: "ইয়ং স্পোর্টিং ক্লাব", devName: "তৈরি করেছেন ফারাবি ওয়ালিদ" }
+const langData = {
+    en: {
+        clubName: '<span class="colored-letter">Y</span>OUNG <span class="colored-letter">S</span>PORTING <span class="colored-letter">C</span>LUB',
+        clubDescription: "Young Sporting Club is one of the premier sports clubs in the West Shingrauli area of Shamshernagar Union, Kamalganj Upazila, Moulvibazar District, Sylhet Division, Bangladesh. Established in compliance with all national laws, Young Sporting Club is a voluntary, non-political, and non-profit organization dedicated to engaging local youth in sports, community development, and welfare activities.",
+        location: "West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet",
+        footerDesc: "Young Sporting Club is a voluntary, non-political, and non-profit organization established in West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet, dedicated to engaging youth in sports, community development, and welfare activities since 2009.",
+        footerLocation: "West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet, Bangladesh",
+        devName: "Developed by Farabi Walid"
+    },
+    bn: {
+        clubName: '<span class="colored-letter">ই</span>য়ং <span class="colored-letter">স</span>্পোর্টিং <span class="colored-letter">ক</span>্লাব',
+        clubDescription: "ইয়ং স্পোর্টিং ক্লাব বাংলাদেশের সিলেট বিভাগের অন্তর্গত মৌলভীবাজার জেলার কমলগঞ্জ উপজেলার ৪নং শমশেরনগর ইউনিয়ন পরিষদের পশ্চিম শিংরাউলী গ্রামের তথা আশপাশের এলাকার মানুষের খেলাধুলা করার জন্য অন্যতম একটি ক্লাব। দেশের সকল আইনকানুন মেনে ইয়ং স্পোর্টিং ক্লাব এলাকার সকল কিশোর, যুবক তথা ক্লাবের সকল সদস্যদের ক্রীড়াঙ্গনে সংযুক্ত রাখা, সমাজ উন্নয়নমূলক ও কল্যাণমূলক কার্যক্রম সুন্দরভাবে পরিচালনার জন্য গঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক ক্লাব বা সংগঠন।",
+        location: "পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট",
+        footerDesc: "ইয়ং স্পোর্টিং ক্লাব পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেটে প্রতিষ্ঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক সংগঠন যা ২০০৯ সাল থেকে তরুণদের ক্রীড়া, সমাজ উন্নয়ন এবং কল্যাণমূলক কার্যক্রমে নিয়োজিত রাখতে নিবেদিত।",
+        footerLocation: "পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট, বাংলাদেশ",
+        devName: "তৈরি করেছেন ফারাবি ওয়ালিদ"
+    }
 };
 
 // ==================== LOAD COMMITTEE MEMBERS ====================
@@ -793,14 +809,24 @@ function setLang(lang) {
         if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
     });
     
-    // Update club name in header and footer
+    // Update club name with colored letters
     const clubNameHeader = document.getElementById('clubNameHeader');
     const clubNameFooter = document.getElementById('clubNameFooter');
-    const devNameSpan = document.querySelector('.dev span');
+    if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubName;
+    if (clubNameFooter) clubNameFooter.innerHTML = langData[lang].clubName;
     
-    if (clubNameHeader) clubNameHeader.textContent = langNames[lang].clubName;
-    if (clubNameFooter) clubNameFooter.textContent = langNames[lang].clubName;
-    if (devNameSpan) devNameSpan.textContent = langNames[lang].devName;
+    // Update descriptions
+    const clubDescription = document.getElementById('clubDescription');
+    const footerDescription = document.getElementById('footerDescription');
+    const clubLocation = document.getElementById('clubLocation');
+    const footerLocation = document.getElementById('footerLocation');
+    const developerName = document.getElementById('developerName');
+    
+    if (clubDescription) clubDescription.textContent = langData[lang].clubDescription;
+    if (footerDescription) footerDescription.textContent = langData[lang].footerDesc;
+    if (clubLocation) clubLocation.textContent = langData[lang].location;
+    if (footerLocation) footerLocation.textContent = langData[lang].footerLocation;
+    if (developerName) developerName.textContent = langData[lang].devName;
     
     // Update placeholders
     const placeholders = [
