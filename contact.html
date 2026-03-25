@@ -10,14 +10,15 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
 :root{
-    --bg:#010101;
-    --card:#111;
-    --card2:#161616;
+    --bg:#0a0a0f;
+    --card:#111117;
+    --card2:#16161f;
     --pink:#FE2C55;
     --cyan:#25F4EE;
-    --wh:#fff;
-    --gr:#888;
-    --lt:#ccc;
+    --gold:#FFD700;
+    --wh:#ffffff;
+    --gr:#aaaaaa;
+    --lt:#dddddd;
     --bp:rgba(254,44,85,.25);
     --bc:rgba(37,244,238,.22);
     --gp:0 0 22px rgba(254,44,85,.5);
@@ -43,41 +44,46 @@ ul{list-style:none}
 .container{max-width:1200px;margin:0 auto;padding:0 22px}
 .sp{padding:90px 0}
 .bdg{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--bp);background:rgba(254,44,85,.08);color:var(--pink);padding:5px 16px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
-.bdg .dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:blink 1.8s infinite}
+.bdg .dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:blink 1.8s infinite;box-shadow:0 0 6px var(--pink)}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 .sec-title{font-size:clamp(34px,5vw,54px);margin-bottom:10px}
 .divider{width:52px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));margin:12px auto 20px}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:50px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none;text-transform:uppercase;letter-spacing:.5px;transition:var(--tr)}
 .btn-pk{background:linear-gradient(135deg,var(--pink),#b0001a);color:#fff}.btn-pk:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(254,44,85,.55)}
 .btn-cy{background:linear-gradient(135deg,var(--cyan),#00adaa);color:#010101;font-weight:800}.btn-cy:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,244,238,.55)}
-.btn-ol{background:transparent;color:var(--wh);border:1.5px solid rgba(255,255,255,.2)}.btn-ol:hover{border-color:var(--cyan);color:var(--cyan)}
-.lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:3px}
+.btn-ol{background:transparent;color:var(--wh);border:1.5px solid rgba(255,255,255,.2)}.btn-ol:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:var(--gc)}
+.lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:3px}
 .lb{padding:5px 13px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:var(--tr);background:none;border:none;color:var(--gr)}
 .lb.on{background:linear-gradient(135deg,var(--pink),var(--cyan));color:#010101}
-#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr);background:rgba(1,1,1,.85);backdrop-filter:blur(12px)}
-#hdr.sc{background:rgba(1,1,1,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--bp);box-shadow:0 4px 20px rgba(0,0,0,.3)}
+#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr);background:rgba(10,10,15,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(254,44,85,.2)}
+#hdr.sc{background:rgba(10,10,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--pink);box-shadow:0 4px 20px rgba(254,44,85,.1)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;max-width:1200px;margin:0 auto}
-.logo{display:flex;align-items:center;gap:11px}
-.li{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#010101;box-shadow:var(--gdual)}
-.lt{display:flex;flex-direction:column;line-height:1}
-.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.lt .n2{font-size:10px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
-.nl{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
-.nl a{padding:8px 16px;border-radius:30px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
-.nl a:hover,.nl a.on{color:var(--wh);background:rgba(254,44,85,.15)}
-.nl a.on::after{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--pink);margin:3px auto 0;box-shadow:0 0 8px var(--pink)}
+.logo{display:flex;align-items:center;gap:16px}
+.logo-img{width:70px;height:70px;border-radius:18px;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:3px;transition:var(--tr)}
+.logo-img:hover{transform:scale(1.02);box-shadow:0 0 20px rgba(254,44,85,.3)}
+.logo-img img{width:100%;height:100%;border-radius:15px;object-fit:cover}
+.lt{display:flex;flex-direction:column;line-height:1.2}
+.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px}
+.lt .n1 .gold-letter{color:var(--gold);text-shadow:0 0 5px rgba(255,215,0,.3)}
+[data-lang="bn"] .lt .n1{font-family:'Hind Siliguri',sans-serif;font-size:26px;letter-spacing:0}
+.lt .n2{font-size:11px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
+.nl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.nl a{padding:8px 18px;border-radius:40px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
+.nl a:hover{color:var(--pink);background:rgba(254,44,85,.1)}
+.nl a.on{color:var(--pink);background:rgba(254,44,85,.15)}
+.nl a.on::after{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--pink);margin:4px auto 0;box-shadow:0 0 10px var(--pink)}
 .nr{display:flex;align-items:center;gap:12px}
-.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:13px;padding:9px 20px;transition:var(--tr)}
-.ncta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(254,44,85,.4)}
+.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:13px;padding:9px 22px;transition:var(--tr)}
+.ncta:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(254,44,85,.4)}
 .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
-.hbg span{display:block;width:24px;height:2.5px;background:#fff;border-radius:2px;transition:var(--tr)}
-.hbg.op span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
+.hbg span{display:block;width:26px;height:2.5px;background:#fff;border-radius:2px;transition:var(--tr)}
+.hbg.op span:nth-child(1){transform:rotate(45deg) translate(7px,7px)}
 .hbg.op span:nth-child(2){opacity:0}
-.hbg.op span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
-.mob{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(1,1,1,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--bp);padding:20px 22px;flex-direction:column;gap:5px;z-index:997}
+.hbg.op span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+.mob{display:none;position:fixed;top:75px;left:0;right:0;background:rgba(10,10,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(254,44,85,.2);padding:20px 22px;flex-direction:column;gap:8px;z-index:997}
 .mob.op{display:flex}
-.mob a{padding:12px 16px;border-radius:12px;font-size:15px;font-weight:500;color:var(--lt);transition:var(--tr)}
-.mob a:hover,.mob a.on{color:#fff;background:rgba(254,44,85,.15)}
+.mob a{padding:12px 18px;border-radius:14px;font-size:16px;font-weight:500;color:var(--lt);transition:var(--tr)}
+.mob a:hover,.mob a.on{color:var(--pink);background:rgba(254,44,85,.15)}
 .phero{padding:140px 0 70px;background:linear-gradient(180deg,#0a0a0a,var(--bg));text-align:center;position:relative;overflow:hidden}
 .phero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(254,44,85,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,244,238,.04) 1px,transparent 1px);background-size:55px 55px}
 .phero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--pink),var(--cyan),transparent)}
@@ -131,11 +137,19 @@ ul{list-style:none}
 .map-box h4{font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gr);margin-bottom:16px}
 .map-frame{width:100%;height:230px;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#1a1a1a}
 .map-frame iframe{width:100%;height:100%;border:0}
-footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
+footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0 25px}
 .ftgr{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:45px}
+.ftlogo{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.ftlogo-img{width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:2px}
+.ftlogo-img img{width:100%;height:100%;border-radius:14px;object-fit:cover}
+.ftlogo-text{display:flex;flex-direction:column}
+.ftlogo-text .name{font-family:'Bebas Neue',sans-serif;font-size:24px}
+.ftlogo-text .name .gold-letter{color:var(--gold);text-shadow:0 0 5px rgba(255,215,0,.3)}
+[data-lang="bn"] .ftlogo-text .name{font-family:'Hind Siliguri',sans-serif;font-size:22px}
+.ftlogo-text .est{font-size:10px;color:var(--gr);margin-top:2px}
 .ftdesc{color:var(--gr);font-size:13px;line-height:1.85;margin:15px 0 25px}
 .slnks{display:flex;gap:12px;flex-wrap:wrap}
-.sa{width:42px;height:42px;border-radius:12px;background:var(--card2);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:var(--gr);font-size:18px;transition:var(--tr)}
+.sa{width:44px;height:44px;border-radius:14px;background:var(--card2);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:var(--gr);font-size:20px;transition:var(--tr)}
 .sa:hover{transform:translateY(-3px)}
 .sa.fb:hover{background:var(--facebook);color:#fff;box-shadow:0 0 16px rgba(24,119,242,.4)}
 .sa.yt:hover{background:var(--youtube);color:#fff;box-shadow:0 0 16px rgba(255,0,0,.4)}
@@ -169,24 +183,9 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
 .toast .toast-close{position:absolute;top:8px;right:12px;cursor:pointer;font-size:14px;color:var(--gr)}
 .visitor-badge{position:fixed;bottom:20px;left:20px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border-radius:40px;padding:7px 16px;font-size:11px;color:var(--gr);z-index:998;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15)}
 .visitor-badge i{color:var(--cyan);font-size:11px}
-@media(max-width:900px){
-    .cgrid{grid-template-columns:1fr}
-    .ftgr{grid-template-columns:1fr 1fr}
-}
+@media(max-width:900px){.cgrid{grid-template-columns:1fr}.ftgr{grid-template-columns:1fr 1fr}}
 @media(max-width:700px){
-    .nl{display:none}.hbg{display:flex}
-    .sp{padding:60px 0}
-    .ftgr{grid-template-columns:1fr}
-    .nr .lang-sw{display:none}
-    .frow{grid-template-columns:1fr}
-    .whatsapp-float{width:48px;height:48px}
-    .whatsapp-float i{font-size:26px}
-    .toast{bottom:90px;right:16px;left:16px;max-width:calc(100% - 32px)}
-    .visitor-badge{bottom:16px;left:16px}
-    .date-bar{flex-direction:column;align-items:center;gap:10px;padding:12px 20px}
-    .soc-btns{justify-content:center}
-    .info-card{padding:20px}
-}
+    .nl{display:none}.hbg{display:flex}.sp{padding:60px 0}.ftgr{grid-template-columns:1fr}.nr .lang-sw{display:none}.frow{grid-template-columns:1fr}.whatsapp-float{width:48px;height:48px}.whatsapp-float i{font-size:26px}.toast{bottom:90px;right:16px;left:16px;max-width:calc(100% - 32px)}.visitor-badge{bottom:16px;left:16px}.date-bar{flex-direction:column;align-items:center;gap:10px;padding:12px 20px}.soc-btns{justify-content:center}.info-card{padding:20px}}
 @media(max-width:460px){.ftbot{flex-direction:column;text-align:center}}
 </style>
 </head>
@@ -194,31 +193,28 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
 
 <div class="ldr" id="ldr"><div class="lring"></div><div class="ltxt">YSC</div></div>
 
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/8801737355553?text=Assalamu%20Alaikum%2C%20I%20want%20to%20contact%20Young%20Sporting%20Club" target="_blank" class="whatsapp-float">
-    <i class="fab fa-whatsapp"></i>
-</a>
+<a href="https://wa.me/8801737355553?text=Assalamu%20Alaikum%2C%20I%20want%20to%20contact%20Young%20Sporting%20Club" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
-<!-- Visitor Counter Badge -->
 <div class="visitor-badge" id="visitorBadge">
     <i class="fas fa-eye"></i>
     <span id="visitorCount">0</span>
     <span data-en="visitors" data-bn="দর্শক">visitors</span>
 </div>
 
-<!-- Toast Notification -->
 <div class="toast" id="toast">
     <div class="toast-close" onclick="closeToast()">&times;</div>
     <div class="toast-title">📞 Contact Us</div>
     <div id="toastMsg">Get in touch with Young Sporting Club</div>
 </div>
 
-<!-- Header -->
 <header id="hdr">
     <nav class="nav">
         <a href="index.html" class="logo">
-            <div class="li">YSC</div>
-            <div class="lt"><span class="n1">YOUNG SPORTING</span><span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span></div>
+            <div class="logo-img"><img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/70x70/FE2C55/FFFFFF?text=YSC'"></div>
+            <div class="lt">
+                <span class="n1" id="clubNameHeader"><span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB</span>
+                <span class="n2" id="estDateHeader" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span>
+            </div>
         </a>
         <div class="nl">
             <a href="index.html" data-en="Home" data-bn="হোম">Home</a>
@@ -244,7 +240,6 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
     </div>
 </header>
 
-<!-- TRIPLE DATE BAR -->
 <div style="text-align:center;padding-top:90px;position:relative;z-index:2">
     <div class="date-bar">
         <div class="date-item"><i class="fas fa-calendar-alt"></i><span id="dateEn">Loading...</span></div>
@@ -253,7 +248,6 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
     </div>
 </div>
 
-<!-- Page Hero -->
 <section class="phero">
     <div class="container" data-aos="fade-down">
         <span class="bdg"><span class="dot"></span><span data-en="Get In Touch" data-bn="যোগাযোগ করুন">Get In Touch</span></span>
@@ -263,138 +257,41 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
     </div>
 </section>
 
-<!-- Main Content -->
 <section class="sp" style="background:var(--bg)">
     <div class="container">
         <div class="cgrid">
-            <!-- LEFT: INFO SECTION -->
             <div data-aos="fade-right">
                 <span class="bdg"><span class="dot"></span><span data-en="Find Us" data-bn="আমাদের খুঁজুন">Find Us</span></span>
                 <h2 class="sec-title" style="text-align:left" data-en="Contact Information" data-bn="যোগাযোগের তথ্য">Contact Information</h2>
                 <div class="divider" style="margin-left:0"></div>
                 <p style="color:var(--gr);font-size:14px;line-height:1.8;margin-bottom:28px" data-en="Young Sporting Club is always open to hearing from supporters, new members, sponsors, and the community." data-bn="ইয়ং স্পোর্টিং ক্লাব সর্বদা সমর্থক, নতুন সদস্য, স্পনসর এবং সমাজ থেকে কথা শুনতে প্রস্তুত।">Young Sporting Club is always open to hearing from supporters, new members, sponsors, and the community.</p>
-
-                <div class="info-card">
-                    <div class="info-ic pk"><i class="fas fa-map-marker-alt"></i></div>
-                    <div>
-                        <div class="info-h" data-en="Our Address" data-bn="আমাদের ঠিকানা">Our Address</div>
-                        <div class="info-v" data-en="Young Sporting Club<br>Shingrahully, Shamsher Nagar<br>Kamalganj, Moulvibazar<br>Sylhet, Bangladesh" data-bn="ইয়ং স্পোর্টিং ক্লাব<br>শিংড়াউলী, শমশেরনগর<br>কমলগঞ্জ, মৌলভীবাজার<br>সিলেট, বাংলাদেশ">Young Sporting Club<br>Shingrahully, Shamsher Nagar<br>Kamalganj, Moulvibazar<br>Sylhet, Bangladesh</div>
-                    </div>
-                </div>
-
-                <div class="info-card">
-                    <div class="info-ic cy"><i class="fas fa-phone-alt"></i></div>
-                    <div>
-                        <div class="info-h" data-en="Phone Number" data-bn="ফোন নম্বর">Phone Number</div>
-                        <div class="info-v"><a href="tel:+8801737355553">+880 1737-355553</a><br><span style="font-size:11px;color:var(--gr)">(Call / WhatsApp)</span></div>
-                    </div>
-                </div>
-
-                <div class="info-card">
-                    <div class="info-ic gd"><i class="fas fa-envelope"></i></div>
-                    <div>
-                        <div class="info-h" data-en="Email Address" data-bn="ইমেইল ঠিকানা">Email Address</div>
-                        <div class="info-v"><a href="mailto:youngsportingclub2009@gmail.com">youngsportingclub2009@gmail.com</a></div>
-                    </div>
-                </div>
-
-                <div class="info-card">
-                    <div class="info-ic pk"><i class="fas fa-calendar-alt"></i></div>
-                    <div>
-                        <div class="info-h" data-en="Foundation Day" data-bn="প্রতিষ্ঠা দিবস">Foundation Day</div>
-                        <div class="info-v" data-en="13 January 2009 · 17+ Years Strong" data-bn="১৩ জানুয়ারি ২০০৯ · ১৭+ বছর শক্তিশালী">13 January 2009 · 17+ Years Strong</div>
-                    </div>
-                </div>
-
-                <div class="soc-box">
-                    <h4 data-en="Follow Us" data-bn="আমাদের অনুসরণ করুন">Follow Us</h4>
-                    <div class="soc-btns">
-                        <a href="https://www.facebook.com/youngsportingclub" target="_blank" class="soc-b sb-fb"><i class="fab fa-facebook-f"></i><span data-en="Facebook" data-bn="ফেসবুক">Facebook</span></a>
-                        <a href="https://www.youtube.com/@youngsportingclub" target="_blank" class="soc-b sb-yt"><i class="fab fa-youtube"></i><span data-en="YouTube" data-bn="ইউটিউব">YouTube</span></a>
-                        <a href="https://www.instagram.com/youngsportingclub" target="_blank" class="soc-b sb-ig"><i class="fab fa-instagram"></i><span data-en="Instagram" data-bn="ইন্সটাগ্রাম">Instagram</span></a>
-                        <a href="mailto:youngsportingclub2009@gmail.com" class="soc-b sb-em"><i class="fas fa-envelope"></i><span data-en="Email" data-bn="ইমেইল">Email</span></a>
-                    </div>
-                </div>
-
-                <div class="map-box">
-                    <h4 data-en="📍 Location Map" data-bn="📍 অবস্থান ম্যাপ">📍 Location Map</h4>
-                    <div class="map-frame">
-                        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=91.85%2C24.35%2C91.95%2C24.45&layer=mapnik&marker=24.4%2C91.9" loading="lazy"></iframe>
-                    </div>
-                    <p style="font-size:11px;color:var(--gr);margin-top:12px;text-align:center">
-                        <a href="https://www.openstreetmap.org/?mlat=24.4&mlon=91.9#map=13/24.4/91.9" target="_blank" style="color:var(--cyan)">📌 <span data-en="View Larger Map" data-bn="বড় ম্যাপ দেখুন">View Larger Map</span></a>
-                    </p>
-                </div>
+                <div class="info-card"><div class="info-ic pk"><i class="fas fa-map-marker-alt"></i></div><div><div class="info-h" data-en="Our Address" data-bn="আমাদের ঠিকানা">Our Address</div><div class="info-v" data-en="Young Sporting Club<br>West Shingrauli, Shamshernagar<br>Kamalganj, Moulvibazar<br>Sylhet, Bangladesh" data-bn="ইয়ং স্পোর্টিং ক্লাব<br>পশ্চিম শিংরাউলী, শমশেরনগর<br>কমলগঞ্জ, মৌলভীবাজার<br>সিলেট, বাংলাদেশ">Young Sporting Club<br>West Shingrauli, Shamshernagar<br>Kamalganj, Moulvibazar<br>Sylhet, Bangladesh</div></div></div>
+                <div class="info-card"><div class="info-ic cy"><i class="fas fa-phone-alt"></i></div><div><div class="info-h" data-en="Phone Number" data-bn="ফোন নম্বর">Phone Number</div><div class="info-v"><a href="tel:+8801737355553">+880 1737-355553</a><br><span style="font-size:11px;color:var(--gr)">(Call / WhatsApp)</span></div></div></div>
+                <div class="info-card"><div class="info-ic gd"><i class="fas fa-envelope"></i></div><div><div class="info-h" data-en="Email Address" data-bn="ইমেইল ঠিকানা">Email Address</div><div class="info-v"><a href="mailto:youngsportingclub2009@gmail.com">youngsportingclub2009@gmail.com</a></div></div></div>
+                <div class="info-card"><div class="info-ic pk"><i class="fas fa-calendar-alt"></i></div><div><div class="info-h" data-en="Foundation Day" data-bn="প্রতিষ্ঠা দিবস">Foundation Day</div><div class="info-v" data-en="13 January 2009 · 17+ Years Strong" data-bn="১৩ জানুয়ারি ২০০৯ · ১৭+ বছর শক্তিশালী">13 January 2009 · 17+ Years Strong</div></div></div>
+                <div class="soc-box"><h4 data-en="Follow Us" data-bn="আমাদের অনুসরণ করুন">Follow Us</h4><div class="soc-btns"><a href="https://www.facebook.com/youngsportingclubofficial" target="_blank" class="soc-b sb-fb"><i class="fab fa-facebook-f"></i><span data-en="Facebook" data-bn="ফেসবুক">Facebook</span></a><a href="https://www.facebook.com/groups/youngsportingclub" target="_blank" class="soc-b sb-fb"><i class="fab fa-facebook"></i><span data-en="Group" data-bn="গ্রুপ">Group</span></a><a href="https://www.youtube.com/@youngsportingclub" target="_blank" class="soc-b sb-yt"><i class="fab fa-youtube"></i><span data-en="YouTube" data-bn="ইউটিউব">YouTube</span></a><a href="https://www.instagram.com/youngsportingclubofficial/" target="_blank" class="soc-b sb-ig"><i class="fab fa-instagram"></i><span data-en="Instagram" data-bn="ইন্সটাগ্রাম">Instagram</span></a><a href="mailto:youngsportingclub2009@gmail.com" class="soc-b sb-em"><i class="fas fa-envelope"></i><span data-en="Email" data-bn="ইমেইল">Email</span></a></div></div>
+                <div class="map-box"><h4 data-en="📍 Location Map" data-bn="📍 অবস্থান ম্যাপ">📍 Location Map</h4><div class="map-frame"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=91.85%2C24.35%2C91.95%2C24.45&layer=mapnik&marker=24.4%2C91.9" loading="lazy"></iframe></div><p style="font-size:11px;color:var(--gr);margin-top:12px;text-align:center"><a href="https://www.openstreetmap.org/?mlat=24.4&mlon=91.9#map=13/24.4/91.9" target="_blank" style="color:var(--cyan)">📌 <span data-en="View Larger Map" data-bn="বড় ম্যাপ দেখুন">View Larger Map</span></a></p></div>
             </div>
-
-            <!-- RIGHT: CONTACT FORM -->
             <div data-aos="fade-left" data-aos-delay="150">
-                <div class="fcard">
-                    <h2 style="font-size:28px;margin-bottom:8px"><span data-en="Send Us a" data-bn="আমাদেরকে একটি">Send Us a</span> <span style="background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent" data-en="Message" data-bn="বার্তা পাঠান">Message</span></h2>
-                    <p style="font-size:13px;color:var(--gr);margin-bottom:28px;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:22px" data-en="Fill in the form and we'll get back to you as soon as possible." data-bn="ফর্মটি পূরণ করুন এবং আমরা যত তাড়াতাড়ি সম্ভব আপনার কাছে ফিরে আসব।">Fill in the form and we'll get back to you as soon as possible.</p>
-
-                    <div class="msg msg-ok" id="cok-msg"></div>
-                    <div class="msg msg-err" id="cerr-msg"></div>
-
-                    <form id="cform" novalidate>
-                        <div class="frow">
-                            <div class="fg">
-                                <label data-en="Your Name" data-bn="আপনার নাম">Your Name <span class="req">*</span></label>
-                                <div class="finput"><i class="fic fas fa-user"></i><input type="text" id="cname" data-placeholder-en="Full name" data-placeholder-bn="পুরো নাম" placeholder="Full name" required/></div>
-                            </div>
-                            <div class="fg">
-                                <label data-en="Phone Number" data-bn="ফোন নম্বর">Phone Number</label>
-                                <div class="finput"><i class="fic fas fa-phone"></i><input type="tel" id="cphone" data-placeholder-en="+880 1XXX-XXXXXX" data-placeholder-bn="+৮৮০ ১XXX-XXXXXX" placeholder="+880 1XXX-XXXXXX"/></div>
-                            </div>
-                        </div>
-                        <div class="fg">
-                            <label data-en="Email Address" data-bn="ইমেইল ঠিকানা">Email Address <span class="req">*</span></label>
-                            <div class="finput"><i class="fic fas fa-envelope"></i><input type="email" id="cemail" data-placeholder-en="your@email.com" data-placeholder-bn="আপনার@ইমেইল.কম" placeholder="your@email.com" required/></div>
-                        </div>
-                        <div class="fg">
-                            <label data-en="Subject" data-bn="বিষয়">Subject <span class="req">*</span></label>
-                            <div class="finput"><i class="fic fas fa-tag"></i><input type="text" id="csubject" data-placeholder-en="What is this about?" data-placeholder-bn="এটি কি বিষয়ে?" placeholder="What is this about?" required/></div>
-                        </div>
-                        <div class="fg">
-                            <label data-en="Message" data-bn="বার্তা">Message <span class="req">*</span></label>
-                            <textarea id="cmsg" data-placeholder-en="Write your message here…" data-placeholder-bn="এখানে আপনার বার্তা লিখুন…" placeholder="Write your message here…" required></textarea>
-                        </div>
-                        <button type="submit" class="sbtn" id="csubBtn">
-                            <i class="fas fa-paper-plane"></i>
-                            <span data-en="Send Message" data-bn="বার্তা পাঠান">Send Message</span>
-                        </button>
-                    </form>
-                    <p style="font-size:11.5px;color:var(--gr);margin-top:16px;text-align:center" data-en="* Required fields. We'll respond within 24-48 hours." data-bn="* প্রয়োজনীয় ক্ষেত্র। আমরা ২৪-৪৮ ঘণ্টার মধ্যে উত্তর দেব।">* Required fields. We'll respond within 24-48 hours.</p>
-                </div>
+                <div class="fcard"><h2 style="font-size:28px;margin-bottom:8px"><span data-en="Send Us a" data-bn="আমাদেরকে একটি">Send Us a</span> <span style="background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent" data-en="Message" data-bn="বার্তা পাঠান">Message</span></h2><p style="font-size:13px;color:var(--gr);margin-bottom:28px;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:22px" data-en="Fill in the form and we'll get back to you as soon as possible." data-bn="ফর্মটি পূরণ করুন এবং আমরা যত তাড়াতাড়ি সম্ভব আপনার কাছে ফিরে আসব।">Fill in the form and we'll get back to you as soon as possible.</p>
+                <div class="msg msg-ok" id="cok-msg"></div><div class="msg msg-err" id="cerr-msg"></div>
+                <form id="cform" novalidate><div class="frow"><div class="fg"><label data-en="Your Name" data-bn="আপনার নাম">Your Name <span class="req">*</span></label><div class="finput"><i class="fic fas fa-user"></i><input type="text" id="cname" data-placeholder-en="Full name" data-placeholder-bn="পুরো নাম" placeholder="Full name" required/></div></div><div class="fg"><label data-en="Phone Number" data-bn="ফোন নম্বর">Phone Number</label><div class="finput"><i class="fic fas fa-phone"></i><input type="tel" id="cphone" data-placeholder-en="+880 1XXX-XXXXXX" data-placeholder-bn="+৮৮০ ১XXX-XXXXXX" placeholder="+880 1XXX-XXXXXX"/></div></div></div>
+                <div class="fg"><label data-en="Email Address" data-bn="ইমেইল ঠিকানা">Email Address <span class="req">*</span></label><div class="finput"><i class="fic fas fa-envelope"></i><input type="email" id="cemail" data-placeholder-en="your@email.com" data-placeholder-bn="আপনার@ইমেইল.কম" placeholder="your@email.com" required/></div></div>
+                <div class="fg"><label data-en="Subject" data-bn="বিষয়">Subject <span class="req">*</span></label><div class="finput"><i class="fic fas fa-tag"></i><input type="text" id="csubject" data-placeholder-en="What is this about?" data-placeholder-bn="এটি কি বিষয়ে?" placeholder="What is this about?" required/></div></div>
+                <div class="fg"><label data-en="Message" data-bn="বার্তা">Message <span class="req">*</span></label><textarea id="cmsg" data-placeholder-en="Write your message here…" data-placeholder-bn="এখানে আপনার বার্তা লিখুন…" placeholder="Write your message here…" required></textarea></div>
+                <button type="submit" class="sbtn" id="csubBtn"><i class="fas fa-paper-plane"></i><span data-en="Send Message" data-bn="বার্তা পাঠান">Send Message</span></button></form>
+                <p style="font-size:11.5px;color:var(--gr);margin-top:16px;text-align:center" data-en="* Required fields. We'll respond within 24-48 hours." data-bn="* প্রয়োজনীয় ক্ষেত্র। আমরা ২৪-৪৮ ঘণ্টার মধ্যে উত্তর দেব।">* Required fields. We'll respond within 24-48 hours.</p></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Footer -->
 <footer>
-    <div class="container">
-        <div class="ftgr">
-            <div>
-                <div class="logo"><div class="li">YSC</div><div class="lt"><span class="n1">YOUNG SPORTING CLUB</span><span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জান ২০০৯">Est. 13 Jan 2009</span></div></div>
-                <p class="ftdesc" data-en="A community-based youth organization in Shingrahully, Shamsher Nagar, Moulvibazar since 2009." data-bn="২০০৯ সাল থেকে মৌলভীবাজারের শমশেরনগর, শিংড়াউলীর একটি সমাজভিত্তিক যুব সংগঠন।">A community-based youth organization in Shingrahully, Shamsher Nagar, Moulvibazar since 2009.</p>
-                <div class="slnks">
-                    <a href="https://www.facebook.com/youngsportingclub" target="_blank" class="sa fb"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.youtube.com/@youngsportingclub" target="_blank" class="sa yt"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/youngsportingclubofficial/ " target="_blank" class="sa ig"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:youngsportingclub2009@gmail.com" class="sa em"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-            <div class="fcol"><h4 data-en="Quick Links" data-bn="দ্রুত লিংক">Quick Links</h4><ul><li><a href="index.html" data-en="Home" data-bn="হোম">Home</a></li><li><a href="about.html" data-en="About" data-bn="সম্পর্কে">About</a></li><li><a href="members.html" data-en="Members" data-bn="সদস্য">Members</a></li><li><a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a></li></ul></div>
-            <div class="fcol"><h4 data-en="Our Sports" data-bn="আমাদের খেলা">Our Sports</h4><ul><li><a href="#" data-en="⚽ Football" data-bn="⚽ ফুটবল">⚽ Football</a></li><li><a href="#" data-en="🏏 Cricket" data-bn="🏏 ক্রিকেট">🏏 Cricket</a></li><li><a href="#" data-en="🏸 Badminton" data-bn="🏸 ব্যাডমিন্টন">🏸 Badminton</a></li><li><a href="#" data-en="🎭 Cultural Events" data-bn="🎭 সাংস্কৃতিক অনুষ্ঠান">🎭 Cultural Events</a></li></ul></div>
-            <div class="fcol"><h4 data-en="Contact" data-bn="যোগাযোগ">Contact</h4><ul class="ci2"><li><span class="ico"><i class="fas fa-map-marker-alt"></i></span><span data-en="Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar" data-bn="শিংড়াউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার">Shingrahully, Shamsher Nagar, Kamalganj, Moulvibazar</span></li><li><span class="ico"><i class="fas fa-phone"></i></span><a href="tel:+8801737355553" style="color:var(--gr)">+880 1737-355553</a></li><li><span class="ico"><i class="fas fa-envelope"></i></span><a href="mailto:youngsportingclub2009@gmail.com" style="color:var(--gr);word-break:break-all">youngsportingclub2009@gmail.com</a></li></ul></div>
-        </div>
-        <div class="ftbot">
-            <p data-en="© 2026 Young Sporting Club. All rights reserved." data-bn="© ২০২৬ ইয়ং স্পোর্টিং ক্লাব। সর্বস্বত্ব সংরক্ষিত।">© 2026 Young Sporting Club. All rights reserved.</p>
-            <p class="dev" onclick="window.location.href='developer.html'">
-                <span data-en="Developed by Farabi Walid" data-bn="তৈরি করেছেন ফারাবি ওয়ালিদ">Developed by Farabi Walid</span>
-            </p>
-        </div>
+    <div class="container"><div class="ftgr"><div><div class="ftlogo"><div class="ftlogo-img"><img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/60x60/FE2C55/FFFFFF?text=YSC'"></div><div class="ftlogo-text"><span class="name" id="clubNameFooter"><span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB</span><span class="est" id="estDateFooter" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span></div></div><p class="ftdesc" id="footerDescription" data-en="A community-based youth organization in West Shingrauli, Shamshernagar, Moulvibazar since 2009." data-bn="২০০৯ সাল থেকে পশ্চিম শিংরাউলী, শমশেরনগর, মৌলভীবাজারে একটি সমাজভিত্তিক যুব সংগঠন।">A community-based youth organization in West Shingrauli, Shamshernagar, Moulvibazar since 2009.</p><div class="slnks"><a href="https://www.facebook.com/youngsportingclubofficial" target="_blank" class="sa fb"><i class="fab fa-facebook-f"></i></a><a href="https://www.facebook.com/groups/youngsportingclub" target="_blank" class="sa fb"><i class="fab fa-facebook"></i></a><a href="https://www.youtube.com/@youngsportingclub" target="_blank" class="sa yt"><i class="fab fa-youtube"></i></a><a href="https://www.instagram.com/youngsportingclubofficial/" target="_blank" class="sa ig"><i class="fab fa-instagram"></i></a><a href="mailto:youngsportingclub2009@gmail.com" class="sa em"><i class="fas fa-envelope"></i></a></div></div>
+        <div class="fcol"><h4 data-en="Quick Links" data-bn="দ্রুত লিংক">Quick Links</h4><ul><li><a href="index.html" data-en="Home" data-bn="হোম">Home</a></li><li><a href="about.html" data-en="About" data-bn="সম্পর্কে">About</a></li><li><a href="members.html" data-en="Members" data-bn="সদস্য">Members</a></li><li><a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a></li></ul></div>
+        <div class="fcol"><h4 data-en="Our Sports" data-bn="আমাদের খেলা">Our Sports</h4><ul><li><a href="#" data-en="⚽ Football" data-bn="⚽ ফুটবল">⚽ Football</a></li><li><a href="#" data-en="🏏 Cricket" data-bn="🏏 ক্রিকেট">🏏 Cricket</a></li><li><a href="#" data-en="🏸 Badminton" data-bn="🏸 ব্যাডমিন্টন">🏸 Badminton</a></li><li><a href="#" data-en="🎭 Cultural Events" data-bn="🎭 সাংস্কৃতিক অনুষ্ঠান">🎭 Cultural Events</a></li></ul></div>
+        <div class="fcol"><h4 data-en="Contact" data-bn="যোগাযোগ">Contact</h4><ul class="ci2"><li><span class="ico"><i class="fas fa-map-marker-alt"></i></span><span id="footerLocation" data-en="West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet" data-bn="পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট">West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet</span></li><li><span class="ico"><i class="fas fa-phone"></i></span><a href="tel:+8801737355553" style="color:var(--gr)">+880 1737-355553</a></li><li><span class="ico"><i class="fas fa-envelope"></i></span><a href="mailto:youngsportingclub2009@gmail.com" style="color:var(--gr);word-break:break-all">youngsportingclub2009@gmail.com</a></li></ul></div></div>
+        <div class="ftbot"><p data-en="© 2026 Young Sporting Club. All rights reserved." data-bn="© ২০২৬ ইয়ং স্পোর্টিং ক্লাব। সর্বস্বত্ব সংরক্ষিত।">© 2026 Young Sporting Club. All rights reserved.</p><p class="dev" onclick="window.location.href='developer.html'"><span id="devName" data-en="Developed by Farabi Walid" data-bn="তৈরি করেছেন ফারাবি ওয়ালিদ">Developed by Farabi Walid</span></p></div>
     </div>
 </footer>
 
@@ -402,225 +299,24 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:60px 0 25px}
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",
-    authDomain: "youngsportingclub.firebaseapp.com",
-    databaseURL: "https://youngsportingclub-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "youngsportingclub",
-    storageBucket: "youngsportingclub.firebasestorage.app",
-    messagingSenderId: "724732761340",
-    appId: "1:724732761340:web:dc664c10d55d5bb87cb379"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-onAuthStateChanged(auth, (user) => {
-    const btn = document.getElementById('nav-login-btn');
-    if (!btn) return;
-    const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    if (user) {
-        const initial = (user.displayName || user.email || 'U')[0].toUpperCase();
-        btn.innerHTML = `<span style="display:inline-flex;align-items:center;gap:7px;background:rgba(254,44,85,.12);border:1px solid rgba(254,44,85,.3);padding:5px 12px 5px 5px;border-radius:50px;font-size:12px;font-weight:700"><span style="width:26px;height:26px;background:linear-gradient(135deg,#FE2C55,#25F4EE);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#010101;font-family:'Bebas Neue',sans-serif;font-size:15px">${initial}</span>${lang === 'bn' ? 'লগআউট' : 'Logout'}</span>`;
-        btn.onclick = async (e) => { e.preventDefault(); await signOut(auth); window.location.reload(); };
-    } else {
-        btn.innerHTML = lang === 'bn' ? 'লগইন' : 'Login';
-        btn.href = 'login.html';
-        btn.onclick = null;
-    }
-});
-
-function updateVisitorCount() {
-    let count = localStorage.getItem('ysc_visitors');
-    if (!count) { count = Math.floor(Math.random() * 500) + 1500; localStorage.setItem('ysc_visitors', count); }
-    else { count = parseInt(count) + 1; localStorage.setItem('ysc_visitors', count); }
-    const visitorEl = document.getElementById('visitorCount');
-    if (visitorEl) visitorEl.textContent = count.toLocaleString();
-}
-
-function updateDates() {
-    const now = new Date();
-    document.getElementById('dateEn').textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    document.getElementById('dateBn').textContent = now.toLocaleDateString('bn-BD', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    document.getElementById('dateAr').textContent = now.toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-}
-
-function showWelcomeToast() {
-    const toast = document.getElementById('toast');
-    const msgEl = document.getElementById('toastMsg');
-    const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    const messages = {
-        en: '📞 Get in touch with Young Sporting Club. We\'ll respond within 24-48 hours.',
-        bn: '📞 ইয়ং স্পোর্টিং ক্লাবের সাথে যোগাযোগ করুন। আমরা ২৪-৪৮ ঘণ্টার মধ্যে উত্তর দেব।'
-    };
-    msgEl.textContent = messages[lang] || messages.en;
-    setTimeout(() => toast.classList.add('show'), 500);
-    setTimeout(() => toast.classList.remove('show'), 5000);
-}
-
-function closeToast() { document.getElementById('toast').classList.remove('show'); }
-
-const EMAILJS_PUBLIC_KEY = '3zACi9KwFInZnKO9s';
-const EMAILJS_SERVICE_ID = 'service_a2g6hd7';
-const EMAILJS_TEMPLATE_ID = 'template_74k28gd';
-
-const contactForm = document.getElementById('cform');
-const okMsg = document.getElementById('cok-msg');
-const errMsg = document.getElementById('cerr-msg');
-const submitBtn = document.getElementById('csubBtn');
-
-function showMessage(element, text, type) {
-    if (element) {
-        element.innerHTML = `<i class="fas fa-${type === 'ok' ? 'check-circle' : 'exclamation-circle'}"></i> ${text}`;
-        element.className = 'msg msg-' + type + ' show';
-        setTimeout(() => element.classList.remove('show'), 5000);
-    }
-}
-
-function hideMessage(element) { if (element) element.className = 'msg'; }
-
-if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const lang = document.documentElement.getAttribute('data-lang') || 'en';
-        const name = document.getElementById('cname')?.value.trim() || '';
-        const email = document.getElementById('cemail')?.value.trim() || '';
-        const subject = document.getElementById('csubject')?.value.trim() || '';
-        const message = document.getElementById('cmsg')?.value.trim() || '';
-        const phone = document.getElementById('cphone')?.value.trim() || '';
-        
-        hideMessage(okMsg);
-        hideMessage(errMsg);
-        
-        if (!name || !email || !subject || !message) {
-            showMessage(errMsg, lang === 'bn' ? '⚠ প্রয়োজনীয় সকল তথ্য পূরণ করুন।' : '⚠ Please fill in all required fields.', 'err');
-            return;
-        }
-        
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            showMessage(errMsg, lang === 'bn' ? '⚠ বৈধ ইমেইল ঠিকানা দিন।' : '⚠ Please enter a valid email address.', 'err');
-            return;
-        }
-        
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> <span>${lang === 'bn' ? 'পাঠানো হচ্ছে…' : 'Sending…'}</span>`;
-        
-        try {
-            if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== 'YOUR_EMAILJS_PUBLIC_KEY') {
-                emailjs.init(EMAILJS_PUBLIC_KEY);
-                await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-                    from_name: name,
-                    from_email: email,
-                    subject: subject,
-                    message: message,
-                    phone: phone,
-                    to_email: 'youngsportingclub2009@gmail.com'
-                });
-                showMessage(okMsg, lang === 'bn' ? '✓ বার্তা সফলভাবে পাঠানো হয়েছে! আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।' : '✓ Message sent successfully! We\'ll get back to you soon.', 'ok');
-                contactForm.reset();
-            } else {
-                const mailtoLink = `mailto:youngsportingclub2009@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\n\n' + message)}`;
-                window.location.href = mailtoLink;
-                showMessage(okMsg, lang === 'bn' ? '✓ আপনার ইমেইল অ্যাপ খুলে গেছে। বার্তাটি পাঠান।' : '✓ Your email app has opened. Please send the message.', 'ok');
-                contactForm.reset();
-            }
-        } catch (error) {
-            console.error('EmailJS error:', error);
-            showMessage(errMsg, lang === 'bn' ? '⚠ বার্তা পাঠাতে ব্যর্থ হয়েছে। পরে আবার চেষ্টা করুন।' : '⚠ Failed to send message. Please try again later.', 'err');
-        }
-        
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = `<i class="fas fa-paper-plane"></i> <span>${lang === 'bn' ? 'বার্তা পাঠান' : 'Send Message'}</span>`;
-    });
-}
-
-AOS.init({ duration: 700, once: true, offset: 55 });
-
-window.addEventListener('load', () => {
-    setTimeout(() => document.getElementById('ldr').classList.add('hid'), 500);
-    updateVisitorCount();
-    updateDates();
-    showWelcomeToast();
-});
-
-setInterval(updateDates, 60000);
-
-window.addEventListener('scroll', () => {
-    document.getElementById('hdr').classList.toggle('sc', window.scrollY > 28);
-});
-
-const hbgBtn = document.getElementById('hbg');
-const mobileMenu = document.getElementById('mob');
-if (hbgBtn && mobileMenu) {
-    hbgBtn.addEventListener('click', () => {
-        hbgBtn.classList.toggle('op');
-        mobileMenu.classList.toggle('op');
-    });
-}
-
-window.closeToast = closeToast;
+const firebaseConfig={apiKey:"AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",authDomain:"youngsportingclub.firebaseapp.com",databaseURL:"https://youngsportingclub-default-rtdb.asia-southeast1.firebasedatabase.app",projectId:"youngsportingclub",storageBucket:"youngsportingclub.firebasestorage.app",messagingSenderId:"724732761340",appId:"1:724732761340:web:dc664c10d55d5bb87cb379"};
+const app=initializeApp(firebaseConfig);const auth=getAuth(app);
+onAuthStateChanged(auth,(user)=>{const btn=document.getElementById('nav-login-btn');if(!btn)return;const lang=document.documentElement.getAttribute('data-lang')||'en';if(user){const initial=(user.displayName||user.email||'U')[0].toUpperCase();btn.innerHTML=`<span style="display:inline-flex;align-items:center;gap:7px;background:rgba(254,44,85,.12);border:1px solid rgba(254,44,85,.3);padding:5px 12px 5px 5px;border-radius:50px;font-size:12px;font-weight:700"><span style="width:26px;height:26px;background:linear-gradient(135deg,#FE2C55,#25F4EE);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#010101;font-family:'Bebas Neue',sans-serif;font-size:15px">${initial}</span>${lang==='bn'?'লগআউট':'Logout'}</span>`;btn.onclick=async(e)=>{e.preventDefault();await signOut(auth);window.location.reload();};}else{btn.innerHTML=lang==='bn'?'লগইন':'Login';btn.href='login.html';btn.onclick=null;}});
+function updateVisitorCount(){let count=localStorage.getItem('ysc_visitors');if(!count){count=Math.floor(Math.random()*500)+1500;localStorage.setItem('ysc_visitors',count);}else{count=parseInt(count)+1;localStorage.setItem('ysc_visitors',count);}const visitorEl=document.getElementById('visitorCount');if(visitorEl)visitorEl.textContent=count.toLocaleString();}
+function updateDates(){const now=new Date();document.getElementById('dateEn').textContent=now.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});document.getElementById('dateBn').textContent=now.toLocaleDateString('bn-BD',{weekday:'long',year:'numeric',month:'long',day:'numeric'});document.getElementById('dateAr').textContent=now.toLocaleDateString('ar-SA',{weekday:'long',year:'numeric',month:'long',day:'numeric'});}
+function showWelcomeToast(){const toast=document.getElementById('toast');const msgEl=document.getElementById('toastMsg');const lang=document.documentElement.getAttribute('data-lang')||'en';const messages={en:'📞 Get in touch with Young Sporting Club. We\'ll respond within 24-48 hours.',bn:'📞 ইয়ং স্পোর্টিং ক্লাবের সাথে যোগাযোগ করুন। আমরা ২৪-৪৮ ঘণ্টার মধ্যে উত্তর দেব।'};msgEl.textContent=messages[lang]||messages.en;setTimeout(()=>toast.classList.add('show'),500);setTimeout(()=>toast.classList.remove('show'),5000);}
+function closeToast(){document.getElementById('toast').classList.remove('show');}
+const EMAILJS_PUBLIC_KEY='3zACi9KwFInZnKO9s',EMAILJS_SERVICE_ID='service_a2g6hd7',EMAILJS_TEMPLATE_ID='template_74k28gd';
+const contactForm=document.getElementById('cform'),okMsg=document.getElementById('cok-msg'),errMsg=document.getElementById('cerr-msg'),submitBtn=document.getElementById('csubBtn');
+function showMessage(element,text,type){if(element){element.innerHTML=`<i class="fas fa-${type==='ok'?'check-circle':'exclamation-circle'}"></i> ${text}`;element.className='msg msg-'+type+' show';setTimeout(()=>element.classList.remove('show'),5000);}}
+function hideMessage(element){if(element)element.className='msg';}
+if(contactForm){contactForm.addEventListener('submit',async function(e){e.preventDefault();const lang=document.documentElement.getAttribute('data-lang')||'en';const name=document.getElementById('cname')?.value.trim()||'';const email=document.getElementById('cemail')?.value.trim()||'';const subject=document.getElementById('csubject')?.value.trim()||'';const message=document.getElementById('cmsg')?.value.trim()||'';const phone=document.getElementById('cphone')?.value.trim()||'';hideMessage(okMsg);hideMessage(errMsg);if(!name||!email||!subject||!message){showMessage(errMsg,lang==='bn'?'⚠ প্রয়োজনীয় সকল তথ্য পূরণ করুন।':'⚠ Please fill in all required fields.','err');return;}const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;if(!emailRegex.test(email)){showMessage(errMsg,lang==='bn'?'⚠ বৈধ ইমেইল ঠিকানা দিন।':'⚠ Please enter a valid email address.','err');return;}submitBtn.disabled=true;submitBtn.innerHTML=`<i class="fas fa-spinner fa-spin"></i> <span>${lang==='bn'?'পাঠানো হচ্ছে…':'Sending…'}</span>`;try{if(typeof emailjs!=='undefined'&&EMAILJS_PUBLIC_KEY&&EMAILJS_PUBLIC_KEY!=='YOUR_EMAILJS_PUBLIC_KEY'){emailjs.init(EMAILJS_PUBLIC_KEY);await emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{from_name:name,from_email:email,subject:subject,message:message,phone:phone,to_email:'youngsportingclub2009@gmail.com'});showMessage(okMsg,lang==='bn'?'✓ বার্তা সফলভাবে পাঠানো হয়েছে! আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।':'✓ Message sent successfully! We\'ll get back to you soon.','ok');contactForm.reset();}else{const mailtoLink=`mailto:youngsportingclub2009@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('Name: '+name+'\nEmail: '+email+'\nPhone: '+phone+'\n\n'+message)}`;window.location.href=mailtoLink;showMessage(okMsg,lang==='bn'?'✓ আপনার ইমেইল অ্যাপ খুলে গেছে। বার্তাটি পাঠান।':'✓ Your email app has opened. Please send the message.','ok');contactForm.reset();}}catch(error){console.error('EmailJS error:',error);showMessage(errMsg,lang==='bn'?'⚠ বার্তা পাঠাতে ব্যর্থ হয়েছে। পরে আবার চেষ্টা করুন।':'⚠ Failed to send message. Please try again later.','err');}submitBtn.disabled=false;submitBtn.innerHTML=`<i class="fas fa-paper-plane"></i> <span>${lang==='bn'?'বার্তা পাঠান':'Send Message'}</span>`;});}
+AOS.init({duration:700,once:true,offset:55});window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('ldr').classList.add('hid'),500);updateVisitorCount();updateDates();showWelcomeToast();});setInterval(updateDates,60000);window.addEventListener('scroll',()=>{document.getElementById('hdr').classList.toggle('sc',window.scrollY>28);});const hbgBtn=document.getElementById('hbg'),mobileMenu=document.getElementById('mob');if(hbgBtn&&mobileMenu){hbgBtn.addEventListener('click',()=>{hbgBtn.classList.toggle('op');mobileMenu.classList.toggle('op');});}window.closeToast=closeToast;
 </script>
-
 <script>
-let currentLang = (function() { try { return localStorage.getItem('ysc-lang') || 'en'; } catch(e) { return 'en'; } })();
-
-function setLang(lang) {
-    currentLang = lang;
-    try { localStorage.setItem('ysc-lang', lang); } catch(e) {}
-    
-    document.documentElement.setAttribute('data-lang', lang);
-    document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
-    
-    document.querySelectorAll('[data-en]').forEach(el => {
-        const value = el.getAttribute('data-' + lang);
-        if (value !== null) {
-            if (value.includes('<')) el.innerHTML = value;
-            else el.textContent = value;
-        }
-    });
-    
-    document.querySelectorAll('.lb').forEach(btn => {
-        btn.classList.remove('on');
-        if ((lang === 'en' && btn.textContent.trim() === 'EN') || 
-            (lang === 'bn' && btn.textContent.trim() === 'বাং')) {
-            btn.classList.add('on');
-        }
-    });
-    
-    const placeholders = [
-        ['cname', lang === 'bn' ? 'পুরো নাম' : 'Full name'],
-        ['cphone', lang === 'bn' ? '+৮৮০ ১XXX-XXXXXX' : '+880 1XXX-XXXXXX'],
-        ['cemail', lang === 'bn' ? 'আপনার@ইমেইল.কম' : 'your@email.com'],
-        ['csubject', lang === 'bn' ? 'এটি কি বিষয়ে?' : 'What is this about?'],
-        ['cmsg', lang === 'bn' ? 'এখানে আপনার বার্তা লিখুন…' : 'Write your message here…']
-    ];
-    
-    placeholders.forEach(([id, text]) => {
-        const el = document.getElementById(id);
-        if (el) el.placeholder = text;
-    });
-    
-    // Fix developer name in footer
-    const devSpan = document.querySelector('.dev span');
-    if (devSpan) {
-        if (lang === 'bn') {
-            devSpan.textContent = 'তৈরি করেছেন ফারাবি ওয়ালিদ';
-        } else {
-            devSpan.textContent = 'Developed by Farabi Walid';
-        }
-    }
-    
-    const toastMsg = document.getElementById('toastMsg');
-    if (toastMsg && document.getElementById('toast').classList.contains('show')) {
-        toastMsg.textContent = lang === 'bn' ? 
-            '📞 ইয়ং স্পোর্টিং ক্লাবের সাথে যোগাযোগ করুন। আমরা ২৪-৪৮ ঘণ্টার মধ্যে উত্তর দেব।' : 
-            '📞 Get in touch with Young Sporting Club. We\'ll respond within 24-48 hours.';
-    }
-}
-
-document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
+let currentLang=(function(){try{return localStorage.getItem('ysc-lang')||'en';}catch(e){return 'en';}})();
+function setLang(lang){currentLang=lang;try{localStorage.setItem('ysc-lang',lang);}catch(e){}document.documentElement.setAttribute('data-lang',lang);document.documentElement.lang=lang==='bn'?'bn':'en';document.querySelectorAll('[data-en]').forEach(el=>{const value=el.getAttribute('data-'+lang);if(value!==null){if(value.includes('<'))el.innerHTML=value;else el.textContent=value;}});document.querySelectorAll('.lb').forEach(btn=>{btn.classList.remove('on');if((lang==='en'&&btn.textContent.trim()==='EN')||(lang==='bn'&&btn.textContent.trim()==='বাং'))btn.classList.add('on');});const clubNameHeader=document.getElementById('clubNameHeader');const clubNameFooter=document.getElementById('clubNameFooter');if(clubNameHeader)clubNameHeader.innerHTML=lang==='en'?'<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB':'<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব';if(clubNameFooter)clubNameFooter.innerHTML=lang==='en'?'<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB':'<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব';const devNameSpan=document.getElementById('devName');if(devNameSpan)devNameSpan.textContent=lang==='bn'?'তৈরি করেছেন ফারাবি ওয়ালিদ':'Developed by Farabi Walid';const placeholders=[['cname',lang==='bn'?'পুরো 이름':'Full name'],['cphone',lang==='bn'?'+৮৮০ ১XXX-XXXXXX':'+880 1XXX-XXXXXX'],['cemail',lang==='bn'?'আপনার@ইমেইল.কম':'your@email.com'],['csubject',lang==='bn'?'এটি কি বিষয়ে?':'What is this about?'],['cmsg',lang==='bn'?'এখানে আপনার বার্তা লিখুন…':'Write your message here…']];placeholders.forEach(([id,text])=>{const el=document.getElementById(id);if(el)el.placeholder=text;});const toastMsg=document.getElementById('toastMsg');if(toastMsg&&document.getElementById('toast').classList.contains('show')){toastMsg.textContent=lang==='bn'?'📞 ইয়ং স্পোর্টিং ক্লাবের সাথে যোগাযোগ করুন। আমরা ২৪-৪৮ ঘণ্টার মধ্যে উত্তর দেব।':'📞 Get in touch with Young Sporting Club. We\'ll respond within 24-48 hours.';}}
+document.addEventListener('DOMContentLoaded',()=>setLang(currentLang));
 </script>
 </body>
 </html>
