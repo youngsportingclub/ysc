@@ -104,13 +104,8 @@ ul{list-style:none}
 .fg select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center;cursor:pointer}
 .fg select option{background:var(--card)}
 .fg textarea{resize:vertical;min-height:100px}
-.image-upload{background:var(--card);border-radius:var(--r);padding:20px;margin-bottom:20px;text-align:center;border:1px dashed var(--bp)}
-.image-upload .upload-preview{width:100px;height:100px;border-radius:50%;margin:0 auto 15px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden;border:2px solid var(--pink)}
-.image-upload .upload-preview img{width:100%;height:100%;object-fit:cover}
-.image-upload .upload-preview i{font-size:40px;color:var(--gr)}
-.image-upload input{display:none}
-.image-upload .upload-btn{background:rgba(254,44,85,.1);border:1px solid var(--bp);padding:8px 16px;border-radius:50px;font-size:12px;cursor:pointer;transition:var(--tr)}
-.image-upload .upload-btn:hover{background:var(--pink);color:#fff}
+.image-url-section{background:rgba(37,244,238,.05);border-radius:var(--r);padding:18px;margin-bottom:20px;border:1px solid var(--bc)}
+.image-url-section .help-text{font-size:11px;color:var(--gr);margin-top:8px;line-height:1.5}
 .fact{display:flex;gap:15px;justify-content:flex-end;margin-top:15px;padding-top:25px;border-top:1px solid rgba(255,255,255,.08)}
 .msg{padding:13px 18px;border-radius:var(--r);font-size:13px;font-weight:500;margin-bottom:20px;display:none;align-items:center;gap:10px}
 .msg.show{display:flex;animation:fadein .3s}
@@ -273,16 +268,20 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
             <div class="msg msg-ok" id="okMsg"></div>
             <div class="msg msg-err" id="errMsg"></div>
 
-            <!-- Image Upload -->
-            <div class="image-upload">
-                <div class="upload-preview" id="uploadPreview">
-                    <i class="fas fa-camera"></i>
+            <!-- Image URL Input Section -->
+            <div class="image-url-section">
+                <label style="font-size:12px;font-weight:700;text-transform:uppercase;margin-bottom:8px;display:block" data-en="Profile Photo URL" data-bn="প্রোফাইল ছবির লিংক">Profile Photo URL <span style="color:var(--gr);font-weight:400">(optional)</span></label>
+                <input type="url" id="photoUrl" placeholder="https://raw.githubusercontent.com/youngsportingclub/ysc/main/images/member-name.jpg" style="width:100%;background:var(--bg);border:1px solid rgba(255,255,255,.12);color:var(--wh);padding:13px 18px;border-radius:var(--r);font-size:14px">
+                <div class="help-text">
+                    <i class="fas fa-info-circle"></i> 
+                    <span data-en="Upload photo to GitHub (ysc/images/ folder) and paste the raw URL here." data-bn="গিটহাবে (ysc/images/ ফোল্ডারে) ছবি আপলোড করে এর র লিংক এখানে দিন।">
+                        Upload photo to GitHub (ysc/images/ folder) and paste the raw URL here.
+                    </span>
+                    <br>
+                    <span data-en="Example: https://raw.githubusercontent.com/youngsportingclub/ysc/main/images/rahim.jpg" data-bn="উদাহরণ: https://raw.githubusercontent.com/youngsportingclub/ysc/main/images/rahim.jpg">
+                        Example: https://raw.githubusercontent.com/youngsportingclub/ysc/main/images/rahim.jpg
+                    </span>
                 </div>
-                <input type="file" id="memberPhoto" accept="image/*">
-                <div class="upload-btn" onclick="document.getElementById('memberPhoto').click()">
-                    <i class="fas fa-upload"></i> <span data-en="Upload Photo" data-bn="ছবি আপলোড">Upload Photo</span>
-                </div>
-                <p style="font-size:10px;color:var(--gr);margin-top:8px" data-en="Optional. Max 2MB" data-bn="ঐচ্ছিক। সর্বোচ্চ ২ এমবি">Optional. Max 2MB</p>
             </div>
 
             <!-- Add Member Form -->
@@ -361,7 +360,6 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",
@@ -376,7 +374,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-const storage = getStorage(app);
 
 // Language data
 const langData = {
@@ -398,25 +395,7 @@ const okMsg = document.getElementById('okMsg');
 const errMsg = document.getElementById('errMsg');
 const subBtn = document.getElementById('subBtn');
 const resetBtn = document.getElementById('resetBtn');
-const photoInput = document.getElementById('memberPhoto');
-const uploadPreview = document.getElementById('uploadPreview');
-
-let selectedPhoto = null;
-let photoURL = null;
-
-// Preview photo when selected
-photoInput.addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (file) {
-        selectedPhoto = file;
-        const reader = new FileReader();
-        reader.onload = (event) => {
-            uploadPreview.innerHTML = `<img src="${event.target.result}" alt="Preview">`;
-        };
-        reader.readAsDataURL(file);
-        updatePreview();
-    }
-});
+const photoUrlInput = document.getElementById('photoUrl');
 
 // ==================== AUTHENTICATION ====================
 onAuthStateChanged(auth, (user) => {
@@ -450,10 +429,7 @@ function hideMessage(element) { if (element) element.className = 'msg'; }
 if (resetBtn) {
     resetBtn.addEventListener('click', () => {
         document.getElementById('addForm').reset();
-        photoInput.value = '';
-        uploadPreview.innerHTML = '<i class="fas fa-camera"></i>';
-        selectedPhoto = null;
-        photoURL = null;
+        photoUrlInput.value = '';
         hideMessage(okMsg);
         hideMessage(errMsg);
         updatePreview();
@@ -471,6 +447,7 @@ document.getElementById('addForm').addEventListener('submit', async (e) => {
     const joinDate = document.getElementById('fjoinDate').value;
     const address = document.getElementById('faddr').value.trim();
     const bio = document.getElementById('fbio').value.trim();
+    const photoURL = photoUrlInput.value.trim() || null;
     
     if (!name || !position || !joinDate || !address) {
         showMessage(errMsg, lang === 'bn' ? '⚠ সকল প্রয়োজনীয় ক্ষেত্র পূরণ করুন।' : '⚠ Please fill in all required fields.', 'err');
@@ -481,20 +458,13 @@ document.getElementById('addForm').addEventListener('submit', async (e) => {
     subBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${lang === 'bn' ? 'যোগ হচ্ছে…' : 'Adding…'}`;
     
     try {
-        let imageUrl = null;
-        if (selectedPhoto) {
-            const storageRef = ref(storage, `member_photos/${Date.now()}_${selectedPhoto.name}`);
-            await uploadBytes(storageRef, selectedPhoto);
-            imageUrl = await getDownloadURL(storageRef);
-        }
-        
         await addDoc(collection(db, 'members'), {
             name,
             position,
             joinDate,
             address,
             bio: bio || '',
-            photoURL: imageUrl,
+            photoURL: photoURL,
             addedAt: serverTimestamp()
         });
         
@@ -502,9 +472,7 @@ document.getElementById('addForm').addEventListener('submit', async (e) => {
             '✓ সদস্য সফলভাবে যোগ হয়েছে! <a href="members.html" style="color:var(--cyan);text-decoration:underline">সকল সদস্য দেখুন →</a>' : 
             '✓ Member added successfully! <a href="members.html" style="color:var(--cyan);text-decoration:underline">View all members →</a>', 'ok');
         document.getElementById('addForm').reset();
-        photoInput.value = '';
-        uploadPreview.innerHTML = '<i class="fas fa-camera"></i>';
-        selectedPhoto = null;
+        photoUrlInput.value = '';
         updatePreview();
         
     } catch (error) {
@@ -520,6 +488,7 @@ document.getElementById('addForm').addEventListener('submit', async (e) => {
 function updatePreview() {
     const name = document.getElementById('fname').value.trim();
     const position = document.getElementById('fpos').value;
+    const photoUrl = photoUrlInput.value.trim();
     const previewDiv = document.getElementById('memberPreview');
     const previewName = document.getElementById('previewName');
     const previewPos = document.getElementById('previewPos');
@@ -536,12 +505,8 @@ function updatePreview() {
         const lang = document.documentElement.getAttribute('data-lang') || 'en';
         previewPos.textContent = lang === 'bn' ? (posMap[position] || position) : position;
         
-        if (selectedPhoto) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                previewAvatar.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
-            };
-            reader.readAsDataURL(selectedPhoto);
+        if (photoUrl) {
+            previewAvatar.innerHTML = `<img src="${photoUrl}" alt="${name}" onerror="this.onerror=null; this.parentElement.innerHTML='${name ? name.charAt(0).toUpperCase() : '👤'}'">`;
         } else {
             previewAvatar.innerHTML = name ? name.charAt(0).toUpperCase() : '👤';
         }
@@ -549,6 +514,9 @@ function updatePreview() {
         previewDiv.classList.remove('show');
     }
 }
+
+// Add event listener for photo URL input
+photoUrlInput.addEventListener('input', updatePreview);
 
 // ==================== VISITOR COUNTER ====================
 function updateVisitorCount() {
