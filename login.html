@@ -8,14 +8,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 :root{
-    --bg:#010101;
-    --card:#111;
-    --card2:#161616;
+    --bg:#0a0a0f;
+    --card:#111117;
+    --card2:#16161f;
     --pink:#FE2C55;
     --cyan:#25F4EE;
-    --wh:#fff;
-    --gr:#888;
-    --lt:#ccc;
+    --gold:#FFD700;
+    --wh:#ffffff;
+    --gr:#aaaaaa;
+    --lt:#dddddd;
     --bp:rgba(254,44,85,.25);
     --bc:rgba(37,244,238,.22);
     --gp:0 0 22px rgba(254,44,85,.5);
@@ -38,23 +39,23 @@ h1,h2,h3{font-family:'Bebas Neue',sans-serif;letter-spacing:1.5px;line-height:1.
 a{text-decoration:none;color:inherit}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:linear-gradient(var(--pink),var(--cyan));border-radius:3px}
 
-/* LANGUAGE SWITCHER */
-.lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:3px}
+.lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:3px}
 .lb{padding:5px 13px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:var(--tr);background:none;border:none;color:var(--gr)}
 .lb.on{background:linear-gradient(135deg,var(--pink),var(--cyan));color:#010101}
 
-/* TOP NAV BAR */
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.05);background:rgba(1,1,1,.85);backdrop-filter:blur(18px);position:fixed;top:0;left:0;right:0;z-index:100}
-.logo{display:flex;align-items:center;gap:11px}
-.li{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#010101;box-shadow:var(--gdual)}
-.lt{display:flex;flex-direction:column;line-height:1}
-.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.05);background:rgba(10,10,15,.85);backdrop-filter:blur(18px);position:fixed;top:0;left:0;right:0;z-index:100}
+.logo{display:flex;align-items:center;gap:16px}
+.logo-img{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:2px}
+.logo-img img{width:100%;height:100%;border-radius:12px;object-fit:cover}
+.lt{display:flex;flex-direction:column;line-height:1.2}
+.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px}
+.lt .n1 .gold-letter{color:var(--gold)}
+[data-lang="bn"] .lt .n1{font-family:'Hind Siliguri',sans-serif;font-size:18px;letter-spacing:0}
 .lt .n2{font-size:10px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
 .topbar-r{display:flex;align-items:center;gap:12px}
 .back-btn{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--gr);transition:var(--tr);padding:7px 14px;border-radius:50px;border:1px solid rgba(255,255,255,.1)}
 .back-btn:hover{color:var(--cyan);border-color:var(--bc)}
 
-/* BG EFFECTS */
 .login-bg{position:fixed;inset:0;background:radial-gradient(ellipse 70% 55% at 70% 45%,rgba(254,44,85,.09),transparent 65%),radial-gradient(ellipse 50% 45% at 20% 65%,rgba(37,244,238,.06),transparent 60%),var(--bg);z-index:0}
 .login-grid{position:fixed;inset:0;background-image:linear-gradient(rgba(254,44,85,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(37,244,238,.035) 1px,transparent 1px);background-size:55px 55px;z-index:0}
 .sport-bg{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
@@ -67,32 +68,21 @@ a{text-decoration:none;color:inherit}
 .sb:nth-child(5){left:78%;font-size:34px;animation-duration:20s;animation-delay:2s}
 .sb:nth-child(6){left:90%;font-size:38px;animation-duration:13s;animation-delay:7s}
 
-/* MAIN WRAPPER */
 .login-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:100px 22px 40px;position:relative;z-index:2}
 .login-box{width:100%;max-width:440px}
-
-/* CARD */
-.lcard{background:rgba(17,17,17,.96);border:1px solid rgba(255,255,255,.08);border-radius:24px;overflow:hidden;box-shadow:0 8px 48px rgba(0,0,0,.5),0 0 0 1px rgba(254,44,85,.1);backdrop-filter:blur(20px)}
-
-/* TAB HEADER */
+.lcard{background:rgba(17,17,23,.96);border:1px solid rgba(255,255,255,.08);border-radius:24px;overflow:hidden;box-shadow:0 8px 48px rgba(0,0,0,.5),0 0 0 1px rgba(254,44,85,.1);backdrop-filter:blur(20px)}
 .ltabs{display:flex;background:rgba(0,0,0,.5);border-bottom:1px solid rgba(255,255,255,.05)}
 .ltab{flex:1;padding:16px;text-align:center;font-size:13px;font-weight:700;cursor:pointer;transition:var(--tr);color:var(--gr);letter-spacing:.3px;border-bottom:3px solid transparent}
 .ltab.on{color:var(--wh);border-bottom-color:var(--pink);background:linear-gradient(180deg,rgba(254,44,85,.05),transparent)}
 .ltab:hover:not(.on){color:var(--lt);background:rgba(255,255,255,.02)}
-
-/* FORM AREA */
 .lpanel{padding:32px 32px 28px;display:none}
 .lpanel.on{display:block;animation:fadeIn .4s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-
-/* LOGO CENTER */
 .lcenter{text-align:center;margin-bottom:26px}
 .lbadge{width:70px;height:70px;border-radius:20px;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:26px;color:#010101;margin:0 auto 14px;box-shadow:var(--gdual);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(254,44,85,.4)}50%{transform:scale(1.02);box-shadow:0 0 0 8px rgba(254,44,85,.1)}}
 .lcenter h2{font-size:28px;margin-bottom:4px;background:linear-gradient(135deg,#fff,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .lcenter p{font-size:12.5px;color:var(--gr)}
-
-/* FIELD */
 .fg{margin-bottom:18px}
 .fg label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gr);margin-bottom:7px}
 .finput{position:relative}
@@ -103,84 +93,58 @@ a{text-decoration:none;color:inherit}
 .finput .fic{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--gr);font-size:16px}
 .finput .pshow{position:absolute;right:15px;top:50%;transform:translateY(-50%);color:var(--gr);font-size:15px;cursor:pointer;transition:var(--tr)}
 .finput .pshow:hover{color:var(--cyan)}
-
-/* MSG */
 .msg{padding:12px 16px;border-radius:var(--r);font-size:12.5px;font-weight:500;margin-bottom:16px;display:none;align-items:center;gap:10px}
 .msg.show{display:flex;animation:slideDown .3s}
 @keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 .msg-ok{background:rgba(37,244,238,.1);border:1px solid var(--bc);color:var(--cyan)}
 .msg-err{background:rgba(255,71,87,.1);border:1px solid rgba(255,71,87,.3);color:var(--danger)}
 .msg i{margin-right:5px}
-
-/* SUBMIT BTN */
 .lbtn{width:100%;padding:14px;border-radius:50px;background:linear-gradient(135deg,var(--pink),#b0001a);color:#fff;font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;border:none;cursor:pointer;transition:var(--tr);text-transform:uppercase;letter-spacing:.5px;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:8px}
 .lbtn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(254,44,85,.55)}
 .lbtn:disabled{opacity:.6;transform:none;cursor:not-allowed}
 .lbtn-reg{background:linear-gradient(135deg,var(--cyan),#00adaa);color:#010101}
 .lbtn-reg:hover{box-shadow:0 8px 28px rgba(37,244,238,.55)}
-
-/* GOOGLE BTN */
 .gbtn{width:100%;padding:12px;border-radius:50px;background:rgba(255,255,255,.04);color:var(--wh);font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;border:1px solid rgba(255,255,255,.12);cursor:pointer;transition:var(--tr);display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px}
 .gbtn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25);transform:translateY(-1px)}
 .gdot{width:18px;height:18px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23FFC107' d='M43.6 20H24v8h11.3C33.6 33 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c2.9 0 5.6 1.1 7.7 2.9l5.7-5.7C33.9 6.7 29.2 5 24 5 12.9 5 4 13.9 4 25s8.9 20 20 20c11.4 0 20-8.2 20-20 0-1.3-.1-2.7-.4-4z'/%3E%3Cpath fill='%23FF3D00' d='M6.3 14.7l6.6 4.8C14.5 15 18.9 12 24 12c2.9 0 5.6 1.1 7.7 2.9l5.7-5.7C33.9 6.7 29.2 5 24 5c-7.6 0-14.2 3.9-17.7 9.7z'/%3E%3Cpath fill='%234CAF50' d='M24 45c5.2 0 9.9-1.8 13.5-4.7l-6.2-5.2C29.3 36.9 26.8 38 24 38c-5.3 0-9.6-3-11.3-7.5l-6.6 5.1C9.8 41.1 16.4 45 24 45z'/%3E%3Cpath fill='%231976D2' d='M43.6 20H24v8h11.3c-.9 2.6-2.7 4.7-5 6l6.2 5.2C40.7 35.4 44 30.6 44 25c0-1.3-.1-2.7-.4-5z'/%3E%3C/svg%3E") center/contain no-repeat;display:inline-block}
-
-/* FORGOT */
 .forgot{text-align:right;margin-bottom:16px}
 .forgot a{font-size:12px;color:var(--cyan);transition:var(--tr);cursor:pointer}
 .forgot a:hover{color:var(--pink);text-decoration:underline}
-
-/* DIVIDER */
 .or{display:flex;align-items:center;gap:12px;margin:20px 0;color:var(--gr);font-size:11px;text-transform:uppercase;letter-spacing:1px}
 .or::before,.or::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08)}
-
-/* FOOTER NOTE */
 .lnote{text-align:center;font-size:12px;color:var(--gr);margin-top:18px;padding:0 4px}
 .lnote a{color:var(--pink);cursor:pointer;font-weight:600}
 .lnote a:hover{text-decoration:underline}
-
-/* TRIPLE DATE BAR */
-.date-bar{background:rgba(0,0,0,.5);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);border-radius:50px;padding:8px 22px;margin:20px auto;display:inline-flex;flex-wrap:wrap;gap:12px;justify-content:center;font-size:11px;font-weight:500}
+.date-bar{background:rgba(0,0,0,.6);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:60px;padding:10px 28px;margin:25px auto;display:inline-flex;flex-wrap:wrap;gap:18px;justify-content:center;font-size:12px;font-weight:500}
 .date-item{display:flex;align-items:center;gap:8px;color:var(--lt)}
-.date-item i{color:var(--cyan);font-size:11px}
-
-/* Floating WhatsApp Button */
+.date-item i{color:var(--cyan);font-size:12px}
 .whatsapp-float{position:fixed;bottom:25px;right:25px;z-index:999;background:var(--whatsapp);width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:var(--tr);cursor:pointer}
 .whatsapp-float:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.6)}
 .whatsapp-float i{font-size:30px;color:#fff}
-
-/* Toast Notification */
 .toast{position:fixed;bottom:100px;right:25px;background:var(--card2);border-left:4px solid var(--pink);border-radius:12px;padding:12px 18px;font-size:13px;z-index:998;transform:translateX(120%);transition:transform .4s ease;max-width:280px;box-shadow:0 8px 28px rgba(0,0,0,.3)}
 .toast.show{transform:translateX(0)}
 .toast .toast-title{font-weight:700;margin-bottom:4px;color:var(--pink)}
 .toast .toast-close{position:absolute;top:8px;right:12px;cursor:pointer;font-size:14px;color:var(--gr)}
-
-/* Loader */
 .ldr{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s,visibility .5s;flex-direction:column;gap:16px}
 .ldr.hid{opacity:0;visibility:hidden;pointer-events:none}
 .lring{width:50px;height:50px;border:3px solid rgba(254,44,85,.2);border-top-color:var(--pink);border-right-color:var(--cyan);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .ltxt{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:4px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-
-/* Visitor Counter */
-.visitor-badge{position:fixed;bottom:20px;left:20px;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);border-radius:30px;padding:6px 14px;font-size:11px;color:var(--gr);z-index:998;display:flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.1)}
-.visitor-badge i{color:var(--cyan);font-size:10px}
-
-/* Footer */
-.site-footer{background:#050505;border-top:1px solid var(--bp);padding:30px 0 20px;margin-top:auto}
+.visitor-badge{position:fixed;bottom:20px;left:20px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border-radius:40px;padding:7px 16px;font-size:11px;color:var(--gr);z-index:998;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15)}
+.visitor-badge i{color:var(--cyan);font-size:11px}
+.site-footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:30px 0 20px;margin-top:auto}
 .footer-container{max-width:1200px;margin:0 auto;padding:0 22px}
 .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .footer-bottom p{color:var(--gr);font-size:12px}
 .developer-link{color:var(--pink);cursor:pointer;transition:var(--tr);font-weight:600}
 .developer-link:hover{color:var(--cyan);text-decoration:underline}
 .social-footer{display:flex;gap:12px}
-.social-icon{width:36px;height:36px;border-radius:10px;background:var(--card2);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:var(--gr);font-size:16px;transition:var(--tr)}
+.social-icon{width:40px;height:40px;border-radius:12px;background:var(--card2);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:var(--gr);font-size:18px;transition:var(--tr)}
 .social-icon:hover{transform:translateY(-2px)}
 .social-icon.fb:hover{background:var(--facebook);color:#fff}
 .social-icon.yt:hover{background:var(--youtube);color:#fff}
 .social-icon.ig:hover{background:var(--instagram);color:#fff}
 .social-icon.em:hover{background:var(--pink);color:#fff}
-
-/* RESPONSIVE */
 @media(max-width:700px){
     .topbar{padding:10px 16px}
     .back-btn span{display:none}
@@ -192,6 +156,8 @@ a{text-decoration:none;color:inherit}
     .visitor-badge{bottom:16px;left:16px;padding:5px 12px}
     .date-bar{flex-direction:column;align-items:center;gap:6px;border-radius:24px;padding:8px 18px}
     .footer-bottom{flex-direction:column;text-align:center}
+    .logo-img{width:44px;height:44px}
+    .lt .n1{font-size:16px}
 }
 @media(max-width:480px){
     .lbadge{width:60px;height:60px;font-size:22px}
@@ -203,30 +169,27 @@ a{text-decoration:none;color:inherit}
 
 <div class="ldr" id="ldr"><div class="lring"></div><div class="ltxt">YSC</div></div>
 
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/8801737355553?text=Assalamu%20Alaikum%2C%20I%20need%20help%20with%20login" target="_blank" class="whatsapp-float" id="whatsappBtn">
-    <i class="fab fa-whatsapp"></i>
-</a>
+<a href="https://wa.me/8801737355553?text=Assalamu%20Alaikum%2C%20I%20need%20help%20with%20login" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
-<!-- Visitor Counter Badge -->
 <div class="visitor-badge" id="visitorBadge">
     <i class="fas fa-eye"></i>
     <span id="visitorCount">0</span>
     <span data-en="visitors" data-bn="দর্শক">visitors</span>
 </div>
 
-<!-- Toast Notification -->
 <div class="toast" id="toast">
     <div class="toast-close" onclick="closeToast()">&times;</div>
     <div class="toast-title">🔐 Welcome Back!</div>
     <div id="toastMsg">Login to manage Young Sporting Club</div>
 </div>
 
-<!-- TOP NAV -->
 <div class="topbar">
     <a href="index.html" class="logo">
-        <div class="li">YSC</div>
-        <div class="lt"><span class="n1">YOUNG SPORTING</span><span class="n2" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span></div>
+        <div class="logo-img"><img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/52x52/FE2C55/FFFFFF?text=YSC'"></div>
+        <div class="lt">
+            <span class="n1" id="clubNameHeader"><span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB</span>
+            <span class="n2" id="estDateHeader" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span>
+        </div>
     </a>
     <div class="topbar-r">
         <div class="lang-sw"><button class="lb on" onclick="setLang('en')">EN</button><button class="lb" onclick="setLang('bn')">বাং</button></div>
@@ -234,7 +197,6 @@ a{text-decoration:none;color:inherit}
     </div>
 </div>
 
-<!-- TRIPLE DATE BAR -->
 <div style="text-align:center;padding-top:85px;position:relative;z-index:2">
     <div class="date-bar">
         <div class="date-item"><i class="fas fa-calendar-alt"></i><span id="dateEn">Loading...</span></div>
@@ -243,17 +205,13 @@ a{text-decoration:none;color:inherit}
     </div>
 </div>
 
-<!-- LOGIN BOX -->
 <div class="login-wrap">
     <div class="login-box">
         <div class="lcard">
-            <!-- TABS -->
             <div class="ltabs">
                 <div class="ltab on" id="tabLogin" onclick="switchTab('login')" data-en="Sign In" data-bn="সাইন ইন">Sign In</div>
                 <div class="ltab" id="tabReg" onclick="switchTab('register')" data-en="Register" data-bn="নিবন্ধন">Register</div>
             </div>
-
-            <!-- LOGIN PANEL -->
             <div class="lpanel on" id="panelLogin">
                 <div class="lcenter">
                     <div class="lbadge">YSC</div>
@@ -276,8 +234,6 @@ a{text-decoration:none;color:inherit}
                 <button class="gbtn" onclick="doGoogle()"><span class="gdot"></span><span data-en="Continue with Google" data-bn="গুগল দিয়ে চালিয়ে যান">Continue with Google</span></button>
                 <div class="lnote"><span data-en="Don't have an account?" data-bn="অ্যাকাউন্ট নেই?">Don't have an account?</span> <a href="#" onclick="switchTab('register')" data-en="Register here" data-bn="এখানে নিবন্ধন করুন">Register here</a></div>
             </div>
-
-            <!-- REGISTER PANEL -->
             <div class="lpanel" id="panelReg">
                 <div class="lcenter">
                     <div class="lbadge" style="background:linear-gradient(135deg,var(--cyan),#00adaa)">YSC</div>
@@ -304,27 +260,25 @@ a{text-decoration:none;color:inherit}
                 <div class="lnote"><span data-en="Already have an account?" data-bn="ইতিমধ্যে অ্যাকাউন্ট আছে?">Already have an account?</span> <a href="#" onclick="switchTab('login')" data-en="Sign in here" data-bn="এখানে সাইন ইন করুন">Sign in here</a></div>
             </div>
         </div>
-
-        <!-- FOOTER NOTE -->
         <p style="text-align:center;color:var(--gr);font-size:11.5px;margin-top:20px">
             <span data-en="Young Sporting Club · Est. 13 January 2009" data-bn="ইয়ং স্পোর্টিং ক্লাব · প্রতিষ্ঠা: ১৩ জানুয়ারি ২০০৯">Young Sporting Club · Est. 13 January 2009</span><br>
-            <span style="font-size:10.5px" data-en="Shingrahully, Shamsher Nagar, Moulvibazar" data-bn="শিংড়াউলী, শমশেরনগর, মৌলভীবাজার">Shingrahully, Shamsher Nagar, Moulvibazar</span>
+            <span style="font-size:10.5px" data-en="West Shingrauli, Shamshernagar, Moulvibazar" data-bn="পশ্চিম শিংরাউলী, শমশেরনগর, মৌলভীবাজার">West Shingrauli, Shamshernagar, Moulvibazar</span>
         </p>
     </div>
 </div>
 
-<!-- Footer -->
 <footer class="site-footer">
     <div class="footer-container">
         <div class="footer-bottom">
             <p>© 2026 Young Sporting Club. All rights reserved.</p>
             <div class="social-footer">
-                <a href="https://www.facebook.com/youngsportingclub" target="_blank" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/youngsportingclubofficial" target="_blank" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/groups/youngsportingclub" target="_blank" class="social-icon fb"><i class="fab fa-facebook"></i></a>
                 <a href="https://www.youtube.com/@youngsportingclub" target="_blank" class="social-icon yt"><i class="fab fa-youtube"></i></a>
                 <a href="https://www.instagram.com/youngsportingclubofficial/" target="_blank" class="social-icon ig"><i class="fab fa-instagram"></i></a>
                 <a href="mailto:youngsportingclub2009@gmail.com" class="social-icon em"><i class="fas fa-envelope"></i></a>
             </div>
-            <p><span class="developer-link" onclick="window.location.href='developer.html'">Developed by Farabi Walid</span></p>
+            <p><span class="developer-link" onclick="window.location.href='developer.html'"><span id="devName" data-en="Developed by Farabi Walid" data-bn="তৈরি করেছেন ফারাবি ওয়ালিদ">Developed by Farabi Walid</span></span></p>
         </div>
     </div>
 </footer>
@@ -347,42 +301,15 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-// Hide loader
-window.addEventListener('load', () => {
-    setTimeout(() => document.getElementById('ldr').classList.add('hid'), 500);
-    updateVisitorCount();
-    showWelcomeToast();
-});
+window.addEventListener('load', () => { setTimeout(() => document.getElementById('ldr').classList.add('hid'), 500); updateVisitorCount(); showWelcomeToast(); });
 
-// Redirect if already logged in
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        localStorage.setItem('ysc_user', user.displayName || user.email);
-        setTimeout(() => window.location.href = 'index.html', 500);
-    }
-});
+onAuthStateChanged(auth, (user) => { if (user) { localStorage.setItem('ysc_user', user.displayName || user.email); setTimeout(() => window.location.href = 'index.html', 500); } });
 
-// Language helper
-function getLang() {
-    return document.documentElement.getAttribute('data-lang') || 'en';
-}
+function getLang() { return document.documentElement.getAttribute('data-lang') || 'en'; }
 
-// Show message
-function showMsg(id, text, type) {
-    const el = document.getElementById(id);
-    if (el) {
-        el.innerHTML = `<i class="fas fa-${type === 'ok' ? 'check-circle' : 'exclamation-circle'}"></i> ${text}`;
-        el.className = 'msg msg-' + type + ' show';
-        setTimeout(() => el.classList.remove('show'), 5000);
-    }
-}
+function showMsg(id, text, type) { const el = document.getElementById(id); if (el) { el.innerHTML = `<i class="fas fa-${type === 'ok' ? 'check-circle' : 'exclamation-circle'}"></i> ${text}`; el.className = 'msg msg-' + type + ' show'; setTimeout(() => el.classList.remove('show'), 5000); } }
+function hideMsg(id) { const el = document.getElementById(id); if (el) el.className = 'msg'; }
 
-function hideMsg(id) {
-    const el = document.getElementById(id);
-    if (el) el.className = 'msg';
-}
-
-// Error message mapping
 function getErrorMessage(code, lang) {
     const messages = {
         'auth/user-not-found': { en: 'No account found with this email.', bn: 'এই ইমেইলে কোনো অ্যাকাউন্ট নেই।' },
@@ -397,7 +324,6 @@ function getErrorMessage(code, lang) {
     return msg ? (lang === 'bn' ? msg.bn : msg.en) : (lang === 'bn' ? '⚠ কিছু সমস্যা হয়েছে।' : '⚠ Something went wrong.');
 }
 
-// Tab switching
 window.switchTab = function(tab) {
     document.getElementById('panelLogin').className = 'lpanel' + (tab === 'login' ? ' on' : '');
     document.getElementById('panelReg').className = 'lpanel' + (tab === 'register' ? ' on' : '');
@@ -405,226 +331,76 @@ window.switchTab = function(tab) {
     document.getElementById('tabReg').className = 'ltab' + (tab === 'register' ? ' on' : '');
 };
 
-// Toggle password visibility
-window.togglePw = function(id, icon) {
-    const el = document.getElementById(id);
-    if (el) {
-        if (el.type === 'password') {
-            el.type = 'text';
-            icon.classList.replace('fa-eye', 'fa-eye-slash');
-        } else {
-            el.type = 'password';
-            icon.classList.replace('fa-eye-slash', 'fa-eye');
-        }
-    }
-};
+window.togglePw = function(id, icon) { const el = document.getElementById(id); if (el) { if (el.type === 'password') { el.type = 'text'; icon.classList.replace('fa-eye', 'fa-eye-slash'); } else { el.type = 'password'; icon.classList.replace('fa-eye-slash', 'fa-eye'); } } };
 
-// Login function
 window.doLogin = async function() {
     const email = document.getElementById('lemail').value.trim();
     const pass = document.getElementById('lpass').value;
     const lang = getLang();
-    
-    if (!email || !pass) {
-        showMsg('lerr-msg', lang === 'bn' ? '⚠ সকল তথ্য পূরণ করুন।' : '⚠ Please fill in all fields.', 'err');
-        return;
-    }
-    
+    if (!email || !pass) { showMsg('lerr-msg', lang === 'bn' ? '⚠ সকল তথ্য পূরণ করুন।' : '⚠ Please fill in all fields.', 'err'); return; }
     hideMsg('lerr-msg');
-    
     const btn = document.getElementById('loginBtn');
     btn.disabled = true;
     btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${lang === 'bn' ? 'সাইন ইন হচ্ছে…' : 'Signing in…'}`;
-    
-    try {
-        await signInWithEmailAndPassword(auth, email, pass);
-        showMsg('lok-msg', lang === 'bn' ? '✓ সফলভাবে সাইন ইন হয়েছে! ড্যাশবোর্ডে যাচ্ছে…' : '✓ Signed in! Redirecting…', 'ok');
-    } catch (error) {
-        showMsg('lerr-msg', getErrorMessage(error.code, lang), 'err');
-    } finally {
-        btn.disabled = false;
-        btn.innerHTML = `<i class="fas fa-sign-in-alt"></i> <span>${lang === 'bn' ? 'সাইন ইন' : 'Sign In'}</span>`;
-    }
+    try { await signInWithEmailAndPassword(auth, email, pass); showMsg('lok-msg', lang === 'bn' ? '✓ সফলভাবে সাইন ইন হয়েছে! ড্যাশবোর্ডে যাচ্ছে…' : '✓ Signed in! Redirecting…', 'ok'); }
+    catch (error) { showMsg('lerr-msg', getErrorMessage(error.code, lang), 'err'); }
+    finally { btn.disabled = false; btn.innerHTML = `<i class="fas fa-sign-in-alt"></i> <span>${lang === 'bn' ? 'সাইন ইন' : 'Sign In'}</span>`; }
 };
 
-// Register function
 window.doRegister = async function() {
     const name = document.getElementById('rname').value.trim();
     const email = document.getElementById('remail').value.trim();
     const pass = document.getElementById('rpass').value;
     const lang = getLang();
-    
-    if (!name || !email || !pass) {
-        showMsg('rerr-msg', lang === 'bn' ? '⚠ সকল তথ্য পূরণ করুন।' : '⚠ Please fill in all fields.', 'err');
-        return;
-    }
-    
-    if (pass.length < 6) {
-        showMsg('rerr-msg', lang === 'bn' ? '⚠ পাসওয়ার্ড কমপক্ষে ৬ অক্ষর হতে হবে।' : '⚠ Password must be at least 6 characters.', 'err');
-        return;
-    }
-    
+    if (!name || !email || !pass) { showMsg('rerr-msg', lang === 'bn' ? '⚠ সকল তথ্য পূরণ করুন।' : '⚠ Please fill in all fields.', 'err'); return; }
+    if (pass.length < 6) { showMsg('rerr-msg', lang === 'bn' ? '⚠ পাসওয়ার্ড কমপক্ষে ৬ অক্ষর হতে হবে।' : '⚠ Password must be at least 6 characters.', 'err'); return; }
     hideMsg('rerr-msg');
-    
     const btn = document.getElementById('regBtn');
     btn.disabled = true;
     btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${lang === 'bn' ? 'তৈরি হচ্ছে…' : 'Creating…'}`;
-    
-    try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, pass);
-        await updateProfile(userCredential.user, { displayName: name });
-        showMsg('rok-msg', lang === 'bn' ? '✓ অ্যাকাউন্ট তৈরি হয়েছে! ড্যাশবোর্ডে যাচ্ছে…' : '✓ Account created! Redirecting…', 'ok');
-    } catch (error) {
-        showMsg('rerr-msg', getErrorMessage(error.code, lang), 'err');
-    } finally {
-        btn.disabled = false;
-        btn.innerHTML = `<i class="fas fa-user-plus"></i> <span>${lang === 'bn' ? 'অ্যাকাউন্ট তৈরি করুন' : 'Create Account'}</span>`;
-    }
+    try { const userCredential = await createUserWithEmailAndPassword(auth, email, pass); await updateProfile(userCredential.user, { displayName: name }); showMsg('rok-msg', lang === 'bn' ? '✓ অ্যাকাউন্ট তৈরি হয়েছে! ড্যাশবোর্ডে যাচ্ছে…' : '✓ Account created! Redirecting…', 'ok'); }
+    catch (error) { showMsg('rerr-msg', getErrorMessage(error.code, lang), 'err'); }
+    finally { btn.disabled = false; btn.innerHTML = `<i class="fas fa-user-plus"></i> <span>${lang === 'bn' ? 'অ্যাকাউন্ট তৈরি করুন' : 'Create Account'}</span>`; }
 };
 
-// Google login
-window.doGoogle = async function() {
-    const lang = getLang();
-    try {
-        await signInWithPopup(auth, provider);
-    } catch (error) {
-        if (error.code !== 'auth/popup-closed-by-user') {
-            showMsg('lerr-msg', getErrorMessage(error.code, lang), 'err');
-        }
-    }
-};
+window.doGoogle = async function() { const lang = getLang(); try { await signInWithPopup(auth, provider); } catch (error) { if (error.code !== 'auth/popup-closed-by-user') { showMsg('lerr-msg', getErrorMessage(error.code, lang), 'err'); } } };
 
-// Forgot password
 window.forgotPw = async function(e) {
     e.preventDefault();
     const email = document.getElementById('lemail').value.trim();
     const lang = getLang();
-    
-    if (!email) {
-        showMsg('lerr-msg', lang === 'bn' ? '⚠ প্রথমে ইমেইল লিখুন।' : '⚠ Enter your email address first.', 'err');
-        return;
-    }
-    
-    try {
-        await sendPasswordResetEmail(auth, email);
-        showMsg('lok-msg', lang === 'bn' ? '✓ পাসওয়ার্ড রিসেট লিংক পাঠানো হয়েছে। ইমেইল চেক করুন।' : '✓ Password reset link sent. Check your email.', 'ok');
-    } catch (error) {
-        showMsg('lerr-msg', getErrorMessage(error.code, lang), 'err');
-    }
+    if (!email) { showMsg('lerr-msg', lang === 'bn' ? '⚠ প্রথমে ইমেইল লিখুন।' : '⚠ Enter your email address first.', 'err'); return; }
+    try { await sendPasswordResetEmail(auth, email); showMsg('lok-msg', lang === 'bn' ? '✓ পাসওয়ার্ড রিসেট লিংক পাঠানো হয়েছে। ইমেইল চেক করুন।' : '✓ Password reset link sent. Check your email.', 'ok'); }
+    catch (error) { showMsg('lerr-msg', getErrorMessage(error.code, lang), 'err'); }
 };
 
-// ==================== VISITOR COUNTER ====================
-function updateVisitorCount() {
-    let count = localStorage.getItem('ysc_visitors');
-    if (!count) {
-        count = Math.floor(Math.random() * 500) + 1500;
-        localStorage.setItem('ysc_visitors', count);
-    } else {
-        count = parseInt(count) + 1;
-        localStorage.setItem('ysc_visitors', count);
-    }
-    const visitorEl = document.getElementById('visitorCount');
-    if (visitorEl) visitorEl.textContent = count.toLocaleString();
-}
-
-// ==================== TRIPLE DATE ====================
-function updateDates() {
-    const now = new Date();
-    document.getElementById('dateEn').textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    document.getElementById('dateBn').textContent = now.toLocaleDateString('bn-BD', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    document.getElementById('dateAr').textContent = now.toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-}
-updateDates();
-setInterval(updateDates, 60000);
-
-// ==================== TOAST NOTIFICATION ====================
-function showWelcomeToast() {
-    const toast = document.getElementById('toast');
-    const msgEl = document.getElementById('toastMsg');
-    const lang = getLang();
-    const messages = {
-        en: '🔐 Login to access your dashboard and manage club members.',
-        bn: '🔐 আপনার ড্যাশবোর্ড অ্যাক্সেস করতে এবং ক্লাব সদস্যদের পরিচালনা করতে লগইন করুন।'
-    };
-    msgEl.textContent = messages[lang] || messages.en;
-    setTimeout(() => toast.classList.add('show'), 500);
-    setTimeout(() => toast.classList.remove('show'), 5000);
-}
-
-function closeToast() {
-    document.getElementById('toast').classList.remove('show');
-}
+function updateVisitorCount() { let count = localStorage.getItem('ysc_visitors'); if (!count) { count = Math.floor(Math.random() * 500) + 1500; localStorage.setItem('ysc_visitors', count); } else { count = parseInt(count) + 1; localStorage.setItem('ysc_visitors', count); } const visitorEl = document.getElementById('visitorCount'); if (visitorEl) visitorEl.textContent = count.toLocaleString(); }
+function updateDates() { const now = new Date(); document.getElementById('dateEn').textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); document.getElementById('dateBn').textContent = now.toLocaleDateString('bn-BD', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); document.getElementById('dateAr').textContent = now.toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); }
+updateDates(); setInterval(updateDates, 60000);
+function showWelcomeToast() { const toast = document.getElementById('toast'); const msgEl = document.getElementById('toastMsg'); const lang = getLang(); const messages = { en: '🔐 Login to access your dashboard and manage club members.', bn: '🔐 আপনার ড্যাশবোর্ড অ্যাক্সেস করতে এবং ক্লাব সদস্যদের পরিচালনা করতে লগইন করুন।' }; msgEl.textContent = messages[lang] || messages.en; setTimeout(() => toast.classList.add('show'), 500); setTimeout(() => toast.classList.remove('show'), 5000); }
+function closeToast() { document.getElementById('toast').classList.remove('show'); }
 </script>
 
 <script>
-// ==================== LANGUAGE SWITCHER ====================
-let currentLang = (function() {
-    try {
-        return localStorage.getItem('ysc-lang') || 'en';
-    } catch(e) {
-        return 'en';
-    }
-})();
+let currentLang = (function() { try { return localStorage.getItem('ysc-lang') || 'en'; } catch(e) { return 'en'; } })();
 
 function setLang(lang) {
     currentLang = lang;
-    try {
-        localStorage.setItem('ysc-lang', lang);
-    } catch(e) {}
-    
+    try { localStorage.setItem('ysc-lang', lang); } catch(e) {}
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
-    
-    document.querySelectorAll('[data-en]').forEach(el => {
-        const value = el.getAttribute('data-' + lang);
-        if (value === null) return;
-        if (value.includes('<')) {
-            el.innerHTML = value;
-        } else {
-            el.textContent = value;
-        }
-    });
-    
-    document.querySelectorAll('.lb').forEach(btn => {
-        btn.classList.remove('on');
-        if ((lang === 'en' && btn.textContent.trim() === 'EN') || 
-            (lang === 'bn' && btn.textContent.trim() === 'বাং')) {
-            btn.classList.add('on');
-        }
-    });
-    
-    // Update placeholders
-    const placeholderMap = [
-        ['lemail', { en: 'your@email.com', bn: 'আপনার@ইমেইল.কম' }],
-        ['lpass', { en: 'Enter your password', bn: 'পাসওয়ার্ড লিখুন' }],
-        ['rname', { en: 'Your full name', bn: 'আপনার পুরো নাম' }],
-        ['remail', { en: 'your@email.com', bn: 'আপনার@ইমেইল.কম' }],
-        ['rpass', { en: 'Min 6 characters', bn: 'সর্বনিম্ন ৬ অক্ষর' }]
-    ];
-    
-    placeholderMap.forEach(([id, texts]) => {
-        const el = document.getElementById(id);
-        if (el) el.placeholder = texts[lang] || texts.en;
-    });
-    
-    // Update developer name in footer
-    const devLink = document.querySelector('.developer-link');
-    if (devLink) {
-        devLink.textContent = lang === 'bn' ? 'তৈরি করেছেন ফারাবি ওয়ালিদ' : 'Developed by Farabi Walid';
-    }
-    
-    // Update toast message
+    document.querySelectorAll('[data-en]').forEach(el => { const value = el.getAttribute('data-' + lang); if (value !== null) { if (value.includes('<')) el.innerHTML = value; else el.textContent = value; } });
+    document.querySelectorAll('.lb').forEach(btn => { btn.classList.remove('on'); if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on'); });
+    const clubNameHeader = document.getElementById('clubNameHeader');
+    if (clubNameHeader) clubNameHeader.innerHTML = lang === 'en' ? '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB' : '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব';
+    const devNameSpan = document.getElementById('devName');
+    if (devNameSpan) devNameSpan.textContent = lang === 'bn' ? 'তৈরি করেছেন ফারাবি ওয়ালিদ' : 'Developed by Farabi Walid';
+    const placeholders = [['lemail', lang === 'bn' ? 'আপনার@ইমেইল.কম' : 'your@email.com'], ['lpass', lang === 'bn' ? 'পাসওয়ার্ড লিখুন' : 'Enter your password'], ['rname', lang === 'bn' ? 'আপনার পুরো নাম' : 'Your full name'], ['remail', lang === 'bn' ? 'আপনার@ইমেইল.কম' : 'your@email.com'], ['rpass', lang === 'bn' ? 'সর্বনিম্ন ৬ অক্ষর' : 'Min 6 characters']];
+    placeholders.forEach(([id, text]) => { const el = document.getElementById(id); if (el) el.placeholder = text; });
     const toastMsg = document.getElementById('toastMsg');
-    if (toastMsg && document.getElementById('toast').classList.contains('show')) {
-        toastMsg.textContent = lang === 'bn' ? 
-            '🔐 আপনার ড্যাশবোর্ড অ্যাক্সেস করতে এবং ক্লাব সদস্যদের পরিচালনা করতে লগইন করুন।' : 
-            '🔐 Login to access your dashboard and manage club members.';
-    }
+    if (toastMsg && document.getElementById('toast').classList.contains('show')) { toastMsg.textContent = lang === 'bn' ? '🔐 আপনার ড্যাশবোর্ড অ্যাক্সেস করতে এবং ক্লাব সদস্যদের পরিচালনা করতে লগইন করুন।' : '🔐 Login to access your dashboard and manage club members.'; }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    setLang(currentLang);
-});
+document.addEventListener('DOMContentLoaded', () => { setLang(currentLang); });
 </script>
 </body>
 </html>
