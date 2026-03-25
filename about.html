@@ -66,6 +66,7 @@ ul{list-style:none}
 .lt{display:flex;flex-direction:column;line-height:1.2}
 .lt .n1{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px}
 .lt .n1 .gold-letter{color:var(--gold);text-shadow:0 0 5px rgba(255,215,0,.3)}
+/* বাংলা ভাষায় হেডারের নামের জন্য স্টাইল */
 [data-lang="bn"] .lt .n1{font-family:'Hind Siliguri',sans-serif;font-size:26px;letter-spacing:0}
 .lt .n2{font-size:11px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
 .nl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -146,7 +147,8 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 .ftlogo-text{display:flex;flex-direction:column}
 .ftlogo-text .name{font-family:'Bebas Neue',sans-serif;font-size:24px}
 .ftlogo-text .name .gold-letter{color:var(--gold);text-shadow:0 0 5px rgba(255,215,0,.3)}
-[data-lang="bn"] .ftlogo-text .name{font-family:'Hind Siliguri',sans-serif;font-size:22px}
+/* বাংলা ভাষায় ফুটারের নামের জন্য স্টাইল */
+[data-lang="bn"] .ftlogo-text .name{font-family:'Hind Siliguri',sans-serif;font-size:22px;letter-spacing:0}
 .ftlogo-text .est{font-size:10px;color:var(--gr);margin-top:2px}
 .ftdesc{color:var(--gr);font-size:13px;line-height:1.85;margin:15px 0 25px}
 .slnks{display:flex;gap:12px;flex-wrap:wrap}
@@ -463,7 +465,76 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Language data - MATCHING INDEX.HTML STRUCTURE
+function updateVisitorCount() {
+    let count = localStorage.getItem('ysc_visitors');
+    if (!count) { count = Math.floor(Math.random() * 500) + 1500; localStorage.setItem('ysc_visitors', count); }
+    else { count = parseInt(count) + 1; localStorage.setItem('ysc_visitors', count); }
+    const visitorEl = document.getElementById('visitorCount');
+    if (visitorEl) visitorEl.textContent = count.toLocaleString();
+}
+
+function updateDates() {
+    const now = new Date();
+    const dateEn = document.getElementById('dateEn');
+    const dateBn = document.getElementById('dateBn');
+    const dateAr = document.getElementById('dateAr');
+    if (dateEn) dateEn.textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    if (dateBn) dateBn.textContent = now.toLocaleDateString('bn-BD', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    if (dateAr) dateAr.textContent = now.toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+function showWelcomeToast() {
+    const toast = document.getElementById('toast');
+    const msgEl = document.getElementById('toastMsg');
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    if (msgEl) msgEl.textContent = lang === 'bn' ? '📖 ইয়ং স্পোর্টিং ক্লাবের ইতিহাস ও লক্ষ্য সম্পর্কে জানুন।' : '📖 Learn about Young Sporting Club\'s history and mission.';
+    setTimeout(() => { if (toast) toast.classList.add('show'); }, 500);
+    setTimeout(() => { if (toast) toast.classList.remove('show'); }, 5000);
+}
+
+function closeToast() { const toast = document.getElementById('toast'); if (toast) toast.classList.remove('show'); }
+
+AOS.init({ duration: 700, once: true, offset: 55 });
+
+window.addEventListener('load', () => {
+    setTimeout(() => { const ldr = document.getElementById('ldr'); if (ldr) ldr.classList.add('hid'); }, 500);
+    updateVisitorCount();
+    updateDates();
+    showWelcomeToast();
+});
+
+setInterval(updateDates, 60000);
+window.addEventListener('scroll', () => { const hdr = document.getElementById('hdr'); if (hdr) hdr.classList.toggle('sc', window.scrollY > 28); });
+
+const hbgBtn = document.getElementById('hbg'), mobileMenu = document.getElementById('mob');
+if (hbgBtn && mobileMenu) {
+    hbgBtn.addEventListener('click', () => { hbgBtn.classList.toggle('op'); mobileMenu.classList.toggle('op'); });
+    document.querySelectorAll('.mob a').forEach(a => {
+        a.addEventListener('click', () => { hbgBtn.classList.remove('op'); mobileMenu.classList.remove('op'); });
+    });
+}
+
+onAuthStateChanged(auth, (user) => {
+    const btn = document.getElementById('nav-login-btn');
+    if (!btn) return;
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    if (user) {
+        const initial = (user.displayName || user.email || 'U')[0].toUpperCase();
+        btn.innerHTML = `<span style="display:inline-flex;align-items:center;gap:7px;background:rgba(254,44,85,.12);border:1px solid rgba(254,44,85,.3);padding:5px 12px 5px 5px;border-radius:50px;font-size:12px;font-weight:700"><span style="width:26px;height:26px;background:linear-gradient(135deg,#FE2C55,#25F4EE);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#010101;font-family:'Bebas Neue',sans-serif;font-size:15px">${initial}</span>${lang === 'bn' ? 'লগআউট' : 'Logout'}</span>`;
+        btn.onclick = async (e) => { e.preventDefault(); await signOut(auth); window.location.reload(); };
+        btn.href = 'javascript:void(0)';
+    } else {
+        btn.innerHTML = lang === 'bn' ? 'লগইন' : 'Login';
+        btn.href = 'login.html';
+        btn.onclick = null;
+    }
+});
+
+window.closeToast = closeToast;
+</script>
+
+<script>
+// ভাষা ডাটা - index.html এর সাথে মিল রেখে
 const langData = {
     en: {
         clubNameHeader: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
@@ -481,67 +552,10 @@ const langData = {
     }
 };
 
-function updateVisitorCount() {
-    let count = localStorage.getItem('ysc_visitors');
-    if (!count) { count = Math.floor(Math.random() * 500) + 1500; localStorage.setItem('ysc_visitors', count); }
-    else { count = parseInt(count) + 1; localStorage.setItem('ysc_visitors', count); }
-    const visitorEl = document.getElementById('visitorCount');
-    if (visitorEl) visitorEl.textContent = count.toLocaleString();
-}
-
-function updateDates() {
-    const now = new Date();
-    document.getElementById('dateEn').textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    document.getElementById('dateBn').textContent = now.toLocaleDateString('bn-BD', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    document.getElementById('dateAr').textContent = now.toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-}
-
-function showWelcomeToast() {
-    const toast = document.getElementById('toast');
-    const msgEl = document.getElementById('toastMsg');
-    const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    msgEl.textContent = lang === 'bn' ? '📖 ইয়ং স্পোর্টিং ক্লাবের ইতিহাস ও লক্ষ্য সম্পর্কে জানুন।' : '📖 Learn about Young Sporting Club\'s history and mission.';
-    setTimeout(() => toast.classList.add('show'), 500);
-    setTimeout(() => toast.classList.remove('show'), 5000);
-}
-
-function closeToast() { document.getElementById('toast').classList.remove('show'); }
-
-AOS.init({ duration: 700, once: true, offset: 55 });
-
-window.addEventListener('load', () => {
-    setTimeout(() => document.getElementById('ldr').classList.add('hid'), 500);
-    updateVisitorCount();
-    updateDates();
-    showWelcomeToast();
-});
-
-setInterval(updateDates, 60000);
-window.addEventListener('scroll', () => document.getElementById('hdr').classList.toggle('sc', window.scrollY > 28));
-
-const hbgBtn = document.getElementById('hbg'), mobileMenu = document.getElementById('mob');
-if (hbgBtn && mobileMenu) hbgBtn.addEventListener('click', () => { hbgBtn.classList.toggle('op'); mobileMenu.classList.toggle('op'); });
-
-onAuthStateChanged(auth, (user) => {
-    const btn = document.getElementById('nav-login-btn');
-    if (!btn) return;
-    const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    if (user) {
-        const initial = (user.displayName || user.email || 'U')[0].toUpperCase();
-        btn.innerHTML = `<span style="display:inline-flex;align-items:center;gap:7px;background:rgba(254,44,85,.12);border:1px solid rgba(254,44,85,.3);padding:5px 12px 5px 5px;border-radius:50px;font-size:12px;font-weight:700"><span style="width:26px;height:26px;background:linear-gradient(135deg,#FE2C55,#25F4EE);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#010101;font-family:'Bebas Neue',sans-serif;font-size:15px">${initial}</span>${lang === 'bn' ? 'লগআউট' : 'Logout'}</span>`;
-        btn.onclick = async (e) => { e.preventDefault(); await signOut(auth); window.location.reload(); };
-    } else {
-        btn.innerHTML = lang === 'bn' ? 'লগইন' : 'Login';
-        btn.href = 'login.html';
-        btn.onclick = null;
-    }
-});
-
-window.closeToast = closeToast;
-</script>
-
-<script>
-let currentLang = (function() { try { return localStorage.getItem('ysc-lang') || 'en'; } catch(e) { return 'en'; } })();
+let currentLang = (function() { 
+    try { return localStorage.getItem('ysc-lang') || 'en'; } 
+    catch(e) { return 'en'; } 
+})();
 
 function setLang(lang) {
     currentLang = lang;
@@ -549,7 +563,7 @@ function setLang(lang) {
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
     
-    // Update all data-en/data-bn elements
+    // সকল data-en/data-bn এলিমেন্ট আপডেট করুন
     document.querySelectorAll('[data-en]').forEach(el => {
         const value = el.getAttribute('data-' + lang);
         if (value !== null) {
@@ -558,13 +572,15 @@ function setLang(lang) {
         }
     });
     
-    // Update language buttons
+    // ল্যাঙ্গুয়েজ বাটন আপডেট করুন
     document.querySelectorAll('.lb').forEach(btn => {
         btn.classList.remove('on');
-        if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
+        if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) {
+            btn.classList.add('on');
+        }
     });
     
-    // Update club name in header and footer (using innerHTML to preserve gold-letter spans)
+    // ক্লাবের নাম হেডার এবং ফুটারে আপডেট করুন (innerHTML ব্যবহার করে gold-letter সংরক্ষণ করুন)
     const clubNameHeader = document.getElementById('clubNameHeader');
     const clubNameFooter = document.getElementById('clubNameFooter');
     const footerDescription = document.getElementById('footerDescription');
@@ -577,20 +593,23 @@ function setLang(lang) {
     if (footerLocation) footerLocation.textContent = langData[lang].footerLocation;
     if (developerName) developerName.textContent = langData[lang].devName;
     
-    // Update toast message if visible
+    // টোস্ট মেসেজ আপডেট করুন যদি দেখানো হয়
     const toastMsg = document.getElementById('toastMsg');
     if (toastMsg && document.getElementById('toast').classList.contains('show')) {
         toastMsg.textContent = lang === 'bn' ? '📖 ইয়ং স্পোর্টিং ক্লাবের ইতিহাস ও লক্ষ্য সম্পর্কে জানুন।' : '📖 Learn about Young Sporting Club\'s history and mission.';
     }
     
-    // Update login button text
+    // লগইন বাটন আপডেট করুন
     const loginBtn = document.getElementById('nav-login-btn');
     if (loginBtn && !loginBtn.querySelector('span')) {
         loginBtn.textContent = lang === 'bn' ? 'লগইন' : 'Login';
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
+document.addEventListener('DOMContentLoaded', () => {
+    setLang(currentLang);
+});
+
 window.setLang = setLang;
 </script>
 </body>
