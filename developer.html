@@ -3,24 +3,25 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes"/>
-<meta name="description" content="Farabi Walid - Full Stack Web Developer, Creator of Young Sporting Club Website, Tech Enthusiast from Bangladesh"/>
-<meta name="keywords" content="Farabi Walid, Web Developer, Bangladesh, Young Sporting Club, Full Stack Developer"/>
+<meta name="description" content="Farabi Walid - Android App Developer & Web Developer, Creator of Young Sporting Club Website"/>
+<meta name="keywords" content="Farabi Walid, Android Developer, App Developer, Web Developer, Bangladesh, Young Sporting Club"/>
 <meta name="author" content="Farabi Walid"/>
-<title>Farabi Walid — Developer Portfolio</title>
+<title>Farabi Walid — App & Web Developer</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 :root{
-    --bg:#010101;
-    --bg2:#0a0a0a;
-    --card:#111;
-    --card2:#161616;
+    --bg:#0a0a0f;
+    --bg2:#0f0f15;
+    --card:#111117;
+    --card2:#16161f;
     --pink:#FE2C55;
     --cyan:#25F4EE;
-    --wh:#fff;
-    --gr:#888;
-    --lt:#ccc;
+    --gold:#FFD700;
+    --wh:#ffffff;
+    --gr:#aaaaaa;
+    --lt:#dddddd;
     --bp:rgba(254,44,85,.25);
     --bc:rgba(37,244,238,.22);
     --gp:0 0 22px rgba(254,44,85,.5);
@@ -58,33 +59,42 @@ ul{list-style:none}
 .btn-ol{background:transparent;color:var(--wh);border:1.5px solid rgba(255,255,255,.2)}
 .btn-ol:hover{border-color:var(--cyan);color:var(--cyan)}
 .bdg{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--bp);background:rgba(254,44,85,.08);color:var(--pink);padding:5px 16px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
-.bdg .dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:blink 1.8s infinite}
+.bdg .dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:blink 1.8s infinite;box-shadow:0 0 6px var(--pink)}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 .sec-title{font-size:clamp(34px,5vw,54px);margin-bottom:10px}
 .divider{width:52px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));margin:12px auto 20px}
-.lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:3px}
+.lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:3px}
 .lb{padding:5px 13px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:var(--tr);background:none;border:none;color:var(--gr)}
 .lb.on{background:linear-gradient(135deg,var(--pink),var(--cyan));color:#010101}
-#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr);background:rgba(1,1,1,.94);backdrop-filter:blur(22px);border-bottom:1px solid var(--bp)}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:9px 22px;max-width:1200px;margin:0 auto}
-.logo{display:flex;align-items:center;gap:11px}
-.li{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:15px;color:#010101;box-shadow:var(--gdual)}
-.lt{display:flex;flex-direction:column;line-height:1}
-.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.lt .n2{font-size:9px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px}
-.nl a{padding:7px 12px;border-radius:8px;font-size:12.5px;font-weight:500;color:var(--gr);transition:var(--tr)}
-.nl a:hover,.nl a.on{color:#fff;background:rgba(255,255,255,.07)}
-.nr{display:flex;align-items:center;gap:10px}
-.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;border-radius:50px!important;font-size:12px;padding:8px 18px}
+#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr);background:rgba(10,10,15,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(254,44,85,.2)}
+#hdr.sc{background:rgba(10,10,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--pink);box-shadow:0 4px 20px rgba(254,44,85,.1)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;max-width:1200px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:16px}
+.logo-img{width:70px;height:70px;border-radius:18px;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:3px;transition:var(--tr)}
+.logo-img:hover{transform:scale(1.02);box-shadow:0 0 20px rgba(254,44,85,.3)}
+.logo-img img{width:100%;height:100%;border-radius:15px;object-fit:cover}
+.lt{display:flex;flex-direction:column;line-height:1.2}
+.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px}
+.lt .n1 .gold-letter{color:var(--gold);text-shadow:0 0 5px rgba(255,215,0,.3)}
+[data-lang="bn"] .lt .n1{font-family:'Hind Siliguri',sans-serif;font-size:26px;letter-spacing:0}
+.lt .n2{font-size:11px;color:var(--gr);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
+.nl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.nl a{padding:8px 18px;border-radius:40px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
+.nl a:hover{color:var(--pink);background:rgba(254,44,85,.1)}
+.nl a.on{color:var(--pink);background:rgba(254,44,85,.15)}
+.nl a.on::after{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--pink);margin:4px auto 0;box-shadow:0 0 10px var(--pink)}
+.nr{display:flex;align-items:center;gap:12px}
+.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:13px;padding:9px 22px;transition:var(--tr)}
+.ncta:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(254,44,85,.4)}
 .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
-.hbg span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:var(--tr)}
-.hbg.op span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hbg span{display:block;width:26px;height:2.5px;background:#fff;border-radius:2px;transition:var(--tr)}
+.hbg.op span:nth-child(1){transform:rotate(45deg) translate(7px,7px)}
 .hbg.op span:nth-child(2){opacity:0}
-.hbg.op span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.mob{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(1,1,1,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--bp);padding:16px 22px;flex-direction:column;gap:3px;z-index:997}
+.hbg.op span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+.mob{display:none;position:fixed;top:75px;left:0;right:0;background:rgba(10,10,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(254,44,85,.2);padding:20px 22px;flex-direction:column;gap:8px;z-index:997}
 .mob.op{display:flex}
-.mob a{padding:11px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--lt);transition:var(--tr)}
-.mob a:hover{color:#fff;background:rgba(254,44,85,.1)}
+.mob a{padding:12px 18px;border-radius:14px;font-size:16px;font-weight:500;color:var(--lt);transition:var(--tr)}
+.mob a:hover,.mob a.on{color:var(--pink);background:rgba(254,44,85,.15)}
 .developer-hero{min-height:100vh;display:flex;align-items:center;padding-top:80px;position:relative;overflow:hidden}
 .developer-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 70% 45%,rgba(254,44,85,.08),transparent 65%),radial-gradient(ellipse 50% 45% at 20% 65%,rgba(37,244,238,.05),transparent 60%);z-index:0}
 .dev-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center;position:relative;z-index:2}
@@ -141,8 +151,8 @@ ul{list-style:none}
 .bio-text{color:var(--gr);font-size:14px;line-height:1.8}
 .bio-highlight{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
 .bio-tag{background:rgba(254,44,85,.1);border:1px solid var(--bp);padding:6px 14px;border-radius:50px;font-size:12px;color:var(--pink)}
-footer{background:#050505;border-top:1px solid var(--bp);padding:40px 0 20px}
-.ftbot{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:40px 0 20px}
+.ftbot{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .ftbot p{color:var(--gr);font-size:11.5px}
 .back-home{color:var(--cyan);transition:var(--tr)}
 .back-home:hover{color:var(--pink)}
@@ -180,8 +190,11 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:40px 0 20px}
 <header id="hdr">
     <nav class="nav">
         <a href="index.html" class="logo">
-            <div class="li">FW</div>
-            <div class="lt"><span class="n1">FARABI WALID</span><span class="n2">Developer Portfolio</span></div>
+            <div class="logo-img"><img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/70x70/FE2C55/FFFFFF?text=YSC'"></div>
+            <div class="lt">
+                <span class="n1" id="clubNameHeader"><span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB</span>
+                <span class="n2" id="estDateHeader" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span>
+            </div>
         </a>
         <div class="nl">
             <a href="index.html">Home</a>
@@ -209,30 +222,27 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:40px 0 20px}
     <div class="container">
         <div class="dev-grid">
             <div class="dev-avatar" data-aos="fade-right">
-                <div class="avatar-ring">
-                    <div class="avatar-inner">
-                        <i class="fas fa-code"></i>
-                    </div>
-                </div>
-                <div class="dev-badge">
-                    <i class="fas fa-crown"></i>
-                </div>
+                <div class="avatar-ring"><div class="avatar-inner"><i class="fas fa-mobile-alt"></i></div></div>
+                <div class="dev-badge"><i class="fas fa-crown"></i></div>
             </div>
             <div class="dev-info" data-aos="fade-left">
                 <h1>Farabi <span>Walid</span></h1>
                 <div class="dev-title">
-                    <i class="fas fa-laptop-code"></i>
-                    <span data-en="Full Stack Web Developer" data-bn="ফুল স্ট্যাক ওয়েব ডেভেলপার">Full Stack Web Developer</span>
+                    <i class="fas fa-mobile-alt"></i>
+                    <span data-en="Android App Developer" data-bn="অ্যান্ড্রয়েড অ্যাপ ডেভেলপার">Android App Developer</span>
+                    <span style="font-size:12px;color:var(--gr)">|</span>
+                    <i class="fas fa-code"></i>
+                    <span data-en="Web Developer" data-bn="ওয়েব ডেভেলপার">Web Developer</span>
                     <span style="font-size:12px;color:var(--gr)">|</span>
                     <i class="fas fa-map-marker-alt"></i>
                     <span>Sylhet, Bangladesh</span>
                 </div>
-                <p class="dev-desc" data-en="Passionate web developer with expertise in modern web technologies. Creator of Young Sporting Club's official website. Dedicated to building beautiful, responsive, and user-friendly web applications that make a difference. Working with Hello Bangladesh Apps & Companies as a tech contributor." data-bn="আধুনিক ওয়েব টেকনোলজিতে দক্ষ একজন উৎসাহী ওয়েব ডেভেলপার। ইয়ং স্পোর্টিং ক্লাবের অফিসিয়াল ওয়েবসাইটের স্রষ্টা। সুন্দর, রেসপনসিভ এবং ইউজার-ফ্রেন্ডলি ওয়েব অ্যাপ্লিকেশন তৈরিতে নিবেদিত। হ্যালো বাংলাদেশ অ্যাপস অ্যান্ড কোম্পানিজে প্রযুক্তি সহযোগী হিসেবে কাজ করছি।">Passionate web developer with expertise in modern web technologies. Creator of Young Sporting Club's official website. Dedicated to building beautiful, responsive, and user-friendly web applications that make a difference. Working with Hello Bangladesh Apps & Companies as a tech contributor.</p>
+                <p class="dev-desc" data-en="Passionate Android App Developer with expertise in Kotlin, Java, and Flutter. Also experienced in modern web technologies including HTML5, CSS3, JavaScript, React.js, and Firebase. Creator of Young Sporting Club's official website and several Android applications. Dedicated to building beautiful, responsive, and user-friendly mobile and web applications that make a difference. Working with Hello Bangladesh Apps & Companies as a tech contributor." data-bn="উৎসাহী অ্যান্ড্রয়েড অ্যাপ ডেভেলপার। দক্ষতা: Kotlin, Java, Flutter। আধুনিক ওয়েব টেকনোলজিতেও দক্ষ: HTML5, CSS3, JavaScript, React.js, Firebase। ইয়ং স্পোর্টিং ক্লাবের অফিসিয়াল ওয়েবসাইটের স্রষ্টা এবং একাধিক অ্যান্ড্রয়েড অ্যাপ্লিকেশনের নির্মাতা। সুন্দর, রেসপনসিভ এবং ইউজার-ফ্রেন্ডলি মোবাইল ও ওয়েব অ্যাপ্লিকেশন তৈরিতে নিবেদিত। হ্যালো বাংলাদেশ অ্যাপস অ্যান্ড কোম্পানিজে প্রযুক্তি সহযোগী হিসেবে কাজ করছি।">Passionate Android App Developer with expertise in Kotlin, Java, and Flutter. Also experienced in modern web technologies including HTML5, CSS3, JavaScript, React.js, and Firebase. Creator of Young Sporting Club's official website and several Android applications. Dedicated to building beautiful, responsive, and user-friendly mobile and web applications that make a difference. Working with Hello Bangladesh Apps & Companies as a tech contributor.</p>
                 <div class="stats-grid">
-                    <div class="stat-card"><div class="stat-number">12+</div><div class="stat-label" data-en="Projects" data-bn="প্রকল্প">Projects</div></div>
+                    <div class="stat-card"><div class="stat-number">8+</div><div class="stat-label" data-en="Apps Built" data-bn="অ্যাপ তৈরি">Apps Built</div></div>
+                    <div class="stat-card"><div class="stat-number">5+</div><div class="stat-label" data-en="Web Projects" data-bn="ওয়েব প্রকল্প">Web Projects</div></div>
+                    <div class="stat-card"><div class="stat-number">500+</div><div class="stat-label" data-en="Downloads" data-bn="ডাউনলোড">Downloads</div></div>
                     <div class="stat-card"><div class="stat-number">4+</div><div class="stat-label" data-en="Years Exp" data-bn="বছর অভিজ্ঞতা">Years Exp</div></div>
-                    <div class="stat-card"><div class="stat-number">500+</div><div class="stat-label" data-en="Commits" data-bn="কমিট">Commits</div></div>
-                    <div class="stat-card"><div class="stat-number">15+</div><div class="stat-label" data-en="Clients" data-bn="ক্লায়েন্ট">Clients</div></div>
                 </div>
             </div>
         </div>
@@ -247,17 +257,17 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:40px 0 20px}
             <div class="divider"></div>
         </div>
         <div class="skills-grid">
+            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-android"></i></div><div class="skill-name">Android (Kotlin/Java)</div><div class="skill-level">Advanced</div></div>
+            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-flutter"></i></div><div class="skill-name">Flutter</div><div class="skill-level">Intermediate</div></div>
+            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-java"></i></div><div class="skill-name">Java</div><div class="skill-level">Advanced</div></div>
             <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-html5"></i></div><div class="skill-name">HTML5</div><div class="skill-level">Advanced</div></div>
             <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-css3-alt"></i></div><div class="skill-name">CSS3/SCSS</div><div class="skill-level">Advanced</div></div>
             <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-js"></i></div><div class="skill-name">JavaScript</div><div class="skill-level">Advanced</div></div>
-            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-react"></i></div><div class="skill-name">React.js</div><div class="skill-level">Advanced</div></div>
-            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-node-js"></i></div><div class="skill-name">Node.js</div><div class="skill-level">Intermediate</div></div>
+            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-react"></i></div><div class="skill-name">React.js</div><div class="skill-level">Intermediate</div></div>
             <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fas fa-fire"></i></div><div class="skill-name">Firebase</div><div class="skill-level">Advanced</div></div>
-            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fas fa-database"></i></div><div class="skill-name">MongoDB</div><div class="skill-level">Intermediate</div></div>
+            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fas fa-database"></i></div><div class="skill-name">SQLite / Room</div><div class="skill-level">Advanced</div></div>
             <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-git-alt"></i></div><div class="skill-name">Git/GitHub</div><div class="skill-level">Advanced</div></div>
-            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-figma"></i></div><div class="skill-name">Figma</div><div class="skill-level">Intermediate</div></div>
-            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-bootstrap"></i></div><div class="skill-name">Bootstrap</div><div class="skill-level">Advanced</div></div>
-            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-tailwind"></i></div><div class="skill-name">Tailwind CSS</div><div class="skill-level">Advanced</div></div>
+            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fab fa-figma"></i></div><div class="skill-name">UI/UX Design</div><div class="skill-level">Intermediate</div></div>
             <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><i class="fas fa-code-branch"></i></div><div class="skill-name">REST API</div><div class="skill-level">Advanced</div></div>
         </div>
     </div>
@@ -272,9 +282,9 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:40px 0 20px}
         </div>
         <div class="projects-grid">
             <div class="project-card" data-aos="fade-up"><div class="project-icon">⚽</div><h3>Young Sporting Club</h3><p>Complete club management website with member database, admin panel, bilingual support, and real-time visitor tracking.</p><div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Firebase</span></div></div>
-            <div class="project-card" data-aos="fade-up"><div class="project-icon">📱</div><h3>Hello Bangladesh Platform</h3><p>Contributor to Hello Bangladesh Apps & Companies - Digital platform for Bangladeshi community services.</p><div class="project-tech"><span>React</span><span>Node.js</span><span>MongoDB</span><span>Express</span></div></div>
-            <div class="project-card" data-aos="fade-up"><div class="project-icon">🎨</div><h3>Creative Portfolio</h3><p>Modern developer portfolio with interactive UI, animations, and responsive design showcasing creative works.</p><div class="project-tech"><span>React</span><span>Framer Motion</span><span>Tailwind</span></div></div>
-            <div class="project-card" data-aos="fade-up"><div class="project-icon">🛒</div><h3>E-commerce Solution</h3><p>Full-featured e-commerce platform with cart, checkout, payment gateway integration, and order management.</p><div class="project-tech"><span>Next.js</span><span>Stripe</span><span>MongoDB</span></div></div>
+            <div class="project-card" data-aos="fade-up"><div class="project-icon">📱</div><h3>Hello Bangladesh App</h3><p>Android application for Bangladeshi community services - Contributor & Developer.</p><div class="project-tech"><span>Kotlin</span><span>Firebase</span><span>MVVM</span></div></div>
+            <div class="project-card" data-aos="fade-up"><div class="project-icon">🎨</div><h3>Portfolio App</h3><p>Modern Android portfolio app with interactive UI, animations, and responsive design.</p><div class="project-tech"><span>Flutter</span><span>Dart</span><span>GetX</span></div></div>
+            <div class="project-card" data-aos="fade-up"><div class="project-icon">🛒</div><h3>E-commerce App</h3><p>Full-featured Android e-commerce app with cart, checkout, and payment integration.</p><div class="project-tech"><span>Java</span><span>Firebase</span><span>Stripe</span></div></div>
         </div>
     </div>
 </section>
@@ -294,22 +304,16 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:40px 0 20px}
             <a href="https://twitter.com/muhammadwalidr" target="_blank" class="social-link-card x"><i class="fab fa-twitter"></i><span class="social-name">X (Twitter)</span><span class="social-follow">@muhammadwalidr</span><i class="fas fa-external-link-alt" style="font-size:10px;opacity:0.6"></i></a>
             <a href="https://tiktok.com/@farabiwalidofficial" target="_blank" class="social-link-card tt"><i class="fab fa-tiktok"></i><span class="social-name">TikTok</span><span class="social-follow">@farabiwalidofficial</span><i class="fas fa-external-link-alt" style="font-size:10px;opacity:0.6"></i></a>
             <a href="https://linkedin.com/in/farabiwalid" target="_blank" class="social-link-card li"><i class="fab fa-linkedin-in"></i><span class="social-name">LinkedIn</span><span class="social-follow">in/farabiwalid</span><i class="fas fa-external-link-alt" style="font-size:10px;opacity:0.6"></i></a>
-            <a href="https://pinterest.com/farabiwalid" target="_blank" class="social-link-card pt"><i class="fab fa-pinterest"></i><span class="social-name">Pinterest</span><span class="social-follow">@farabiwalid</span><i class="fas fa-external-link-alt" style="font-size:10px;opacity:0.6"></i></a>
-            <a href="https://imdb.com/name/nm16032972" target="_blank" class="social-link-card imdb"><i class="fab fa-imdb"></i><span class="social-name">IMDb</span><span class="social-follow">nm16032972</span><i class="fas fa-external-link-alt" style="font-size:10px;opacity:0.6"></i></a>
-            <a href="https://threads.net/@farabiwalidofficial" target="_blank" class="social-link-card threads"><i class="fab fa-threads"></i><span class="social-name">Threads</span><span class="social-follow">@farabiwalidofficial</span><i class="fas fa-external-link-alt" style="font-size:10px;opacity:0.6"></i></a>
             <a href="https://github.com/farabiwalid" target="_blank" class="social-link-card gh"><i class="fab fa-github"></i><span class="social-name">GitHub</span><span class="social-follow">/farabiwalid</span><i class="fas fa-external-link-alt" style="font-size:10px;opacity:0.6"></i></a>
-            <a href="https://soundcloud.com/farabiwalidofficial" target="_blank" class="social-link-card sc"><i class="fab fa-soundcloud"></i><span class="social-name">SoundCloud</span><span class="social-follow">@farabiwalidofficial</span><i class="fas fa-external-link-alt" style="font-size:10px;opacity:0.6"></i></a>
-            <a href="https://farabiwalid.blogspot.com" target="_blank" class="social-link-card blog"><i class="fab fa-blogger"></i><span class="social-name">Blogger</span><span class="social-follow">farabiwalid</span><i class="fas fa-external-link-alt" style="font-size:10px;opacity:0.6"></i></a>
         </div>
-        
         <div class="bio-section" data-aos="fade-up">
             <h3><i class="fas fa-user-astronaut"></i> <span data-en="About Me" data-bn="আমার সম্পর্কে">About Me</span></h3>
-            <div class="bio-text" data-en="I'm Farabi Walid, a passionate Full Stack Web Developer from Sylhet, Bangladesh. With over 4 years of experience in web development, I specialize in creating modern, responsive, and user-friendly web applications. I'm the creator of Young Sporting Club's official website and a proud contributor to Hello Bangladesh Apps & Companies. My expertise includes HTML5, CSS3, JavaScript, React.js, Node.js, Firebase, and MongoDB. I believe in writing clean code and building applications that make a positive impact on the community." data-bn="আমি ফারাবি ওয়ালিদ, সিলেট, বাংলাদেশের একজন উৎসাহী ফুল স্ট্যাক ওয়েব ডেভেলপার। ওয়েব ডেভেলপমেন্টে ৪+ বছরের অভিজ্ঞতা নিয়ে, আমি আধুনিক, রেসপনসিভ এবং ইউজার-ফ্রেন্ডলি ওয়েব অ্যাপ্লিকেশন তৈরিতে বিশেষজ্ঞ। আমি ইয়ং স্পোর্টিং ক্লাবের অফিসিয়াল ওয়েবসাইটের স্রষ্টা এবং হ্যালো বাংলাদেশ অ্যাপস অ্যান্ড কোম্পানিজের একজন গর্বিত প্রযুক্তি সহযোগী। আমার দক্ষতার মধ্যে রয়েছে HTML5, CSS3, JavaScript, React.js, Node.js, Firebase, এবং MongoDB। আমি পরিষ্কার কোড লেখা এবং সমাজে ইতিবাচক প্রভাব ফেলে এমন অ্যাপ্লিকেশন তৈরিতে বিশ্বাস করি।">I'm Farabi Walid, a passionate Full Stack Web Developer from Sylhet, Bangladesh. With over 4 years of experience in web development, I specialize in creating modern, responsive, and user-friendly web applications. I'm the creator of Young Sporting Club's official website and a proud contributor to Hello Bangladesh Apps & Companies. My expertise includes HTML5, CSS3, JavaScript, React.js, Node.js, Firebase, and MongoDB. I believe in writing clean code and building applications that make a positive impact on the community.</div>
+            <div class="bio-text" data-en="I'm Farabi Walid, a passionate Android App Developer from Sylhet, Bangladesh. With over 4 years of experience in mobile and web development, I specialize in creating modern, responsive, and user-friendly applications. I'm the creator of Young Sporting Club's official website and a proud contributor to Hello Bangladesh Apps & Companies. My expertise includes Kotlin, Java, Flutter for Android development, and HTML5, CSS3, JavaScript, React.js, Firebase for web development. I believe in writing clean code and building applications that make a positive impact on the community. Currently working on several Android apps and web projects to serve the Bangladeshi community." data-bn="আমি ফারাবি ওয়ালিদ, সিলেট, বাংলাদেশের একজন উৎসাহী অ্যান্ড্রয়েড অ্যাপ ডেভেলপার। মোবাইল ও ওয়েব ডেভেলপমেন্টে ৪+ বছরের অভিজ্ঞতা নিয়ে, আমি আধুনিক, রেসপনসিভ এবং ইউজার-ফ্রেন্ডলি অ্যাপ্লিকেশন তৈরিতে বিশেষজ্ঞ। আমি ইয়ং স্পোর্টিং ক্লাবের অফিসিয়াল ওয়েবসাইটের স্রষ্টা এবং হ্যালো বাংলাদেশ অ্যাপস অ্যান্ড কোম্পানিজের একজন গর্বিত প্রযুক্তি সহযোগী। আমার দক্ষতার মধ্যে রয়েছে Kotlin, Java, Flutter (Android ডেভেলপমেন্টের জন্য) এবং HTML5, CSS3, JavaScript, React.js, Firebase (ওয়েব ডেভেলপমেন্টের জন্য)। আমি পরিষ্কার কোড লেখা এবং সমাজে ইতিবাচক প্রভাব ফেলে এমন অ্যাপ্লিকেশন তৈরিতে বিশ্বাস করি। বর্তমানে বাংলাদেশি সম্প্রদায়ের সেবায় একাধিক অ্যান্ড্রয়েড অ্যাপ এবং ওয়েব প্রকল্পে কাজ করছি।">I'm Farabi Walid, a passionate Android App Developer from Sylhet, Bangladesh. With over 4 years of experience in mobile and web development, I specialize in creating modern, responsive, and user-friendly applications. I'm the creator of Young Sporting Club's official website and a proud contributor to Hello Bangladesh Apps & Companies. My expertise includes Kotlin, Java, Flutter for Android development, and HTML5, CSS3, JavaScript, React.js, Firebase for web development. I believe in writing clean code and building applications that make a positive impact on the community. Currently working on several Android apps and web projects to serve the Bangladeshi community.</div>
             <div class="bio-highlight">
-                <span class="bio-tag"><i class="fas fa-code"></i> Full Stack Developer</span>
-                <span class="bio-tag"><i class="fas fa-globe"></i> Web Designer</span>
-                <span class="bio-tag"><i class="fas fa-database"></i> Firebase Expert</span>
-                <span class="bio-tag"><i class="fas fa-mobile-alt"></i> Responsive Design</span>
+                <span class="bio-tag"><i class="fab fa-android"></i> Android Developer</span>
+                <span class="bio-tag"><i class="fas fa-code"></i> Web Developer</span>
+                <span class="bio-tag"><i class="fas fa-fire"></i> Firebase Expert</span>
+                <span class="bio-tag"><i class="fas fa-mobile-alt"></i> Mobile UI/UX</span>
                 <span class="bio-tag"><i class="fas fa-heart"></i> Community Builder</span>
                 <span class="bio-tag"><i class="fas fa-language"></i> Bilingual (EN/BN)</span>
             </div>
@@ -330,53 +334,16 @@ footer{background:#050505;border-top:1px solid var(--bp);padding:40px 0 20px}
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",
-    authDomain: "youngsportingclub.firebaseapp.com",
-    databaseURL: "https://youngsportingclub-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "youngsportingclub",
-    storageBucket: "youngsportingclub.firebasestorage.app",
-    messagingSenderId: "724732761340",
-    appId: "1:724732761340:web:dc664c10d55d5bb87cb379"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-onAuthStateChanged(auth, (user) => {
-    const btn = document.getElementById('nav-login-btn');
-    if (!btn) return;
-    if (user) btn.innerHTML = 'Logout';
-    else btn.innerHTML = 'Login';
-});
-
-AOS.init({ duration: 700, once: true, offset: 55 });
-window.addEventListener('load', () => setTimeout(() => document.getElementById('ldr').classList.add('hid'), 500));
-
-const hbgBtn = document.getElementById('hbg'), mobileMenu = document.getElementById('mob');
-if (hbgBtn && mobileMenu) hbgBtn.addEventListener('click', () => { hbgBtn.classList.toggle('op'); mobileMenu.classList.toggle('op'); });
+const firebaseConfig={apiKey:"AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",authDomain:"youngsportingclub.firebaseapp.com",databaseURL:"https://youngsportingclub-default-rtdb.asia-southeast1.firebasedatabase.app",projectId:"youngsportingclub",storageBucket:"youngsportingclub.firebasestorage.app",messagingSenderId:"724732761340",appId:"1:724732761340:web:dc664c10d55d5bb87cb379"};
+const app=initializeApp(firebaseConfig);const auth=getAuth(app);
+onAuthStateChanged(auth,(user)=>{const btn=document.getElementById('nav-login-btn');if(!btn)return;if(user)btn.innerHTML='Logout';else btn.innerHTML='Login';});
+AOS.init({duration:700,once:true,offset:55});window.addEventListener('load',()=>setTimeout(()=>document.getElementById('ldr').classList.add('hid'),500));
+const hbgBtn=document.getElementById('hbg'),mobileMenu=document.getElementById('mob');if(hbgBtn&&mobileMenu)hbgBtn.addEventListener('click',()=>{hbgBtn.classList.toggle('op');mobileMenu.classList.toggle('op');});
 </script>
-
 <script>
-let currentLang = (function() { try { return localStorage.getItem('ysc-lang') || 'en'; } catch(e) { return 'en'; } })();
-
-function setLang(lang) {
-    currentLang = lang;
-    try { localStorage.setItem('ysc-lang', lang); } catch(e) {}
-    document.documentElement.setAttribute('data-lang', lang);
-    document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
-    document.querySelectorAll('[data-en]').forEach(el => {
-        const value = el.getAttribute('data-' + lang);
-        if (value !== null) { if (value.includes('<')) el.innerHTML = value; else el.textContent = value; }
-    });
-    document.querySelectorAll('.lb').forEach(btn => {
-        btn.classList.remove('on');
-        if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
+let currentLang=(function(){try{return localStorage.getItem('ysc-lang')||'en';}catch(e){return 'en';}})();
+function setLang(lang){currentLang=lang;try{localStorage.setItem('ysc-lang',lang);}catch(e){}document.documentElement.setAttribute('data-lang',lang);document.documentElement.lang=lang==='bn'?'bn':'en';document.querySelectorAll('[data-en]').forEach(el=>{const value=el.getAttribute('data-'+lang);if(value!==null){if(value.includes('<'))el.innerHTML=value;else el.textContent=value;}});document.querySelectorAll('.lb').forEach(btn=>{btn.classList.remove('on');if((lang==='en'&&btn.textContent.trim()==='EN')||(lang==='bn'&&btn.textContent.trim()==='বাং'))btn.classList.add('on');});const clubNameHeader=document.getElementById('clubNameHeader');if(clubNameHeader)clubNameHeader.innerHTML=lang==='en'?'<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB':'<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব';}
+document.addEventListener('DOMContentLoaded',()=>setLang(currentLang));
 </script>
 </body>
 </html>
