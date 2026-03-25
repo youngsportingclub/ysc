@@ -348,7 +348,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 
         <!-- Members Table -->
         <div class="twrap" data-aos="fade-up" data-aos-delay="100">
-            <table>
+            能
                 <thead>
                     <tr>
                         <th data-en="Member" data-bn="সদস্য">Member</th>
@@ -493,13 +493,15 @@ const positionEmoji = {
 // Language data
 const langData = {
     en: {
-        clubName: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
+        clubNameHeader: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
+        clubNameFooter: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
         footerDesc: "A community-based youth sports organization in West Shingrauli, Moulvibazar since 2009.",
         footerLocation: "West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet",
         devName: "Developed by Farabi Walid"
     },
     bn: {
-        clubName: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
+        clubNameHeader: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
+        clubNameFooter: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
         footerDesc: "২০০৯ সাল থেকে পশ্চিম শিংরাউলী, মৌলভীবাজারে একটি সমাজভিত্তিক যুব ক্রীড়া সংগঠন।",
         footerLocation: "পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট",
         devName: "তৈরি করেছেন ফারাবি ওয়ালিদ"
@@ -571,12 +573,18 @@ function escapeHtml(text) {
     });
 }
 
+// Get club logo URL
+const clubLogoUrl = window.location.origin + '/ysc.png';
+
 function getAvatarHtml(member) {
     const emoji = positionEmoji[member.position] || '👤';
+    
+    // If photo URL exists in database, try to load it
     if (member.photoURL) {
-        return `<img src="${member.photoURL}" alt="${escapeHtml(member.name)}" onerror="this.onerror=null; this.parentElement.innerHTML='${emoji}'">`;
+        return `<img src="${member.photoURL}" alt="${escapeHtml(member.name)}" onerror="this.onerror=null; this.parentElement.innerHTML='<img src=\'${clubLogoUrl}\' alt=\'Club Logo\' onerror=\'this.onerror=null; this.parentElement.innerHTML=\\'${emoji}\\'\'>'">`;
     }
-    return emoji;
+    // If no photo, try club logo
+    return `<img src="${clubLogoUrl}" alt="Club Logo" onerror="this.onerror=null; this.parentElement.innerHTML='${emoji}'">`;
 }
 
 function renderMembers(members) {
@@ -679,7 +687,7 @@ function showToastMessage(msg) {
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
-// Real-time Firebase listener with sorting in query
+// Real-time Firebase listener
 const membersQuery = query(collection(db, 'members'), orderBy('addedAt', 'desc'));
 onSnapshot(membersQuery, (snapshot) => {
     allMembers = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -778,8 +786,8 @@ function setLang(lang) {
     const footerLocation = document.getElementById('footerLocation');
     const developerName = document.getElementById('developerName');
     
-    if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubName;
-    if (clubNameFooter) clubNameFooter.innerHTML = langData[lang].clubName;
+    if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubNameHeader;
+    if (clubNameFooter) clubNameFooter.innerHTML = langData[lang].clubNameFooter;
     if (footerDescription) footerDescription.textContent = langData[lang].footerDesc;
     if (footerLocation) footerLocation.textContent = langData[lang].footerLocation;
     if (developerName) developerName.textContent = langData[lang].devName;
