@@ -283,8 +283,8 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
                 <div class="upload-btn" onclick="document.getElementById('memberPhoto').click()">
                     <i class="fas fa-upload"></i> <span data-en="Upload Photo" data-bn="ছবি আপলোড">Upload Photo</span>
                 </div>
-                <div class="help-text" data-en="Optional. If upload fails, emoji will be used automatically." data-bn="ঐচ্ছিক। আপলোড ব্যর্থ হলে স্বয়ংক্রিয়ভাবে ইমোজি ব্যবহার হবে।">
-                    Optional. If upload fails, emoji will be used automatically.
+                <div class="help-text" data-en="Optional. If upload fails, club logo or emoji will be used." data-bn="ঐচ্ছিক। আপলোড ব্যর্থ হলে ক্লাব লোগো বা ইমোজি ব্যবহার হবে।">
+                    Optional. If upload fails, club logo or emoji will be used.
                 </div>
             </div>
 
@@ -300,11 +300,32 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
                         <select id="fpos" required onchange="updatePreview()">
                             <option value="" data-en="Select Position" data-bn="পদ নির্বাচন করুন">Select Position</option>
                             <option value="President" data-en="President" data-bn="সভাপতি">President</option>
-                            <option value="Vice President" data-en="Vice President" data-bn="সহ-সভাপতি">Vice President</option>
+                            <option value="Senior Vice President" data-en="Senior Vice President" data-bn="সিনিয়র সহ-সভাপতি">Senior Vice President</option>
+                            <option value="Vice President 1" data-en="Vice President-1" data-bn="সহ-সভাপতি-১">Vice President-1</option>
+                            <option value="Vice President 2" data-en="Vice President-2" data-bn="সহ-সভাপতি-২">Vice President-2</option>
+                            <option value="Vice President 3" data-en="Vice President-3" data-bn="সহ-সভাপতি-৩">Vice President-3</option>
                             <option value="General Secretary" data-en="General Secretary" data-bn="সাধারণ সম্পাদক">General Secretary</option>
-                            <option value="Assistant Secretary" data-en="Asst. Secretary" data-bn="সহকারী সম্পাদক">Asst. Secretary</option>
-                            <option value="Treasurer" data-en="Treasurer" data-bn="কোষাধ্যক্ষ">Treasurer</option>
+                            <option value="Joint General Secretary" data-en="Joint General Secretary" data-bn="যুগ্ম-সাধারণ সম্পাদক">Joint General Secretary</option>
+                            <option value="Assistant General Secretary" data-en="Assistant General Secretary" data-bn="সহ-সাধারণ সম্পাদক">Assistant General Secretary</option>
+                            <option value="Organizing Secretary" data-en="Organizing Secretary" data-bn="সাংগঠনিক সম্পাদক">Organizing Secretary</option>
+                            <option value="Assistant Organizing Secretary" data-en="Assistant Organizing Secretary" data-bn="সহ-সাংগঠনিক সম্পাদক">Assistant Organizing Secretary</option>
+                            <option value="Treasurer" data-en="Treasurer" data-bn="অর্থ সম্পাদক">Treasurer</option>
+                            <option value="Assistant Treasurer" data-en="Assistant Treasurer" data-bn="সহ-অর্থ সম্পাদক">Assistant Treasurer</option>
+                            <option value="Office Secretary" data-en="Office Secretary" data-bn="দপ্তর সম্পাদক">Office Secretary</option>
+                            <option value="Assistant Office Secretary" data-en="Assistant Office Secretary" data-bn="সহ-দপ্তর সম্পাদক">Assistant Office Secretary</option>
                             <option value="Sports Secretary" data-en="Sports Secretary" data-bn="ক্রীড়া সম্পাদক">Sports Secretary</option>
+                            <option value="Assistant Sports Secretary" data-en="Assistant Sports Secretary" data-bn="সহ-ক্রীড়া সম্পাদক">Assistant Sports Secretary</option>
+                            <option value="Publicity Secretary" data-en="Publicity Secretary" data-bn="প্রচার সম্পাদক">Publicity Secretary</option>
+                            <option value="Assistant Publicity Secretary" data-en="Assistant Publicity Secretary" data-bn="সহ-প্রচার সম্পাদক">Assistant Publicity Secretary</option>
+                            <option value="Social Welfare Secretary" data-en="Social Welfare Secretary" data-bn="সমাজকল্যাণ সম্পাদক">Social Welfare Secretary</option>
+                            <option value="Education Secretary" data-en="Education Secretary" data-bn="শিক্ষা সম্পাদক">Education Secretary</option>
+                            <option value="Culture Secretary" data-en="Culture Secretary" data-bn="সাহিত্য ও সংস্কৃতি সম্পাদক">Culture Secretary</option>
+                            <option value="Training Secretary" data-en="Training Secretary" data-bn="প্রশিক্ষণ সম্পাদক">Training Secretary</option>
+                            <option value="Science Secretary" data-en="Science Secretary" data-bn="বিজ্ঞান ও প্রযুক্তি সম্পাদক">Science Secretary</option>
+                            <option value="Disaster Secretary" data-en="Disaster Secretary" data-bn="ত্রাণ ও দুর্যোগ সম্পাদক">Disaster Secretary</option>
+                            <option value="Liberation Secretary" data-en="Liberation Secretary" data-bn="মুক্তিযুদ্ধ সম্পাদক">Liberation Secretary</option>
+                            <option value="International Secretary" data-en="International Secretary" data-bn="আন্তর্জাতিক সম্পাদক">International Secretary</option>
+                            <option value="Religious Secretary" data-en="Religious Secretary" data-bn="ধর্ম সম্পাদক">Religious Secretary</option>
                             <option value="Member" data-en="Member" data-bn="সদস্য">Member</option>
                         </select>
                     </div>
@@ -381,14 +402,35 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
-// Position-based emoji mapping (Professional avatars)
+// Position-based emoji mapping
 const positionEmoji = {
     'President': '👨‍💼',
-    'Vice President': '👨‍⚖️',
+    'Senior Vice President': '👨‍⚖️',
+    'Vice President 1': '👨‍⚖️',
+    'Vice President 2': '👨‍⚖️',
+    'Vice President 3': '👨‍⚖️',
     'General Secretary': '📋',
-    'Assistant Secretary': '📝',
+    'Joint General Secretary': '📋',
+    'Assistant General Secretary': '📝',
+    'Organizing Secretary': '📊',
+    'Assistant Organizing Secretary': '📊',
     'Treasurer': '💰',
+    'Assistant Treasurer': '💰',
+    'Office Secretary': '📁',
+    'Assistant Office Secretary': '📁',
     'Sports Secretary': '⚽',
+    'Assistant Sports Secretary': '⚽',
+    'Publicity Secretary': '📢',
+    'Assistant Publicity Secretary': '📢',
+    'Social Welfare Secretary': '🤝',
+    'Education Secretary': '📚',
+    'Culture Secretary': '🎭',
+    'Training Secretary': '🏋️',
+    'Science Secretary': '🔬',
+    'Disaster Secretary': '🆘',
+    'Liberation Secretary': '🇧🇩',
+    'International Secretary': '🌍',
+    'Religious Secretary': '🕌',
     'Member': '👤'
 };
 
@@ -557,9 +599,34 @@ function updatePreview() {
         previewDiv.classList.add('show');
         previewName.textContent = name || 'Member Name';
         const posMap = {
-            'President': 'সভাপতি', 'Vice President': 'সহ-সভাপতি',
-            'General Secretary': 'সাধারণ সম্পাদক', 'Assistant Secretary': 'সহকারী সম্পাদক',
-            'Treasurer': 'কোষাধ্যক্ষ', 'Sports Secretary': 'ক্রীড়া সম্পাদক', 'Member': 'সদস্য'
+            'President': 'সভাপতি',
+            'Senior Vice President': 'সিনিয়র সহ-সভাপতি',
+            'Vice President 1': 'সহ-সভাপতি-১',
+            'Vice President 2': 'সহ-সভাপতি-২',
+            'Vice President 3': 'সহ-সভাপতি-৩',
+            'General Secretary': 'সাধারণ সম্পাদক',
+            'Joint General Secretary': 'যুগ্ম-সাধারণ সম্পাদক',
+            'Assistant General Secretary': 'সহ-সাধারণ সম্পাদক',
+            'Organizing Secretary': 'সাংগঠনিক সম্পাদক',
+            'Assistant Organizing Secretary': 'সহ-সাংগঠনিক সম্পাদক',
+            'Treasurer': 'অর্থ সম্পাদক',
+            'Assistant Treasurer': 'সহ-অর্থ সম্পাদক',
+            'Office Secretary': 'দপ্তর সম্পাদক',
+            'Assistant Office Secretary': 'সহ-দপ্তর সম্পাদক',
+            'Sports Secretary': 'ক্রীড়া সম্পাদক',
+            'Assistant Sports Secretary': 'সহ-ক্রীড়া সম্পাদক',
+            'Publicity Secretary': 'প্রচার সম্পাদক',
+            'Assistant Publicity Secretary': 'সহ-প্রচার সম্পাদক',
+            'Social Welfare Secretary': 'সমাজকল্যাণ সম্পাদক',
+            'Education Secretary': 'শিক্ষা সম্পাদক',
+            'Culture Secretary': 'সাহিত্য ও সংস্কৃতি সম্পাদক',
+            'Training Secretary': 'প্রশিক্ষণ সম্পাদক',
+            'Science Secretary': 'বিজ্ঞান ও প্রযুক্তি সম্পাদক',
+            'Disaster Secretary': 'ত্রাণ ও দুর্যোগ সম্পাদক',
+            'Liberation Secretary': 'মুক্তিযুদ্ধ সম্পাদক',
+            'International Secretary': 'আন্তর্জাতিক সম্পাদক',
+            'Religious Secretary': 'ধর্ম সম্পাদক',
+            'Member': 'সদস্য'
         };
         const lang = document.documentElement.getAttribute('data-lang') || 'en';
         previewPos.textContent = lang === 'bn' ? (posMap[position] || position) : position;
