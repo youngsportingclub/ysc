@@ -136,78 +136,17 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0
 .ftbot .dev span:hover{color:var(--cyan);text-decoration:underline}
 .ldr{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s,visibility .5s;flex-direction:column;gap:16px}
 .ldr.hid{opacity:0;visibility:hidden;pointer-events:none}
-/* Loading Animation with Club Logo */
-.loader-ring{
-    position:relative;
-    width:80px;
-    height:80px;
-    border-radius:50%;
-    background:linear-gradient(135deg,var(--pink),var(--cyan));
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    animation:pulse 1s ease-in-out infinite;
-}
-.loader-ring::before{
-    content:'';
-    position:absolute;
-    inset:4px;
-    border-radius:50%;
-    background:var(--bg);
-    z-index:1;
-}
-.loader-ring::after{
-    content:'';
-    position:absolute;
-    width:100%;
-    height:100%;
-    border-radius:50%;
-    background:linear-gradient(135deg,var(--pink),var(--cyan));
-    filter:blur(12px);
-    opacity:.6;
-    animation:blurPulse 1s ease-in-out infinite;
-}
-@keyframes pulse{
-    0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(254,44,85,.4);}
-    50%{transform:scale(1.08);box-shadow:0 0 20px 5px rgba(254,44,85,.3);}
-}
-@keyframes blurPulse{
-    0%,100%{opacity:.4;transform:scale(1);}
-    50%{opacity:.8;transform:scale(1.2);}
-}
-.loader-logo{
-    position:relative;
-    z-index:2;
-    width:52px;
-    height:52px;
-    border-radius:14px;
-    background:linear-gradient(135deg,var(--pink),var(--cyan));
-    padding:2px;
-    animation:spinLogo 2s linear infinite;
-}
-.loader-logo img{
-    width:100%;
-    height:100%;
-    border-radius:12px;
-    object-fit:cover;
-}
-@keyframes spinLogo{
-    0%{transform:rotate(0deg);}
-    100%{transform:rotate(360deg);}
-}
-.loader-text{
-    font-family:'Bebas Neue',sans-serif;
-    font-size:28px;
-    letter-spacing:2px;
-    margin-top:12px;
-}
-.loader-text .loader-letter-gold{
-    color:var(--gold);
-    text-shadow:0 0 8px rgba(255,215,0,.6);
-}
-.loader-text .loader-letter-white{
-    color:var(--wh);
-}
+.loader-ring{position:relative;width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;animation:pulse 1s ease-in-out infinite}
+.loader-ring::before{content:'';position:absolute;inset:4px;border-radius:50%;background:var(--bg);z-index:1}
+.loader-ring::after{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--cyan));filter:blur(12px);opacity:.6;animation:blurPulse 1s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(254,44,85,.4);}50%{transform:scale(1.08);box-shadow:0 0 20px 5px rgba(254,44,85,.3);}}
+@keyframes blurPulse{0%,100%{opacity:.4;transform:scale(1);}50%{opacity:.8;transform:scale(1.2);}}
+.loader-logo{position:relative;z-index:2;width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:2px;animation:spinLogo 2s linear infinite}
+.loader-logo img{width:100%;height:100%;border-radius:12px;object-fit:cover}
+@keyframes spinLogo{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+.loader-text{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;margin-top:12px}
+.loader-text .loader-letter-gold{color:var(--gold);text-shadow:0 0 8px rgba(255,215,0,.6)}
+.loader-text .loader-letter-white{color:var(--wh)}
 .date-bar{background:rgba(0,0,0,.6);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:60px;padding:8px 22px;margin:20px auto;display:inline-flex;flex-wrap:wrap;gap:15px;justify-content:center;font-size:11px;font-weight:500}
 .date-item{display:flex;align-items:center;gap:8px;color:var(--lt)}
 .date-item i{color:var(--cyan);font-size:11px}
@@ -248,7 +187,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0
 </head>
 <body>
 
-<!-- Loading Animation with Club Logo -->
+<!-- Loading Animation -->
 <div class="ldr" id="ldr">
     <div class="loader-ring">
         <div class="loader-logo">
@@ -289,7 +228,12 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0
                 <img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/70x70/FE2C55/FFFFFF?text=YSC'">
             </div>
             <div class="lt">
-                <span class="n1" id="clubNameHeader"><span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB</span>
+                <!-- DYNAMIC CLUB NAME: separate spans for each part to control gold letters properly -->
+                <span class="n1" id="clubNameHeaderDynamic">
+                    <span id="clubWord1" class="gold-letter">Y</span><span id="clubWord2">OUNG</span> 
+                    <span id="clubWord3" class="gold-letter">S</span><span id="clubWord4">PORTING</span> 
+                    <span id="clubWord5" class="gold-letter">C</span><span id="clubWord6">LUB</span>
+                </span>
                 <span class="n2" id="estDateHeader" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span>
             </div>
         </a>
@@ -488,26 +432,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-
-// Club logo URL
 const clubLogoUrl = window.location.origin + '/ysc.png';
 const placeholderLogoUrl = 'https://placehold.co/100x100/FE2C55/FFFFFF?text=YSC';
 
-// Language data
-const langData = {
-    en: {
-        clubNameHeader: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
-        clubNameFooter: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
-        devName: "Developed by Farabi Walid"
-    },
-    bn: {
-        clubNameHeader: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
-        clubNameFooter: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
-        devName: "তৈরি করেছেন ফারাবি ওয়ালিদ"
-    }
-};
-
-// DOM Elements
+// DOM elements for form
 const authNotice = document.getElementById('authNotice');
 const formCard = document.getElementById('formCard');
 const navLoginBtn = document.getElementById('nav-login-btn');
@@ -517,24 +445,20 @@ const subBtn = document.getElementById('subBtn');
 const resetBtn = document.getElementById('resetBtn');
 const photoInput = document.getElementById('memberPhoto');
 const uploadPreview = document.getElementById('uploadPreview');
-
 let selectedPhoto = null;
 
-// Preview photo when selected
 photoInput.addEventListener('change', (e) => {
     const file = e.target.files[0];
     if (file) {
         selectedPhoto = file;
         const reader = new FileReader();
-        reader.onload = (event) => {
-            uploadPreview.innerHTML = `<img src="${event.target.result}" alt="Preview">`;
-        };
+        reader.onload = (event) => { uploadPreview.innerHTML = `<img src="${event.target.result}" alt="Preview">`; };
         reader.readAsDataURL(file);
         updatePreview();
     }
 });
 
-// ==================== AUTHENTICATION ====================
+// Authentication
 onAuthStateChanged(auth, (user) => {
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
     if (user) {
@@ -553,106 +477,33 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-// ==================== FORM HANDLING ====================
-function showMessage(element, text, type) {
-    if (element) {
-        element.innerHTML = `<i class="fas fa-${type === 'ok' ? 'check-circle' : 'exclamation-circle'}"></i> ${text}`;
-        element.className = 'msg msg-' + type + ' show';
-        setTimeout(() => element.classList.remove('show'), 5000);
-    }
-}
-
+function showMessage(element, text, type) { if(element){ element.innerHTML = `<i class="fas fa-${type === 'ok' ? 'check-circle' : 'exclamation-circle'}"></i> ${text}`; element.className = 'msg msg-' + type + ' show'; setTimeout(() => element.classList.remove('show'), 5000); } }
 function hideMessage(element) { if (element) element.className = 'msg'; }
+if (resetBtn) resetBtn.addEventListener('click', () => { document.getElementById('addForm').reset(); photoInput.value = ''; uploadPreview.innerHTML = '<i class="fas fa-camera"></i>'; selectedPhoto = null; hideMessage(okMsg); hideMessage(errMsg); updatePreview(); });
 
-if (resetBtn) {
-    resetBtn.addEventListener('click', () => {
-        document.getElementById('addForm').reset();
-        photoInput.value = '';
-        uploadPreview.innerHTML = '<i class="fas fa-camera"></i>';
-        selectedPhoto = null;
-        hideMessage(okMsg);
-        hideMessage(errMsg);
-        updatePreview();
-    });
-}
-
-// Simulate image upload with delay (since Firebase Storage requires premium)
-async function simulateImageUpload(file) {
-    return new Promise((resolve) => {
-        if (!file) {
-            resolve(null);
-            return;
-        }
-        // Simulate 15 seconds delay for premium feature
-        setTimeout(() => {
-            // Return null to use club logo (premium not activated)
-            resolve(null);
-        }, 15000);
-    });
-}
+async function simulateImageUpload(file) { return new Promise((resolve) => { if (!file) resolve(null); else setTimeout(() => resolve(null), 15000); }); }
 
 document.getElementById('addForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    hideMessage(okMsg);
-    hideMessage(errMsg);
+    e.preventDefault(); hideMessage(okMsg); hideMessage(errMsg);
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    
     const name = document.getElementById('fname').value.trim();
     const position = document.getElementById('fpos').value;
     const joinDate = document.getElementById('fjoinDate').value;
     const address = document.getElementById('faddr').value.trim();
     const bio = document.getElementById('fbio').value.trim();
-    
-    if (!name || !position || !joinDate || !address) {
-        showMessage(errMsg, lang === 'bn' ? '⚠ সকল প্রয়োজনীয় ক্ষেত্র পূরণ করুন।' : '⚠ Please fill in all required fields.', 'err');
-        return;
-    }
-    
-    subBtn.disabled = true;
-    subBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${lang === 'bn' ? 'যোগ হচ্ছে…' : 'Adding…'}`;
-    
-    // If image selected, show waiting message for premium feature
-    if (selectedPhoto) {
-        showMessage(okMsg, lang === 'bn' ? '📸 ছবি প্রক্রিয়াকরণ হচ্ছে (১৫ সেকেন্ড)... ক্লাব লোগো ব্যবহার হবে।' : '📸 Processing image (15 seconds)... Club logo will be used.', 'ok');
-    }
-    
+    if (!name || !position || !joinDate || !address) { showMessage(errMsg, lang === 'bn' ? '⚠ সকল প্রয়োজনীয় ক্ষেত্র পূরণ করুন।' : '⚠ Please fill in all required fields.', 'err'); return; }
+    subBtn.disabled = true; subBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${lang === 'bn' ? 'যোগ হচ্ছে…' : 'Adding…'}`;
+    if (selectedPhoto) showMessage(okMsg, lang === 'bn' ? '📸 ছবি প্রক্রিয়াকরণ হচ্ছে (১৫ সেকেন্ড)... ক্লাব লোগো ব্যবহার হবে।' : '📸 Processing image (15 seconds)... Club logo will be used.', 'ok');
     try {
-        // Simulate image upload with delay (premium feature not activated)
         let photoURL = null;
-        if (selectedPhoto) {
-            photoURL = await simulateImageUpload(selectedPhoto);
-            // Since premium not activated, photoURL will be null
-        }
-        
-        await addDoc(collection(db, 'members'), {
-            name,
-            position,
-            joinDate,
-            address,
-            bio: bio || '',
-            photoURL: photoURL,
-            addedAt: serverTimestamp()
-        });
-        
-        showMessage(okMsg, lang === 'bn' ? 
-            '✓ সদস্য সফলভাবে যোগ হয়েছে! <a href="members.html" style="color:var(--cyan);text-decoration:underline">সকল সদস্য দেখুন →</a>' : 
-            '✓ Member added successfully! <a href="members.html" style="color:var(--cyan);text-decoration:underline">View all members →</a>', 'ok');
-        document.getElementById('addForm').reset();
-        photoInput.value = '';
-        uploadPreview.innerHTML = '<i class="fas fa-camera"></i>';
-        selectedPhoto = null;
-        updatePreview();
-        
-    } catch (error) {
-        console.error('Error adding member:', error);
-        showMessage(errMsg, lang === 'bn' ? '⚠ ত্রুটি: ' + error.message : '⚠ Error: ' + error.message, 'err');
-    }
-    
-    subBtn.disabled = false;
-    subBtn.innerHTML = `<i class="fas fa-user-plus"></i> ${lang === 'bn' ? 'সদস্য যোগ করুন' : 'Add Member'}`;
+        if (selectedPhoto) photoURL = await simulateImageUpload(selectedPhoto);
+        await addDoc(collection(db, 'members'), { name, position, joinDate, address, bio: bio || '', photoURL, addedAt: serverTimestamp() });
+        showMessage(okMsg, lang === 'bn' ? '✓ সদস্য সফলভাবে যোগ হয়েছে! <a href="members.html" style="color:var(--cyan);text-decoration:underline">সকল সদস্য দেখুন →</a>' : '✓ Member added successfully! <a href="members.html" style="color:var(--cyan);text-decoration:underline">View all members →</a>', 'ok');
+        document.getElementById('addForm').reset(); photoInput.value = ''; uploadPreview.innerHTML = '<i class="fas fa-camera"></i>'; selectedPhoto = null; updatePreview();
+    } catch (error) { showMessage(errMsg, lang === 'bn' ? '⚠ ত্রুটি: ' + error.message : '⚠ Error: ' + error.message, 'err'); }
+    subBtn.disabled = false; subBtn.innerHTML = `<i class="fas fa-user-plus"></i> ${lang === 'bn' ? 'সদস্য যোগ করুন' : 'Add Member'}`;
 });
 
-// ==================== PREVIEW FUNCTION ====================
 function updatePreview() {
     const name = document.getElementById('fname').value.trim();
     const position = document.getElementById('fpos').value;
@@ -660,92 +511,22 @@ function updatePreview() {
     const previewName = document.getElementById('previewName');
     const previewPos = document.getElementById('previewPos');
     const previewAvatar = document.getElementById('previewAvatar');
-    
     if (name || position) {
         previewDiv.classList.add('show');
         previewName.textContent = name || (document.documentElement.getAttribute('data-lang') === 'bn' ? 'সদস্যের নাম' : 'Member Name');
-        const posMap = {
-            'President': 'সভাপতি',
-            'Senior Vice President': 'সিনিয়র সহ-সভাপতি',
-            'Vice President 1': 'সহ-সভাপতি-১',
-            'Vice President 2': 'সহ-সভাপতি-২',
-            'Vice President 3': 'সহ-সভাপতি-৩',
-            'General Secretary': 'সাধারণ সম্পাদক',
-            'Joint General Secretary': 'যুগ্ম-সাধারণ সম্পাদক',
-            'Assistant General Secretary': 'সহ-সাধারণ সম্পাদক',
-            'Organizing Secretary': 'সাংগঠনিক সম্পাদক',
-            'Assistant Organizing Secretary': 'সহ-সাংগঠনিক সম্পাদক',
-            'Treasurer': 'অর্থ সম্পাদক',
-            'Assistant Treasurer': 'সহ-অর্থ সম্পাদক',
-            'Office Secretary': 'দপ্তর সম্পাদক',
-            'Assistant Office Secretary': 'সহ-দপ্তর সম্পাদক',
-            'Sports Secretary': 'ক্রীড়া সম্পাদক',
-            'Assistant Sports Secretary': 'সহ-ক্রীড়া সম্পাদক',
-            'Publicity Secretary': 'প্রচার সম্পাদক',
-            'Assistant Publicity Secretary': 'সহ-প্রচার সম্পাদক',
-            'Social Welfare Secretary': 'সমাজকল্যাণ সম্পাদক',
-            'Education Secretary': 'শিক্ষা সম্পাদক',
-            'Culture Secretary': 'সাহিত্য ও সংস্কৃতি সম্পাদক',
-            'Training Secretary': 'প্রশিক্ষণ সম্পাদক',
-            'Science Secretary': 'বিজ্ঞান ও প্রযুক্তি সম্পাদক',
-            'Disaster Secretary': 'ত্রাণ ও দুর্যোগ সম্পাদক',
-            'Liberation Secretary': 'মুক্তিযুদ্ধ সম্পাদক',
-            'International Secretary': 'আন্তর্জাতিক সম্পাদক',
-            'Religious Secretary': 'ধর্ম সম্পাদক',
-            'Member': 'সদস্য'
-        };
+        const posMap = { 'President':'সভাপতি','Senior Vice President':'সিনিয়র সহ-সভাপতি','Vice President 1':'সহ-সভাপতি-১','Vice President 2':'সহ-সভাপতি-২','Vice President 3':'সহ-সভাপতি-৩','General Secretary':'সাধারণ সম্পাদক','Joint General Secretary':'যুগ্ম-সাধারণ সম্পাদক','Assistant General Secretary':'সহ-সাধারণ সম্পাদক','Organizing Secretary':'সাংগঠনিক সম্পাদক','Assistant Organizing Secretary':'সহ-সাংগঠনিক সম্পাদক','Treasurer':'অর্থ সম্পাদক','Assistant Treasurer':'সহ-অর্থ সম্পাদক','Office Secretary':'দপ্তর সম্পাদক','Assistant Office Secretary':'সহ-দপ্তর সম্পাদক','Sports Secretary':'ক্রীড়া সম্পাদক','Assistant Sports Secretary':'সহ-ক্রীড়া সম্পাদক','Publicity Secretary':'প্রচার সম্পাদক','Assistant Publicity Secretary':'সহ-প্রচার সম্পাদক','Social Welfare Secretary':'সমাজকল্যাণ সম্পাদক','Education Secretary':'শিক্ষা সম্পাদক','Culture Secretary':'সাহিত্য ও সংস্কৃতি সম্পাদক','Training Secretary':'প্রশিক্ষণ সম্পাদক','Science Secretary':'বিজ্ঞান ও প্রযুক্তি সম্পাদক','Disaster Secretary':'ত্রাণ ও দুর্যোগ সম্পাদক','Liberation Secretary':'মুক্তিযুদ্ধ সম্পাদক','International Secretary':'আন্তর্জাতিক সম্পাদক','Religious Secretary':'ধর্ম সম্পাদক','Member':'সদস্য' };
         const lang = document.documentElement.getAttribute('data-lang') || 'en';
         previewPos.textContent = lang === 'bn' ? (posMap[position] || position) : position;
-        
-        if (selectedPhoto) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                previewAvatar.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
-            };
-            reader.readAsDataURL(selectedPhoto);
-        } else {
-            // Show club logo or placeholder, NO EMOJIS
-            previewAvatar.innerHTML = `<img src="${clubLogoUrl}" alt="Club Logo" onerror="this.onerror=null; this.src='${placeholderLogoUrl}'; this.onerror=null;">`;
-        }
-    } else {
-        previewDiv.classList.remove('show');
-    }
+        if (selectedPhoto) { const reader = new FileReader(); reader.onload = (e) => { previewAvatar.innerHTML = `<img src="${e.target.result}" alt="Preview">`; }; reader.readAsDataURL(selectedPhoto); }
+        else { previewAvatar.innerHTML = `<img src="${clubLogoUrl}" alt="Club Logo" onerror="this.onerror=null; this.src='${placeholderLogoUrl}'; this.onerror=null;">`; }
+    } else { previewDiv.classList.remove('show'); }
 }
 
-// ==================== VISITOR COUNTER ====================
-function updateVisitorCount() {
-    let count = localStorage.getItem('ysc_visitors');
-    if (!count) { count = Math.floor(Math.random() * 500) + 1500; localStorage.setItem('ysc_visitors', count); }
-    else { count = parseInt(count) + 1; localStorage.setItem('ysc_visitors', count); }
-    const visitorEl = document.getElementById('visitorCount');
-    if (visitorEl) visitorEl.textContent = count.toLocaleString();
-}
-
-// ==================== TRIPLE DATE ====================
-function updateDates() {
-    const now = new Date();
-    const dateEn = document.getElementById('dateEn');
-    const dateBn = document.getElementById('dateBn');
-    const dateAr = document.getElementById('dateAr');
-    if (dateEn) dateEn.textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    if (dateBn) dateBn.textContent = now.toLocaleDateString('bn-BD', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    if (dateAr) dateAr.textContent = now.toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-}
-
-// ==================== TOAST ====================
-function showWelcomeToast() {
-    const toast = document.getElementById('toast');
-    const msgEl = document.getElementById('toastMsg');
-    const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    const messages = { en: '➕ Fill the form to add a new club member to Young Sporting Club.', bn: '➕ ইয়ং স্পোর্টিং ক্লাবে নতুন সদস্য যোগ করতে ফর্মটি পূরণ করুন।' };
-    msgEl.textContent = messages[lang] || messages.en;
-    setTimeout(() => toast.classList.add('show'), 500);
-    setTimeout(() => toast.classList.remove('show'), 5000);
-}
-
+function updateVisitorCount() { let count = localStorage.getItem('ysc_visitors'); if (!count) { count = Math.floor(Math.random() * 500) + 1500; localStorage.setItem('ysc_visitors', count); } else { count = parseInt(count) + 1; localStorage.setItem('ysc_visitors', count); } const visitorEl = document.getElementById('visitorCount'); if (visitorEl) visitorEl.textContent = count.toLocaleString(); }
+function updateDates() { const now = new Date(); const dateEn = document.getElementById('dateEn'); const dateBn = document.getElementById('dateBn'); const dateAr = document.getElementById('dateAr'); if (dateEn) dateEn.textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); if (dateBn) dateBn.textContent = now.toLocaleDateString('bn-BD', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); if (dateAr) dateAr.textContent = now.toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); }
+function showWelcomeToast() { const toast = document.getElementById('toast'); const msgEl = document.getElementById('toastMsg'); const lang = document.documentElement.getAttribute('data-lang') || 'en'; msgEl.textContent = lang === 'bn' ? '➕ ইয়ং স্পোর্টিং ক্লাবে নতুন সদস্য যোগ করতে ফর্মটি পূরণ করুন।' : '➕ Fill the form to add a new club member to Young Sporting Club.'; setTimeout(() => toast.classList.add('show'), 500); setTimeout(() => toast.classList.remove('show'), 5000); }
 function closeToast() { document.getElementById('toast').classList.remove('show'); }
 
-// ==================== INITIALIZATION ====================
 AOS.init({ duration: 700, once: true, offset: 55 });
 window.addEventListener('load', () => { setTimeout(() => document.getElementById('ldr').classList.add('hid'), 500); updateVisitorCount(); updateDates(); showWelcomeToast(); });
 setInterval(updateDates, 60000);
@@ -756,7 +537,7 @@ window.updatePreview = updatePreview; window.closeToast = closeToast;
 </script>
 
 <script>
-// ==================== LANGUAGE SWITCHER ====================
+// LANGUAGE SWITCHER with full club name translation
 let currentLang = (function() { try { return localStorage.getItem('ysc-lang') || 'en'; } catch(e) { return 'en'; } })();
 
 function setLang(lang) {
@@ -768,10 +549,7 @@ function setLang(lang) {
     // Update all data-en/data-bn elements
     document.querySelectorAll('[data-en]').forEach(el => {
         const value = el.getAttribute('data-' + lang);
-        if (value !== null) {
-            if (value.includes('<')) el.innerHTML = value;
-            else el.textContent = value;
-        }
+        if (value !== null) { if (value.includes('<')) el.innerHTML = value; else el.textContent = value; }
     });
     
     // Update language buttons
@@ -780,35 +558,38 @@ function setLang(lang) {
         if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
     });
     
-    // Update club name in header and footer
-    const clubNameHeader = document.getElementById('clubNameHeader');
-    const clubNameFooter = document.getElementById('clubNameFooter');
-    const developerName = document.getElementById('developerName');
+    // FIX: CLUB NAME DYNAMICALLY UPDATE (English ↔ Bengali with gold letters)
+    const word1 = document.getElementById('clubWord1');
+    const word2 = document.getElementById('clubWord2');
+    const word3 = document.getElementById('clubWord3');
+    const word4 = document.getElementById('clubWord4');
+    const word5 = document.getElementById('clubWord5');
+    const word6 = document.getElementById('clubWord6');
     
-    if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubNameHeader;
-    if (clubNameFooter) clubNameFooter.innerHTML = langData[lang].clubNameFooter;
-    if (developerName) developerName.textContent = langData[lang].devName;
+    if (lang === 'en') {
+        word1.textContent = 'Y'; word2.textContent = 'OUNG ';
+        word3.textContent = 'S'; word4.textContent = 'PORTING ';
+        word5.textContent = 'C'; word6.textContent = 'LUB';
+    } else {
+        // Bengali: "ইয়ং স্পোর্টিং ক্লাব" with gold letters on first letters: ই, স, ক
+        word1.textContent = 'ই'; word2.textContent = 'য়ং ';
+        word3.textContent = 'স'; word4.textContent = '্পোর্টিং ';
+        word5.textContent = 'ক'; word6.textContent = '্লাব';
+    }
+    
+    // Update developer name & footer
+    const developerName = document.getElementById('developerName');
+    if (developerName) developerName.textContent = lang === 'bn' ? 'তৈরি করেছেন ফারাবি ওয়ালিদ' : 'Developed by Farabi Walid';
     
     // Update placeholders
-    const placeholders = [
-        ['fname', lang === 'bn' ? 'যেমন: রহিম হোসেন' : 'e.g. Rahim Hossain'],
-        ['faddr', lang === 'bn' ? 'যেমন: পশ্চিম শিংরাউলী, শমশেরনগর' : 'e.g. West Shingrauli, Shamshernagar'],
-        ['fbio', lang === 'bn' ? 'এই সদস্য সম্পর্কে সংক্ষিপ্ত বিবরণ…' : 'Brief description about this member…']
-    ];
+    const placeholders = [ ['fname', lang === 'bn' ? 'যেমন: রহিম হোসেন' : 'e.g. Rahim Hossain'], ['faddr', lang === 'bn' ? 'যেমন: পশ্চিম শিংরাউলী, শমশেরনগর' : 'e.g. West Shingrauli, Shamshernagar'], ['fbio', lang === 'bn' ? 'এই সদস্য সম্পর্কে সংক্ষিপ্ত বিবরণ…' : 'Brief description about this member…'] ];
     placeholders.forEach(([id, text]) => { const el = document.getElementById(id); if (el) el.placeholder = text; });
     
     if (window.updatePreview) window.updatePreview();
-    
     const toastMsg = document.getElementById('toastMsg');
-    if (toastMsg && document.getElementById('toast').classList.contains('show')) {
-        toastMsg.textContent = lang === 'bn' ? '➕ ইয়ং স্পোর্টিং ক্লাবে নতুন সদস্য যোগ করতে ফর্মটি পূরণ করুন।' : '➕ Fill the form to add a new club member to Young Sporting Club.';
-    }
-    
-    // Update login button text if not logged in
+    if (toastMsg && document.getElementById('toast').classList.contains('show')) toastMsg.textContent = lang === 'bn' ? '➕ ইয়ং স্পোর্টিং ক্লাবে নতুন সদস্য যোগ করতে ফর্মটি পূরণ করুন।' : '➕ Fill the form to add a new club member to Young Sporting Club.';
     const loginBtn = document.getElementById('nav-login-btn');
-    if (loginBtn && !loginBtn.querySelector('span')) {
-        loginBtn.textContent = lang === 'bn' ? 'লগইন' : 'Login';
-    }
+    if (loginBtn && !loginBtn.querySelector('span')) loginBtn.textContent = lang === 'bn' ? 'লগইন' : 'Login';
 }
 
 document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
