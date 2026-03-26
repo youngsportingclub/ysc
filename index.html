@@ -242,17 +242,74 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 .toast .toast-close{position:absolute;top:8px;right:12px;cursor:pointer;font-size:14px;color:var(--gr)}
 .ldr{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s,visibility .5s;flex-direction:column;gap:16px}
 .ldr.hid{opacity:0;visibility:hidden;pointer-events:none}
-.lring{width:50px;height:50px;border:3px solid rgba(254,44,85,.2);border-top-color:var(--pink);border-right-color:var(--cyan);border-radius:50%;animation:spin .8s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.ltxt{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:4px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* TikTok Style Loading Animation */
+.loader-ring{
+    position:relative;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--pink),var(--cyan));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation:pulse 1s ease-in-out infinite;
+}
+.loader-ring::before{
+    content:'';
+    position:absolute;
+    inset:3px;
+    border-radius:50%;
+    background:var(--bg);
+    z-index:1;
+}
+.loader-ring::after{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--pink),var(--cyan));
+    filter:blur(12px);
+    opacity:.6;
+    animation:blurPulse 1s ease-in-out infinite;
+}
+@keyframes pulse{
+    0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(254,44,85,.4);}
+    50%{transform:scale(1.08);box-shadow:0 0 20px 5px rgba(254,44,85,.3);}
+}
+@keyframes blurPulse{
+    0%,100%{opacity:.4;transform:scale(1);}
+    50%{opacity:.8;transform:scale(1.2);}
+}
+.loader-icon{
+    position:relative;
+    z-index:2;
+    font-size:32px;
+    background:linear-gradient(135deg,var(--pink),var(--cyan));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    animation:spinIcon 2s linear infinite;
+}
+@keyframes spinIcon{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+.loader-text{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:24px;
+    letter-spacing:3px;
+    margin-top:8px;
+}
+.loader-text .loader-letter-gold{
+    color:var(--gold);
+    text-shadow:0 0 8px rgba(255,215,0,.5);
+}
+.loader-text .loader-letter-white{
+    color:var(--wh);
+}
 .visitor-badge{position:fixed;bottom:20px;left:20px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border-radius:40px;padding:7px 16px;font-size:11px;color:var(--gr);z-index:998;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15)}
 .visitor-badge i{color:var(--cyan);font-size:11px}
-
-/* ========== মোবাইল রেস্পন্সিভ স্টাইল ========== */
-@media(max-width:1024px){
-    .agr{grid-template-columns:repeat(2,1fr)}
-    .cgr{grid-template-columns:repeat(2,1fr)}
-}
 @media(max-width:900px){
     .hw{grid-template-columns:1fr;text-align:center;gap:40px}
     .hdesc,.hloc{margin-left:auto;margin-right:auto;text-align:center;justify-content:center}
@@ -260,122 +317,56 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
     .hro{display:none}
     .agrid{grid-template-columns:1fr;gap:40px}
     .ac .sec-title,.ac .divider{text-align:center;margin-left:auto}
-    .agr{grid-template-columns:repeat(2,1fr)}
-    .cgr{grid-template-columns:repeat(2,1fr)}
-    .stbg{grid-template-columns:repeat(2,1fr)}
+    .agr{grid-template-columns:1fr 1fr}
+    .cgr{grid-template-columns:1fr 1fr}
+    .stbg{grid-template-columns:1fr 1fr}
     .sti:nth-child(2){border-right:none}
-    .ftgr{grid-template-columns:repeat(2,1fr)}
+    .ftgr{grid-template-columns:1fr 1fr}
     .fdbox{grid-template-columns:1fr;text-align:center;gap:30px}
-    .fdbox .hit{text-align:left}
     .lt .n1{font-size:22px}
     [data-lang="bn"] .lt .n1{font-size:20px}
     .logo-img{width:55px;height:55px}
     .hero{padding-top:70px}
 }
-@media(max-width:768px){
-    .nav{padding:10px 16px}
-    .logo{gap:10px}
-    .logo-img{width:48px;height:48px}
-    .lt .n1{font-size:18px;white-space:normal;line-height:1.2}
-    [data-lang="bn"] .lt .n1{font-size:17px;white-space:normal}
-    .lt .n2{font-size:9px}
-    .nl{display:none}
-    .hbg{display:flex}
-    .nr .lang-sw{display:none}
-    .nr{gap:6px}
-    .ncta{padding:5px 14px;font-size:11px}
+@media(max-width:700px){
+    .nl{display:none}.hbg{display:flex}
     .sp{padding:60px 0}
-    .sec-title{font-size:clamp(28px,6vw,44px)}
-    .sub{font-size:13px;margin-bottom:30px}
-    .htitle{font-size:clamp(36px,7vw,64px)}
-    [data-lang="bn"] .htitle{font-size:clamp(32px,6vw,56px)}
-    .htitle .hero-name-en,.htitle .hero-name-bn{white-space:normal;display:inline-block;text-align:center}
-    .hstats{gap:20px}
-    .hst .num{font-size:32px}
-    .hst .num sup{font-size:16px}
-    .hst .lbl{font-size:9px}
-    .date-bar{flex-direction:column;align-items:center;gap:8px;padding:10px 20px;border-radius:24px}
-    .date-item{font-size:10px}
     .agr{grid-template-columns:1fr}
+    .ftgr{grid-template-columns:1fr}
+    .ahi{grid-template-columns:1fr}
+    .nr .lang-sw{display:none}
     .cgr{grid-template-columns:1fr}
     .stbg{grid-template-columns:1fr}
     .sti{border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}
-    .ftgr{grid-template-columns:1fr;gap:30px}
-    .ftlogo-img{width:45px;height:45px}
-    .ftlogo-text .name{font-size:18px;white-space:normal}
-    [data-lang="bn"] .ftlogo-text .name{font-size:16px;white-space:normal}
-    .whatsapp-float{width:45px;height:45px;bottom:15px;right:15px}
+    .date-bar{flex-direction:column;align-items:center;gap:10px;border-radius:24px;padding:12px 20px}
+    .whatsapp-float{width:45px;height:45px;bottom:20px;right:20px}
     .whatsapp-float i{font-size:24px}
-    .toast{bottom:80px;right:16px;left:16px;max-width:calc(100% - 32px)}
-    .visitor-badge{bottom:12px;left:12px;padding:5px 12px;font-size:10px}
-    .ahi{grid-template-columns:1fr}
-    .abc{position:relative;bottom:auto;right:auto;margin-top:20px;display:inline-block}
-    .avis{display:flex;flex-direction:column;align-items:center}
-    .fdbox .tc{margin-top:20px}
+    .toast{bottom:90px;right:16px;left:16px;max-width:calc(100% - 32px)}
+    .visitor-badge{bottom:16px;left:16px}
+    .lt .n1{font-size:18px;white-space:normal}
+    [data-lang="bn"] .lt .n1{font-size:17px;white-space:normal}
+    .logo-img{width:48px;height:48px}
 }
-@media(max-width:600px){
-    .nav{padding:8px 12px}
-    .logo{gap:8px}
+@media(max-width:460px){
+    .ftbot{flex-direction:column;text-align:center}
     .logo-img{width:42px;height:42px}
     .lt .n1{font-size:15px}
     [data-lang="bn"] .lt .n1{font-size:14px}
-    .lt .n2{font-size:8px;letter-spacing:0.5px}
-    .ncta{padding:4px 12px;font-size:10px}
-    .hero{padding-top:65px;min-height:auto}
-    .htitle{font-size:clamp(32px,6vw,52px)}
-    [data-lang="bn"] .htitle{font-size:clamp(28px,5vw,48px)}
-    .hew{font-size:9px;padding:4px 12px}
-    .hdesc{font-size:13px}
-    .hloc{font-size:11px}
-    .hbtns .btn{padding:8px 18px;font-size:11px}
-    .hst .num{font-size:28px}
-    .hst .num sup{font-size:14px}
-    .btn{padding:8px 20px;font-size:11px}
-    .sp{padding:50px 0}
-    .sec-title{font-size:clamp(26px,5vw,38px)}
-    .upcoming-events{padding:20px}
-    .upcoming-events h3{font-size:18px}
-    .event-card{min-width:260px}
-    .ac2{padding:20px 16px}
-    .ac2 h3{font-size:16px}
-    .ac2 p{font-size:11px}
-    .aic{width:50px;height:50px;font-size:24px}
-    .cc{padding:20px 12px}
-    .cav{width:55px;height:55px;font-size:22px}
-    .cc h4{font-size:14px}
-    .ctasec p{font-size:13px;margin-bottom:25px}
-    .ctabtns .btn{padding:8px 18px}
-    .ftdesc{font-size:12px}
-    .fcol h4{font-size:12px}
-    .fcol ul li a{font-size:12px}
-    .ci2 li{font-size:12px}
-    .ftbot{flex-direction:column;text-align:center}
-    .ftbot p,.ftbot .dev{font-size:11px}
-}
-@media(max-width:480px){
-    .logo-img{width:38px;height:38px}
-    .lt .n1{font-size:13px}
-    [data-lang="bn"] .lt .n1{font-size:12px}
-    .lt .n2{font-size:7px}
-    .ncta{padding:3px 10px;font-size:9px}
-    .mob{padding:15px}
-    .mob a{padding:10px 14px;font-size:14px}
-    .htitle{font-size:clamp(28px,5vw,44px)}
-    [data-lang="bn"] .htitle{font-size:clamp(24px,4.5vw,40px)}
-    .hstats{gap:15px}
-    .stb .sn{font-size:36px}
-    .stb .sl{font-size:9px}
-    .abc .yr{font-size:28px}
-    .abc .sn2{font-size:8px}
-    .fdbox .tc div{width:160px;height:160px}
-    .fdbox .tc div div:first-child{font-size:40px}
-    .fdbox .tc div div:nth-child(2){font-size:24px}
 }
 </style>
 </head>
 <body>
 
-<div class="ldr" id="ldr"><div class="lring"></div><div class="ltxt">YSC</div></div>
+<!-- TikTok Style Loader -->
+<div class="ldr" id="ldr">
+    <div class="loader-ring">
+        <i class="fas fa-tiktok loader-icon"></i>
+    </div>
+    <div class="loader-text">
+        <span class="loader-letter-gold">Y</span>
+        <span class="loader-letter-white">SC</span>
+    </div>
+</div>
 
 <!-- Floating WhatsApp Button -->
 <a href="https://wa.me/8801737355553?text=Assalamu%20Alaikum%2C%20I%20want%20to%20know%20about%20Young%20Sporting%20Club" target="_blank" class="whatsapp-float" id="whatsappBtn">
@@ -731,7 +722,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// ==================== LANGUAGE VARIABLES ====================
+// Language data
 const langData = {
     en: {
         clubNameHeader: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
@@ -792,10 +783,6 @@ async function loadCommitteeMembers() {
         }
     } catch (error) {
         console.error('Error loading committee members:', error);
-        const committeeContainer = document.getElementById('committee-container');
-        if (committeeContainer) {
-            committeeContainer.innerHTML = '<div class="cc" style="grid-column:span 4"><div class="cav">⚠️</div><h4>Error loading members</h4><div class="role">Please check connection</div></div>';
-        }
     }
 }
 
@@ -896,7 +883,6 @@ function setLang(lang) {
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
     
-    // Update all data-en/data-bn elements
     document.querySelectorAll('[data-en]').forEach(el => {
         const value = el.getAttribute('data-' + lang);
         if (value !== null) {
@@ -905,20 +891,17 @@ function setLang(lang) {
         }
     });
     
-    // Update language buttons
     document.querySelectorAll('.lb').forEach(btn => {
         btn.classList.remove('on');
         if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
     });
     
-    // Update club name in header and footer
     const clubNameHeader = document.getElementById('clubNameHeader');
     const clubNameFooter = document.getElementById('clubNameFooter');
     
     if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubNameHeader;
     if (clubNameFooter) clubNameFooter.innerHTML = langData[lang].clubNameFooter;
     
-    // Update hero title (show/hide English/Bengali name)
     const heroNameEn = document.querySelector('.hero-name-en');
     const heroNameBn = document.querySelector('.hero-name-bn');
     if (heroNameEn && heroNameBn) {
@@ -931,7 +914,6 @@ function setLang(lang) {
         }
     }
     
-    // Update descriptions
     const clubDescription = document.getElementById('clubDescription');
     const footerDescription = document.getElementById('footerDescription');
     const clubLocation = document.getElementById('clubLocation');
@@ -944,7 +926,6 @@ function setLang(lang) {
     if (footerLocation) footerLocation.textContent = langData[lang].footerLocation;
     if (developerName) developerName.textContent = langData[lang].devName;
     
-    // Update placeholders
     const placeholders = [
         ['eventTitle', lang === 'bn' ? 'ইভেন্টের শিরোনাম' : 'Event Title'],
         ['eventDate', lang === 'bn' ? 'তারিখ (যেমন: ২৫ মার্চ ২০২৬)' : 'Date (e.g., 25 March 2026)'],
@@ -952,19 +933,15 @@ function setLang(lang) {
     ];
     placeholders.forEach(([id, text]) => { const el = document.getElementById(id); if (el) el.placeholder = text; });
     
-    // Update toast message
     const toastMsg = document.getElementById('toastMsg');
     if (toastMsg && document.getElementById('toast').classList.contains('show')) {
         toastMsg.textContent = lang === 'bn' ? '🎉 ইয়ং স্পোর্টিং ক্লাবে স্বাগতম! আপডেটের সাথে সংযুক্ত থাকুন।' : '🎉 Welcome to Young Sporting Club! Stay connected for updates.';
     }
     
-    // Reload committee members to update language
     loadCommitteeMembers();
 }
 
-// Make setLang available globally
 window.setLang = setLang;
-
 document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
 window.closeToast = closeToast;
 window.editEvent = editEvent;
