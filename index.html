@@ -148,7 +148,7 @@ ul{list-style:none}
 .upcoming-events h3{font-size:20px;display:flex;align-items:center;gap:10px}
 .event-controls{display:flex;gap:10px}
 .event-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:6px 12px;border-radius:30px;font-size:11px;cursor:pointer;transition:var(--tr)}
-.event-btn:hover{background:var(--pink);border-color:var(--pink)}
+.event-btn:hover{background:var(--pink);border-color:var(--pink);color:#fff}
 .event-slider{display:flex;gap:18px;overflow-x:auto;padding:8px 4px;scrollbar-width:thin}
 .event-card{min-width:280px;background:var(--bg);border-radius:var(--r);padding:18px;border:1px solid var(--bp);flex-shrink:0;transition:var(--tr)}
 .event-card:hover{border-color:var(--cyan);transform:translateY(-3px)}
@@ -162,6 +162,7 @@ ul{list-style:none}
 .add-event-form{background:var(--card2);border-radius:var(--r);padding:20px;margin-top:20px;display:none;border:1px solid var(--bp)}
 .add-event-form.show{display:block}
 .add-event-form input,.add-event-form textarea{width:100%;background:var(--bg);border:1px solid rgba(255,255,255,.1);color:var(--wh);padding:10px 14px;border-radius:var(--r);font-size:13px;margin-bottom:10px}
+.add-event-form input:focus,.add-event-form textarea:focus{border-color:var(--pink);outline:none}
 .add-event-form textarea{resize:vertical;min-height:70px}
 .add-event-form .form-btns{display:flex;gap:10px;justify-content:flex-end}
 .agrid{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
@@ -242,7 +243,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 .toast .toast-close{position:absolute;top:8px;right:12px;cursor:pointer;font-size:14px;color:var(--gr)}
 .ldr{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s,visibility .5s;flex-direction:column;gap:16px}
 .ldr.hid{opacity:0;visibility:hidden;pointer-events:none}
-/* TikTok Style Loading Animation */
+/* TikTok Style Loading Animation - Y-S-C Style */
 .loader-ring{
     position:relative;
     width:70px;
@@ -297,13 +298,13 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 }
 .loader-text{
     font-family:'Bebas Neue',sans-serif;
-    font-size:24px;
-    letter-spacing:3px;
-    margin-top:8px;
+    font-size:28px;
+    letter-spacing:2px;
+    margin-top:12px;
 }
 .loader-text .loader-letter-gold{
     color:var(--gold);
-    text-shadow:0 0 8px rgba(255,215,0,.5);
+    text-shadow:0 0 8px rgba(255,215,0,.6);
 }
 .loader-text .loader-letter-white{
     color:var(--wh);
@@ -357,14 +358,15 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 </head>
 <body>
 
-<!-- TikTok Style Loader -->
+<!-- TikTok Style Loader with Y-S-C Style -->
 <div class="ldr" id="ldr">
     <div class="loader-ring">
-        <i class="fas fa-tiktok loader-icon"></i>
+        <i class="fab fa-tiktok loader-icon"></i>
     </div>
     <div class="loader-text">
         <span class="loader-letter-gold">Y</span>
-        <span class="loader-letter-white">SC</span>
+        <span class="loader-letter-white">S</span>
+        <span class="loader-letter-gold">C</span>
     </div>
 </div>
 
@@ -422,7 +424,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
     </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO SECTION (same as before) -->
 <section class="hero">
     <div class="hbg2"></div><div class="hgrid"></div>
     <div class="sportbg">
@@ -525,7 +527,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
     </div>
 </div>
 
-<!-- ABOUT -->
+<!-- ABOUT SECTION (same as before) -->
 <section class="sp" style="background:var(--bg)">
     <div class="container">
         <div class="agrid">
@@ -562,7 +564,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
     </div>
 </section>
 
-<!-- ACHIEVEMENTS -->
+<!-- ACHIEVEMENTS SECTION (same as before) -->
 <section class="sp asec">
     <div class="container">
         <div class="tc" data-aos="fade-up">
@@ -582,7 +584,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
     </div>
 </section>
 
-<!-- COMMITTEE -->
+<!-- COMMITTEE SECTION (same as before) -->
 <section class="sp" style="background:var(--bg)">
     <div class="container">
         <div class="tc" data-aos="fade-up">
@@ -600,7 +602,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
     </div>
 </section>
 
-<!-- FOUNDATION DAY -->
+<!-- FOUNDATION DAY SECTION (same as before) -->
 <section class="sp" style="background:var(--card)">
     <div class="container">
         <div class="fdbox" data-aos="fade-up">
@@ -627,7 +629,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
     </div>
 </section>
 
-<!-- CTA -->
+<!-- CTA SECTION -->
 <section class="sp ctasec">
     <div class="container" data-aos="zoom-in">
         <span class="bdg"><span class="dot"></span><span data-en="Join Us" data-bn="আমাদের সাথে যোগ দিন">Join Us</span></span>
@@ -850,7 +852,7 @@ if (saveEventBtn) {
             if (editingEventId) { await updateDoc(doc(db, 'events', editingEventId), { title, date, description }); showToastMessage('Event updated successfully!'); }
             else { await addDoc(collection(db, 'events'), { title, date, description }); showToastMessage('Event added successfully!'); }
             addEventForm.classList.remove('show'); editingEventId = null; eventTitle.value = ''; eventDate.value = ''; eventDesc.value = '';
-        } catch (error) { console.error('Error saving event:', error); showToastMessage('Failed to save event.'); }
+        } catch (error) { console.error('Error saving event:', error); showToastMessage('Failed to save event: ' + error.message); }
     });
 }
 if (cancelEventBtn) cancelEventBtn.addEventListener('click', () => { addEventForm.classList.remove('show'); editingEventId = null; eventTitle.value = ''; eventDate.value = ''; eventDesc.value = ''; });
