@@ -66,7 +66,6 @@ ul{list-style:none}
 .lt{display:flex;flex-direction:column;line-height:1.2;justify-content:center}
 .lt .n1{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1.5px;white-space:nowrap}
 .lt .n1 .gold-letter{color:var(--gold);text-shadow:0 0 5px rgba(255,215,0,.3)}
-/* বাংলা ভাষায় হেডারের নামের জন্য স্টাইল */
 [data-lang="bn"] .lt .n1{font-family:'Hind Siliguri',sans-serif;font-size:22px;letter-spacing:0;white-space:nowrap}
 .lt .n2{font-size:10px;color:var(--gr);letter-spacing:1px;text-transform:uppercase;margin-top:3px}
 .nl{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
@@ -147,7 +146,6 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 .ftlogo-text{display:flex;flex-direction:column}
 .ftlogo-text .name{font-family:'Bebas Neue',sans-serif;font-size:20px;white-space:nowrap}
 .ftlogo-text .name .gold-letter{color:var(--gold);text-shadow:0 0 5px rgba(255,215,0,.3)}
-/* বাংলা ভাষায় ফুটারের নামের জন্য স্টাইল */
 [data-lang="bn"] .ftlogo-text .name{font-family:'Hind Siliguri',sans-serif;font-size:18px;white-space:nowrap;letter-spacing:0}
 .ftlogo-text .est{font-size:9px;color:var(--gr);margin-top:2px}
 .ftdesc{color:var(--gr);font-size:13px;line-height:1.85;margin:15px 0 25px}
@@ -171,9 +169,78 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 .ftbot .dev span:hover{color:var(--cyan);text-decoration:underline}
 .ldr{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s,visibility .5s;flex-direction:column;gap:16px}
 .ldr.hid{opacity:0;visibility:hidden;pointer-events:none}
-.lring{width:50px;height:50px;border:3px solid rgba(254,44,85,.2);border-top-color:var(--pink);border-right-color:var(--cyan);border-radius:50%;animation:spin .8s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.ltxt{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:4px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* Loading Animation with Club Logo */
+.loader-ring{
+    position:relative;
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--pink),var(--cyan));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation:pulse 1s ease-in-out infinite;
+}
+.loader-ring::before{
+    content:'';
+    position:absolute;
+    inset:4px;
+    border-radius:50%;
+    background:var(--bg);
+    z-index:1;
+}
+.loader-ring::after{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--pink),var(--cyan));
+    filter:blur(12px);
+    opacity:.6;
+    animation:blurPulse 1s ease-in-out infinite;
+}
+@keyframes pulse{
+    0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(254,44,85,.4);}
+    50%{transform:scale(1.08);box-shadow:0 0 20px 5px rgba(254,44,85,.3);}
+}
+@keyframes blurPulse{
+    0%,100%{opacity:.4;transform:scale(1);}
+    50%{opacity:.8;transform:scale(1.2);}
+}
+.loader-logo{
+    position:relative;
+    z-index:2;
+    width:52px;
+    height:52px;
+    border-radius:14px;
+    background:linear-gradient(135deg,var(--pink),var(--cyan));
+    padding:2px;
+    animation:spinLogo 2s linear infinite;
+}
+.loader-logo img{
+    width:100%;
+    height:100%;
+    border-radius:12px;
+    object-fit:cover;
+}
+@keyframes spinLogo{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+.loader-text{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:28px;
+    letter-spacing:2px;
+    margin-top:12px;
+}
+.loader-text .loader-letter-gold{
+    color:var(--gold);
+    text-shadow:0 0 8px rgba(255,215,0,.6);
+}
+.loader-text .loader-letter-white{
+    color:var(--wh);
+}
 .date-bar{background:rgba(0,0,0,.6);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:60px;padding:10px 28px;margin:25px auto;display:inline-flex;flex-wrap:wrap;gap:18px;justify-content:center;font-size:12px;font-weight:500}
 .date-item{display:flex;align-items:center;gap:8px;color:var(--lt)}
 .date-item i{color:var(--cyan);font-size:12px}
@@ -186,8 +253,6 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 .toast .toast-close{position:absolute;top:8px;right:12px;cursor:pointer;font-size:14px;color:var(--gr)}
 .visitor-badge{position:fixed;bottom:20px;left:20px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border-radius:40px;padding:7px 16px;font-size:11px;color:var(--gr);z-index:998;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15)}
 .visitor-badge i{color:var(--cyan);font-size:11px}
-
-/* ========== মোবাইল রেস্পন্সিভ স্টাইল ========== */
 @media(max-width:900px){
     .g3{grid-template-columns:1fr 1fr}
     .mvgrid{grid-template-columns:1fr}
@@ -196,7 +261,6 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
     .phero{padding:120px 0 50px}
     .sp{padding:70px 0}
 }
-
 @media(max-width:768px){
     .nav{padding:10px 16px}
     .logo{gap:10px}
@@ -216,7 +280,6 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
     .sec-title{font-size:clamp(28px,6vw,44px)}
     .sub{font-size:13px;margin-bottom:30px}
 }
-
 @media(max-width:600px){
     .logo-img{width:42px;height:42px}
     .lt .n1{font-size:15px}
@@ -245,7 +308,6 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
     .tli-t{font-size:16px}
     .tli-d{font-size:12px}
 }
-
 @media(max-width:480px){
     .nav{padding:8px 12px}
     .logo{gap:8px}
@@ -266,7 +328,19 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 </head>
 <body>
 
-<div class="ldr" id="ldr"><div class="lring"></div><div class="ltxt">YSC</div></div>
+<!-- Loading Animation with Club Logo -->
+<div class="ldr" id="ldr">
+    <div class="loader-ring">
+        <div class="loader-logo">
+            <img src="ysc.png" alt="YSC Logo" onerror="this.src='https://placehold.co/52x52/FE2C55/FFFFFF?text=YSC'">
+        </div>
+    </div>
+    <div class="loader-text">
+        <span class="loader-letter-gold">Y</span>
+        <span class="loader-letter-white">S</span>
+        <span class="loader-letter-gold">C</span>
+    </div>
+</div>
 
 <!-- Floating WhatsApp Button -->
 <a href="https://wa.me/8801737355553?text=Assalamu%20Alaikum%2C%20I%20want%20to%20know%20about%20Young%20Sporting%20Club" target="_blank" class="whatsapp-float">
@@ -507,6 +581,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:60px 0
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",
@@ -520,6 +595,83 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
+
+// Position-based emoji for committee avatars
+const positionEmoji = {
+    'President': '👨‍💼',
+    'Vice President': '👨‍⚖️',
+    'General Secretary': '📋',
+    'Treasurer': '💰'
+};
+
+// Language data
+const langData = {
+    en: {
+        clubNameHeader: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
+        clubNameFooter: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
+        footerDesc: "Young Sporting Club is a voluntary, non-political, and non-profit organization established in West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet, dedicated to engaging youth in sports, community development, and welfare activities since 2009.",
+        footerLocation: "West Shingrauli, Shamshernagar, Kamalganj, Moulvibazar, Sylhet, Bangladesh",
+        devName: "Developed by Farabi Walid"
+    },
+    bn: {
+        clubNameHeader: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
+        clubNameFooter: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
+        footerDesc: "ইয়ং স্পোর্টিং ক্লাব পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেটে প্রতিষ্ঠিত একটি স্বেচ্ছাসেবী, অরাজনৈতিক এবং অলাভজনক সংগঠন যা ২০০৯ সাল থেকে তরুণদের ক্রীড়া, সমাজ উন্নয়ন এবং কল্যাণমূলক কার্যক্রমে নিয়োজিত রাখতে নিবেদিত।",
+        footerLocation: "পশ্চিম শিংরাউলী, শমশেরনগর, কমলগঞ্জ, মৌলভীবাজার, সিলেট, বাংলাদেশ",
+        devName: "তৈরি করেছেন ফারাবি ওয়ালিদ"
+    }
+};
+
+// ==================== LOAD COMMITTEE MEMBERS ====================
+async function loadCommitteeMembers() {
+    try {
+        const positions = ['President', 'Vice President', 'General Secretary', 'Treasurer'];
+        const positionMap = {
+            'President': { bn: 'সভাপতি', initial: '👨‍💼' },
+            'Vice President': { bn: 'সহ-সভাপতি', initial: '👨‍⚖️' },
+            'General Secretary': { bn: 'সাধারণ সম্পাদক', initial: '📋' },
+            'Treasurer': { bn: 'কোষাধ্যক্ষ', initial: '💰' }
+        };
+        
+        const committeeContainer = document.getElementById('committee-container');
+        if (!committeeContainer) return;
+        
+        const membersRef = collection(db, 'members');
+        const querySnapshot = await getDocs(membersRef);
+        const committeeMembers = [];
+        
+        querySnapshot.forEach((doc) => {
+            const member = doc.data();
+            if (positions.includes(member.position)) {
+                committeeMembers.push(member);
+            }
+        });
+        
+        if (committeeMembers.length > 0) {
+            committeeContainer.innerHTML = '';
+            committeeMembers.forEach((member, index) => {
+                const position = member.position;
+                const posData = positionMap[position] || { initial: '👤', bn: position };
+                const lang = document.documentElement.getAttribute('data-lang') || 'en';
+                const memberCard = document.createElement('div');
+                memberCard.className = 'cc';
+                memberCard.setAttribute('data-aos', 'fade-up');
+                memberCard.setAttribute('data-aos-delay', index * 80);
+                memberCard.innerHTML = `<div class="cav">${posData.initial}</div><h4>${member.name || 'Unknown'}</h4><div class="role">${lang === 'bn' ? posData.bn : position}</div>`;
+                committeeContainer.appendChild(memberCard);
+            });
+        } else {
+            committeeContainer.innerHTML = '<div class="cc" style="grid-column:span 4"><div class="cav">👥</div><h4>No committee members added yet</h4><div class="role">Add members from admin panel</div></div>';
+        }
+    } catch (error) {
+        console.error('Error loading committee members:', error);
+        const committeeContainer = document.getElementById('committee-container');
+        if (committeeContainer) {
+            committeeContainer.innerHTML = '<div class="cc" style="grid-column:span 4"><div class="cav">⚠️</div><h4>Error loading committee</h4><div class="role">Please check connection</div></div>';
+        }
+    }
+}
 
 function updateVisitorCount() {
     let count = localStorage.getItem('ysc_visitors');
@@ -557,6 +709,7 @@ window.addEventListener('load', () => {
     updateVisitorCount();
     updateDates();
     showWelcomeToast();
+    loadCommitteeMembers();
 });
 
 setInterval(updateDates, 60000);
@@ -590,7 +743,7 @@ window.closeToast = closeToast;
 </script>
 
 <script>
-const langData = {
+const langDataLocal = {
     en: {
         clubNameHeader: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
         clubNameFooter: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
@@ -639,11 +792,11 @@ function setLang(lang) {
     const footerLocation = document.getElementById('footerLocation');
     const developerName = document.getElementById('developerName');
     
-    if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubNameHeader;
-    if (clubNameFooter) clubNameFooter.innerHTML = langData[lang].clubNameFooter;
-    if (footerDescription) footerDescription.textContent = langData[lang].footerDesc;
-    if (footerLocation) footerLocation.textContent = langData[lang].footerLocation;
-    if (developerName) developerName.textContent = langData[lang].devName;
+    if (clubNameHeader) clubNameHeader.innerHTML = langDataLocal[lang].clubNameHeader;
+    if (clubNameFooter) clubNameFooter.innerHTML = langDataLocal[lang].clubNameFooter;
+    if (footerDescription) footerDescription.textContent = langDataLocal[lang].footerDesc;
+    if (footerLocation) footerLocation.textContent = langDataLocal[lang].footerLocation;
+    if (developerName) developerName.textContent = langDataLocal[lang].devName;
     
     const toastMsg = document.getElementById('toastMsg');
     if (toastMsg && document.getElementById('toast').classList.contains('show')) {
@@ -653,6 +806,11 @@ function setLang(lang) {
     const loginBtn = document.getElementById('nav-login-btn');
     if (loginBtn && !loginBtn.querySelector('span')) {
         loginBtn.textContent = lang === 'bn' ? 'লগইন' : 'Login';
+    }
+    
+    // Reload committee members to update language
+    if (typeof loadCommitteeMembers === 'function') {
+        loadCommitteeMembers();
     }
 }
 
