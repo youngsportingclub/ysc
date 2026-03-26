@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
+/* আপনার আগের CSS গুলো এখানে রাখুন - সংক্ষিপ্ততার জন্য আগের CSS গুলো রাখুন */
 :root{
     --bg:#0a0a0f;
     --bg2:#0f0f15;
@@ -311,7 +312,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0
 
         <!-- Members Table -->
         <div class="twrap" data-aos="fade-up" data-aos-delay="100">
-            <table>
+            能
                 <thead>
                     <tr>
                         <th data-en="Member" data-bn="সদস্য">Member</th>
@@ -380,21 +381,6 @@ const positionOrder = {
     'International Secretary': 26, 'Religious Secretary': 27, 'Member': 28
 };
 
-// Position emoji mapping
-const positionEmoji = {
-    'President': '👨‍💼', 'Senior Vice President': '👨‍⚖️', 'Vice President 1': '👨‍⚖️',
-    'Vice President 2': '👨‍⚖️', 'Vice President 3': '👨‍⚖️', 'General Secretary': '📋',
-    'Joint General Secretary': '📋', 'Assistant General Secretary': '📝',
-    'Organizing Secretary': '📊', 'Assistant Organizing Secretary': '📊',
-    'Treasurer': '💰', 'Assistant Treasurer': '💰', 'Office Secretary': '📁',
-    'Assistant Office Secretary': '📁', 'Sports Secretary': '⚽',
-    'Assistant Sports Secretary': '⚽', 'Publicity Secretary': '📢',
-    'Assistant Publicity Secretary': '📢', 'Social Welfare Secretary': '🤝',
-    'Education Secretary': '📚', 'Culture Secretary': '🎭', 'Training Secretary': '🏋️',
-    'Science Secretary': '🔬', 'Disaster Secretary': '🆘', 'Liberation Secretary': '🇧🇩',
-    'International Secretary': '🌍', 'Religious Secretary': '🕌', 'Member': '👤'
-};
-
 // Language data
 const langData = {
     en: {
@@ -407,33 +393,64 @@ const langData = {
     }
 };
 
-// Club logo URLs - multiple fallbacks
+// Club logo URL - only this will be used (no emojis)
 const clubLogoUrl = window.location.origin + '/ysc.png';
-const fallbackLogoUrl = 'https://placehold.co/100x100/FE2C55/FFFFFF?text=YSC';
+const placeholderLogoUrl = 'https://placehold.co/100x100/FE2C55/FFFFFF?text=YSC';
 
-// Position class mapping
-const positionClass = {
-    'President': 'p-president', 'Senior Vice President': 'p-vice-president',
-    'Vice President 1': 'p-vice-president', 'Vice President 2': 'p-vice-president',
-    'Vice President 3': 'p-vice-president', 'General Secretary': 'p-general-secretary',
-    'Joint General Secretary': 'p-general-secretary', 'Assistant General Secretary': 'p-general-secretary',
-    'Organizing Secretary': 'p-general-secretary', 'Assistant Organizing Secretary': 'p-general-secretary',
-    'Treasurer': 'p-treasurer', 'Assistant Treasurer': 'p-treasurer',
-    'Office Secretary': 'p-general-secretary', 'Assistant Office Secretary': 'p-general-secretary',
-    'Sports Secretary': 'p-sports-secretary', 'Assistant Sports Secretary': 'p-sports-secretary',
-    'Publicity Secretary': 'p-general-secretary', 'Assistant Publicity Secretary': 'p-general-secretary',
-    'Social Welfare Secretary': 'p-general-secretary', 'Education Secretary': 'p-general-secretary',
-    'Culture Secretary': 'p-general-secretary', 'Training Secretary': 'p-general-secretary',
-    'Science Secretary': 'p-general-secretary', 'Disaster Secretary': 'p-general-secretary',
-    'Liberation Secretary': 'p-general-secretary', 'International Secretary': 'p-general-secretary',
-    'Religious Secretary': 'p-general-secretary', 'Member': 'p-member'
-};
+// Authentication state
+onAuthStateChanged(auth, (user) => {
+    const btn = document.getElementById('nav-login-btn');
+    if (!btn) return;
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    if (user) {
+        const initial = (user.displayName || user.email || 'U')[0].toUpperCase();
+        btn.innerHTML = `<span style="display:inline-flex;align-items:center;gap:7px;background:rgba(254,44,85,.12);border:1px solid rgba(254,44,85,.3);padding:5px 12px 5px 5px;border-radius:50px;font-size:12px;font-weight:700"><span style="width:26px;height:26px;background:linear-gradient(135deg,#FE2C55,#25F4EE);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#010101;font-family:'Bebas Neue',sans-serif;font-size:15px">${initial}</span>${lang === 'bn' ? 'লগআউট' : 'Logout'}</span>`;
+        btn.onclick = async (e) => { e.preventDefault(); await signOut(auth); window.location.reload(); };
+        btn.href = 'javascript:void(0)';
+    } else {
+        btn.innerHTML = lang === 'bn' ? 'লগইন' : 'Login';
+        btn.href = 'login.html';
+        btn.onclick = null;
+    }
+});
 
+// ==================== MEMBERS DATA ====================
 let allMembers = [];
 const tbody = document.getElementById('mBody');
 const searchEl = document.getElementById('searchInput');
 const filterEl = document.getElementById('posFilter');
 const countEl = document.getElementById('mCount');
+
+const positionClass = {
+    'President': 'p-president',
+    'Senior Vice President': 'p-vice-president',
+    'Vice President 1': 'p-vice-president',
+    'Vice President 2': 'p-vice-president',
+    'Vice President 3': 'p-vice-president',
+    'General Secretary': 'p-general-secretary',
+    'Joint General Secretary': 'p-general-secretary',
+    'Assistant General Secretary': 'p-general-secretary',
+    'Organizing Secretary': 'p-general-secretary',
+    'Assistant Organizing Secretary': 'p-general-secretary',
+    'Treasurer': 'p-treasurer',
+    'Assistant Treasurer': 'p-treasurer',
+    'Office Secretary': 'p-general-secretary',
+    'Assistant Office Secretary': 'p-general-secretary',
+    'Sports Secretary': 'p-sports-secretary',
+    'Assistant Sports Secretary': 'p-sports-secretary',
+    'Publicity Secretary': 'p-general-secretary',
+    'Assistant Publicity Secretary': 'p-general-secretary',
+    'Social Welfare Secretary': 'p-general-secretary',
+    'Education Secretary': 'p-general-secretary',
+    'Culture Secretary': 'p-general-secretary',
+    'Training Secretary': 'p-general-secretary',
+    'Science Secretary': 'p-general-secretary',
+    'Disaster Secretary': 'p-general-secretary',
+    'Liberation Secretary': 'p-general-secretary',
+    'International Secretary': 'p-general-secretary',
+    'Religious Secretary': 'p-general-secretary',
+    'Member': 'p-member'
+};
 
 function escapeHtml(text) {
     if (!text) return '';
@@ -445,62 +462,9 @@ function escapeHtml(text) {
     });
 }
 
-// Improved avatar function with proper fallback chain
-function getAvatarHtml(member) {
-    const emoji = positionEmoji[member.position] || '👤';
-    
-    // If member has custom photo (from Firebase Storage)
-    if (member.photoURL && member.photoURL !== '') {
-        return `<img src="${member.photoURL}" alt="${escapeHtml(member.name)}" 
-                onerror="this.onerror=null; this.parentElement.innerHTML='${getLogoOrEmojiHtml(emoji)}'">`;
-    }
-    
-    // No custom photo - try club logo
-    return getLogoOrEmojiHtml(emoji);
-}
-
-// Helper function to try logo then fallback to emoji
-function getLogoOrEmojiHtml(emoji) {
-    return `<img src="${clubLogoUrl}" alt="Club Logo" 
-            onerror="this.onerror=null; this.src='${fallbackLogoUrl}'; 
-            this.onerror=null; this.parentElement.innerHTML='${emoji}'">`;
-}
-
-// Function to check if logo is available and update all avatars
-function checkAndUpdateLogos() {
-    const testImg = new Image();
-    let logoAvailable = false;
-    
-    testImg.onload = function() {
-        logoAvailable = true;
-        console.log('✅ Club logo loaded successfully');
-        // Update all avatars that are showing placeholder
-        document.querySelectorAll('.member-avatar img').forEach(img => {
-            const currentSrc = img.src;
-            // If current image is not the logo (placeholder or emoji replacement)
-            if (currentSrc !== clubLogoUrl && !currentSrc.includes('ysc.png') && 
-                currentSrc !== fallbackLogoUrl && !currentSrc.includes('placehold')) {
-                // Try to update to logo
-                img.src = clubLogoUrl;
-                img.onerror = function() {
-                    this.onerror = null;
-                    this.src = fallbackLogoUrl;
-                };
-            }
-        });
-    };
-    
-    testImg.onerror = function() {
-        console.log('⚠️ Club logo not available, using placeholder');
-        // If logo fails, update all to placeholder
-        document.querySelectorAll('.member-avatar img[data-original-src]').forEach(img => {
-            if (img.src !== fallbackLogoUrl) {
-                img.src = fallbackLogoUrl;
-            }
-        });
-    };
-    
-    testImg.src = clubLogoUrl;
+// Avatar function - only uses club logo, no emojis
+function getAvatarHtml() {
+    return `<img src="${clubLogoUrl}" alt="Club Logo" onerror="this.onerror=null; this.src='${placeholderLogoUrl}'; this.onerror=null;">`;
 }
 
 function renderMembers(members) {
@@ -522,7 +486,7 @@ function renderMembers(members) {
         const posClass = positionClass[member.position] || 'p-member';
         const positionLabel = member.position || 'Member';
         const bioText = member.bio ? escapeHtml(member.bio.substring(0, 50)) + (member.bio.length > 50 ? '…' : '') : '';
-        const avatarHtml = getAvatarHtml(member);
+        const avatarHtml = getAvatarHtml();
         
         return `<tr>
             <td><div class="mname"><div class="member-avatar">${avatarHtml}</div><div><div class="nm">${escapeHtml(member.name)}</div><div class="bio">${bioText}</div></div></div></td>
@@ -534,9 +498,6 @@ function renderMembers(members) {
     
     countEl.textContent = lang === 'bn' ? `দেখাচ্ছে ${sortedMembers.length} জন সদস্য` : `Showing ${sortedMembers.length} members`;
     updateStats(sortedMembers);
-    
-    // Try to update logos after rendering
-    setTimeout(checkAndUpdateLogos, 500);
 }
 
 function updateStats(members) {
@@ -614,28 +575,11 @@ async function loadMembers() {
     }
 }
 
-// Authentication
-onAuthStateChanged(auth, (user) => {
-    const btn = document.getElementById('nav-login-btn');
-    if (!btn) return;
-    const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    if (user) {
-        const initial = (user.displayName || user.email || 'U')[0].toUpperCase();
-        btn.innerHTML = `<span style="display:inline-flex;align-items:center;gap:7px;background:rgba(254,44,85,.12);border:1px solid rgba(254,44,85,.3);padding:5px 12px 5px 5px;border-radius:50px;font-size:12px;font-weight:700"><span style="width:26px;height:26px;background:linear-gradient(135deg,#FE2C55,#25F4EE);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#010101;font-family:'Bebas Neue',sans-serif;font-size:15px">${initial}</span>${lang === 'bn' ? 'লগআউট' : 'Logout'}</span>`;
-        btn.onclick = async (e) => { e.preventDefault(); await signOut(auth); window.location.reload(); };
-        btn.href = 'javascript:void(0)';
-    } else {
-        btn.innerHTML = lang === 'bn' ? 'লগইন' : 'Login';
-        btn.href = 'login.html';
-        btn.onclick = null;
-    }
-});
-
-// Event listeners
+// Add event listeners
 if (searchEl) searchEl.addEventListener('input', filterMembers);
 if (filterEl) filterEl.addEventListener('change', filterMembers);
 
-// Visitor counter
+// ==================== VISITOR COUNTER ====================
 function updateVisitorCount() {
     let count = localStorage.getItem('ysc_visitors');
     if (!count) { count = Math.floor(Math.random() * 500) + 1500; localStorage.setItem('ysc_visitors', count); }
@@ -644,7 +588,7 @@ function updateVisitorCount() {
     if (visitorEl) visitorEl.textContent = count.toLocaleString();
 }
 
-// Triple date
+// ==================== TRIPLE DATE ====================
 function updateDates() {
     const now = new Date();
     const dateEn = document.getElementById('dateEn');
@@ -655,7 +599,7 @@ function updateDates() {
     if (dateAr) dateAr.textContent = now.toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-// Toast
+// ==================== TOAST ====================
 function showWelcomeToast() {
     const toast = document.getElementById('toast');
     const msgEl = document.getElementById('toastMsg');
@@ -667,7 +611,7 @@ function showWelcomeToast() {
 
 function closeToast() { document.getElementById('toast').classList.remove('show'); }
 
-// Initialization
+// ==================== INITIALIZATION ====================
 AOS.init({ duration: 700, once: true, offset: 55 });
 
 window.addEventListener('load', () => {
@@ -686,6 +630,57 @@ if (hbgBtn && mobileMenu) hbgBtn.addEventListener('click', () => { hbgBtn.classL
 
 window.closeToast = closeToast;
 window.filterMembers = filterMembers;
+</script>
+
+<script>
+// ==================== LANGUAGE SWITCHER ====================
+let currentLang = (function() { try { return localStorage.getItem('ysc-lang') || 'en'; } catch(e) { return 'en'; } })();
+
+function setLang(lang) {
+    currentLang = lang;
+    try { localStorage.setItem('ysc-lang', lang); } catch(e) {}
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
+    
+    document.querySelectorAll('[data-en]').forEach(el => {
+        const value = el.getAttribute('data-' + lang);
+        if (value !== null) {
+            if (value.includes('<')) el.innerHTML = value;
+            else el.textContent = value;
+        }
+    });
+    
+    document.querySelectorAll('.lb').forEach(btn => {
+        btn.classList.remove('on');
+        if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
+    });
+    
+    const clubNameHeader = document.getElementById('clubNameHeader');
+    const developerName = document.getElementById('developerName');
+    
+    if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubNameHeader;
+    if (developerName) developerName.textContent = langData[lang].devName;
+    
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.placeholder = lang === 'bn' ? 'নাম বা ঠিকানা দিয়ে খুঁজুন…' : 'Search by name or address…';
+    }
+    
+    const toastMsg = document.getElementById('toastMsg');
+    if (toastMsg && document.getElementById('toast').classList.contains('show')) {
+        toastMsg.textContent = lang === 'bn' ? '👥 ইয়ং স্পোর্টিং ক্লাবের সকল সদস্য দেখুন।' : '👥 Browse all club members of Young Sporting Club.';
+    }
+    
+    const loginBtn = document.getElementById('nav-login-btn');
+    if (loginBtn && !loginBtn.querySelector('span')) {
+        loginBtn.textContent = lang === 'bn' ? 'লগইন' : 'Login';
+    }
+    
+    if (window.filterMembers) setTimeout(window.filterMembers, 100);
+}
+
+document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
+window.setLang = setLang;
 </script>
 </body>
 </html>
