@@ -136,9 +136,78 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0
 .ftbot .dev span:hover{color:var(--cyan);text-decoration:underline}
 .ldr{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s,visibility .5s;flex-direction:column;gap:16px}
 .ldr.hid{opacity:0;visibility:hidden;pointer-events:none}
-.lring{width:50px;height:50px;border:3px solid rgba(254,44,85,.2);border-top-color:var(--pink);border-right-color:var(--cyan);border-radius:50%;animation:spin .8s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.ltxt{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:4px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* Loading Animation with Club Logo */
+.loader-ring{
+    position:relative;
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--pink),var(--cyan));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation:pulse 1s ease-in-out infinite;
+}
+.loader-ring::before{
+    content:'';
+    position:absolute;
+    inset:4px;
+    border-radius:50%;
+    background:var(--bg);
+    z-index:1;
+}
+.loader-ring::after{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--pink),var(--cyan));
+    filter:blur(12px);
+    opacity:.6;
+    animation:blurPulse 1s ease-in-out infinite;
+}
+@keyframes pulse{
+    0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(254,44,85,.4);}
+    50%{transform:scale(1.08);box-shadow:0 0 20px 5px rgba(254,44,85,.3);}
+}
+@keyframes blurPulse{
+    0%,100%{opacity:.4;transform:scale(1);}
+    50%{opacity:.8;transform:scale(1.2);}
+}
+.loader-logo{
+    position:relative;
+    z-index:2;
+    width:52px;
+    height:52px;
+    border-radius:14px;
+    background:linear-gradient(135deg,var(--pink),var(--cyan));
+    padding:2px;
+    animation:spinLogo 2s linear infinite;
+}
+.loader-logo img{
+    width:100%;
+    height:100%;
+    border-radius:12px;
+    object-fit:cover;
+}
+@keyframes spinLogo{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+.loader-text{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:28px;
+    letter-spacing:2px;
+    margin-top:12px;
+}
+.loader-text .loader-letter-gold{
+    color:var(--gold);
+    text-shadow:0 0 8px rgba(255,215,0,.6);
+}
+.loader-text .loader-letter-white{
+    color:var(--wh);
+}
 .date-bar{background:rgba(0,0,0,.6);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:60px;padding:8px 22px;margin:20px auto;display:inline-flex;flex-wrap:wrap;gap:15px;justify-content:center;font-size:11px;font-weight:500}
 .date-item{display:flex;align-items:center;gap:8px;color:var(--lt)}
 .date-item i{color:var(--cyan);font-size:11px}
@@ -179,7 +248,19 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0
 </head>
 <body>
 
-<div class="ldr" id="ldr"><div class="lring"></div><div class="ltxt">YSC</div></div>
+<!-- Loading Animation with Club Logo -->
+<div class="ldr" id="ldr">
+    <div class="loader-ring">
+        <div class="loader-logo">
+            <img src="ysc.png" alt="YSC Logo" onerror="this.src='https://placehold.co/52x52/FE2C55/FFFFFF?text=YSC'">
+        </div>
+    </div>
+    <div class="loader-text">
+        <span class="loader-letter-gold">Y</span>
+        <span class="loader-letter-white">S</span>
+        <span class="loader-letter-gold">C</span>
+    </div>
+</div>
 
 <!-- Floating WhatsApp Button -->
 <a href="https://wa.me/8801737355553?text=Assalamu%20Alaikum%2C%20I%20want%20to%20add%20a%20new%20member" target="_blank" class="whatsapp-float">
@@ -359,7 +440,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0
                 <div class="member-preview" id="memberPreview">
                     <h4><i class="fas fa-eye"></i> <span data-en="Preview" data-bn="প্রিভিউ">Preview</span></h4>
                     <div class="preview-content">
-                        <div class="preview-avatar" id="previewAvatar">👤</div>
+                        <div class="preview-avatar" id="previewAvatar"></div>
                         <div class="preview-info">
                             <div class="preview-name" id="previewName">Member Name</div>
                             <div class="preview-pos" id="previewPos">Position</div>
@@ -408,49 +489,20 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Position-based emoji mapping for fallback
-const positionEmoji = {
-    'President': '👨‍💼',
-    'Senior Vice President': '👨‍⚖️',
-    'Vice President 1': '👨‍⚖️',
-    'Vice President 2': '👨‍⚖️',
-    'Vice President 3': '👨‍⚖️',
-    'General Secretary': '📋',
-    'Joint General Secretary': '📋',
-    'Assistant General Secretary': '📝',
-    'Organizing Secretary': '📊',
-    'Assistant Organizing Secretary': '📊',
-    'Treasurer': '💰',
-    'Assistant Treasurer': '💰',
-    'Office Secretary': '📁',
-    'Assistant Office Secretary': '📁',
-    'Sports Secretary': '⚽',
-    'Assistant Sports Secretary': '⚽',
-    'Publicity Secretary': '📢',
-    'Assistant Publicity Secretary': '📢',
-    'Social Welfare Secretary': '🤝',
-    'Education Secretary': '📚',
-    'Culture Secretary': '🎭',
-    'Training Secretary': '🏋️',
-    'Science Secretary': '🔬',
-    'Disaster Secretary': '🆘',
-    'Liberation Secretary': '🇧🇩',
-    'International Secretary': '🌍',
-    'Religious Secretary': '🕌',
-    'Member': '👤'
-};
-
-// Club logo URL (GitHub hosted or local)
+// Club logo URL
 const clubLogoUrl = window.location.origin + '/ysc.png';
+const placeholderLogoUrl = 'https://placehold.co/100x100/FE2C55/FFFFFF?text=YSC';
 
 // Language data
 const langData = {
     en: {
         clubNameHeader: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
+        clubNameFooter: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
         devName: "Developed by Farabi Walid"
     },
     bn: {
         clubNameHeader: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
+        clubNameFooter: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
         devName: "তৈরি করেছেন ফারাবি ওয়ালিদ"
     }
 };
@@ -578,8 +630,7 @@ document.getElementById('addForm').addEventListener('submit', async (e) => {
             joinDate,
             address,
             bio: bio || '',
-            photoURL: photoURL, // Will be null, so members page will use club logo
-            useClubLogo: true, // Flag to use club logo
+            photoURL: photoURL,
             addedAt: serverTimestamp()
         });
         
@@ -653,8 +704,8 @@ function updatePreview() {
             };
             reader.readAsDataURL(selectedPhoto);
         } else {
-            // Show club logo or emoji as preview
-            previewAvatar.innerHTML = `<img src="${clubLogoUrl}" alt="Club Logo" onerror="this.onerror=null; this.parentElement.innerHTML='${positionEmoji[position] || '👤'}'">`;
+            // Show club logo or placeholder, NO EMOJIS
+            previewAvatar.innerHTML = `<img src="${clubLogoUrl}" alt="Club Logo" onerror="this.onerror=null; this.src='${placeholderLogoUrl}'; this.onerror=null;">`;
         }
     } else {
         previewDiv.classList.remove('show');
@@ -729,11 +780,13 @@ function setLang(lang) {
         if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
     });
     
-    // Update club name in header
+    // Update club name in header and footer
     const clubNameHeader = document.getElementById('clubNameHeader');
+    const clubNameFooter = document.getElementById('clubNameFooter');
     const developerName = document.getElementById('developerName');
     
     if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubNameHeader;
+    if (clubNameFooter) clubNameFooter.innerHTML = langData[lang].clubNameFooter;
     if (developerName) developerName.textContent = langData[lang].devName;
     
     // Update placeholders
