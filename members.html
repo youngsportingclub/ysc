@@ -134,7 +134,7 @@ tbody tr:hover{background:rgba(254,44,85,.06)}
     left:0;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,.85);
+    background:rgba(0,0,0,.8);
     backdrop-filter:blur(8px);
     z-index:9999;
     display:flex;
@@ -153,8 +153,6 @@ tbody tr:hover{background:rgba(254,44,85,.06)}
     border-radius:var(--r);
     max-width:450px;
     width:90%;
-    max-height:80vh;
-    overflow-y:auto;
     border:1px solid var(--bp);
     box-shadow:0 20px 40px rgba(0,0,0,.5);
     animation:modalSlide .3s ease;
@@ -216,7 +214,7 @@ tbody tr:hover{background:rgba(254,44,85,.06)}
     padding-bottom:12px;
 }
 .detail-label{
-    width:110px;
+    width:100px;
     font-size:12px;
     font-weight:700;
     text-transform:uppercase;
@@ -363,9 +361,9 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0
     .lt .n1{font-size:18px;white-space:normal}
     [data-lang="bn"] .lt .n1{font-size:17px;white-space:normal}
     .logo-img{width:48px;height:48px}
-    .modal-content{width:95%;margin:10px}
-    .detail-label{width:90px;font-size:10px}
-    .detail-value{font-size:12px}
+    .modal-content{width:95%;margin:16px}
+    .detail-row{flex-direction:column;gap:8px}
+    .detail-label{width:auto}
 }
 @media(max-width:480px){
     .logo-img{width:42px;height:42px}
@@ -377,7 +375,6 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0
     .mname .nm{font-size:12px}
     .member-avatar{width:38px;height:38px;font-size:16px}
     .pbdg{font-size:9px;padding:3px 8px}
-    .detail-label{width:75px;font-size:9px}
 }
 </style>
 </head>
@@ -503,10 +500,8 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0
             <div class="stats-item"><div class="stats-num" id="totalMembers">0</div><div class="stats-label" data-en="Total Members" data-bn="মোট সদস্য">Total Members</div></div>
             <div class="stats-item"><div class="stats-num" id="totalPositions">0</div><div class="stats-label" data-en="Positions" data-bn="পদ">Positions</div></div>
             <div class="stats-item"><div class="stats-num" id="activeMembers">0</div><div class="stats-label" data-en="Active Members" data-bn="সক্রিয় সদস্য">Active Members</div></div>
-            <div style="display:flex;gap:12px;flex-wrap:wrap">
-                <button class="export-btn" id="exportBtn" onclick="exportToCSV()"><i class="fas fa-download"></i> <span data-en="Export CSV" data-bn="সিএসভি ডাউনলোড">CSV</span></button>
-                <button class="export-btn" id="pdfExportBtn" onclick="exportToPDF()" style="background:rgba(37,244,238,.1);border-color:var(--bc)"><i class="fas fa-file-pdf"></i> <span data-en="PDF Download" data-bn="পিডিএফ ডাউনলোড">PDF</span></button>
-            </div>
+            <div><button class="export-btn" onclick="exportToPDF()"><i class="fas fa-file-pdf"></i> <span data-en="PDF Download" data-bn="পিডিএফ ডাউনলোড">PDF Download</span></button></div>
+            <div><button class="export-btn" id="exportBtn" onclick="exportToCSV()"><i class="fas fa-download"></i> <span data-en="Export CSV" data-bn="সিএসভি ডাউনলোড">Export CSV</span></button></div>
         </div>
 
         <!-- Search & Filter Controls -->
@@ -657,16 +652,30 @@ const langData = {
     en: {
         clubNameHeader: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
         clubNameFooter: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
-        estDate: "Est. 13 Jan 2009",
         devName: "Developed by Farabi Walid",
-        modalLabels: { title: "Member Details", name: "Name", position: "Position", address: "Address", joined: "Joined", bio: "Bio" }
+        modalLabels: {
+            title: "Member Details",
+            name: "Name",
+            position: "Position",
+            address: "Address",
+            joined: "Joined",
+            bio: "Bio"
+        },
+        estDate: "Est. 13 January 2009"
     },
     bn: {
         clubNameHeader: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
         clubNameFooter: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
-        estDate: "প্রতিষ্ঠা: ১৩ জানু ২০০৯",
         devName: "তৈরি করেছেন ফারাবি ওয়ালিদ",
-        modalLabels: { title: "সদস্যের তথ্য", name: "নাম", position: "পদ", address: "ঠিকানা", joined: "যোগদানের তারিখ", bio: "বায়ো" }
+        modalLabels: {
+            title: "সদস্যের তথ্য",
+            name: "নাম",
+            position: "পদ",
+            address: "ঠিকানা",
+            joined: "যোগদানের তারিখ",
+            bio: "বায়ো"
+        },
+        estDate: "প্রতিষ্ঠা: ১৩ জানুয়ারি ২০০৯"
     }
 };
 
@@ -674,6 +683,24 @@ const langData = {
 const clubLogoUrl = window.location.origin + '/ysc.png';
 const placeholderLogoUrl = 'https://placehold.co/100x100/2C3E50/FFFFFF?text=👤';
 
+// Authentication state
+onAuthStateChanged(auth, (user) => {
+    const btn = document.getElementById('nav-login-btn');
+    if (!btn) return;
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    if (user) {
+        const initial = (user.displayName || user.email || 'U')[0].toUpperCase();
+        btn.innerHTML = `<span style="display:inline-flex;align-items:center;gap:7px;background:rgba(254,44,85,.12);border:1px solid rgba(254,44,85,.3);padding:5px 12px 5px 5px;border-radius:50px;font-size:12px;font-weight:700"><span style="width:26px;height:26px;background:linear-gradient(135deg,#FE2C55,#25F4EE);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#010101;font-family:'Bebas Neue',sans-serif;font-size:15px">${initial}</span>${lang === 'bn' ? 'লগআউট' : 'Logout'}</span>`;
+        btn.onclick = async (e) => { e.preventDefault(); await signOut(auth); window.location.reload(); };
+        btn.href = 'javascript:void(0)';
+    } else {
+        btn.innerHTML = lang === 'bn' ? 'লগইন' : 'Login';
+        btn.href = 'login.html';
+        btn.onclick = null;
+    }
+});
+
+// ==================== MEMBERS DATA ====================
 let allMembers = [];
 const tbody = document.getElementById('mBody');
 const searchEl = document.getElementById('searchInput');
@@ -681,20 +708,34 @@ const filterEl = document.getElementById('posFilter');
 const countEl = document.getElementById('mCount');
 
 const positionClass = {
-    'President': 'p-president', 'Senior Vice President': 'p-vice-president',
-    'Vice President 1': 'p-vice-president', 'Vice President 2': 'p-vice-president',
-    'Vice President 3': 'p-vice-president', 'General Secretary': 'p-general-secretary',
-    'Joint General Secretary': 'p-general-secretary', 'Assistant General Secretary': 'p-general-secretary',
-    'Organizing Secretary': 'p-general-secretary', 'Assistant Organizing Secretary': 'p-general-secretary',
-    'Treasurer': 'p-treasurer', 'Assistant Treasurer': 'p-treasurer',
-    'Office Secretary': 'p-general-secretary', 'Assistant Office Secretary': 'p-general-secretary',
-    'Sports Secretary': 'p-sports-secretary', 'Assistant Sports Secretary': 'p-sports-secretary',
-    'Publicity Secretary': 'p-general-secretary', 'Assistant Publicity Secretary': 'p-general-secretary',
-    'Social Welfare Secretary': 'p-general-secretary', 'Education Secretary': 'p-general-secretary',
-    'Culture Secretary': 'p-general-secretary', 'Training Secretary': 'p-general-secretary',
-    'Science Secretary': 'p-general-secretary', 'Disaster Secretary': 'p-general-secretary',
-    'Liberation Secretary': 'p-general-secretary', 'International Secretary': 'p-general-secretary',
-    'Religious Secretary': 'p-general-secretary', 'Member': 'p-member'
+    'President': 'p-president',
+    'Senior Vice President': 'p-vice-president',
+    'Vice President 1': 'p-vice-president',
+    'Vice President 2': 'p-vice-president',
+    'Vice President 3': 'p-vice-president',
+    'General Secretary': 'p-general-secretary',
+    'Joint General Secretary': 'p-general-secretary',
+    'Assistant General Secretary': 'p-general-secretary',
+    'Organizing Secretary': 'p-general-secretary',
+    'Assistant Organizing Secretary': 'p-general-secretary',
+    'Treasurer': 'p-treasurer',
+    'Assistant Treasurer': 'p-treasurer',
+    'Office Secretary': 'p-general-secretary',
+    'Assistant Office Secretary': 'p-general-secretary',
+    'Sports Secretary': 'p-sports-secretary',
+    'Assistant Sports Secretary': 'p-sports-secretary',
+    'Publicity Secretary': 'p-general-secretary',
+    'Assistant Publicity Secretary': 'p-general-secretary',
+    'Social Welfare Secretary': 'p-general-secretary',
+    'Education Secretary': 'p-general-secretary',
+    'Culture Secretary': 'p-general-secretary',
+    'Training Secretary': 'p-general-secretary',
+    'Science Secretary': 'p-general-secretary',
+    'Disaster Secretary': 'p-general-secretary',
+    'Liberation Secretary': 'p-general-secretary',
+    'International Secretary': 'p-general-secretary',
+    'Religious Secretary': 'p-general-secretary',
+    'Member': 'p-member'
 };
 
 function escapeHtml(text) {
@@ -707,6 +748,7 @@ function escapeHtml(text) {
     });
 }
 
+// Avatar function - only uses club logo or placeholder
 function getAvatarHtml(member) {
     if (member.photoURL && member.photoURL !== '' && member.photoURL !== null) {
         return `<img src="${member.photoURL}" alt="${escapeHtml(member.name)}" onerror="this.onerror=null; this.src='${clubLogoUrl}'; this.onerror=null;">`;
@@ -735,12 +777,13 @@ function renderMembers(members) {
         return;
     }
     
-    tbody.innerHTML = sortedMembers.map((member) => {
+    tbody.innerHTML = sortedMembers.map((member, index) => {
         const posClass = positionClass[member.position] || 'p-member';
         const positionLabel = getTranslatedPosition(member.position, lang);
         const bioText = member.bio ? escapeHtml(member.bio.substring(0, 50)) + (member.bio.length > 50 ? '…' : '') : '';
         const avatarHtml = getAvatarHtml(member);
-        return `<tr onclick='showMemberDetail(${JSON.stringify(member).replace(/'/g, "&#39;")})'>
+        
+        return `<tr onclick="showMemberDetail(${JSON.stringify(member).replace(/"/g, '&quot;')})">
             <td><div class="mname"><div class="member-avatar">${avatarHtml}</div><div><div class="nm">${escapeHtml(member.name)}</div><div class="bio">${bioText}</div></div></div></td>
             <td><span class="pbdg ${posClass}">${escapeHtml(positionLabel)}</span></td>
             <td>${escapeHtml(member.address)}</td>
@@ -753,121 +796,172 @@ function renderMembers(members) {
 }
 
 function updateStats(members) {
-    document.getElementById('totalMembers').textContent = allMembers.length;
-    document.getElementById('totalPositions').textContent = new Set(allMembers.map(m => m.position)).size;
+    const totalMembers = allMembers.length;
+    const uniquePositions = new Set(allMembers.map(m => m.position)).size;
+    document.getElementById('totalMembers').textContent = totalMembers;
+    document.getElementById('totalPositions').textContent = uniquePositions;
     document.getElementById('activeMembers').textContent = members.length;
 }
 
 function filterMembers() {
     const searchTerm = searchEl.value.trim().toLowerCase();
     const position = filterEl.value;
+    
     const filtered = allMembers.filter(member => {
-        const matchesSearch = !searchTerm || (member.name && member.name.toLowerCase().includes(searchTerm)) || (member.address && member.address.toLowerCase().includes(searchTerm));
+        const matchesSearch = !searchTerm || 
+            (member.name && member.name.toLowerCase().includes(searchTerm)) ||
+            (member.address && member.address.toLowerCase().includes(searchTerm));
         const matchesPosition = !position || position === 'all' || member.position === position;
         return matchesSearch && matchesPosition;
     });
+    
     renderMembers(filtered);
 }
 
+// Show member detail in modal
 window.showMemberDetail = function(member) {
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
     const labels = langData[lang].modalLabels;
+    
     document.getElementById('modalTitle').textContent = labels.title;
     document.getElementById('detailNameLabel').textContent = labels.name;
     document.getElementById('detailPositionLabel').textContent = labels.position;
     document.getElementById('detailAddressLabel').textContent = labels.address;
     document.getElementById('detailJoinedLabel').textContent = labels.joined;
     document.getElementById('detailBioLabel').textContent = labels.bio;
+    
     document.getElementById('modalName').textContent = member.name || '-';
     document.getElementById('modalPosition').textContent = getTranslatedPosition(member.position, lang);
     document.getElementById('modalAddress').textContent = member.address || '-';
     document.getElementById('modalJoined').textContent = member.joinDate || member.joinYear || '-';
     document.getElementById('modalBio').textContent = member.bio || (lang === 'bn' ? 'কোনো তথ্য নেই' : 'No information available');
-    document.getElementById('modalAvatar').innerHTML = getAvatarHtml(member);
+    
+    const modalAvatar = document.getElementById('modalAvatar');
+    modalAvatar.innerHTML = getAvatarHtml(member);
+    
     document.getElementById('memberModal').classList.add('show');
 };
 
-window.closeModal = function() { document.getElementById('memberModal').classList.remove('show'); };
+window.closeModal = function() {
+    document.getElementById('memberModal').classList.remove('show');
+};
 
+// Export to CSV
 window.exportToCSV = function() {
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
     const headers = lang === 'bn' ? ['নাম', 'পদ', 'ঠিকানা', 'যোগদানের তারিখ', 'বায়ো'] : ['Name', 'Position', 'Address', 'Join Date', 'Bio'];
+    
     const csvRows = [headers];
     allMembers.forEach(member => {
-        csvRows.push([`"${member.name || ''}"`, `"${getTranslatedPosition(member.position, lang)}"`, `"${member.address || ''}"`, `"${member.joinDate || member.joinYear || ''}"`, `"${member.bio || ''}"`].join(','));
+        const positionName = lang === 'bn' ? (positionTranslation[member.position] || member.position) : member.position;
+        csvRows.push([
+            `"${member.name || ''}"`,
+            `"${positionName || ''}"`,
+            `"${member.address || ''}"`,
+            `"${member.joinDate || member.joinYear || ''}"`,
+            `"${member.bio || ''}"`
+        ].join(','));
     });
-    const blob = new Blob(['\uFEFF' + csvRows.join('\n')], { type: 'text/csv;charset=utf-8;' });
+    
+    const csvString = '\uFEFF' + csvRows.join('\n');
+    const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = `ysc_members_${new Date().toISOString().split('T')[0]}.csv`;
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', `ysc_members_${new Date().toISOString().split('T')[0]}.csv`);
     link.click();
-    URL.revokeObjectURL(link.href);
+    URL.revokeObjectURL(url);
+    
     showToastMessage(lang === 'bn' ? '✓ সিএসভি ফাইল ডাউনলোড শুরু হয়েছে!' : '✓ CSV file download started!');
 };
 
+// Export to PDF
 window.exportToPDF = function() {
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    const clubName = lang === 'bn' ? 'ইয়ং স্পোর্টিং ক্লাব' : 'Young Sporting Club';
-    const estText = langData[lang].estDate;
     const sortedMembers = [...allMembers].sort((a, b) => {
         const orderA = positionOrder[a.position] || 99;
         const orderB = positionOrder[b.position] || 99;
         return orderA - orderB;
     });
+    
+    const clubName = lang === 'bn' ? 'ইয়ং স্পোর্টিং ক্লাব' : 'Young Sporting Club';
+    const estDate = langData[lang].estDate;
+    const logoHtml = `<img src="${clubLogoUrl}" style="width:60px;height:60px;border-radius:12px;" onerror="this.style.display='none'">`;
+    
     let tableRows = '';
     sortedMembers.forEach((member, idx) => {
-        tableRows += `<tr>
-            <td style="padding:8px;border-bottom:1px solid #ddd;text-align:center">${idx+1}</td>
-            <td style="padding:8px;border-bottom:1px solid #ddd">${escapeHtml(member.name)}</td>
-            <td style="padding:8px;border-bottom:1px solid #ddd">${escapeHtml(getTranslatedPosition(member.position, lang))}</td>
-            <td style="padding:8px;border-bottom:1px solid #ddd">${escapeHtml(member.address || '-')}</td>
-            <td style="padding:8px;border-bottom:1px solid #ddd">${escapeHtml(member.joinDate || member.joinYear || '-')}</td>
-        </tr>`;
+        const positionName = getTranslatedPosition(member.position, lang);
+        tableRows += `
+            <tr style="border-bottom:1px solid #ddd;">
+                <td style="padding:10px;text-align:center;">${idx + 1}</td>
+                <td style="padding:10px;">${escapeHtml(member.name || '')}</td>
+                <td style="padding:10px;">${escapeHtml(positionName)}</td>
+                <td style="padding:10px;">${escapeHtml(member.address || '')}</td>
+                <td style="padding:10px;text-align:center;">${escapeHtml(member.joinDate || member.joinYear || '')}</td>
+            </tr>
+        `;
     });
-    const pdfHtml = `
-        <!DOCTYPE html>
-        <html>
-        <head><meta charset="UTF-8"><title>${clubName} - Members List</title>
-        <style>
-            body{font-family:'Hind Siliguri','Poppins',sans-serif;padding:30px;margin:0;background:#fff;color:#000}
-            .header{text-align:center;margin-bottom:30px;border-bottom:2px solid #FE2C55;padding-bottom:20px}
-            .logo-title{display:flex;align-items:center;justify-content:center;gap:15px;margin-bottom:10px}
-            .logo{width:60px;height:60px;border-radius:12px}
-            .club-name{font-size:24px;font-weight:bold;color:#FE2C55;margin:0}
-            .est-date{font-size:12px;color:#666;margin-top:5px}
-            h3{text-align:center;margin:20px 0;color:#333}
-            table{width:100%;border-collapse:collapse;margin-top:15px}
-            th{background:#FE2C55;color:#fff;padding:10px;text-align:center;font-size:12px}
-            td{font-size:11px;color:#333}
-            .signature{display:flex;justify-content:space-between;margin-top:50px;padding-top:30px}
-            .sign-box{text-align:center;width:200px}
-            .sign-line{border-top:1px solid #000;margin-top:30px;padding-top:8px;font-size:11px}
-            .footer{text-align:center;font-size:10px;color:#666;margin-top:40px;border-top:1px solid #eee;padding-top:15px}
-        </style>
-        </head>
-        <body>
-            <div class="header">
-                <div class="logo-title">
-                    <img src="${clubLogoUrl}" class="logo" onerror="this.src='https://placehold.co/60x60/FE2C55/FFFFFF?text=YSC'">
-                    <div><div class="club-name">${clubName}</div><div class="est-date">${estText}</div></div>
+    
+    const pdfContent = `
+        <div style="font-family:'Hind Siliguri', 'Poppins', sans-serif; padding:20px; background:#fff; color:#000;">
+            <div style="text-align:center; margin-bottom:30px; border-bottom:2px solid #FE2C55; padding-bottom:20px;">
+                <div style="display:flex; align-items:center; justify-content:center; gap:15px; flex-wrap:wrap;">
+                    ${logoHtml}
+                    <div>
+                        <h1 style="font-size:28px; margin:0; color:#FE2C55;">${clubName}</h1>
+                        <p style="margin:5px 0 0; color:#666;">${estDate}</p>
+                    </div>
                 </div>
             </div>
-            <h3>${lang === 'bn' ? 'সদস্য তালিকা' : 'Members List'}</h3>
-            <table>
-                <thead><tr><th>${lang === 'bn' ? 'ক্রম' : 'SL'}</th><th>${lang === 'bn' ? 'নাম' : 'Name'}</th><th>${lang === 'bn' ? 'পদ' : 'Position'}</th><th>${lang === 'bn' ? 'ঠিকানা' : 'Address'}</th><th>${lang === 'bn' ? 'যোগদানের তারিখ' : 'Join Date'}</th></tr></thead>
-                <tbody>${tableRows || '<tr><td colspan="5" style="text-align:center">No members found</td></tr>'}</tbody>
+            <h2 style="text-align:center; color:#25F4EE; margin-bottom:20px;">${lang === 'bn' ? 'সদস্য তালিকা' : 'Members List'}</h2>
+            <table style="width:100%; border-collapse:collapse; margin-bottom:40px;">
+                <thead>
+                    <tr style="background:#FE2C55; color:#fff;">
+                        <th style="padding:12px; text-align:center;">${lang === 'bn' ? 'ক্রম' : 'SL'}</th>
+                        <th style="padding:12px; text-align:left;">${lang === 'bn' ? 'নাম' : 'Name'}</th>
+                        <th style="padding:12px; text-align:left;">${lang === 'bn' ? 'পদ' : 'Position'}</th>
+                        <th style="padding:12px; text-align:left;">${lang === 'bn' ? 'ঠিকানা' : 'Address'}</th>
+                        <th style="padding:12px; text-align:center;">${lang === 'bn' ? 'যোগদানের তারিখ' : 'Join Date'}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${tableRows || '<tr><td colspan="5" style="text-align:center;padding:40px;">No members found</td></tr>'}
+                </tbody>
             </table>
-            <div class="signature">
-                <div class="sign-box"><div class="sign-line">${lang === 'bn' ? '(সভাপতির স্বাক্ষর)' : '(President\'s Signature)'}<br><br>${lang === 'bn' ? 'সভাপতি' : 'President'}</div></div>
-                <div class="sign-box"><div class="sign-line">${lang === 'bn' ? '(সাধারণ সম্পাদকের স্বাক্ষর)' : '(General Secretary\'s Signature)'}<br><br>${lang === 'bn' ? 'সাধারণ সম্পাদক' : 'General Secretary'}</div></div>
+            <div style="display:flex; justify-content:space-between; margin-top:50px; padding-top:30px; border-top:1px solid #ddd;">
+                <div style="text-align:center; width:200px;">
+                    <div style="border-top:1px solid #000; padding-top:8px; margin-top:40px;">${lang === 'bn' ? 'সভাপতি' : 'President'}</div>
+                </div>
+                <div style="text-align:center; width:200px;">
+                    <div style="border-top:1px solid #000; padding-top:8px; margin-top:40px;">${lang === 'bn' ? 'সাধারণ সম্পাদক' : 'General Secretary'}</div>
+                </div>
             </div>
-            <div class="footer">© ${new Date().getFullYear()} ${clubName} - ${lang === 'bn' ? 'সকল স্বত্ব সংরক্ষিত' : 'All rights reserved'}</div>
-        </body>
-        </html>
+            <div style="text-align:center; margin-top:40px; font-size:11px; color:#888;">
+                ${clubName} - ${lang === 'bn' ? 'সদস্য তালিকা' : 'Members List'} | Generated on ${new Date().toLocaleDateString(lang === 'bn' ? 'bn-BD' : 'en-US')}
+            </div>
+        </div>
     `;
-    const opt = { margin: [0.5, 0.5, 0.5, 0.5], filename: `ysc_members_${new Date().toISOString().split('T')[0]}.pdf`, image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2, letterRendering: true }, jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' } };
-    html2pdf().set(opt).from(pdfHtml).save();
-    showToastMessage(lang === 'bn' ? '✓ পিডিএফ ফাইল ডাউনলোড শুরু হয়েছে!' : '✓ PDF file download started!');
+    
+    const element = document.createElement('div');
+    element.innerHTML = pdfContent;
+    document.body.appendChild(element);
+    
+    const opt = {
+        margin: [0.5, 0.5, 0.5, 0.5],
+        filename: `ysc_members_${new Date().toISOString().split('T')[0]}.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, letterRendering: true, useCORS: true },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+    
+    html2pdf().set(opt).from(element).save().then(() => {
+        document.body.removeChild(element);
+        showToastMessage(lang === 'bn' ? '✓ পিডিএফ ফাইল ডাউনলোড শুরু হয়েছে!' : '✓ PDF file download started!');
+    }).catch(err => {
+        console.error('PDF error:', err);
+        document.body.removeChild(element);
+        showToastMessage(lang === 'bn' ? '⚠ পিডিএফ তৈরি করতে ব্যর্থ হয়েছে।' : '⚠ Failed to generate PDF.');
+    });
 };
 
 function showToastMessage(msg) {
@@ -878,20 +972,26 @@ function showToastMessage(msg) {
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
+// Load members from Firestore
 async function loadMembers() {
     try {
-        const querySnapshot = await getDocs(collection(db, 'members'));
+        const membersRef = collection(db, 'members');
+        const querySnapshot = await getDocs(membersRef);
         allMembers = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        console.log('✅ Members loaded successfully:', allMembers.length);
         filterMembers();
     } catch (error) {
-        console.error(error);
-        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;padding:40px;color:#FE2C55">⚠ Failed to load members</td></tr>`;
+        console.error('❌ Firestore error:', error);
+        const lang = document.documentElement.getAttribute('data-lang') || 'en';
+        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;padding:40px;color:#FE2C55">⚠ ${lang === 'bn' ? 'সদস্য লোড করতে ব্যর্থ হয়েছে। ইন্টারনেট সংযোগ চেক করুন।' : 'Failed to load members. Check your internet connection.'}</td></tr>`;
     }
 }
 
+// Add event listeners
 if (searchEl) searchEl.addEventListener('input', filterMembers);
 if (filterEl) filterEl.addEventListener('change', filterMembers);
 
+// ==================== VISITOR COUNTER ====================
 function updateVisitorCount() {
     let count = localStorage.getItem('ysc_visitors');
     if (!count) { count = Math.floor(Math.random() * 500) + 1500; localStorage.setItem('ysc_visitors', count); }
@@ -900,36 +1000,52 @@ function updateVisitorCount() {
     if (visitorEl) visitorEl.textContent = count.toLocaleString();
 }
 
+// ==================== TRIPLE DATE ====================
 function updateDates() {
     const now = new Date();
-    document.getElementById('dateEn').textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    document.getElementById('dateBn').textContent = now.toLocaleDateString('bn-BD', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    document.getElementById('dateAr').textContent = now.toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    const dateEn = document.getElementById('dateEn');
+    const dateBn = document.getElementById('dateBn');
+    const dateAr = document.getElementById('dateAr');
+    if (dateEn) dateEn.textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    if (dateBn) dateBn.textContent = now.toLocaleDateString('bn-BD', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    if (dateAr) dateAr.textContent = now.toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 }
 
+// ==================== TOAST ====================
 function showWelcomeToast() {
+    const toast = document.getElementById('toast');
+    const msgEl = document.getElementById('toastMsg');
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    const msg = lang === 'bn' ? '👥 ইয়ং স্পোর্টিং ক্লাবের সকল সদস্য দেখুন।' : '👥 Browse all club members of Young Sporting Club.';
-    document.getElementById('toastMsg').textContent = msg;
-    document.getElementById('toast').classList.add('show');
-    setTimeout(() => document.getElementById('toast').classList.remove('show'), 5000);
+    msgEl.textContent = lang === 'bn' ? '👥 ইয়ং স্পোর্টিং ক্লাবের সকল সদস্য দেখুন।' : '👥 Browse all club members of Young Sporting Club.';
+    setTimeout(() => toast.classList.add('show'), 500);
+    setTimeout(() => toast.classList.remove('show'), 5000);
 }
+
 function closeToast() { document.getElementById('toast').classList.remove('show'); }
 
+// ==================== INITIALIZATION ====================
 AOS.init({ duration: 700, once: true, offset: 55 });
+
 window.addEventListener('load', () => {
     setTimeout(() => document.getElementById('ldr').classList.add('hid'), 500);
-    updateVisitorCount(); updateDates(); showWelcomeToast(); loadMembers();
+    updateVisitorCount();
+    updateDates();
+    showWelcomeToast();
+    loadMembers();
 });
+
 setInterval(updateDates, 60000);
 window.addEventListener('scroll', () => document.getElementById('hdr').classList.toggle('sc', window.scrollY > 28));
+
 const hbgBtn = document.getElementById('hbg'), mobileMenu = document.getElementById('mob');
 if (hbgBtn && mobileMenu) hbgBtn.addEventListener('click', () => { hbgBtn.classList.toggle('op'); mobileMenu.classList.toggle('op'); });
+
 window.closeToast = closeToast;
 window.filterMembers = filterMembers;
 </script>
 
 <script>
+// ==================== LANGUAGE SWITCHER ====================
 let currentLang = (function() { try { return localStorage.getItem('ysc-lang') || 'en'; } catch(e) { return 'en'; } })();
 
 function setLang(lang) {
@@ -937,6 +1053,7 @@ function setLang(lang) {
     try { localStorage.setItem('ysc-lang', lang); } catch(e) {}
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
+    
     document.querySelectorAll('[data-en]').forEach(el => {
         const value = el.getAttribute('data-' + lang);
         if (value !== null) {
@@ -944,26 +1061,38 @@ function setLang(lang) {
             else el.textContent = value;
         }
     });
+    
     document.querySelectorAll('.lb').forEach(btn => {
         btn.classList.remove('on');
         if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
     });
+    
     const clubNameHeader = document.getElementById('clubNameHeader');
     const clubNameFooter = document.getElementById('clubNameFooter');
     const developerName = document.getElementById('developerName');
+    
     if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubNameHeader;
     if (clubNameFooter) clubNameFooter.innerHTML = langData[lang].clubNameFooter;
     if (developerName) developerName.textContent = langData[lang].devName;
+    
     const searchInput = document.getElementById('searchInput');
-    if (searchInput) searchInput.placeholder = lang === 'bn' ? 'নাম বা ঠিকানা দিয়ে খুঁজুন…' : 'Search by name or address…';
+    if (searchInput) {
+        searchInput.placeholder = lang === 'bn' ? 'নাম বা ঠিকানা দিয়ে খুঁজুন…' : 'Search by name or address…';
+    }
+    
     const toastMsg = document.getElementById('toastMsg');
     if (toastMsg && document.getElementById('toast').classList.contains('show')) {
         toastMsg.textContent = lang === 'bn' ? '👥 ইয়ং স্পোর্টিং ক্লাবের সকল সদস্য দেখুন।' : '👥 Browse all club members of Young Sporting Club.';
     }
+    
     const loginBtn = document.getElementById('nav-login-btn');
-    if (loginBtn && !loginBtn.querySelector('span')) loginBtn.textContent = lang === 'bn' ? 'লগইন' : 'Login';
+    if (loginBtn && !loginBtn.querySelector('span')) {
+        loginBtn.textContent = lang === 'bn' ? 'লগইন' : 'Login';
+    }
+    
     if (window.filterMembers) setTimeout(window.filterMembers, 100);
 }
+
 document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
 window.setLang = setLang;
 </script>
