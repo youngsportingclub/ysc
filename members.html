@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-/* আপনার আগের CSS গুলো এখানে রাখুন - সংক্ষিপ্ততার জন্য আগের CSS গুলো রাখুন */
 :root{
     --bg:#0a0a0f;
     --bg2:#0f0f15;
@@ -136,9 +135,78 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0
 .ftbot .dev span:hover{color:var(--cyan);text-decoration:underline}
 .ldr{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s,visibility .5s;flex-direction:column;gap:16px}
 .ldr.hid{opacity:0;visibility:hidden;pointer-events:none}
-.lring{width:50px;height:50px;border:3px solid rgba(254,44,85,.2);border-top-color:var(--pink);border-right-color:var(--cyan);border-radius:50%;animation:spin .8s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.ltxt{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:4px;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* Loading Animation with Club Logo */
+.loader-ring{
+    position:relative;
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--pink),var(--cyan));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation:pulse 1s ease-in-out infinite;
+}
+.loader-ring::before{
+    content:'';
+    position:absolute;
+    inset:4px;
+    border-radius:50%;
+    background:var(--bg);
+    z-index:1;
+}
+.loader-ring::after{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--pink),var(--cyan));
+    filter:blur(12px);
+    opacity:.6;
+    animation:blurPulse 1s ease-in-out infinite;
+}
+@keyframes pulse{
+    0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(254,44,85,.4);}
+    50%{transform:scale(1.08);box-shadow:0 0 20px 5px rgba(254,44,85,.3);}
+}
+@keyframes blurPulse{
+    0%,100%{opacity:.4;transform:scale(1);}
+    50%{opacity:.8;transform:scale(1.2);}
+}
+.loader-logo{
+    position:relative;
+    z-index:2;
+    width:52px;
+    height:52px;
+    border-radius:14px;
+    background:linear-gradient(135deg,var(--pink),var(--cyan));
+    padding:2px;
+    animation:spinLogo 2s linear infinite;
+}
+.loader-logo img{
+    width:100%;
+    height:100%;
+    border-radius:12px;
+    object-fit:cover;
+}
+@keyframes spinLogo{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+.loader-text{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:28px;
+    letter-spacing:2px;
+    margin-top:12px;
+}
+.loader-text .loader-letter-gold{
+    color:var(--gold);
+    text-shadow:0 0 8px rgba(255,215,0,.6);
+}
+.loader-text .loader-letter-white{
+    color:var(--wh);
+}
 .date-bar{background:rgba(0,0,0,.6);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:60px;padding:8px 22px;margin:20px auto;display:inline-flex;flex-wrap:wrap;gap:15px;justify-content:center;font-size:11px;font-weight:500}
 .date-item{display:flex;align-items:center;gap:8px;color:var(--lt)}
 .date-item i{color:var(--cyan);font-size:11px}
@@ -183,7 +251,19 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0
 </head>
 <body>
 
-<div class="ldr" id="ldr"><div class="lring"></div><div class="ltxt">YSC</div></div>
+<!-- Loading Animation with Club Logo -->
+<div class="ldr" id="ldr">
+    <div class="loader-ring">
+        <div class="loader-logo">
+            <img src="ysc.png" alt="YSC Logo" onerror="this.src='https://placehold.co/52x52/FE2C55/FFFFFF?text=YSC'">
+        </div>
+    </div>
+    <div class="loader-text">
+        <span class="loader-letter-gold">Y</span>
+        <span class="loader-letter-white">S</span>
+        <span class="loader-letter-gold">C</span>
+    </div>
+</div>
 
 <!-- Floating WhatsApp Button -->
 <a href="https://wa.me/8801737355553?text=Assalamu%20Alaikum%2C%20I%20want%20to%20know%20about%20club%20members" target="_blank" class="whatsapp-float">
@@ -312,7 +392,7 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0
 
         <!-- Members Table -->
         <div class="twrap" data-aos="fade-up" data-aos-delay="100">
-            能
+            <table>
                 <thead>
                     <tr>
                         <th data-en="Member" data-bn="সদস্য">Member</th>
@@ -385,15 +465,17 @@ const positionOrder = {
 const langData = {
     en: {
         clubNameHeader: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
+        clubNameFooter: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
         devName: "Developed by Farabi Walid"
     },
     bn: {
         clubNameHeader: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
+        clubNameFooter: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
         devName: "তৈরি করেছেন ফারাবি ওয়ালিদ"
     }
 };
 
-// Club logo URL - only this will be used (no emojis)
+// Club logo URL - only logo, no emojis
 const clubLogoUrl = window.location.origin + '/ysc.png';
 const placeholderLogoUrl = 'https://placehold.co/100x100/FE2C55/FFFFFF?text=YSC';
 
@@ -462,8 +544,13 @@ function escapeHtml(text) {
     });
 }
 
-// Avatar function - only uses club logo, no emojis
-function getAvatarHtml() {
+// Avatar function - only uses club logo or placeholder, NO EMOJIS
+function getAvatarHtml(member) {
+    // If member has custom photo URL (from Firebase Storage when premium activated)
+    if (member.photoURL && member.photoURL !== '' && member.photoURL !== null) {
+        return `<img src="${member.photoURL}" alt="${escapeHtml(member.name)}" onerror="this.onerror=null; this.src='${clubLogoUrl}'; this.onerror=null;">`;
+    }
+    // If no custom photo, use club logo
     return `<img src="${clubLogoUrl}" alt="Club Logo" onerror="this.onerror=null; this.src='${placeholderLogoUrl}'; this.onerror=null;">`;
 }
 
@@ -486,7 +573,7 @@ function renderMembers(members) {
         const posClass = positionClass[member.position] || 'p-member';
         const positionLabel = member.position || 'Member';
         const bioText = member.bio ? escapeHtml(member.bio.substring(0, 50)) + (member.bio.length > 50 ? '…' : '') : '';
-        const avatarHtml = getAvatarHtml();
+        const avatarHtml = getAvatarHtml(member);
         
         return `<tr>
             <td><div class="mname"><div class="member-avatar">${avatarHtml}</div><div><div class="nm">${escapeHtml(member.name)}</div><div class="bio">${bioText}</div></div></div></td>
@@ -656,9 +743,11 @@ function setLang(lang) {
     });
     
     const clubNameHeader = document.getElementById('clubNameHeader');
+    const clubNameFooter = document.getElementById('clubNameFooter');
     const developerName = document.getElementById('developerName');
     
     if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubNameHeader;
+    if (clubNameFooter) clubNameFooter.innerHTML = langData[lang].clubNameFooter;
     if (developerName) developerName.textContent = langData[lang].devName;
     
     const searchInput = document.getElementById('searchInput');
