@@ -103,8 +103,7 @@ ul{list-style:none}
 table{width:100%;border-collapse:collapse;min-width:600px}
 thead{background:rgba(254,44,85,.1);border-bottom:1px solid var(--bp)}
 th{padding:14px 18px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--pink)}
-td{padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;color:var(--lt);vertical-align:middle}
-tbody tr:last-child td{border-bottom:none}
+td{padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;color:var(--lt);vertical-align:middle;cursor:pointer}
 tbody tr{transition:var(--tr);cursor:pointer}
 tbody tr:hover{background:rgba(254,44,85,.06)}
 .mname{display:flex;align-items:center;gap:12px}
@@ -127,6 +126,123 @@ tbody tr:hover{background:rgba(254,44,85,.06)}
 .stats-label{font-size:10px;color:var(--gr);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
 .export-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:8px 16px;border-radius:50px;font-size:11px;cursor:pointer;transition:var(--tr);display:flex;align-items:center;gap:8px}
 .export-btn:hover{background:var(--pink);color:#fff;border-color:var(--pink)}
+/* Modal Styles */
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.8);
+    backdrop-filter:blur(8px);
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    visibility:hidden;
+    transition:all .3s ease;
+}
+.modal.show{
+    opacity:1;
+    visibility:visible;
+}
+.modal-content{
+    background:var(--card2);
+    border-radius:var(--r);
+    max-width:450px;
+    width:90%;
+    border:1px solid var(--bp);
+    box-shadow:0 20px 40px rgba(0,0,0,.5);
+    animation:modalSlide .3s ease;
+}
+@keyframes modalSlide{
+    from{transform:translateY(-30px);opacity:0;}
+    to{transform:translateY(0);opacity:1;}
+}
+.modal-header{
+    padding:20px 24px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:linear-gradient(135deg,rgba(254,44,85,.1),rgba(37,244,238,.05));
+    border-radius:var(--r) var(--r) 0 0;
+}
+.modal-header h3{
+    font-size:20px;
+    margin:0;
+    font-family:'Bebas Neue',sans-serif;
+    letter-spacing:1px;
+}
+[data-lang="bn"] .modal-header h3{
+    font-family:'Hind Siliguri',sans-serif;
+}
+.modal-close{
+    background:none;
+    border:none;
+    color:var(--gr);
+    font-size:24px;
+    cursor:pointer;
+    transition:var(--tr);
+}
+.modal-close:hover{color:var(--pink);}
+.modal-body{
+    padding:24px;
+}
+.member-detail-avatar{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    margin:0 auto 20px;
+    background:linear-gradient(135deg,var(--pink),var(--cyan));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+.member-detail-avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.detail-row{
+    display:flex;
+    margin-bottom:16px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    padding-bottom:12px;
+}
+.detail-label{
+    width:100px;
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--pink);
+    flex-shrink:0;
+}
+.detail-value{
+    flex:1;
+    font-size:14px;
+    color:var(--lt);
+    line-height:1.5;
+}
+.modal-footer{
+    padding:16px 24px;
+    border-top:1px solid rgba(255,255,255,.08);
+    text-align:center;
+}
+.modal-footer button{
+    background:linear-gradient(135deg,var(--pink),#b0001a);
+    border:none;
+    padding:10px 24px;
+    border-radius:50px;
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    transition:var(--tr);
+}
+.modal-footer button:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(254,44,85,.4);}
 footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0 25px}
 .ftbot{border-top:1px solid rgba(255,255,255,.08);padding-top:25px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .ftbot p,.ftbot .dev{color:var(--gr);font-size:12px}
@@ -135,7 +251,6 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0
 .ftbot .dev span:hover{color:var(--cyan);text-decoration:underline}
 .ldr{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s,visibility .5s;flex-direction:column;gap:16px}
 .ldr.hid{opacity:0;visibility:hidden;pointer-events:none}
-/* Loading Animation with Club Logo */
 .loader-ring{
     position:relative;
     width:80px;
@@ -262,6 +377,27 @@ footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0
         <span class="loader-letter-gold">Y</span>
         <span class="loader-letter-white">S</span>
         <span class="loader-letter-gold">C</span>
+    </div>
+</div>
+
+<!-- Member Detail Modal -->
+<div class="modal" id="memberModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modalTitle">Member Details</h3>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="modalBody">
+            <div class="member-detail-avatar" id="modalAvatar"></div>
+            <div class="detail-row"><div class="detail-label" id="detailNameLabel">Name</div><div class="detail-value" id="modalName">-</div></div>
+            <div class="detail-row"><div class="detail-label" id="detailPositionLabel">Position</div><div class="detail-value" id="modalPosition">-</div></div>
+            <div class="detail-row"><div class="detail-label" id="detailAddressLabel">Address</div><div class="detail-value" id="modalAddress">-</div></div>
+            <div class="detail-row"><div class="detail-label" id="detailJoinedLabel">Joined</div><div class="detail-value" id="modalJoined">-</div></div>
+            <div class="detail-row"><div class="detail-label" id="detailBioLabel">Bio</div><div class="detail-value" id="modalBio">-</div></div>
+        </div>
+        <div class="modal-footer">
+            <button onclick="closeModal()">Close</button>
+        </div>
     </div>
 </div>
 
@@ -461,23 +597,71 @@ const positionOrder = {
     'International Secretary': 26, 'Religious Secretary': 27, 'Member': 28
 };
 
+// Position translation map for Bengali
+const positionTranslation = {
+    'President': 'সভাপতি',
+    'Senior Vice President': 'সিনিয়র সহ-সভাপতি',
+    'Vice President 1': 'সহ-সভাপতি-১',
+    'Vice President 2': 'সহ-সভাপতি-২',
+    'Vice President 3': 'সহ-সভাপতি-৩',
+    'General Secretary': 'সাধারণ সম্পাদক',
+    'Joint General Secretary': 'যুগ্ম-সাধারণ সম্পাদক',
+    'Assistant General Secretary': 'সহ-সাধারণ সম্পাদক',
+    'Organizing Secretary': 'সাংগঠনিক সম্পাদক',
+    'Assistant Organizing Secretary': 'সহ-সাংগঠনিক সম্পাদক',
+    'Treasurer': 'অর্থ সম্পাদক',
+    'Assistant Treasurer': 'সহ-অর্থ সম্পাদক',
+    'Office Secretary': 'দপ্তর সম্পাদক',
+    'Assistant Office Secretary': 'সহ-দপ্তর সম্পাদক',
+    'Sports Secretary': 'ক্রীড়া সম্পাদক',
+    'Assistant Sports Secretary': 'সহ-ক্রীড়া সম্পাদক',
+    'Publicity Secretary': 'প্রচার সম্পাদক',
+    'Assistant Publicity Secretary': 'সহ-প্রচার সম্পাদক',
+    'Social Welfare Secretary': 'সমাজকল্যাণ সম্পাদক',
+    'Education Secretary': 'শিক্ষা সম্পাদক',
+    'Culture Secretary': 'সাহিত্য ও সংস্কৃতি সম্পাদক',
+    'Training Secretary': 'প্রশিক্ষণ সম্পাদক',
+    'Science Secretary': 'বিজ্ঞান ও প্রযুক্তি সম্পাদক',
+    'Disaster Secretary': 'ত্রাণ ও দুর্যোগ সম্পাদক',
+    'Liberation Secretary': 'মুক্তিযুদ্ধ সম্পাদক',
+    'International Secretary': 'আন্তর্জাতিক সম্পাদক',
+    'Religious Secretary': 'ধর্ম সম্পাদক',
+    'Member': 'সদস্য'
+};
+
 // Language data
 const langData = {
     en: {
         clubNameHeader: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
         clubNameFooter: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
-        devName: "Developed by Farabi Walid"
+        devName: "Developed by Farabi Walid",
+        modalLabels: {
+            title: "Member Details",
+            name: "Name",
+            position: "Position",
+            address: "Address",
+            joined: "Joined",
+            bio: "Bio"
+        }
     },
     bn: {
         clubNameHeader: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
         clubNameFooter: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
-        devName: "তৈরি করেছেন ফারাবি ওয়ালিদ"
+        devName: "তৈরি করেছেন ফারাবি ওয়ালিদ",
+        modalLabels: {
+            title: "সদস্যের তথ্য",
+            name: "নাম",
+            position: "পদ",
+            address: "ঠিকানা",
+            joined: "যোগদানের তারিখ",
+            bio: "বায়ো"
+        }
     }
 };
 
 // Club logo URL - only logo, no emojis
 const clubLogoUrl = window.location.origin + '/ysc.png';
-const placeholderLogoUrl = 'https://placehold.co/100x100/FE2C55/FFFFFF?text=YSC';
+const placeholderLogoUrl = 'https://placehold.co/100x100/2C3E50/FFFFFF?text=👤';
 
 // Authentication state
 onAuthStateChanged(auth, (user) => {
@@ -544,14 +728,22 @@ function escapeHtml(text) {
     });
 }
 
-// Avatar function - only uses club logo or placeholder, NO EMOJIS
+// Avatar function - only uses club logo or placeholder (human icon), NO EMOJIS
 function getAvatarHtml(member) {
     // If member has custom photo URL (from Firebase Storage when premium activated)
     if (member.photoURL && member.photoURL !== '' && member.photoURL !== null) {
         return `<img src="${member.photoURL}" alt="${escapeHtml(member.name)}" onerror="this.onerror=null; this.src='${clubLogoUrl}'; this.onerror=null;">`;
     }
-    // If no custom photo, use club logo
+    // If no custom photo, try club logo
     return `<img src="${clubLogoUrl}" alt="Club Logo" onerror="this.onerror=null; this.src='${placeholderLogoUrl}'; this.onerror=null;">`;
+}
+
+// Get translated position based on current language
+function getTranslatedPosition(position, lang) {
+    if (lang === 'bn' && positionTranslation[position]) {
+        return positionTranslation[position];
+    }
+    return position || 'Member';
 }
 
 function renderMembers(members) {
@@ -569,13 +761,13 @@ function renderMembers(members) {
         return;
     }
     
-    tbody.innerHTML = sortedMembers.map(member => {
+    tbody.innerHTML = sortedMembers.map((member, index) => {
         const posClass = positionClass[member.position] || 'p-member';
-        const positionLabel = member.position || 'Member';
+        const positionLabel = getTranslatedPosition(member.position, lang);
         const bioText = member.bio ? escapeHtml(member.bio.substring(0, 50)) + (member.bio.length > 50 ? '…' : '') : '';
         const avatarHtml = getAvatarHtml(member);
         
-        return `<tr>
+        return `<tr data-member-index="${index}" onclick="showMemberDetail(${JSON.stringify(member).replace(/"/g, '&quot;')})">
             <td><div class="mname"><div class="member-avatar">${avatarHtml}</div><div><div class="nm">${escapeHtml(member.name)}</div><div class="bio">${bioText}</div></div></div></td>
             <td><span class="pbdg ${posClass}">${escapeHtml(positionLabel)}</span></td>
             <td>${escapeHtml(member.address)}</td>
@@ -610,21 +802,53 @@ function filterMembers() {
     renderMembers(filtered);
 }
 
-// Export to CSV
+// Show member detail in modal
+window.showMemberDetail = function(member) {
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    const labels = langData[lang].modalLabels;
+    
+    document.getElementById('modalTitle').textContent = labels.title;
+    document.getElementById('detailNameLabel').textContent = labels.name;
+    document.getElementById('detailPositionLabel').textContent = labels.position;
+    document.getElementById('detailAddressLabel').textContent = labels.address;
+    document.getElementById('detailJoinedLabel').textContent = labels.joined;
+    document.getElementById('detailBioLabel').textContent = labels.bio;
+    
+    document.getElementById('modalName').textContent = member.name || '-';
+    document.getElementById('modalPosition').textContent = getTranslatedPosition(member.position, lang);
+    document.getElementById('modalAddress').textContent = member.address || '-';
+    document.getElementById('modalJoined').textContent = member.joinDate || member.joinYear || '-';
+    document.getElementById('modalBio').textContent = member.bio || (lang === 'bn' ? 'কোনো তথ্য নেই' : 'No information available');
+    
+    const modalAvatar = document.getElementById('modalAvatar');
+    const avatarHtml = getAvatarHtml(member);
+    modalAvatar.innerHTML = avatarHtml;
+    
+    document.getElementById('memberModal').classList.add('show');
+};
+
+window.closeModal = function() {
+    document.getElementById('memberModal').classList.remove('show');
+};
+
+// Export to CSV with Bengali support
 window.exportToCSV = function() {
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
     const headers = lang === 'bn' ? ['নাম', 'পদ', 'ঠিকানা', 'যোগদানের তারিখ', 'বায়ো'] : ['Name', 'Position', 'Address', 'Join Date', 'Bio'];
     
     const csvRows = [headers];
     allMembers.forEach(member => {
+        const positionName = lang === 'bn' ? (positionTranslation[member.position] || member.position) : member.position;
         csvRows.push([
-            `"${member.name || ''}"`, `"${member.position || ''}"`,
-            `"${member.address || ''}"`, `"${member.joinDate || member.joinYear || ''}"`,
+            `"${member.name || ''}"`,
+            `"${positionName || ''}"`,
+            `"${member.address || ''}"`,
+            `"${member.joinDate || member.joinYear || ''}"`,
             `"${member.bio || ''}"`
         ].join(','));
     });
     
-    const csvString = csvRows.join('\n');
+    const csvString = '\uFEFF' + csvRows.join('\n'); // Add BOM for Bengali support
     const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
     const url = URL.createObjectURL(blob);
@@ -765,6 +989,7 @@ function setLang(lang) {
         loginBtn.textContent = lang === 'bn' ? 'লগইন' : 'Login';
     }
     
+    // Re-render members to update position translations
     if (window.filterMembers) setTimeout(window.filterMembers, 100);
 }
 
