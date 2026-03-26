@@ -1,86 +1,574 @@
 <!DOCTYPE html>
 <html lang="en" data-lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Members - Young Sporting Club</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <style>
-        /* Basic Styles for UI */
-        :root { --pk: #FE2C55; --bg: #010101; --txt: #FFFFFF; }
-        body { background: var(--bg); color: var(--txt); font-family: 'Poppins', sans-serif; margin: 0; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .twrap { overflow-x: auto; background: #111; border-radius: 12px; padding: 10px; margin-top: 20px; }
-        table { width: 100%; border-collapse: collapse; min-width: 600px; }
-        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #222; cursor: pointer; }
-        th { background: #1a1a1a; color: var(--pk); }
-        tr:hover { background: #1a1a1a; }
-        .pbdg { padding: 4px 10px; border-radius: 50px; font-size: 12px; font-weight: bold; background: rgba(254,44,85,0.1); color: var(--pk); border: 1px solid var(--pk); }
-        .member-avatar img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 10px; vertical-align: middle; }
-        .btn { padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; transition: 0.3s; }
-        .btn-pk { background: var(--pk); color: #fff; }
-        .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
-        input, select { background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 10px; border-radius: 8px; }
-        /* Toast & Modal */
-        #toast { position: fixed; bottom: 20px; right: 20px; background: #333; padding: 15px 25px; border-radius: 8px; display: none; z-index: 1000; border-left: 5px solid var(--pk); }
-        #toast.show { display: block; animation: fadeIn 0.5s; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        footer { margin-top: 50px; padding: 30px 0; border-top: 1px solid #222; text-align: center; }
-        .gold-letter { color: #FFD700; font-weight: bold; }
-    </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes"/>
+<title>Members — Young Sporting Club</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+:root{
+    --bg:#0a0a0f;
+    --bg2:#0f0f15;
+    --card:#111117;
+    --card2:#16161f;
+    --pink:#FE2C55;
+    --cyan:#25F4EE;
+    --gold:#FFD700;
+    --wh:#ffffff;
+    --gr:#aaaaaa;
+    --lt:#dddddd;
+    --bp:rgba(254,44,85,.25);
+    --bc:rgba(37,244,238,.22);
+    --r:14px;
+    --tr:all .3s cubic-bezier(.4,0,.2,1);
+    --whatsapp:#25D366;
+    --facebook:#1877F2;
+    --youtube:#FF0000;
+    --instagram:#E4405F;
+}
+/* বাংলা ফন্ট ফিক্স */
+[data-lang="bn"] { font-family: 'Hind Siliguri', sans-serif !important; }
+[data-lang="bn"] h1, [data-lang="bn"] h2, [data-lang="bn"] h3, [data-lang="bn"] h4, [data-lang="bn"] .n1, [data-lang="bn"] .nm { 
+    font-family: 'Hind Siliguri', sans-serif !important; 
+    letter-spacing: 0px !important; 
+    text-transform: none !important;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--wh);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Bebas Neue',sans-serif;letter-spacing:1.5px;line-height:1.1}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:linear-gradient(var(--pink),var(--cyan));border-radius:3px}
+.container{max-width:1200px;margin:0 auto;padding:0 22px}
+.sp{padding:90px 0}
+.tc{text-align:center}
+.bdg{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--bp);background:rgba(254,44,85,.08);color:var(--pink);padding:5px 16px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.bdg .dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:blink 1.8s infinite;box-shadow:0 0 6px var(--pink)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.sec-title{font-size:clamp(34px,5vw,54px);margin-bottom:10px}
+.divider{width:52px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));margin:12px auto 20px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:50px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none;text-transform:uppercase;letter-spacing:.5px;transition:var(--tr)}
+.btn-pk{background:linear-gradient(135deg,var(--pink),#b0001a);color:#fff}.btn-pk:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(254,44,85,.55)}
+.btn-cy{background:linear-gradient(135deg,var(--cyan),#00adaa);color:#010101;font-weight:800}.btn-cy:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,244,238,.55)}
+.btn-ol{background:transparent;color:var(--wh);border:1.5px solid rgba(255,255,255,.2)}.btn-ol:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:var(--gc)}
+.lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:3px}
+.lb{padding:5px 13px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:var(--tr);background:none;border:none;color:var(--gr)}
+.lb.on{background:linear-gradient(135deg,var(--pink),var(--cyan));color:#010101}
+#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:5px 0;transition:var(--tr);background:rgba(10,10,15,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(254,44,85,.2)}
+#hdr.sc{background:rgba(10,10,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--pink);box-shadow:0 4px 20px rgba(254,44,85,.1)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;max-width:1200px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.logo-img{width:60px;height:60px;border-radius:18px;background:linear-gradient(135deg,var(--pink),var(--cyan));padding:3px;transition:var(--tr);flex-shrink:0}
+.logo-img:hover{transform:scale(1.02);box-shadow:0 0 20px rgba(254,44,85,.3)}
+.logo-img img{width:100%;height:100%;border-radius:15px;object-fit:cover}
+.lt{display:flex;flex-direction:column;line-height:1.2;justify-content:center}
+.lt .n1{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1.5px;white-space:nowrap}
+.lt .n1 .gold-letter{color:var(--gold);text-shadow:0 0 5px rgba(255,215,0,.3)}
+.lt .n2{font-size:10px;color:var(--gr);letter-spacing:1px;text-transform:uppercase;margin-top:3px}
+.nl{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.nl a{padding:6px 14px;border-radius:40px;font-size:13px;font-weight:500;color:var(--lt);transition:var(--tr);position:relative}
+.nl a:hover{color:var(--pink);background:rgba(254,44,85,.1)}
+.nl a.on{color:var(--pink);background:rgba(254,44,85,.15)}
+.nl a.on::after{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--pink);margin:3px auto 0;box-shadow:0 0 8px var(--pink)}
+.nr{display:flex;align-items:center;gap:10px}
+.ncta{background:linear-gradient(135deg,var(--pink),#b0001a)!important;color:#fff!important;font-weight:700!important;border-radius:50px!important;font-size:12px;padding:7px 18px;transition:var(--tr)}
+.ncta:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(254,44,85,.4)}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.hbg span{display:block;width:26px;height:2.5px;background:#fff;border-radius:2px;transition:var(--tr)}
+.hbg.op span:nth-child(1){transform:rotate(45deg) translate(7px,7px)}
+.hbg.op span:nth-child(2){opacity:0}
+.hbg.op span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+.mob{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(10,10,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(254,44,85,.2);padding:20px 22px;flex-direction:column;gap:8px;z-index:997}
+.mob.op{display:flex}
+.mob a{padding:12px 18px;border-radius:14px;font-size:16px;font-weight:500;color:var(--lt);transition:var(--tr)}
+.mob a:hover,.mob a.on{color:var(--pink);background:rgba(254,44,85,.15)}
+.phero{padding:120px 0 60px;background:linear-gradient(180deg,#0a0a0a,var(--bg));text-align:center;position:relative;overflow:hidden}
+.phero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(254,44,85,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,244,238,.04) 1px,transparent 1px);background-size:55px 55px}
+.phero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--pink),var(--cyan),transparent)}
+.phero h1{font-size:clamp(44px,7vw,80px);position:relative;z-index:1}
+.phero p{color:var(--gr);font-size:16px;max-width:500px;margin:15px auto 0;position:relative;z-index:1}
+.breadcrumb{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--gr);margin-top:18px;position:relative;z-index:1}
+.breadcrumb a{color:var(--cyan);transition:var(--tr)}
+.breadcrumb a:hover{color:var(--pink)}
+.mctrl{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:20px;margin-bottom:28px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.sbox{flex:1;min-width:200px;position:relative}
+.sbox input{width:100%;background:var(--bg);border:1px solid rgba(255,255,255,.12);color:var(--wh);padding:12px 16px 12px 44px;border-radius:50px;font-size:14px;font-family:'Poppins',sans-serif;transition:var(--tr);outline:none}
+.sbox input:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(254,44,85,.12)}
+.sbox input::placeholder{color:rgba(136,136,136,.6)}
+.sbox i{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--gr);font-size:14px}
+.fsel{background:var(--bg);border:1px solid rgba(255,255,255,.12);color:var(--wh);padding:12px 42px 12px 18px;border-radius:50px;font-size:13px;font-family:'Poppins',sans-serif;outline:none;cursor:pointer;transition:var(--tr);appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center}
+.fsel:focus{border-color:var(--pink)}
+.fsel option{background:var(--card)}
+.mcnt{margin-left:auto;font-size:12px;color:var(--gr);white-space:nowrap}
+.twrap{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);overflow-x:auto;box-shadow:0 4px 28px rgba(0,0,0,.3)}
+table{width:100%;border-collapse:collapse;min-width:600px}
+thead{background:rgba(254,44,85,.1);border-bottom:1px solid var(--bp)}
+th{padding:14px 18px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--pink)}
+td{padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;color:var(--lt);vertical-align:middle;cursor:pointer}
+tbody tr{transition:var(--tr);cursor:pointer}
+tbody tr:hover{background:rgba(254,44,85,.06)}
+.mname{display:flex;align-items:center;gap:12px}
+.member-avatar{width:45px;height:45px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:20px;color:#010101;flex-shrink:0;overflow:hidden}
+.member-avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+.mname .nm{color:var(--wh);font-weight:600;font-size:14px}
+.mname .bio{font-size:10px;color:var(--gr);margin-top:2px;max-width:200px}
+.pbdg{padding:4px 12px;border-radius:50px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;display:inline-block}
+.p-president{background:rgba(255,214,0,.15);color:#FFD600;border:1px solid rgba(255,214,0,.4)}
+.p-vice-president{background:rgba(254,44,85,.15);color:var(--pink);border:1px solid var(--bp)}
+.p-general-secretary{background:rgba(37,244,238,.15);color:var(--cyan);border:1px solid var(--bc)}
+.p-treasurer{background:rgba(255,152,0,.15);color:#FF9800;border:1px solid rgba(255,152,0,.4)}
+.p-sports-secretary{background:rgba(102,187,106,.15);color:#66BB6A;border:1px solid rgba(102,187,106,.4)}
+.p-member{background:rgba(255,255,255,.08);color:var(--gr);border:1px solid rgba(255,255,255,.12)}
+.nodata{text-align:center;padding:60px 20px;color:var(--gr)}
+.nodata .nic{font-size:48px;margin-bottom:16px;opacity:.5}
+.stats-card{background:linear-gradient(135deg,rgba(254,44,85,.1),rgba(37,244,238,.07));border-radius:var(--r);padding:18px 24px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+.stats-item{text-align:center}
+.stats-num{font-family:'Bebas Neue',sans-serif;font-size:32px;background:linear-gradient(135deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stats-label{font-size:10px;color:var(--gr);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+.export-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:8px 16px;border-radius:50px;font-size:11px;cursor:pointer;transition:var(--tr);display:flex;align-items:center;gap:8px}
+.export-btn:hover{background:var(--pink);color:#fff;border-color:var(--pink)}
+/* Modal Styles */
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.8);
+    backdrop-filter:blur(8px);
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    visibility:hidden;
+    transition:all .3s ease;
+}
+.modal.show{
+    opacity:1;
+    visibility:visible;
+}
+.modal-content{
+    background:var(--card2);
+    border-radius:var(--r);
+    max-width:450px;
+    width:90%;
+    border:1px solid var(--bp);
+    box-shadow:0 20px 40px rgba(0,0,0,.5);
+    animation:modalSlide .3s ease;
+}
+@keyframes modalSlide{
+    from{transform:translateY(-30px);opacity:0;}
+    to{transform:translateY(0);opacity:1;}
+}
+.modal-header{
+    padding:20px 24px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:linear-gradient(135deg,rgba(254,44,85,.1),rgba(37,244,238,.05));
+    border-radius:var(--r) var(--r) 0 0;
+}
+.modal-header h3{
+    font-size:20px;
+    margin:0;
+    font-family:'Bebas Neue',sans-serif;
+    letter-spacing:1px;
+}
+.modal-close{
+    background:none;
+    border:none;
+    color:var(--gr);
+    font-size:24px;
+    cursor:pointer;
+    transition:var(--tr);
+}
+.modal-close:hover{color:var(--pink);}
+.modal-body{
+    padding:24px;
+}
+.member-detail-avatar{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    margin:0 auto 20px;
+    background:linear-gradient(135deg,var(--pink),var(--cyan));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+.member-detail-avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.detail-row{
+    display:flex;
+    margin-bottom:16px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    padding-bottom:12px;
+}
+.detail-label{
+    width:100px;
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--pink);
+    flex-shrink:0;
+}
+.detail-value{
+    flex:1;
+    font-size:14px;
+    color:var(--lt);
+    line-height:1.5;
+}
+.modal-footer{
+    padding:16px 24px;
+    border-top:1px solid rgba(255,255,255,.08);
+    text-align:center;
+}
+.modal-footer button{
+    background:linear-gradient(135deg,var(--pink),#b0001a);
+    border:none;
+    padding:10px 24px;
+    border-radius:50px;
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    transition:var(--tr);
+}
+.modal-footer button:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(254,44,85,.4);}
+footer{background:#08080c;border-top:1px solid rgba(254,44,85,.2);padding:50px 0 25px}
+.ftbot{border-top:1px solid rgba(255,255,255,.08);padding-top:25px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ftbot p,.ftbot .dev{color:var(--gr);font-size:12px}
+.ftbot .dev{cursor:pointer}
+.ftbot .dev span{color:var(--pink);transition:var(--tr);font-weight:600}
+.ftbot .dev span:hover{color:var(--cyan);text-decoration:underline}
+.ldr{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s,visibility .5s;flex-direction:column;gap:16px}
+.ldr.hid{opacity:0;visibility:hidden;pointer-events:none}
+.loader-ring{
+    position:relative;
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--pink),var(--cyan));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation:pulse 1s ease-in-out infinite;
+}
+.loader-ring::before{
+    content:'';
+    position:absolute;
+    inset:4px;
+    border-radius:50%;
+    background:var(--bg);
+    z-index:1;
+}
+.loader-ring::after{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--pink),var(--cyan));
+    filter:blur(12px);
+    opacity:.6;
+    animation:blurPulse 1s ease-in-out infinite;
+}
+@keyframes pulse{
+    0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(254,44,85,.4);}
+    50%{transform:scale(1.08);box-shadow:0 0 20px 5px rgba(254,44,85,.3);}
+}
+@keyframes blurPulse{
+    0%,100%{opacity:.4;transform:scale(1);}
+    50%{opacity:.8;transform:scale(1.2);}
+}
+.loader-logo{
+    position:relative;
+    z-index:2;
+    width:52px;
+    height:52px;
+    border-radius:14px;
+    background:linear-gradient(135deg,var(--pink),var(--cyan));
+    padding:2px;
+    animation:spinLogo 2s linear infinite;
+}
+.loader-logo img{
+    width:100%;
+    height:100%;
+    border-radius:12px;
+    object-fit:cover;
+}
+@keyframes spinLogo{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+.loader-text{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:28px;
+    letter-spacing:2px;
+    margin-top:12px;
+}
+.loader-text .loader-letter-gold{
+    color:var(--gold);
+    text-shadow:0 0 8px rgba(255,215,0,.6);
+}
+.loader-text .loader-letter-white{
+    color:var(--wh);
+}
+.date-bar{background:rgba(0,0,0,.6);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:60px;padding:8px 22px;margin:20px auto;display:inline-flex;flex-wrap:wrap;gap:15px;justify-content:center;font-size:11px;font-weight:500}
+.date-item{display:flex;align-items:center;gap:8px;color:var(--lt)}
+.date-item i{color:var(--cyan);font-size:11px}
+.whatsapp-float{position:fixed;bottom:25px;right:25px;z-index:999;background:var(--whatsapp);width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:var(--tr);cursor:pointer}
+.whatsapp-float:hover{transform:scale(1.08)}
+.whatsapp-float i{font-size:28px;color:#fff}
+.toast{position:fixed;bottom:90px;right:25px;background:var(--card2);border-left:4px solid var(--pink);border-radius:12px;padding:12px 18px;font-size:13px;z-index:998;transform:translateX(120%);transition:transform .4s ease;max-width:280px;box-shadow:0 8px 28px rgba(0,0,0,.3)}
+.toast.show{transform:translateX(0)}
+.toast .toast-title{font-weight:700;margin-bottom:4px;color:var(--pink)}
+.toast .toast-close{position:absolute;top:8px;right:12px;cursor:pointer;font-size:14px;color:var(--gr)}
+.visitor-badge{position:fixed;bottom:20px;left:20px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border-radius:40px;padding:5px 14px;font-size:10px;color:var(--gr);z-index:998;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15)}
+.visitor-badge i{color:var(--cyan);font-size:10px}
+/* PDF hidden container */
+.pdf-container{
+    position:absolute;
+    left:-9999px;
+    top:0;
+    width:100%;
+    background:#fff;
+    padding:30px;
+}
+@media(max-width:700px){
+    .nl{display:none}.hbg{display:flex}
+    .sp{padding:60px 0}
+    .mctrl{flex-direction:column}
+    .mcnt{margin-left:0;margin-top:10px}
+    .stats-card{flex-direction:column;text-align:center}
+    th:nth-child(3),td:nth-child(3){display:none}
+    .whatsapp-float{width:45px;height:45px;bottom:15px;right:15px}
+    .whatsapp-float i{font-size:24px}
+    .toast{bottom:80px;right:16px;left:16px;max-width:calc(100% - 32px)}
+    .visitor-badge{bottom:12px;left:12px}
+    .date-bar{flex-direction:column;align-items:center;gap:8px;padding:10px 16px}
+    .phero{padding:100px 0 40px}
+    .lt .n1{font-size:18px;white-space:normal}
+    .logo-img{width:48px;height:48px}
+    .modal-content{width:95%;margin:16px}
+    .detail-row{flex-direction:column;gap:8px}
+    .detail-label{width:auto}
+}
+@media(max-width:480px){
+    .logo-img{width:42px;height:42px}
+    .lt .n1{font-size:15px}
+    .lt .n2{font-size:8px}
+    .ncta{padding:5px 12px;font-size:10px}
+    .ftbot{flex-direction:column;text-align:center}
+    .mname .nm{font-size:12px}
+    .member-avatar{width:38px;height:38px;font-size:16px}
+    .pbdg{font-size:9px;padding:3px 8px}
+}
+</style>
 </head>
 <body>
 
-<div class="container">
-    <header id="hdr">
-        <h1 id="clubNameHeader" data-en="Young Sporting Club" data-bn="ইয়ং স্পোর্টিং ক্লাব">Young Sporting Club</h1>
-        <div class="controls">
-            <button class="btn btn-pk" onclick="setLang('en')">EN</button>
-            <button class="btn btn-pk" onclick="setLang('bn')">বাং</button>
-            <input type="text" id="searchInput" placeholder="Search by name or address...">
-            <select id="posFilter">
-                <option value="all" data-en="All Positions" data-bn="সব পদ">All Positions</option>
-            </select>
-            <button class="btn" style="background: #25F4EE; color: #000;" onclick="exportToPDF()"><i class="fas fa-file-pdf"></i> PDF</button>
-            <button class="btn" style="background: #fff; color: #000;" onclick="exportToCSV()"><i class="fas fa-file-csv"></i> CSV</button>
+<div class="ldr" id="ldr">
+    <div class="loader-ring">
+        <div class="loader-logo">
+            <img src="ysc.png" alt="YSC Logo" onerror="this.src='https://placehold.co/52x52/FE2C55/FFFFFF?text=YSC'">
         </div>
-    </header>
-
-    <div id="mCount" style="margin-bottom: 10px; color: #888;"></div>
-
-    <div class="twrap" data-aos="fade-up">
-        <table>
-            <thead>
-                <tr>
-                    <th data-en="Member" data-bn="সদস্য">Member</th>
-                    <th data-en="Position" data-bn="পদ">Position</th>
-                    <th data-en="Address" data-bn="ঠিকানা">Address</th>
-                    <th data-en="Joined" data-bn="যোগদান">Joined</th>
-                </tr>
-            </thead>
-            <tbody id="mBody">
-                <tr><td colspan="4" style="text-align:center;padding:60px 20px;">Loading members...</td></tr>
-            </tbody>
-        </table>
     </div>
-
-    <div class="tc" style="margin-top:38px; text-align: center;" data-aos="fade-up">
-        <a href="add_member.html" class="btn btn-pk"><i class="fas fa-user-plus"></i> <span data-en="Add New Member" data-bn="নতুন সদস্য যোগ করুন">Add New Member</span></a>
+    <div class="loader-text">
+        <span class="loader-letter-gold">Y</span>
+        <span class="loader-letter-white">S</span>
+        <span class="loader-letter-gold">C</span>
     </div>
 </div>
 
-<footer>
-    <div class="container">
-        <p id="clubNameFooter">© 2026 Young Sporting Club. All rights reserved.</p>
-        <div class="dev" style="cursor: pointer;" onclick="window.location.href='developer.html'">
-            <span id="developerName">Developed by Farabi Walid</span>
+<div class="modal" id="memberModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modalTitle" data-en="Member Details" data-bn="সদস্যের তথ্য">Member Details</h3>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="modalBody">
+            <div class="member-detail-avatar" id="modalAvatar"></div>
+            <div class="detail-row"><div class="detail-label" id="detailNameLabel" data-en="Name" data-bn="নাম">Name</div><div class="detail-value" id="modalName">-</div></div>
+            <div class="detail-row"><div class="detail-label" id="detailPositionLabel" data-en="Position" data-bn="পদ">Position</div><div class="detail-value" id="modalPosition">-</div></div>
+            <div class="detail-row"><div class="detail-label" id="detailAddressLabel" data-en="Address" data-bn="ঠিকানা">Address</div><div class="detail-value" id="modalAddress">-</div></div>
+            <div class="detail-row"><div class="detail-label" id="detailJoinedLabel" data-en="Joined" data-bn="যোগদান">Joined</div><div class="detail-value" id="modalJoined">-</div></div>
+            <div class="detail-row"><div class="detail-label" id="detailBioLabel" data-en="Bio" data-bn="বায়ো">Bio</div><div class="detail-value" id="modalBio">-</div></div>
+        </div>
+        <div class="modal-footer">
+            <button onclick="closeModal()" data-en="Close" data-bn="বন্ধ করুন">Close</button>
         </div>
     </div>
-</footer>
+</div>
 
-<div id="toast"><span id="toastMsg"></span></div>
+<div id="pdfContainer" class="pdf-container"></div>
+
+<a href="https://wa.me/8801737355553?text=Assalamu%20Alaikum%2C%20I%20want%20to%20know%20about%20club%20members" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<div class="visitor-badge" id="visitorBadge">
+    <i class="fas fa-eye"></i>
+    <span id="visitorCount">0</span>
+    <span data-en="visitors" data-bn="দর্শক">visitors</span>
+</div>
+
+<div class="toast" id="toast">
+    <div class="toast-close" onclick="closeToast()">&times;</div>
+    <div class="toast-title">👥 Members</div>
+    <div id="toastMsg">Browse all club members of Young Sporting Club</div>
+</div>
+
+<header id="hdr">
+    <nav class="nav">
+        <a href="index.html" class="logo">
+            <div class="logo-img">
+                <img src="ysc.png" alt="Young Sporting Club Logo" onerror="this.src='https://placehold.co/70x70/FE2C55/FFFFFF?text=YSC'">
+            </div>
+            <div class="lt">
+                <span class="n1" id="clubNameHeader">
+                    <span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB
+                </span>
+                <span class="n2" id="estDateHeader" data-en="Est. 13 Jan 2009" data-bn="প্রতিষ্ঠা: ১৩ জানু ২০০৯">Est. 13 Jan 2009</span>
+            </div>
+        </a>
+        <div class="nl">
+            <a href="index.html" data-en="Home" data-bn="হোম">Home</a>
+            <a href="about.html" data-en="About" data-bn="সম্পর্কে">About</a>
+            <a href="members.html" class="on" data-en="Members" data-bn="সদস্য">Members</a>
+            <a href="add_member.html" data-en="Add Member" data-bn="সদস্য যোগ">Add Member</a>
+            <a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+        </div>
+        <div class="nr">
+            <div class="lang-sw"><button class="lb on" id="btn-en" onclick="setLang('en')">EN</button><button class="lb" id="btn-bn" onclick="setLang('bn')">বাং</button></div>
+            <a href="login.html" class="btn ncta" id="nav-login-btn" data-en="Login" data-bn="লগইন">Login</a>
+        </div>
+        <button class="hbg" id="hbg"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="mob" id="mob">
+        <a href="index.html" data-en="Home" data-bn="হোম">Home</a>
+        <a href="about.html" data-en="About" data-bn="সম্পর্কে">About</a>
+        <a href="members.html" class="on" data-en="Members" data-bn="সদস্য">Members</a>
+        <a href="add_member.html" data-en="Add Member" data-bn="সদস্য যোগ">Add Member</a>
+        <a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+        <a href="login.html" data-en="Login" data-bn="লগইন">Login</a>
+        <div class="lang-sw" style="margin-top:15px"><button class="lb on" onclick="setLang('en')">EN</button><button class="lb" onclick="setLang('bn')">বাং</button></div>
+    </div>
+</header>
+
+<div style="text-align:center;padding-top:85px;position:relative;z-index:2">
+    <div class="date-bar">
+        <div class="date-item"><i class="fas fa-calendar-alt"></i><span id="dateEn">Loading...</span></div>
+        <div class="date-item"><i class="fas fa-calendar-alt"></i><span id="dateBn">Loading...</span></div>
+        <div class="date-item"><i class="fas fa-calendar-alt"></i><span id="dateAr">Loading...</span></div>
+    </div>
+</div>
+
+<section class="phero">
+    <div class="container" data-aos="fade-down">
+        <span class="bdg"><span class="dot"></span><span data-en="Our Team" data-bn="আমাদের দল">Our Team</span></span>
+        <h1><span data-en="Club" data-bn="ক্লাব">Club</span> <span style="background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent" data-en="Members" data-bn="সদস্য">Members</span></h1>
+        <p data-en="Meet the dedicated members of Young Sporting Club, West Shingrauli." data-bn="ইয়ং স্পোর্টিং ক্লাব, পশ্চিম শিংরাউলীর নিবেদিত সদস্যদের সাথে পরিচিত হোন।">Meet the dedicated members of Young Sporting Club, West Shingrauli.</p>
+        <div class="breadcrumb"><a href="index.html" data-en="Home" data-bn="হোম">Home</a><span>›</span><span data-en="Members" data-bn="সদস্য">Members</span></div>
+    </div>
+</section>
+
+<section class="sp" style="background:var(--bg);padding-top:30px;padding-bottom:70px">
+    <div class="container">
+        <div class="stats-card" data-aos="fade-up">
+            <div class="stats-item"><div class="stats-num" id="totalMembers">0</div><div class="stats-label" data-en="Total Members" data-bn="মোট সদস্য">Total Members</div></div>
+            <div class="stats-item"><div class="stats-num" id="totalPositions">0</div><div class="stats-label" data-en="Positions" data-bn="পদ">Positions</div></div>
+            <div class="stats-item"><div class="stats-num" id="activeMembers">0</div><div class="stats-label" data-en="Active Members" data-bn="সক্রিয় সদস্য">Active Members</div></div>
+            <div><button class="export-btn" onclick="exportToPDF()"><i class="fas fa-file-pdf"></i> <span data-en="PDF Download" data-bn="পিডিএফ ডাউনলোড">PDF Download</span></button></div>
+            <div><button class="export-btn" id="exportBtn" onclick="exportToCSV()"><i class="fas fa-download"></i> <span data-en="Export CSV" data-bn="সিএসভি ডাউনলোড">Export CSV</span></button></div>
+        </div>
+
+        <div class="mctrl" data-aos="fade-up">
+            <div class="sbox">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" data-placeholder-en="Search by name or address…" data-placeholder-bn="নাম বা ঠিকানা দিয়ে খুঁজুন…" placeholder="Search by name or address…"/>
+            </div>
+            <select class="fsel" id="posFilter">
+                <option value="all" data-en="All Positions" data-bn="সকল পদ">All Positions</option>
+                <option value="President" data-en="President" data-bn="সভাপতি">President</option>
+                <option value="Senior Vice President" data-en="Senior Vice President" data-bn="সিনিয়র সহ-সভাপতি">Senior Vice President</option>
+                <option value="Vice President 1" data-en="Vice President-1" data-bn="সহ-সভাপতি-১">Vice President-1</option>
+                <option value="Vice President 2" data-en="Vice President-2" data-bn="সহ-সভাপতি-২">Vice President-2</option>
+                <option value="Vice President 3" data-en="Vice President-3" data-bn="সহ-সভাপতি-৩">Vice President-3</option>
+                <option value="General Secretary" data-en="General Secretary" data-bn="সাধারণ সম্পাদক">General Secretary</option>
+                <option value="Joint General Secretary" data-en="Joint General Secretary" data-bn="যুগ্ম-সাধারণ সম্পাদক">Joint General Secretary</option>
+                <option value="Assistant General Secretary" data-en="Assistant General Secretary" data-bn="সহ-সাধারণ সম্পাদক">Assistant General Secretary</option>
+                <option value="Organizing Secretary" data-en="Organizing Secretary" data-bn="সাংগঠনিক সম্পাদক">Organizing Secretary</option>
+                <option value="Assistant Organizing Secretary" data-en="Assistant Organizing Secretary" data-bn="সহ-সাংগঠনিক সম্পাদক">Assistant Organizing Secretary</option>
+                <option value="Treasurer" data-en="Treasurer" data-bn="অর্থ সম্পাদক">Treasurer</option>
+                <option value="Assistant Treasurer" data-en="Assistant Treasurer" data-bn="সহ-অর্থ সম্পাদক">Assistant Treasurer</option>
+                <option value="Office Secretary" data-en="Office Secretary" data-bn="দপ্তর সম্পাদক">Office Secretary</option>
+                <option value="Assistant Office Secretary" data-en="Assistant Office Secretary" data-bn="সহ-দপ্তর সম্পাদক">Assistant Office Secretary</option>
+                <option value="Sports Secretary" data-en="Sports Secretary" data-bn="ক্রীড়া সম্পাদক">Sports Secretary</option>
+                <option value="Assistant Sports Secretary" data-en="Assistant Sports Secretary" data-bn="সহ-ক্রীড়া সম্পাদক">Assistant Sports Secretary</option>
+                <option value="Publicity Secretary" data-en="Publicity Secretary" data-bn="প্রচার সম্পাদক">Publicity Secretary</option>
+                <option value="Assistant Publicity Secretary" data-en="Assistant Publicity Secretary" data-bn="সহ-প্রচার সম্পাদক">Assistant Publicity Secretary</option>
+                <option value="Social Welfare Secretary" data-en="Social Welfare Secretary" data-bn="সমাজকল্যাণ সম্পাদক">Social Welfare Secretary</option>
+                <option value="Education Secretary" data-en="Education Secretary" data-bn="শিক্ষা সম্পাদক">Education Secretary</option>
+                <option value="Culture Secretary" data-en="Culture Secretary" data-bn="সাহিত্য ও সংস্কৃতি সম্পাদক">Culture Secretary</option>
+                <option value="Training Secretary" data-en="Training Secretary" data-bn="প্রশিক্ষণ সম্পাদক">Training Secretary</option>
+                <option value="Science Secretary" data-en="Science Secretary" data-bn="বিজ্ঞান ও প্রযুক্তি সম্পাদক">Science Secretary</option>
+                <option value="Disaster Secretary" data-en="Disaster Secretary" data-bn="ত্রাণ ও দুর্যোগ সম্পাদক">Disaster Secretary</option>
+                <option value="Liberation Secretary" data-en="Liberation Secretary" data-bn="মুক্তিযুদ্ধ সম্পাদক">Liberation Secretary</option>
+                <option value="International Secretary" data-en="International Secretary" data-bn="আন্তর্জাতিক সম্পাদক">International Secretary</option>
+                <option value="Religious Secretary" data-en="Religious Secretary" data-bn="ধর্ম সম্পাদক">Religious Secretary</option>
+                <option value="Member" data-en="Member" data-bn="সদস্য">Member</option>
+            </select>
+            <div class="mcnt" id="mCount"><span data-en="Showing" data-bn="দেখাচ্ছে">Showing</span> 0 <span data-en="members" data-bn="জন সদস্য">members</span></div>
+        </div>
+
+
+          <!-- Members Table -->
+        <div class="twrap" data-aos="fade-up" data-aos-delay="100">
+            <table>
+                <thead>
+                    <tr>
+                        <th data-en="Member" data-bn="সদস্য">Member</th>
+                        <th data-en="Position" data-bn="পদ">Position</th>
+                        <th data-en="Address" data-bn="ঠিকানা">Address</th>
+                        <th data-en="Joined" data-bn="যোগদান">Joined</th>
+                    </tr>
+                </thead>
+                <tbody id="mBody">
+                    <tr><td colspan="4" style="text-align:center;padding:60px 20px;"><div class="lring" style="margin:0 auto 14px"></div><span data-en="Loading members…" data-bn="সদস্যদের লোড হচ্ছে…">Loading members…</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Add Member Button -->
+        <div class="tc" style="margin-top:38px" data-aos="fade-up">
+            <a href="add_member.html" class="btn btn-pk"><i class="fas fa-user-plus"></i> <span data-en="Add New Member" data-bn="নতুন সদস্য যোগ করুন">Add New Member</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="ftbot">
+            <p data-en="© 2026 Young Sporting Club. All rights reserved." data-bn="© ২০২৬ ইয়ং স্পোর্টিং ক্লাব। সর্বস্বত্ব সংরক্ষিত।">© 2026 Young Sporting Club. All rights reserved.</p>
+            <div class="dev" onclick="window.location.href='developer.html'">
+                <span id="developerName" data-en="Developed by Farabi Walid" data-bn="তৈরি করেছেন ফারাবি ওয়ালিদ">Developed by Farabi Walid</span>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script type="module">
@@ -89,157 +577,514 @@ import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/fi
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",
-    authDomain: "youngsportingclub.firebaseapp.com",
-    databaseURL: "https://youngsportingclub-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "youngsportingclub",
-    storageBucket: "youngsportingclub.firebasestorage.app",
-    messagingSenderId: "724732761340",
-    appId: "1:724732761340:web:dc664c10d55d5bb87cb379"
+    apiKey: "AIzaSyD5QAGS-36neDTskPpEQjY835seWFCEq9o",
+    authDomain: "youngsportingclub.firebaseapp.com",
+    databaseURL: "https://youngsportingclub-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "youngsportingclub",
+    storageBucket: "youngsportingclub.firebasestorage.app",
+    messagingSenderId: "724732761340",
+    appId: "1:724732761340:web:dc664c10d55d5bb87cb379"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+// Position order for sorting
 const positionOrder = {
-    'President': 1, 'Senior Vice President': 2, 'Vice President 1': 3,
-    'Vice President 2': 4, 'Vice President 3': 5, 'General Secretary': 6,
-    'Joint General Secretary': 7, 'Assistant General Secretary': 8,
-    'Organizing Secretary': 9, 'Assistant Organizing Secretary': 10,
-    'Treasurer': 11, 'Assistant Treasurer': 12, 'Office Secretary': 13,
-    'Assistant Office Secretary': 14, 'Sports Secretary': 15,
-    'Assistant Sports Secretary': 16, 'Publicity Secretary': 17,
-    'Assistant Publicity Secretary': 18, 'Social Welfare Secretary': 19,
-    'Education Secretary': 20, 'Culture Secretary': 21, 'Training Secretary': 22,
-    'Science Secretary': 23, 'Disaster Secretary': 24, 'Liberation Secretary': 25,
-    'International Secretary': 26, 'Religious Secretary': 27, 'Member': 28
+    'President': 1, 'Senior Vice President': 2, 'Vice President 1': 3,
+    'Vice President 2': 4, 'Vice President 3': 5, 'General Secretary': 6,
+    'Joint General Secretary': 7, 'Assistant General Secretary': 8,
+    'Organizing Secretary': 9, 'Assistant Organizing Secretary': 10,
+    'Treasurer': 11, 'Assistant Treasurer': 12, 'Office Secretary': 13,
+    'Assistant Office Secretary': 14, 'Sports Secretary': 15,
+    'Assistant Sports Secretary': 16, 'Publicity Secretary': 17,
+    'Assistant Publicity Secretary': 18, 'Social Welfare Secretary': 19,
+    'Education Secretary': 20, 'Culture Secretary': 21, 'Training Secretary': 22,
+    'Science Secretary': 23, 'Disaster Secretary': 24, 'Liberation Secretary': 25,
+    'International Secretary': 26, 'Religious Secretary': 27, 'Member': 28
 };
 
+// Position translation map for Bengali
 const positionTranslation = {
-    'President': 'সভাপতি', 'Senior Vice President': 'সিনিয়র সহ-সভাপতি',
-    'Vice President 1': 'সহ-সভাপতি-১', 'Vice President 2': 'সহ-সভাপতি-২',
-    'Vice President 3': 'সহ-সভাপতি-৩', 'General Secretary': 'সাধারণ সম্পাদক',
-    'Joint General Secretary': 'যুগ্ম-সাধারণ সম্পাদক', 'Assistant General Secretary': 'সহ-সাধারণ সম্পাদক',
-    'Organizing Secretary': 'সাংগঠনিক সম্পাদক', 'Assistant Organizing Secretary': 'সহ-সাংগঠনিক সম্পাদক',
-    'Treasurer': 'অর্থ সম্পাদক', 'Assistant Treasurer': 'সহ-অর্থ সম্পাদক',
-    'Office Secretary': 'দপ্তর সম্পাদক', 'Assistant Office Secretary': 'সহ-দপ্তর সম্পাদক',
-    'Sports Secretary': 'ক্রীড়া সম্পাদক', 'Assistant Sports Secretary': 'সহ-ক্রীড়া সম্পাদক',
-    'Publicity Secretary': 'প্রচার সম্পাদক', 'Assistant Publicity Secretary': 'সহ-প্রচার সম্পাদক',
-    'Social Welfare Secretary': 'সমাজকল্যাণ সম্পাদক', 'Education Secretary': 'শিক্ষা সম্পাদক',
-    'Culture Secretary': 'সাহিত্য ও সংস্কৃতি সম্পাদক', 'Training Secretary': 'প্রশিক্ষণ সম্পাদক',
-    'Science Secretary': 'বিজ্ঞান ও প্রযুক্তি সম্পাদক', 'Disaster Secretary': 'ত্রাণ ও দুর্যোগ সম্পাদক',
-    'Liberation Secretary': 'মুক্তিযুদ্ধ সম্পাদক', 'International Secretary': 'আন্তর্জাতিক সম্পাদক',
-    'Religious Secretary': 'ধর্ম সম্পাদক', 'Member': 'সদস্য'
+    'President': 'সভাপতি',
+    'Senior Vice President': 'সিনিয়র সহ-সভাপতি',
+    'Vice President 1': 'সহ-সভাপতি-১',
+    'Vice President 2': 'সহ-সভাপতি-২',
+    'Vice President 3': 'সহ-সভাপতি-৩',
+    'General Secretary': 'সাধারণ সম্পাদক',
+    'Joint General Secretary': 'যুগ্ম-সাধারণ সম্পাদক',
+    'Assistant General Secretary': 'সহ-সাধারণ সম্পাদক',
+    'Organizing Secretary': 'সাংগঠনিক সম্পাদক',
+    'Assistant Organizing Secretary': 'সহ-সাংগঠনিক সম্পাদক',
+    'Treasurer': 'অর্থ সম্পাদক',
+    'Assistant Treasurer': 'সহ-অর্থ সম্পাদক',
+    'Office Secretary': 'দপ্তর সম্পাদক',
+    'Assistant Office Secretary': 'সহ-দপ্তর সম্পাদক',
+    'Sports Secretary': 'ক্রীড়া সম্পাদক',
+    'Assistant Sports Secretary': 'সহ-ক্রীড়া সম্পাদক',
+    'Publicity Secretary': 'প্রচার সম্পাদক',
+    'Assistant Publicity Secretary': 'সহ-প্রচার সম্পাদক',
+    'Social Welfare Secretary': 'সমাজকল্যাণ সম্পাদক',
+    'Education Secretary': 'শিক্ষা সম্পাদক',
+    'Culture Secretary': 'সাহিত্য ও সংস্কৃতি সম্পাদক',
+    'Training Secretary': 'প্রশিক্ষণ সম্পাদক',
+    'Science Secretary': 'বিজ্ঞান ও প্রযুক্তি সম্পাদক',
+    'Disaster Secretary': 'ত্রাণ ও দুর্যোগ সম্পাদক',
+    'Liberation Secretary': 'মুক্তিযুদ্ধ সম্পাদক',
+    'International Secretary': 'আন্তর্জাতিক সম্পাদক',
+    'Religious Secretary': 'ধর্ম সম্পাদক',
+    'Member': 'সদস্য'
 };
 
+// Language data
 const langData = {
-    en: { clubNameHeader: 'YOUNG SPORTING CLUB', devName: "Developed by Farabi Walid", estDate: "Est. 13 Jan 2009" },
-    bn: { clubNameHeader: 'ইয়ং স্পোর্টিং ক্লাব', devName: "তৈরি করেছেন ফারাবি ওয়ালিদ", estDate: "প্রতিষ্ঠা: ১৩ জানুয়ারি ২০০৯" }
+    en: {
+        clubNameHeader: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
+        clubNameFooter: '<span class="gold-letter">Y</span>OUNG <span class="gold-letter">S</span>PORTING <span class="gold-letter">C</span>LUB',
+        devName: "Developed by Farabi Walid",
+        modalLabels: {
+            title: "Member Details",
+            name: "Name",
+            position: "Position",
+            address: "Address",
+            joined: "Joined",
+            bio: "Bio"
+        },
+        estDate: "Est. 13 January 2009"
+    },
+    bn: {
+        clubNameHeader: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
+        clubNameFooter: '<span class="gold-letter">ই</span>য়ং <span class="gold-letter">স</span>্পোর্টিং <span class="gold-letter">ক</span>্লাব',
+        devName: "তৈরি করেছেন ফারাবি ওয়ালিদ",
+        modalLabels: {
+            title: "সদস্যের তথ্য",
+            name: "নাম",
+            position: "পদ",
+            address: "ঠিকানা",
+            joined: "যোগদানের তারিখ",
+            bio: "বায়ো"
+        },
+        estDate: "প্রতিষ্ঠা: ১৩ জানুয়ারি ২০০৯"
+    }
 };
 
+// Club logo URL
+const clubLogoUrl = window.location.origin + '/ysc.png';
+const placeholderLogoUrl = 'https://placehold.co/100x100/2C3E50/FFFFFF?text=👤';
+
+// Authentication state
+onAuthStateChanged(auth, (user) => {
+    const btn = document.getElementById('nav-login-btn');
+    if (!btn) return;
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    if (user) {
+        const initial = (user.displayName || user.email || 'U')[0].toUpperCase();
+        btn.innerHTML = `<span style="display:inline-flex;align-items:center;gap:7px;background:rgba(254,44,85,.12);border:1px solid rgba(254,44,85,.3);padding:5px 12px 5px 5px;border-radius:50px;font-size:12px;font-weight:700"><span style="width:26px;height:26px;background:linear-gradient(135deg,#FE2C55,#25F4EE);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#010101;font-family:'Bebas Neue',sans-serif;font-size:15px">${initial}</span>${lang === 'bn' ? 'লগআউট' : 'Logout'}</span>`;
+        btn.onclick = async (e) => { e.preventDefault(); await signOut(auth); window.location.reload(); };
+        btn.href = 'javascript:void(0)';
+    } else {
+        btn.innerHTML = lang === 'bn' ? 'লগইন' : 'Login';
+        btn.href = 'login.html';
+        btn.onclick = null;
+    }
+});
+
+// ==================== MEMBERS DATA ====================
 let allMembers = [];
 const tbody = document.getElementById('mBody');
+const searchEl = document.getElementById('searchInput');
 const filterEl = document.getElementById('posFilter');
-const clubLogoUrl = window.location.origin + '/ysc.png';
+const countEl = document.getElementById('mCount');
 
-async function loadMembers() {
-    try {
-        const querySnapshot = await getDocs(collection(db, 'members'));
-        allMembers = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        setupFilters();
-        renderMembers(allMembers);
-    } catch (e) {
-        tbody.innerHTML = "<tr><td colspan='4'>Error loading data.</td></tr>";
-    }
+const positionClass = {
+    'President': 'p-president',
+    'Senior Vice President': 'p-vice-president',
+    'Vice President 1': 'p-vice-president',
+    'Vice President 2': 'p-vice-president',
+    'Vice President 3': 'p-vice-president',
+    'General Secretary': 'p-general-secretary',
+    'Joint General Secretary': 'p-general-secretary',
+    'Assistant General Secretary': 'p-general-secretary',
+    'Organizing Secretary': 'p-general-secretary',
+    'Assistant Organizing Secretary': 'p-general-secretary',
+    'Treasurer': 'p-treasurer',
+    'Assistant Treasurer': 'p-treasurer',
+    'Office Secretary': 'p-general-secretary',
+    'Assistant Office Secretary': 'p-general-secretary',
+    'Sports Secretary': 'p-sports-secretary',
+    'Assistant Sports Secretary': 'p-sports-secretary',
+    'Publicity Secretary': 'p-general-secretary',
+    'Assistant Publicity Secretary': 'p-general-secretary',
+    'Social Welfare Secretary': 'p-general-secretary',
+    'Education Secretary': 'p-general-secretary',
+    'Culture Secretary': 'p-general-secretary',
+    'Training Secretary': 'p-general-secretary',
+    'Science Secretary': 'p-general-secretary',
+    'Disaster Secretary': 'p-general-secretary',
+    'Liberation Secretary': 'p-general-secretary',
+    'International Secretary': 'p-general-secretary',
+    'Religious Secretary': 'p-general-secretary',
+    'Member': 'p-member'
+};
+
+function escapeHtml(text) {
+    if (!text) return '';
+    return String(text).replace(/[&<>]/g, function(match) {
+        if (match === '&') return '&amp;';
+        if (match === '<') return '&lt;';
+        if (match === '>') return '&gt;';
+        return match;
+    });
 }
 
-function setupFilters() {
-    const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    const firstOption = filterEl.options[0];
-    filterEl.innerHTML = '';
-    filterEl.appendChild(firstOption);
-    Object.keys(positionOrder).forEach(pos => {
-        const opt = document.createElement('option');
-        opt.value = pos;
-        opt.textContent = lang === 'bn' ? (positionTranslation[pos] || pos) : pos;
-        filterEl.appendChild(opt);
-    });
+// Avatar function - only uses club logo or placeholder
+function getAvatarHtml(member) {
+    if (member.photoURL && member.photoURL !== '' && member.photoURL !== null) {
+        return `<img src="${member.photoURL}" alt="${escapeHtml(member.name)}" onerror="this.onerror=null; this.src='${clubLogoUrl}'; this.onerror=null;">`;
+    }
+    return `<img src="${clubLogoUrl}" alt="Club Logo" onerror="this.onerror=null; this.src='${placeholderLogoUrl}'; this.onerror=null;">`;
+}
+
+function getTranslatedPosition(position, lang) {
+    if (lang === 'bn' && positionTranslation[position]) {
+        return positionTranslation[position];
+    }
+    return position || 'Member';
 }
 
 function renderMembers(members) {
-    const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    const sorted = [...members].sort((a, b) => (positionOrder[a.position] || 99) - (positionOrder[b.position] || 99));
-
-    if (sorted.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;">No data found.</td></tr>`;
-        return;
-    }
-
-    tbody.innerHTML = sorted.map(m => `
-        <tr>
-            <td><div class="member-avatar"><img src="${m.photoURL || clubLogoUrl}" onerror="this.src='${clubLogoUrl}'"> ${m.name}</div></td>
-            <td><span class="pbdg">${lang === 'bn' ? (positionTranslation[m.position] || m.position) : m.position}</span></td>
-            <td>${m.address || '-'}</td>
-            <td>${m.joinDate || m.joinYear || '-'}</td>
-        </tr>
-    `).join('');
-    document.getElementById('mCount').textContent = lang === 'bn' ? `দেখাচ্ছে ${sorted.length} জন` : `Showing ${sorted.length} members`;
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    const sortedMembers = [...members].sort((a, b) => {
+        const orderA = positionOrder[a.position] || 99;
+        const orderB = positionOrder[b.position] || 99;
+        return orderA - orderB;
+    });
+    
+    if (!sortedMembers || sortedMembers.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4"><div class="nodata"><div class="nic">👥</div><p>${lang === 'bn' ? 'কোনো সদস্য পাওয়া যায়নি।' : 'No members found.'}</p></div></td></tr>`;
+        countEl.textContent = lang === 'bn' ? 'দেখাচ্ছে 0 জন সদস্য' : 'Showing 0 members';
+        return;
+    }
+    
+    tbody.innerHTML = sortedMembers.map((member, index) => {
+        const posClass = positionClass[member.position] || 'p-member';
+        const positionLabel = getTranslatedPosition(member.position, lang);
+        const bioText = member.bio ? escapeHtml(member.bio.substring(0, 50)) + (member.bio.length > 50 ? '…' : '') : '';
+        const avatarHtml = getAvatarHtml(member);
+        
+        return `<tr onclick="showMemberDetail(${JSON.stringify(member).replace(/"/g, '&quot;')})">
+            <td><div class="mname"><div class="member-avatar">${avatarHtml}</div><div><div class="nm">${escapeHtml(member.name)}</div><div class="bio">${bioText}</div></div></div></td>
+            <td><span class="pbdg ${posClass}">${escapeHtml(positionLabel)}</span></td>
+            <td>${escapeHtml(member.address)}</td>
+            <td>${escapeHtml(member.joinDate || member.joinYear || 'N/A')}</td>
+        </tr>`;
+    }).join('');
+    
+    countEl.textContent = lang === 'bn' ? `দেখাচ্ছে ${sortedMembers.length} জন সদস্য` : `Showing ${sortedMembers.length} members`;
+    updateStats(sortedMembers);
 }
 
-window.exportToPDF = function() {
-    const element = document.querySelector('table');
-    const opt = { margin: 0.5, filename: 'ysc_members.pdf', image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' } };
-    html2pdf().set(opt).from(element).save();
-    showToastMessage("PDF Download Started!");
+function updateStats(members) {
+    const totalMembers = allMembers.length;
+    const uniquePositions = new Set(allMembers.map(m => m.position)).size;
+    document.getElementById('totalMembers').textContent = totalMembers;
+    document.getElementById('totalPositions').textContent = uniquePositions;
+    document.getElementById('activeMembers').textContent = members.length;
+}
+
+function filterMembers() {
+    const searchTerm = searchEl.value.trim().toLowerCase();
+    const position = filterEl.value;
+    
+    const filtered = allMembers.filter(member => {
+        const matchesSearch = !searchTerm || 
+            (member.name && member.name.toLowerCase().includes(searchTerm)) ||
+            (member.address && member.address.toLowerCase().includes(searchTerm));
+        const matchesPosition = !position || position === 'all' || member.position === position;
+        return matchesSearch && matchesPosition;
+    });
+    
+    renderMembers(filtered);
+}
+
+// Show member detail in modal
+window.showMemberDetail = function(member) {
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    const labels = langData[lang].modalLabels;
+    
+    document.getElementById('modalTitle').textContent = labels.title;
+    document.getElementById('detailNameLabel').textContent = labels.name;
+    document.getElementById('detailPositionLabel').textContent = labels.position;
+    document.getElementById('detailAddressLabel').textContent = labels.address;
+    document.getElementById('detailJoinedLabel').textContent = labels.joined;
+    document.getElementById('detailBioLabel').textContent = labels.bio;
+    
+    document.getElementById('modalName').textContent = member.name || '-';
+    document.getElementById('modalPosition').textContent = getTranslatedPosition(member.position, lang);
+    document.getElementById('modalAddress').textContent = member.address || '-';
+    document.getElementById('modalJoined').textContent = member.joinDate || member.joinYear || '-';
+    document.getElementById('modalBio').textContent = member.bio || (lang === 'bn' ? 'কোনো তথ্য নেই' : 'No information available');
+    
+    const modalAvatar = document.getElementById('modalAvatar');
+    modalAvatar.innerHTML = getAvatarHtml(member);
+    
+    document.getElementById('memberModal').classList.add('show');
 };
 
+window.closeModal = function() {
+    document.getElementById('memberModal').classList.remove('show');
+};
+
+// Export to CSV
 window.exportToCSV = function() {
-    let csv = 'Name,Position,Address,Joined\n';
-    allMembers.forEach(m => { csv += `${m.name},${m.position},${m.address},${m.joinDate}\n`; });
-    const blob = new Blob([csv], { type: 'text/csv' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url; a.download = 'members.csv'; a.click();
-    showToastMessage("CSV Download Started!");
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    const headers = lang === 'bn' ? ['নাম', 'পদ', 'ঠিকানা', 'যোগদানের তারিখ', 'বায়ো'] : ['Name', 'Position', 'Address', 'Join Date', 'Bio'];
+    
+    const csvRows = [headers];
+    allMembers.forEach(member => {
+        const positionName = lang === 'bn' ? (positionTranslation[member.position] || member.position) : member.position;
+        csvRows.push([
+            `"${member.name || ''}"`,
+            `"${positionName || ''}"`,
+            `"${member.address || ''}"`,
+            `"${member.joinDate || member.joinYear || ''}"`,
+            `"${member.bio || ''}"`
+        ].join(','));
+    });
+    
+    const csvString = '\uFEFF' + csvRows.join('\n');
+    const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', `ysc_members_${new Date().toISOString().split('T')[0]}.csv`);
+    link.click();
+    URL.revokeObjectURL(url);
+    
+    showToastMessage(lang === 'bn' ? '✓ সিএসভি ফাইল ডাউনলোড শুরু হয়েছে!' : '✓ CSV file download started!');
+};
+
+// Export to PDF
+window.exportToPDF = function() {
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    const sortedMembers = [...allMembers].sort((a, b) => {
+        const orderA = positionOrder[a.position] || 99;
+        const orderB = positionOrder[b.position] || 99;
+        return orderA - orderB;
+    });
+    
+    const clubName = lang === 'bn' ? 'ইয়ং স্পোর্টিং ক্লাব' : 'Young Sporting Club';
+    const estDate = langData[lang].estDate;
+    const logoHtml = `<img src="${clubLogoUrl}" style="width:60px;height:60px;border-radius:12px;" onerror="this.style.display='none'">`;
+    
+    let tableRows = '';
+    sortedMembers.forEach((member, idx) => {
+        const positionName = getTranslatedPosition(member.position, lang);
+        tableRows += `
+            <tr style="border-bottom:1px solid #ddd;">
+                <td style="padding:10px;text-align:center;">${idx + 1}</td>
+                <td style="padding:10px;">${escapeHtml(member.name || '')}</td>
+                <td style="padding:10px;">${escapeHtml(positionName)}</td>
+                <td style="padding:10px;">${escapeHtml(member.address || '')}</td>
+                <td style="padding:10px;text-align:center;">${escapeHtml(member.joinDate || member.joinYear || '')}</td>
+            </tr>
+        `;
+    });
+    
+    const pdfContent = `
+        <div style="font-family:'Hind Siliguri', 'Poppins', sans-serif; padding:20px; background:#fff; color:#000;">
+            <div style="text-align:center; margin-bottom:30px; border-bottom:2px solid #FE2C55; padding-bottom:20px;">
+                <div style="display:flex; align-items:center; justify-content:center; gap:15px; flex-wrap:wrap;">
+                    ${logoHtml}
+                    <div>
+                        <h1 style="font-size:28px; margin:0; color:#FE2C55;">${clubName}</h1>
+                        <p style="margin:5px 0 0; color:#666;">${estDate}</p>
+                    </div>
+                </div>
+            </div>
+            <h2 style="text-align:center; color:#25F4EE; margin-bottom:20px;">${lang === 'bn' ? 'সদস্য তালিকা' : 'Members List'}</h2>
+            <table style="width:100%; border-collapse:collapse; margin-bottom:40px;">
+                <thead>
+                    <tr style="background:#FE2C55; color:#fff;">
+                        <th style="padding:12px; text-align:center;">${lang === 'bn' ? 'ক্রম' : 'SL'}</th>
+                        <th style="padding:12px; text-align:left;">${lang === 'bn' ? 'নাম' : 'Name'}</th>
+                        <th style="padding:12px; text-align:left;">${lang === 'bn' ? 'পদ' : 'Position'}</th>
+                        <th style="padding:12px; text-align:left;">${lang === 'bn' ? 'ঠিকানা' : 'Address'}</th>
+                        <th style="padding:12px; text-align:center;">${lang === 'bn' ? 'যোগদানের তারিখ' : 'Join Date'}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${tableRows || '<tr><td colspan="5" style="text-align:center;padding:40px;">No members found</td></tr>'}
+                </tbody>
+            </table>
+            <div style="display:flex; justify-content:space-between; margin-top:50px; padding-top:30px; border-top:1px solid #ddd;">
+                <div style="text-align:center; width:200px;">
+                    <div style="border-top:1px solid #000; padding-top:8px; margin-top:40px;">${lang === 'bn' ? 'সভাপতি' : 'President'}</div>
+                </div>
+                <div style="text-align:center; width:200px;">
+                    <div style="border-top:1px solid #000; padding-top:8px; margin-top:40px;">${lang === 'bn' ? 'সাধারণ সম্পাদক' : 'General Secretary'}</div>
+                </div>
+            </div>
+            <div style="text-align:center; margin-top:40px; font-size:11px; color:#888;">
+                ${clubName} - ${lang === 'bn' ? 'সদস্য তালিকা' : 'Members List'} | Generated on ${new Date().toLocaleDateString(lang === 'bn' ? 'bn-BD' : 'en-US')}
+            </div>
+        </div>
+    `;
+    
+    const element = document.createElement('div');
+    element.innerHTML = pdfContent;
+    document.body.appendChild(element);
+    
+    const opt = {
+        margin: [0.5, 0.5, 0.5, 0.5],
+        filename: `ysc_members_${new Date().toISOString().split('T')[0]}.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, letterRendering: true, useCORS: true },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+    
+    html2pdf().set(opt).from(element).save().then(() => {
+        document.body.removeChild(element);
+        showToastMessage(lang === 'bn' ? '✓ পিডিএফ ফাইল ডাউনলোড শুরু হয়েছে!' : '✓ PDF file download started!');
+    }).catch(err => {
+        console.error('PDF error:', err);
+        document.body.removeChild(element);
+        showToastMessage(lang === 'bn' ? '⚠ পিডিএফ তৈরি করতে ব্যর্থ হয়েছে।' : '⚠ Failed to generate PDF.');
+    });
 };
 
 function showToastMessage(msg) {
-    const t = document.getElementById('toast');
-    document.getElementById('toastMsg').textContent = msg;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 3000);
+    const toast = document.getElementById('toast');
+    const msgEl = document.getElementById('toastMsg');
+    msgEl.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
-function filterData() {
-    const term = document.getElementById('searchInput').value.toLowerCase();
-    const pos = filterEl.value;
-    const filtered = allMembers.filter(m => 
-        (m.name.toLowerCase().includes(term) || m.address?.toLowerCase().includes(term)) &&
-        (pos === 'all' || m.position === pos)
-    );
-    renderMembers(filtered);
+// Load members from Firestore
+async function loadMembers() {
+    try {
+        const membersRef = collection(db, 'members');
+        const querySnapshot = await getDocs(membersRef);
+        allMembers = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        console.log('✅ Members loaded successfully:', allMembers.length);
+        filterMembers();
+    } catch (error) {
+        console.error('❌ Firestore error:', error);
+        const lang = document.documentElement.getAttribute('data-lang') || 'en';
+        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;padding:40px;color:#FE2C55">⚠ ${lang === 'bn' ? 'সদস্য লোড করতে ব্যর্থ হয়েছে। ইন্টারনেট সংযোগ চেক করুন।' : 'Failed to load members. Check your internet connection.'}</td></tr>`;
+    }
 }
 
-document.getElementById('searchInput').addEventListener('input', filterData);
-filterEl.addEventListener('change', filterData);
+// Add event listeners
+if (searchEl) searchEl.addEventListener('input', filterMembers);
+if (filterEl) filterEl.addEventListener('change', filterMembers);
 
-window.setLang = function(lang) {
-    document.documentElement.setAttribute('data-lang', lang);
-    document.querySelectorAll('[data-en]').forEach(el => {
-        el.textContent = el.getAttribute('data-' + lang);
-    });
-    const l = langData[lang];
-    document.getElementById('clubNameHeader').textContent = l.clubNameHeader;
-    document.getElementById('developerName').textContent = l.devName;
-    setupFilters();
-    renderMembers(allMembers);
-};
+// ==================== VISITOR COUNTER ====================
+function updateVisitorCount() {
+    let count = localStorage.getItem('ysc_visitors');
+    if (!count) { count = Math.floor(Math.random() * 500) + 1500; localStorage.setItem('ysc_visitors', count); }
+    else { count = parseInt(count) + 1; localStorage.setItem('ysc_visitors', count); }
+    const visitorEl = document.getElementById('visitorCount');
+    if (visitorEl) visitorEl.textContent = count.toLocaleString();
+}
+
+// ==================== TRIPLE DATE ====================
+function updateDates() {
+    const now = new Date();
+    const dateEn = document.getElementById('dateEn');
+    const dateBn = document.getElementById('dateBn');
+    const dateAr = document.getElementById('dateAr');
+    if (dateEn) dateEn.textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    if (dateBn) dateBn.textContent = now.toLocaleDateString('bn-BD', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    if (dateAr) dateAr.textContent = now.toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+// ==================== TOAST ====================
+function showWelcomeToast() {
+    const toast = document.getElementById('toast');
+    const msgEl = document.getElementById('toastMsg');
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    msgEl.textContent = lang === 'bn' ? '👥 ইয়ং স্পোর্টিং ক্লাবের সকল সদস্য দেখুন।' : '👥 Browse all club members of Young Sporting Club.';
+    setTimeout(() => toast.classList.add('show'), 500);
+    setTimeout(() => toast.classList.remove('show'), 5000);
+}
+
+function closeToast() { document.getElementById('toast').classList.remove('show'); }
+
+// ==================== INITIALIZATION ====================
+AOS.init({ duration: 700, once: true, offset: 55 });
 
 window.addEventListener('load', () => {
-    AOS.init();
-    loadMembers();
+    setTimeout(() => document.getElementById('ldr').classList.add('hid'), 500);
+    updateVisitorCount();
+    updateDates();
+    showWelcomeToast();
+    loadMembers();
 });
+
+setInterval(updateDates, 60000);
+window.addEventListener('scroll', () => document.getElementById('hdr').classList.toggle('sc', window.scrollY > 28));
+
+const hbgBtn = document.getElementById('hbg'), mobileMenu = document.getElementById('mob');
+if (hbgBtn && mobileMenu) hbgBtn.addEventListener('click', () => { hbgBtn.classList.toggle('op'); mobileMenu.classList.toggle('op'); });
+
+window.closeToast = closeToast;
+window.filterMembers = filterMembers;
+</script>
+
+<script>
+// ==================== LANGUAGE SWITCHER ====================
+let currentLang = (function() { try { return localStorage.getItem('ysc-lang') || 'en'; } catch(e) { return 'en'; } })();
+
+function setLang(lang) {
+    currentLang = lang;
+    try { localStorage.setItem('ysc-lang', lang); } catch(e) {}
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
+    
+    document.querySelectorAll('[data-en]').forEach(el => {
+        const value = el.getAttribute('data-' + lang);
+        if (value !== null) {
+            if (value.includes('<')) el.innerHTML = value;
+            else el.textContent = value;
+        }
+    });
+    
+    document.querySelectorAll('.lb').forEach(btn => {
+        btn.classList.remove('on');
+        if ((lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'bn' && btn.textContent.trim() === 'বাং')) btn.classList.add('on');
+    });
+    
+    const clubNameHeader = document.getElementById('clubNameHeader');
+    const clubNameFooter = document.getElementById('clubNameFooter');
+    const developerName = document.getElementById('developerName');
+    
+    if (clubNameHeader) clubNameHeader.innerHTML = langData[lang].clubNameHeader;
+    if (clubNameFooter) clubNameFooter.innerHTML = langData[lang].clubNameFooter;
+    if (developerName) developerName.textContent = langData[lang].devName;
+    
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.placeholder = lang === 'bn' ? 'নাম বা ঠিকানা দিয়ে খুঁজুন…' : 'Search by name or address…';
+    }
+    
+    const toastMsg = document.getElementById('toastMsg');
+    if (toastMsg && document.getElementById('toast').classList.contains('show')) {
+        toastMsg.textContent = lang === 'bn' ? '👥 ইয়ং স্পোর্টিং ক্লাবের সকল সদস্য দেখুন।' : '👥 Browse all club members of Young Sporting Club.';
+    }
+    
+    const loginBtn = document.getElementById('nav-login-btn');
+    if (loginBtn && !loginBtn.querySelector('span')) {
+        loginBtn.textContent = lang === 'bn' ? 'লগইন' : 'Login';
+    }
+    
+    if (window.filterMembers) setTimeout(window.filterMembers, 100);
+}
+
+document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
+window.setLang = setLang;
 </script>
 </body>
-</html>
+</html> 
