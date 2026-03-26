@@ -79,7 +79,8 @@ a{text-decoration:none;color:inherit}
 .lpanel.on{display:block;animation:fadeIn .4s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .lcenter{text-align:center;margin-bottom:26px}
-.lbadge{width:70px;height:70px;border-radius:20px;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:26px;color:#010101;margin:0 auto 14px;box-shadow:var(--gdual);animation:pulse 2s infinite}
+.lbadge{width:70px;height:70px;border-radius:20px;background:linear-gradient(135deg,var(--pink),var(--cyan));display:flex;align-items:center;justify-content:center;margin:0 auto 14px;box-shadow:var(--gdual);animation:pulse 2s infinite;overflow:hidden}
+.lbadge img{width:100%;height:100%;object-fit:cover;border-radius:20px}
 @keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(254,44,85,.4)}50%{transform:scale(1.02);box-shadow:0 0 0 8px rgba(254,44,85,.1)}}
 .lcenter h2{font-size:28px;margin-bottom:4px;background:linear-gradient(135deg,#fff,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .lcenter p{font-size:12.5px;color:var(--gr)}
@@ -160,7 +161,7 @@ a{text-decoration:none;color:inherit}
     .lt .n1{font-size:16px}
 }
 @media(max-width:480px){
-    .lbadge{width:60px;height:60px;font-size:22px}
+    .lbadge{width:60px;height:60px}
     .lcenter h2{font-size:24px}
 }
 </style>
@@ -214,7 +215,7 @@ a{text-decoration:none;color:inherit}
             </div>
             <div class="lpanel on" id="panelLogin">
                 <div class="lcenter">
-                    <div class="lbadge">YSC</div>
+                    <div class="lbadge"><img src="ysc.png" alt="YSC Logo" id="loginLogoImg" onerror="this.src='https://placehold.co/70x70/FE2C55/FFFFFF?text=YSC'"></div>
                     <h2 data-en="Welcome Back!" data-bn="স্বাগতম!">Welcome Back!</h2>
                     <p data-en="Sign in to manage Young Sporting Club" data-bn="ইয়ং স্পোর্টিং ক্লাব পরিচালনায় সাইন ইন করুন">Sign in to manage Young Sporting Club</p>
                 </div>
@@ -236,7 +237,7 @@ a{text-decoration:none;color:inherit}
             </div>
             <div class="lpanel" id="panelReg">
                 <div class="lcenter">
-                    <div class="lbadge" style="background:linear-gradient(135deg,var(--cyan),#00adaa)">YSC</div>
+                    <div class="lbadge" style="background:linear-gradient(135deg,var(--cyan),#00adaa)"><img src="ysc.png" alt="YSC Logo" id="registerLogoImg" onerror="this.src='https://placehold.co/70x70/FE2C55/FFFFFF?text=YSC'"></div>
                     <h2 data-en="Join the Club!" data-bn="ক্লাবে যোগ দিন!">Join the Club!</h2>
                     <p data-en="Create your admin account" data-bn="আপনার অ্যাডমিন অ্যাকাউন্ট তৈরি করুন">Create your admin account</p>
                 </div>
